@@ -1,0 +1,34 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-bg",
+      "description": "Premium global shipping containers at sunset",
+      "imageUrl": "https://picsum.photos/seed/shyama_hero/1920/1080",
+      "imageHint": "global logistics"
+    },
+    {
+      "id": "about-img",
+      "description": "Professional trade consultation",
+      "imageUrl": "https://picsum.photos/seed/shyama_trade/1200/800",
+      "imageHint": "international business"
+    },
+    {
+      "id": "warehouse",
+      "description": "Modern logistics center interior",
+      "imageUrl": "https://picsum.photos/seed/shyama_ware/800/600",
+      "imageHint": "warehouse storage"
+    },
+    {
+      "id": "ocean-freight",
+      "description": "Cargo ship on high seas",
+      "imageUrl": "https://picsum.photos/seed/shyama_sea/800/600",
+      "imageHint": "cargo ship"
+    },
+    {
+      "id": "air-freight",
+      "description": "Cargo plane loading",
+      "imageUrl": "https://picsum.photos/seed/shyama_air/800/600",
+      "imageHint": "cargo plane"
+    }
+  ]
+}
