@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState, useRef } from "react";
@@ -40,12 +41,10 @@ export function StatsCounter({ target, suffix, label }: StatsCounterProps) {
   }, [isInView, target]);
 
   return (
-    <div ref={ref} className="text-center py-20 px-10 border-r last:border-none border-white/10 group hover:bg-primary/5 transition-colors duration-500">
-      <div className="text-6xl font-black text-primary mb-3 group-hover:scale-110 transition-transform duration-500">
-        {count.toLocaleString()}<span className="text-3xl font-light opacity-60 ml-1">{suffix}</span>
-      </div>
-      <div className="text-[11px] font-bold text-white/40 uppercase tracking-[0.3em] group-hover:text-primary transition-colors">
-        {label}
+    <div ref={ref} className="stat py-10 px-4 text-center">
+      <div className="text-[14px] font-semibold text-white/55 uppercase tracking-wider mb-2">{label}</div>
+      <div className="text-[46px] font-normal text-primary leading-none">
+        {count.toLocaleString()}<span className="text-[24px]">{suffix}</span>
       </div>
     </div>
   );

@@ -1,281 +1,283 @@
+
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { StatsCounter } from "@/components/home/StatsCounter";
 import { LogoMarquee } from "@/components/home/LogoMarquee";
-import Link from "next/link";
-import { ArrowRight, Globe, ShieldCheck, Award, Package, Anchor, Plane, Building, FileText, BarChart3, Play, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Plane, Anchor, Building, FileText, Share2, Globe, Package, Play, Twitter } from "lucide-react";
 import Image from "next/image";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 
+/* Sections matched to Socialee sequence */
 export default function Home() {
-  const heroImg = PlaceHolderImages.find(img => img.id === 'hero-bg');
-  const aboutImg = PlaceHolderImages.find(img => img.id === 'about-img');
-
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white selection:bg-primary/30">
       <Navbar />
 
-      <main className="animate-in fade-in duration-700">
-        {/* 1. Full-width banner image */}
-        <section className="relative w-full h-[700px] mt-[85px] overflow-hidden flex items-center">
-          <div className="absolute inset-0 z-0">
-            <Image 
-              src={heroImg?.imageUrl || ""} 
-              alt={heroImg?.description || "Hero"} 
-              fill 
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-black/60 z-10" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent z-20" />
-          </div>
-
-          <div className="relative z-30 max-w-7xl mx-auto px-6 lg:px-12 w-full grid lg:grid-cols-2 gap-12 items-center">
-            {/* 2. H1 title + Badges */}
-            <div className="animate-in slide-in-from-left-8 duration-700">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/30 rounded-full text-primary text-[11px] font-bold uppercase tracking-[0.25em] mb-6 backdrop-blur-sm">
-                <Globe className="w-3.5 h-3.5" /> Trusted Since 2005
-              </div>
-              <h1 className="text-5xl lg:text-7xl font-black text-white leading-[1.1] mb-6">
-                India's Gateway to <br />
-                <span className="text-primary italic font-light">Global Markets</span>
+      <main className="animate-in fade-in duration-500">
+        
+        {/* 1. FULL-WIDTH BANNER IMAGE (1350x600 aspect) */}
+        <section className="mt-[85px] relative w-full aspect-[1350/600] min-h-[400px] socialee-gradient overflow-hidden flex items-center">
+          <div className="absolute inset-0 socialee-banner-overlay" />
+          <div className="absolute inset-0 socialee-grid-texture" />
+          
+          {/* 2. H1 HEADING (ABSOLUTE OVER BANNER LEFT) + BADGES */}
+          <div className="relative z-10 max-w-[1080px] mx-auto px-6 w-full flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div className="flex-1 max-w-[600px]">
+              <h1 className="text-[32px] md:text-[48px] lg:text-[52px] font-normal text-white leading-[1.15]">
+                India's Leading<br />
+                <span className="text-primary font-bold">International Trade</span><br />
+                <span className="text-primary font-bold">& Logistics Agency</span>
               </h1>
-              <p className="text-white/70 text-lg mb-10 max-w-lg leading-relaxed">
-                Shyama Overseas delivers world-class freight forwarding, customs clearance, and supply chain solutions — connecting Indian businesses to 40+ countries worldwide.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Button asChild size="lg" className="rounded-full h-14 px-10 font-bold text-base shadow-2xl shadow-primary/20 hover:scale-105 transition-transform">
-                  <Link href="/contact">Get a Free Quote</Link>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="rounded-full h-14 px-10 font-bold text-base bg-white/5 border-white/20 text-white hover:border-primary hover:text-primary backdrop-blur-md transition-all">
-                  <Link href="/services">Our Services</Link>
-                </Button>
-              </div>
             </div>
-
-            <div className="hidden lg:flex flex-col items-end gap-6 animate-in slide-in-from-right-8 duration-700">
-              <div className="w-56 p-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl text-center group hover:bg-primary/10 transition-all duration-500 hover:-translate-x-2">
+            
+            <div className="hidden lg:flex gap-4">
+              <div className="bg-white/5 border border-primary/20 backdrop-blur-md rounded-xl p-6 text-center min-w-[160px] transition-transform hover:-translate-y-1 hover:bg-white/10">
                 <FileText className="w-8 h-8 text-primary mx-auto mb-3" />
-                <div className="text-white font-bold text-sm">IEC Registered</div>
-                <div className="text-white/40 text-[10px] font-medium uppercase tracking-wider">Govt. of India</div>
+                <div className="text-white font-bold text-xs uppercase tracking-wider mb-1">IEC Registered</div>
+                <div className="text-white/40 text-[10px] font-medium">Govt. of India</div>
               </div>
-              <div className="w-56 p-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl text-center group hover:bg-primary/10 transition-all duration-500 hover:-translate-x-4">
-                <Award className="w-8 h-8 text-primary mx-auto mb-3" />
-                <div className="text-white font-bold text-sm">FIEO Member</div>
-                <div className="text-white/40 text-[10px] font-medium uppercase tracking-wider">Export Excellence</div>
-              </div>
-              <div className="w-56 p-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl text-center group hover:bg-primary/10 transition-all duration-500 hover:-translate-x-2">
-                <ShieldCheck className="w-8 h-8 text-primary mx-auto mb-3" />
-                <div className="text-white font-bold text-sm">ISO 9001:2015</div>
-                <div className="text-white/40 text-[10px] font-medium uppercase tracking-wider">Certified Agency</div>
+              <div className="bg-white/5 border border-primary/20 backdrop-blur-md rounded-xl p-6 text-center min-w-[160px] transition-transform hover:-translate-y-1 hover:bg-white/10">
+                <Globe className="w-8 h-8 text-primary mx-auto mb-3" />
+                <div className="text-white font-bold text-xs uppercase tracking-wider mb-1">FIEO Member</div>
+                <div className="text-white/40 text-[10px] font-medium">Export Excellence</div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 3. About section (left text + right image) */}
-        <section className="py-32 bg-about-gradient relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-20 items-center">
-            <div className="relative z-10">
-              <div className="flex items-center gap-4 text-primary font-bold text-[11px] uppercase tracking-[0.3em] mb-4">
-                <div className="w-12 h-[1px] bg-primary" /> About Shyama Overseas
+        {/* 3. ABOUT SECTION (stretched, light bg, col-50+col-50) */}
+        <section className="bg-[#f5f5f5] py-20 overflow-hidden">
+          <div className="max-w-[1080px] mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="flex items-center gap-2 text-[14px] font-bold text-[#262626] mb-4">
+                <span className="text-primary">_</span> ABOUT US
               </div>
-              <h2 className="text-4xl lg:text-5xl font-light mb-8 leading-tight">
-                Helping Clients <span className="font-bold text-foreground">Build Global</span> <br />
-                <span className="font-bold text-primary">Trade Presence</span> Since 2005
+              <h2 className="text-3xl md:text-4xl font-normal text-black leading-[1.3] mb-6">
+                Helping Clients <span className="text-primary font-bold">Build</span><br />
+                <span className="text-primary font-bold">Global Trade</span> Presence <span className="text-primary font-bold">Since 2005</span>
               </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                Founded in 2005, we are one of India's leading International Trade & Logistics Agencies.
-              </p>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                From a single Mumbai office to a pan-India network handling 15,000+ shipments annually — our journey is built on trust, compliance, and an unwavering commitment to our clients' growth.
-              </p>
-              <Link href="/about" className="inline-flex items-center gap-3 font-bold text-primary group hover:gap-6 transition-all">
-                Read More About Us <ArrowRight className="w-5 h-5" />
+              <p className="text-[17px] text-[#262626] mb-4">Founded in 2005, we are one of the leading</p>
+              <p className="text-[17px] font-bold text-primary mb-8 underline underline-offset-8 decoration-primary/20">International Trade Agencies In India.</p>
+              <Link href="/about" className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:gap-4 transition-all">
+                Read More <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-            <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl group border-4 border-white">
+            <div className="relative aspect-[546/426] rounded-lg overflow-hidden shadow-2xl group">
               <Image 
-                src={aboutImg?.imageUrl || ""} 
-                alt={aboutImg?.description || "About"} 
+                src="https://picsum.photos/seed/about_trade/800/600" 
+                alt="About Trade" 
                 fill 
-                className="object-cover group-hover:scale-110 transition-transform duration-700"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                data-ai-hint="international trade"
               />
-              <div className="absolute bottom-6 right-6 bg-primary text-white p-8 rounded-2xl shadow-2xl text-center min-w-[160px] animate-bounce-slow">
-                <div className="text-4xl font-black leading-none">19+</div>
-                <div className="text-[10px] font-bold uppercase tracking-widest mt-2">Years of Excellence</div>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
           </div>
         </section>
 
-        {/* 4. Stats bar */}
-        <section className="bg-foreground py-0">
-          <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4">
-            <StatsCounter target={250} suffix="+" label="Clients Served" />
-            <StatsCounter target={40} suffix="+" label="Countries Reached" />
-            <StatsCounter target={19} suffix=" Yrs" label="Experience" />
-            <StatsCounter target={15000} suffix="+" label="Shipments Handled" />
+        {/* 4. STATS BAR (4 counters, dark bg) */}
+        <section className="bg-[#0a0a0a] flex flex-wrap border-y border-white/5">
+          <div className="max-w-[1080px] mx-auto w-full grid grid-cols-2 lg:grid-cols-4">
+            <div className="border-r border-white/5">
+              <StatsCounter target={19} suffix="+" label="Years of Expertise" />
+            </div>
+            <div className="lg:border-r border-white/5">
+              <StatsCounter target={250} suffix="+" label="Clients Served" />
+            </div>
+            <div className="border-r border-white/5">
+              <StatsCounter target={40} suffix="+" label="Countries Reached" />
+            </div>
+            <div>
+              <StatsCounter target={15000} suffix="+" label="Shipments Handled" />
+            </div>
           </div>
         </section>
 
-        {/* 5. Services section */}
-        <section className="py-32 max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl lg:text-5xl font-light mb-4">
-              Our <span className="font-bold text-primary">Trade & Logistics</span> Services
-            </h2>
-            <p className="text-muted-foreground font-medium tracking-widest uppercase text-xs">Empowering Global Growth</p>
-          </div>
+        {/* 5. SERVICES HEADING */}
+        <section className="pt-20 pb-0 text-center">
+          <h2 className="text-[32px] md:text-[36px] font-normal text-black">
+            Our <span className="text-primary font-bold">Trade & Logistics Services</span><br />
+            Your Instruments
+          </h2>
+        </section>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 6 & 7. SERVICES ROWS (4 hover cards each) */}
+        <section className="max-w-[1080px] mx-auto px-6 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-black/5">
             {[
-              { icon: Plane, title: "Freight Forwarding", desc: "End-to-end multi-modal solutions." },
-              { icon: Anchor, title: "Sea Freight", desc: "FCL & LCL global ocean transit." },
-              { icon: Building, title: "Warehousing", desc: "Hub storage & pick-and-pack." },
-              { icon: FileText, title: "Customs Clearance", desc: "Licensed CHA & port compliance." },
-              { icon: Package, title: "Supply Chain", desc: "Full procurement visibility." },
-              { icon: Globe, title: "Export Consulting", desc: "Strategy & regulatory guidance." },
-              { icon: CheckCircle2, title: "Cargo Insurance", desc: "Comprehensive risk protection." },
-              { icon: BarChart3, title: "All Services", desc: "Explore our full service suite." },
-            ].map((svc, i) => (
+              { icon: Plane, title: "Freight Forwarding", desc: "End-to-end air, sea & land freight solutions." },
+              { icon: Anchor, title: "Sea Freight", desc: "FCL & LCL ocean shipments. Global network." },
+              { icon: Building, title: "Warehousing", desc: "Pan-India storage, pick-pack distribution." },
+              { icon: FileText, title: "Customs Clearance", desc: "Licensed CHAs handle all port compliance." },
+              { icon: Share2, title: "Supply Chain", desc: "Integrated procurement-to-delivery visibility." },
+              { icon: Globe, title: "Export Consulting", desc: "Market entry, HS codes, trade agreements." },
+              { icon: Package, title: "Packaging", desc: "Compliance-ready export packaging solutions." },
+              { icon: ArrowRight, title: "All Services", desc: "See the full suite of trade & logistics." },
+            ].map((s, i) => (
               <Link 
                 key={i} 
                 href="/services" 
-                className="bg-secondary/50 p-8 rounded-2xl hover:bg-primary group transition-all duration-500 relative overflow-hidden border border-transparent hover:border-primary shadow-sm hover:shadow-2xl hover:shadow-primary/20"
+                className="bg-[#f5f5f5] p-8 group transition-all duration-300 hover:bg-primary border-r border-b border-black/5"
               >
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-white/20 transition-colors">
-                  <svc.icon className="w-8 h-8 text-primary group-hover:text-white transition-colors" />
+                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-white/20 transition-colors">
+                  <s.icon className="w-7 h-7 text-primary group-hover:text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 group-hover:text-white transition-colors">{svc.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed group-hover:text-white/80 transition-colors mb-6">{svc.desc}</p>
-                <div className="flex items-center gap-2 text-primary font-bold text-sm group-hover:text-white transition-colors">
-                  Read More <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
-                </div>
+                <h5 className="text-[18px] font-bold text-black mb-2 group-hover:text-white transition-colors">{s.title}</h5>
+                <p className="text-[13px] text-black/40 leading-relaxed group-hover:text-white/80 transition-colors mb-4">{s.desc}</p>
+                <div className="w-4 h-4 border-t-2 border-r-2 border-primary group-hover:border-white rotate-45" />
               </Link>
             ))}
           </div>
         </section>
 
-        {/* 6. Clients Reach & Map */}
-        <section className="bg-foreground py-32 text-white overflow-hidden relative">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center mb-20 relative z-10">
-            <h5 className="text-[13px] font-bold text-primary uppercase tracking-[0.4em] mb-4">Our Reach & Clients</h5>
-            <h2 className="text-4xl lg:text-5xl font-light">
-              Worked with <span className="font-bold">250+</span> Clients <br />
-              <span className="text-primary italic font-light">Across The Globe</span>
-            </h2>
-          </div>
-          <div className="relative w-full py-16 bg-gradient-to-br from-[#110a06] via-[#1a0a00] to-[#0d0603] flex flex-col items-center justify-center gap-12 border-y border-white/5">
-            <div className="text-9xl animate-pulse">🌍</div>
-            <p className="text-2xl font-bold tracking-tight text-center max-w-2xl px-6">
+        {/* 8. CLIENTS HEADING */}
+        <section className="pt-12 pb-4 max-w-[1080px] mx-auto px-6">
+          <h5 className="text-[18px] font-semibold text-black mb-2">Our Reach & Clients</h5>
+          <h2 className="text-3xl md:text-4xl font-normal text-black">
+            Worked with <span className="font-bold">250+</span> Clients <span className="text-primary font-bold italic">Across The Globe</span>
+          </h2>
+        </section>
+
+        {/* 9. WORLD MAP REACH (dark bg) */}
+        <section className="bg-[#0a0a0a] py-20 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.03] socialee-grid-texture" />
+          <div className="relative z-10 max-w-[1080px] mx-auto px-6 text-center">
+            <div className="text-[72px] mb-6 animate-pulse">🌍</div>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-8">
               Active Trade Corridors in <span className="text-primary">40+ Countries</span>
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 max-w-4xl px-6">
+            </h3>
+            <div className="flex flex-wrap justify-center gap-3">
               {["🇮🇳 India", "🇦🇪 UAE", "🇺🇸 USA", "🇬🇧 UK", "🇸🇬 Singapore", "🇩🇪 Germany", "🇦🇺 Australia", "🇯🇵 Japan"].map(c => (
-                <span key={c} className="px-8 py-3 bg-white/5 border border-primary/30 rounded-full text-sm font-semibold text-white/80 backdrop-blur-md hover:bg-primary/20 hover:text-white transition-all cursor-default">
+                <div key={c} className="text-sm font-semibold text-white/60 px-5 py-2.5 border border-primary/20 rounded-full hover:bg-primary/10 transition-colors cursor-default">
                   {c}
-                </span>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* 7. Client creative post grid */}
-        <section className="py-32 max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { name: "Rajhans Textiles", emoji: "👗", bg: "from-[#f5e6d3] to-[#e8c9a8]", sub: "Textiles Partner" },
-              { name: "AgroFresh Exports", emoji: "🌾", bg: "from-[#e6f5e6] to-[#b8dfb8]", sub: "Agri Partner" },
-              { name: "PharmaBridge", emoji: "💊", bg: "from-[#e6ecf5] to-[#b8c9e8]", sub: "Pharma Partner" },
-              { name: "MetalCraft India", emoji: "⚙️", bg: "from-[#f5f0e6] to-[#e8d8b8]", sub: "Eng. Partner" },
-              { name: "SpicePath Ltd", emoji: "🌶️", bg: "from-[#f5ece6] to-[#e8c0a8]", sub: "Food Partner" },
-              { name: "GemRoute", emoji: "💎", bg: "from-[#fdf5e6] to-[#f0d898]", sub: "Gems Partner" },
-              { name: "HerbsIndia", emoji: "🌿", bg: "from-[#e6f5ec] to-[#a8dfb8]", sub: "Organic Partner" },
-              { name: "WeaveCraft", emoji: "🧵", bg: "from-[#f5e6ec] to-[#e8a8c0]", sub: "Handloom Partner" },
-            ].map((p, i) => (
-              <div 
-                key={i} 
-                className={`bg-gradient-to-br ${p.bg} aspect-[4/5] rounded-[1.5rem] flex flex-col items-center justify-center gap-6 text-center p-8 border border-white/50 shadow-xl hover:-translate-y-2 transition-all duration-500 cursor-default group`}
-              >
-                <div className="text-6xl group-hover:scale-125 transition-transform duration-500">{p.emoji}</div>
-                <div>
-                  <div className="font-bold text-foreground text-lg">{p.name}</div>
-                  <div className="text-[10px] font-bold text-foreground/40 uppercase tracking-[0.2em] mt-2">{p.sub}</div>
-                </div>
+        {/* 10 & 11. CREATIVE POSTS ROWS (4x2 portrait grid) */}
+        <section className="grid grid-cols-2 lg:grid-cols-4 border-b border-black/5">
+          {[
+            { icon: "👗", bg: "#f5e6d3" }, { icon: "🌾", bg: "#e6f5e6" }, { icon: "💊", bg: "#e6ecf5" }, { icon: "⚙️", bg: "#f5f0e6" },
+            { icon: "🌶️", bg: "#f5ece6" }, { icon: "💎", bg: "#fdf5e6" }, { icon: "🌿", bg: "#e6f5ec" }, { icon: "🧵", bg: "#f5e6ec" }
+          ].map((p, i) => (
+            <div key={i} className="group relative aspect-[380/560] overflow-hidden cursor-pointer">
+              <div style={{ backgroundColor: p.bg }} className="w-full h-full flex items-center justify-center text-7xl transition-transform duration-700 group-hover:scale-110">
+                {p.icon}
               </div>
-            ))}
-          </div>
-          <div className="text-center mt-16">
-            <Button asChild size="lg" className="rounded-full px-12 font-bold shadow-xl shadow-primary/20">
-              <Link href="/portfolio">Our Client Portfolio</Link>
-            </Button>
-          </div>
-        </section>
-
-        {/* 8 & 9. Logo carousels */}
-        <section className="py-12 bg-secondary/30">
-          <LogoMarquee logos={["Rajhans Textiles", "AgroFresh Exports", "PharmaBridge", "SpicePath Ltd", "GemRoute", "MetalCraft India", "HerbsIndia", "WeaveCraft"]} direction="left" />
-          <LogoMarquee logos={["NatureBridge", "TechExport Co", "PharmaLinks", "ExcelMetals", "SilkRoute", "CerealIndia", "DyeWorks", "EquipTrade", "CrystalSea", "SpiceKing"]} direction="right" />
-        </section>
-
-        {/* 10. Advertising arsenal heading + media grid */}
-        <section className="py-32 max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="mb-16">
-            <h2 className="text-4xl lg:text-5xl font-light mb-6">
-              Strategic Tools, Measurable Growth <br />
-              <span className="font-bold text-primary">Our Trade Infrastructure</span>
-            </h2>
-            <div className="w-24 h-1 bg-primary rounded-full" />
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { icon: Anchor, title: "Ocean Freight Network" },
-              { icon: Plane, title: "Air Cargo Solutions" },
-              { icon: Building, title: "Bonded Warehousing" },
-              { icon: FileText, title: "DGFT & Customs Portal" },
-              { icon: Globe, title: "ICEGATE EDI Filing" },
-              { icon: BarChart3, title: "Live Shipment Tracking" },
-            ].map((a, i) => (
-              <div key={i} className="flex items-center gap-6 p-8 bg-secondary/50 rounded-2xl hover:bg-primary hover:text-white transition-all duration-500 cursor-default group border border-transparent hover:shadow-2xl hover:shadow-primary/20">
-                <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-sm group-hover:bg-white/20">
-                  <a.icon className="w-7 h-7 text-primary group-hover:text-white" />
-                </div>
-                <span className="font-bold text-foreground group-hover:text-white text-base">{a.title}</span>
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <div className="text-white font-bold text-sm uppercase tracking-widest">View Project</div>
               </div>
-            ))}
-          </div>
-        </section>
-
-        {/* 11. Portfolio grid (3x2) */}
-        <section className="py-32 bg-secondary/20">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div className="mb-20 text-center">
-              <h2 className="text-4xl lg:text-5xl font-light mb-4">
-                Strategic Work, <span className="font-bold text-primary">Real Results</span>
-              </h2>
-              <p className="text-muted-foreground uppercase tracking-widest text-xs font-bold">Case Studies & Successes</p>
             </div>
-            <div className="grid md:grid-cols-3 gap-8">
-              {[
-                { name: "Rajhans Textiles", cat: "Textiles Export", emoji: "👗", bg: "#f5e6d3" },
-                { name: "AgroFresh Exports", cat: "Agriculture", emoji: "🌾", bg: "#e6f5e6" },
-                { name: "PharmaBridge", cat: "Pharmaceuticals", emoji: "💊", bg: "#e6ecf5" },
-                { name: "MetalCraft India", cat: "Engineering", emoji: "⚙️", bg: "#f5f0e6" },
-                { name: "SpicePath Ltd", cat: "Food & Bev", emoji: "🌶️", bg: "#f5ece6" },
-                { name: "GemRoute", cat: "Gems & Jewellery", emoji: "💎", bg: "#fdf5e6" },
-              ].map((p, i) => (
-                <Link key={i} href="/portfolio" className="group relative aspect-[4/3] rounded-[2rem] overflow-hidden shadow-lg border-2 border-white">
-                  <div style={{ backgroundColor: p.bg }} className="absolute inset-0 flex items-center justify-center text-8xl group-hover:scale-110 transition-transform duration-700">
-                    {p.emoji}
+          ))}
+        </section>
+
+        {/* 13 & 15. LOGO CAROUSELS */}
+        <section className="py-16 bg-white overflow-hidden">
+          <LogoMarquee direction="left" logos={["Rajhans Textiles", "AgroFresh", "PharmaBridge", "MetalCraft India", "SpicePath", "GemRoute", "HerbsIndia", "WeaveCraft"]} />
+          <div className="h-4" />
+          <LogoMarquee direction="right" logos={["SWEC Group", "National Tenders", "Zydus Exports", "MAS Financial", "Rangoli Exports", "Yug Jewellery", "Vyom Innovation", "Vendstop"]} />
+        </section>
+
+        {/* 17. OUR CLIENTELES BUTTON */}
+        <div className="text-center py-12">
+          <Link href="/portfolio" className="bg-[#0a0a0a] text-white px-9 py-4 rounded-sm text-sm font-bold hover:bg-primary transition-all">
+            Our Clienteles
+          </Link>
+        </div>
+
+        {/* 18. ADVERTISING ARSENAL */}
+        <section className="max-w-[1080px] mx-auto px-6 py-16">
+          <h2 className="text-3xl md:text-4xl font-normal text-black mb-10">
+            Strategic Tools, Measurable Success<br />
+            <span className="text-primary font-bold">Our Trade Infrastructure Arsenal</span>
+          </h2>
+          <div className="flex overflow-hidden group">
+            <div className="flex gap-4 animate-marquee-l">
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <div key={i} className="flex-shrink-0 w-[200px] h-[130px] bg-[#f5f5f5] rounded-lg border border-black/5 flex items-center justify-center font-bold text-black/40 hover:bg-primary hover:text-[#0a0a0a] transition-all">
+                  Tool {i}
+                </div>
+              ))}
+              {/* Duplicated for smooth marquee */}
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <div key={`dup-${i}`} className="flex-shrink-0 w-[200px] h-[130px] bg-[#f5f5f5] rounded-lg border border-black/5 flex items-center justify-center font-bold text-black/40 hover:bg-primary hover:text-[#0a0a0a] transition-all">
+                  Tool {i}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 19. PORTFOLIO GRID (3x2) */}
+        <section className="max-w-[1080px] mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5">
+          {[1, 2, 3, 4, 5, 6].map((i) => (
+            <Link key={i} href="/portfolio" className="group relative aspect-[500/353] overflow-hidden bg-[#f0e0d0]">
+              <Image 
+                src={`https://picsum.photos/seed/port_${i}/500/353`} 
+                alt="Project" 
+                fill 
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                data-ai-hint="logistics export"
+              />
+              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-6">
+                <span className="text-white font-bold text-center">Project Success Story {i}</span>
+              </div>
+            </Link>
+          ))}
+        </section>
+
+        {/* 20. CHECK ENTIRE PORTFOLIO BUTTON */}
+        <div className="text-center py-12">
+          <Link href="/portfolio" className="bg-[#0a0a0a] text-white px-9 py-4 rounded-sm text-sm font-bold hover:bg-primary transition-all">
+            Check our entire Portfolio
+          </Link>
+        </div>
+
+        {/* 21. STUDIO SECTION */}
+        <section className="max-w-[1080px] mx-auto px-6 py-20">
+          <div className="grid lg:grid-cols-4 gap-8">
+            <div className="lg:col-span-1">
+              <div className="text-xs font-bold text-primary mb-2 uppercase tracking-widest">_ IN-HOUSE OPERATIONS</div>
+              <h2 className="text-2xl font-normal text-black leading-tight mb-6">
+                A trade partner with an <span className="text-primary font-bold">In-house Compliance Setup</span>
+              </h2>
+              <p className="text-sm text-black/50 leading-relaxed">We've built a dedicated team of licensed customs brokers, freight coordinators, and logistics specialists — all under one roof.</p>
+            </div>
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="aspect-[9/16] bg-[#f5f5f5] rounded-md relative overflow-hidden group">
+                <Image src={`https://picsum.photos/seed/studio_${i}/400/700`} alt="Studio" fill className="object-cover" data-ai-hint="cargo shipping" />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+                  <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white"><Play className="fill-white" /></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 22 & 23. BLOG GRID (Photo2 style) */}
+        <section className="bg-white py-20 border-t border-black/5">
+          <div className="max-w-[1080px] mx-auto px-6">
+            <h2 className="text-3xl font-normal text-black mb-12">Latest from <span className="text-primary font-bold">Blogs</span></h2>
+            <div className="grid md:grid-cols-3 gap-0">
+              {[1, 2, 3].map((i) => (
+                <Link key={i} href="/blog" className="group border border-black/5 transition-all hover:shadow-2xl">
+                  <div className="aspect-[1200/600] overflow-hidden">
+                    <Image 
+                      src={`https://picsum.photos/seed/blog_${i}/600/300`} 
+                      alt="Blog" 
+                      width={600} 
+                      height={300} 
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      data-ai-hint="export documentation"
+                    />
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute bottom-0 left-0 right-0 p-8 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                    <div className="text-[10px] font-bold text-primary uppercase tracking-[0.3em] mb-2">{p.cat}</div>
-                    <div className="text-white font-bold text-2xl">{p.name}</div>
+                  <div className="p-8 text-center">
+                    <h2 className="text-[16px] font-normal text-black group-hover:text-primary transition-colors">How to Navigate New Trade Regulations in 2025</h2>
                   </div>
                 </Link>
               ))}
@@ -283,151 +285,60 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 12. In-house Compliance Section */}
-        <section className="py-32 max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-4 gap-8 items-center">
-            <div className="lg:col-span-1">
-              <div className="flex items-center gap-4 text-primary font-bold text-[11px] uppercase tracking-[0.4em] mb-4">
-                <div className="w-10 h-[1px] bg-primary" /> Our Infrastructure
-              </div>
-              <h2 className="text-3xl font-light mb-6 leading-tight">
-                A trade partner with <br />
-                <span className="font-bold text-primary">In-house Compliance</span>
-              </h2>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-8">
-                We have built a dedicated team of licensed customs brokers, freight coordinators, and logistics specialists.
-              </p>
-              <Button asChild className="rounded-full font-bold px-8">
-                <Link href="/services">Explore Services</Link>
-              </Button>
+        {/* 24. SEE ALL BLOGS BUTTON */}
+        <div className="text-center py-12">
+          <Link href="/blog" className="bg-[#0a0a0a] text-white px-9 py-4 rounded-sm text-sm font-bold hover:bg-primary transition-all">
+            See all Blogs
+          </Link>
+        </div>
+
+        {/* 25. TWITTER BANNER (Social banner) */}
+        <section className="bg-[#0a0a0a] py-24 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.04] socialee-grid-texture" />
+          <div className="relative z-10 max-w-[1080px] mx-auto px-6 text-center">
+            <h2 className="text-3xl md:text-4xl text-white font-normal">Connect with <span className="text-primary font-bold">Shyama Overseas</span></h2>
+            <p className="text-white/50 mt-4 max-w-xl mx-auto">Follow us for real-time trade updates, export insights & industry news from India's trade desk.</p>
+            <div className="flex justify-center gap-6 mt-10">
+              <Link href="#" className="flex items-center gap-2 text-primary font-bold text-sm"><Twitter className="w-4 h-4" /> Twitter</Link>
+              <Link href="#" className="flex items-center gap-2 text-primary font-bold text-sm"><Share2 className="w-4 h-4" /> LinkedIn</Link>
             </div>
-            {[
-              { emoji: "📦", title: "Cargo Handling", bg: "from-[#f5e6d3] to-[#e8c9a8]" },
-              { emoji: "✈️", title: "Air Freight", bg: "from-[#e6ecf5] to-[#b8c9e8]" },
-              { emoji: "🚢", title: "Sea Freight", bg: "from-[#e6f5e6] to-[#b8dfb8]" },
-            ].map((v, i) => (
-              <div key={i} className="group relative">
-                <div className={`aspect-[9/16] bg-gradient-to-br ${v.bg} rounded-[2rem] flex flex-col items-center justify-center gap-6 shadow-2xl border-4 border-white overflow-hidden`}>
-                  <div className="text-7xl z-10 group-hover:scale-125 transition-transform duration-700">{v.emoji}</div>
-                  <div className="absolute bottom-8 left-0 right-0 text-center z-10">
-                    <div className="text-foreground font-bold uppercase text-xs tracking-[0.3em]">{v.title}</div>
-                  </div>
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all flex items-center justify-center">
-                    <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all scale-75 group-hover:scale-100">
-                      <Play className="w-8 h-8 text-white fill-white" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </section>
 
-        {/* 13. Blog section */}
-        <section className="py-32 max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="mb-20 flex items-end justify-between">
-            <div>
-              <h2 className="text-4xl lg:text-5xl font-light">
-                Latest from <span className="font-bold text-primary italic">Trade Desk</span>
-              </h2>
-            </div>
-            <Button asChild variant="ghost" className="text-primary font-bold hover:bg-primary/5 rounded-full px-8">
-              <Link href="/blog">View All Articles →</Link>
-            </Button>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { cat: "Export Tips", title: "Navigating New Customs Regulations in 2024", date: "Mar 12, 2024", emoji: "📋", bg: "#f5e6d3" },
-              { cat: "Logistics", title: "Sea vs Air Freight: Choosing the Right Path", date: "Feb 28, 2024", emoji: "🚢", bg: "#e6ecf5" },
-              { cat: "Industry", title: "India's Export Opportunities: Sectors to Watch", date: "Feb 14, 2024", emoji: "🌍", bg: "#e6f5e6" },
-            ].map((blog, i) => (
-              <Link key={i} href="/blog" className="group bg-white border-2 border-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500">
-                <div style={{ backgroundColor: blog.bg }} className="aspect-video flex items-center justify-center text-7xl group-hover:scale-105 transition-transform duration-700">
-                  {blog.emoji}
-                </div>
-                <div className="p-10">
-                  <div className="text-[10px] font-black text-primary uppercase tracking-[0.3em] mb-4">{blog.cat}</div>
-                  <h3 className="text-xl font-bold mb-6 leading-tight group-hover:text-primary transition-colors">{blog.title}</h3>
-                  <div className="flex items-center gap-2 text-muted-foreground text-xs font-bold uppercase tracking-widest">
-                    {blog.date}
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* 14. Contact form section */}
-        <section className="py-32 bg-foreground text-white relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -skew-x-12 translate-x-1/2" />
-          <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-            <div className="text-center mb-20">
-              <h2 className="text-4xl lg:text-5xl font-light mb-6">
-                <span className="font-bold text-primary">Get in touch</span> for <br />
-                Global Trade Expertise
-              </h2>
-              <p className="text-white/40 font-bold uppercase tracking-widest text-xs">Response Guaranteed within 2 Hours</p>
-            </div>
-            <div className="grid lg:grid-cols-12 gap-12">
-              <div className="lg:col-span-7 bg-white/5 backdrop-blur-xl p-12 rounded-[2.5rem] border border-white/10 shadow-2xl">
-                <form className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <input type="text" className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:bg-white/10 transition-all text-white placeholder:text-white/30" placeholder="Full Name *" />
-                    <input type="email" className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:bg-white/10 transition-all text-white placeholder:text-white/30" placeholder="Email Address *" />
-                  </div>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <input type="tel" className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:bg-white/10 transition-all text-white placeholder:text-white/30" placeholder="Contact Number *" />
-                    <input type="url" className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:bg-white/10 transition-all text-white placeholder:text-white/30" placeholder="Company Website" />
-                  </div>
-                  <input type="text" className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:bg-white/10 transition-all text-white placeholder:text-white/30" placeholder="Company Name *" />
-                  <textarea className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:bg-white/10 transition-all text-white placeholder:text-white/30 min-h-[160px]" placeholder="Describe your requirement in detail..."></textarea>
-                  <Button className="w-full h-16 rounded-2xl text-lg font-bold shadow-2xl shadow-primary/30 hover:scale-[1.02] transition-transform">Send Message</Button>
-                </form>
+        {/* 26. CONTACT SECTION (col-50 form + col-50 info) */}
+        <section className="max-w-[1080px] mx-auto px-6 py-24">
+          <h2 className="text-3xl md:text-4xl font-normal text-black mb-12">
+            <span className="text-primary font-bold">Get in touch</span> with us for<br />our Global Trade Services
+          </h2>
+          <div className="grid lg:grid-cols-2 gap-16">
+            <form className="space-y-4">
+              <div className="grid md:grid-cols-2 gap-4">
+                <input type="text" className="w-full p-4 bg-[#f5f5f5] rounded border-none focus:ring-2 focus:ring-primary outline-none" placeholder="Name" />
+                <input type="email" className="w-full p-4 bg-[#f5f5f5] rounded border-none focus:ring-2 focus:ring-primary outline-none" placeholder="Email ID" />
               </div>
-
-              <div className="lg:col-span-5 flex flex-col gap-6">
-                <div className="bg-primary/10 p-12 rounded-[2.5rem] border border-primary/20 flex flex-col gap-10 flex-1">
-                  <div>
-                    <h3 className="text-3xl font-black mb-2 text-primary">📞 +91 98765 43210</h3>
-                    <p className="text-white/40 text-xs font-bold uppercase tracking-widest">Monday–Saturday, 9am–6pm IST</p>
-                  </div>
-                  
-                  <div className="space-y-8">
-                    <div className="flex gap-6 group">
-                      <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:border-primary transition-all duration-500">
-                        <Globe className="w-6 h-6 text-primary group-hover:text-white" />
-                      </div>
-                      <div>
-                        <div className="text-[10px] font-bold text-primary uppercase tracking-[0.2em] mb-2">Head Office</div>
-                        <div className="text-base text-white/80 font-medium">Nariman Point, Mumbai 400 021</div>
-                      </div>
-                    </div>
-                    <div className="flex gap-6 group">
-                      <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:border-primary transition-all duration-500">
-                        <Award className="w-6 h-6 text-primary group-hover:text-white" />
-                      </div>
-                      <div>
-                        <div className="text-[10px] font-bold text-primary uppercase tracking-[0.2em] mb-2">Email Us</div>
-                        <div className="text-base text-white/80 font-medium">info@shyamaoverseas.com</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="mt-auto pt-10 border-t border-white/10">
-                    <div className="text-[10px] font-bold text-primary uppercase tracking-widest mb-6">Follow Our Journey</div>
-                    <div className="flex gap-4">
-                      {["🔗", "📘", "🐦", "📸", "▶️"].map((ic, i) => (
-                        <button key={i} className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all text-xl">
-                          {ic}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+              <div className="grid md:grid-cols-2 gap-4">
+                <input type="tel" className="w-full p-4 bg-[#f5f5f5] rounded border-none focus:ring-2 focus:ring-primary outline-none" placeholder="Contact Number" />
+                <input type="url" className="w-full p-4 bg-[#f5f5f5] rounded border-none focus:ring-2 focus:ring-primary outline-none" placeholder="Website" />
+              </div>
+              <input type="text" className="w-full p-4 bg-[#f5f5f5] rounded border-none focus:ring-2 focus:ring-primary outline-none" placeholder="Company Name" />
+              <textarea className="w-full p-4 bg-[#f5f5f5] rounded border-none focus:ring-2 focus:ring-primary outline-none min-h-[120px]" placeholder="Please share your requirement in detail"></textarea>
+              <button className="w-full bg-[#00d285] text-white py-4 font-bold rounded-sm hover:bg-[#00b774] transition-colors">Send Message</button>
+            </form>
+            
+            <div className="bg-[#0a0a0a] p-10 rounded-sm flex flex-col justify-center h-fit">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary"><Share2 /></div>
+                <h3 className="text-2xl font-bold text-white tracking-tight">+91-98765 43210</h3>
+              </div>
+              <div className="space-y-4 text-white/60 text-sm">
+                <p>Available Mon-Sat: 09:00 – 18:00 IST</p>
+                <p className="font-bold text-white">Mumbai | Delhi | Surat | Bangalore</p>
+                <p>Email: <Link href="mailto:info@shyamaoverseas.com" className="text-primary hover:underline">info@shyamaoverseas.com</Link></p>
               </div>
             </div>
           </div>
         </section>
+
       </main>
 
       <Footer />
