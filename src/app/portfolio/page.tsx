@@ -26,7 +26,7 @@ export default function PortfolioPage() {
               Client <span className="text-primary italic not-italic">Success Stories</span>
             </h1>
             <p className="text-white/60 text-lg max-w-xl leading-relaxed mb-8">
-              Real results from real businesses. See how we&apos;ve helped companies across India expand their global footprint.
+              Real results from real businesses. See how we've helped companies across India expand their global footprint.
             </p>
             <div className="flex items-center gap-3 text-white/40 text-[13px]">
               <Link href="/" className="hover:text-primary transition-colors">Home</Link>

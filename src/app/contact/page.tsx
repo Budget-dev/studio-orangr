@@ -15,7 +15,7 @@ export default function ContactPage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
             <div className="text-primary text-[11px] font-bold uppercase tracking-[0.3em] mb-4">Get In Touch</div>
             <h1 className="text-5xl lg:text-7xl font-black text-white leading-tight mb-6">
-              Let&apos;s <span className="text-primary italic not-italic">Start Your Journey</span>
+              Let's <span className="text-primary italic not-italic">Start Your Journey</span>
             </h1>
             <p className="text-white/60 text-lg max-w-xl leading-relaxed mb-8">
               Whether you have a shipment ready or are just exploring options, our trade experts will guide you. Response within 2 hours.

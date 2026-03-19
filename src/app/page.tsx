@@ -40,7 +40,7 @@ export default function Home() {
                 <Globe className="w-3.5 h-3.5" /> Trusted Since 2005
               </div>
               <h1 className="text-5xl lg:text-7xl font-black text-white leading-[1.1] mb-6">
-                India&apos;s Gateway to <br />
+                India's Gateway to <br />
                 <span className="text-primary italic font-light">Global Markets</span>
               </h1>
               <p className="text-white/70 text-lg mb-10 max-w-lg leading-relaxed">
@@ -88,10 +88,10 @@ export default function Home() {
                 <span className="font-bold text-primary">Trade Presence</span> Since 2005
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                Founded in 2005, we are one of India&apos;s leading International Trade & Logistics Agencies.
+                Founded in 2005, we are one of India's leading International Trade & Logistics Agencies.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                From a single Mumbai office to a pan-India network handling 15,000+ shipments annually — our journey is built on trust, compliance, and an unwavering commitment to our clients&apos; growth.
+                From a single Mumbai office to a pan-India network handling 15,000+ shipments annually — our journey is built on trust, compliance, and an unwavering commitment to our clients' growth.
               </p>
               <Link href="/about" className="inline-flex items-center gap-3 font-bold text-primary group hover:gap-6 transition-all">
                 Read More About Us <ArrowRight className="w-5 h-5" />

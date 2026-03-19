@@ -10,7 +10,7 @@ export default function BlogPage() {
   const BLOGS = [
     { cat: "Export Tips", title: "How to Navigate New Customs Regulations in 2024", date: "Mar 12, 2024", emoji: "📋", bg: "#f5e6d3" },
     { cat: "Logistics", title: "Sea vs Air Freight: Making the Right Choice for Your Cargo", date: "Feb 28, 2024", emoji: "🚢", bg: "#e6ecf5" },
-    { cat: "Industry News", title: "India&apos;s Export Opportunities: Sectors to Watch in 2024", date: "Feb 14, 2024", emoji: "🌍", bg: "#e6f5e6" },
+    { cat: "Industry News", title: "India's Export Opportunities: Sectors to Watch in 2024", date: "Feb 14, 2024", emoji: "🌍", bg: "#e6f5e6" },
     { cat: "Supply Chain", title: "How Bonded Warehousing Can Transform Your Export Operations", date: "Jan 30, 2024", emoji: "🏭", bg: "#f5f0e6" },
     { cat: "Compliance", title: "Understanding RCMC and Its Role in Export Benefits", date: "Jan 15, 2024", emoji: "📋", bg: "#fdf5e6" },
     { cat: "Trade Finance", title: "Letter of Credit vs. Bank Guarantee: What Exporters Need to Know", date: "Dec 28, 2023", emoji: "💳", bg: "#e6f0f5" },

@@ -23,7 +23,7 @@
     --border: 20 20% 85%;
     --input: 20 20% 85%;
     --ring: 20 42% 68%;
-    --radius: 1rem;
+    --radius: 0.75rem;
   }
 
   .dark {
@@ -57,7 +57,7 @@
     @apply bg-background text-foreground antialiased font-body;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-headline tracking-tight;
+    @apply tracking-tight font-bold;
   }
 }
 
@@ -89,4 +89,12 @@
 
 .animate-marquee-l:hover, .animate-marquee-r:hover {
   animation-play-state: paused;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

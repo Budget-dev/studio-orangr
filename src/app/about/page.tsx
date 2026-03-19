@@ -20,7 +20,7 @@ export default function AboutPage() {
               Our Story of <span className="text-primary italic not-italic">Global Reach</span>
             </h1>
             <p className="text-white/60 text-lg max-w-xl leading-relaxed mb-8">
-              Since 2005, building bridges between India&apos;s exporters and the world&apos;s markets — with trust, expertise, and relentless commitment.
+              Since 2005, building bridges between India's exporters and the world's markets — with trust, expertise, and relentless commitment.
             </p>
             <div className="flex items-center gap-3 text-white/40 text-[13px]">
               <Link href="/" className="hover:text-primary transition-colors">Home</Link>
