@@ -11,26 +11,26 @@
     --card-foreground: 20 25% 15%;
     --popover: 0 0% 100%;
     --popover-foreground: 20 25% 15%;
-    --primary: 20 42% 68%; /* #D0A38D */
+    --primary: 32 94% 59%; /* #f89b34 */
     --primary-foreground: 0 0% 100%;
     --secondary: 20 30% 95%;
     --secondary-foreground: 20 25% 35%;
     --muted: 20 20% 92%;
     --muted-foreground: 20 15% 45%;
-    --accent: 20 42% 68%;
+    --accent: 32 94% 59%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 20 20% 85%;
     --input: 20 20% 85%;
-    --ring: 20 42% 68%;
+    --ring: 32 94% 59%;
     --radius: 0.5rem;
   }
 
   .dark {
     --background: 0 0% 4%;
     --foreground: 20 25% 97%;
-    --primary: 20 42% 68%;
+    --primary: 32 94% 59%;
     --primary-foreground: 0 0% 4%;
   }
 }
@@ -44,22 +44,7 @@
   }
 }
 
-/* Socialee Specific Styles */
-.socialee-gradient {
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a0d07 40%, #0d0603 100%);
-}
-
-.socialee-banner-overlay {
-  background: radial-gradient(ellipse 80% 70% at 55% 45%, rgba(208,163,141,0.12) 0%, transparent 65%),
-              radial-gradient(ellipse 40% 50% at 15% 80%, rgba(208,163,141,0.06) 0%, transparent 60%);
-}
-
-.socialee-grid-texture {
-  background-image: linear-gradient(rgba(208,163,141,0.3) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(208,163,141,0.3) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-
+/* Socialee Specific Marquees */
 @keyframes marqueeL {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -70,15 +55,15 @@
   to { transform: translateX(0); }
 }
 
-.animate-marquee-l {
+.animate-marquee-ltr {
   animation: marqueeL 50s linear infinite;
 }
 
-.animate-marquee-r {
+.animate-marquee-rtl {
   animation: marqueeR 110s linear infinite;
 }
 
-.animate-marquee-l:hover, .animate-marquee-r:hover {
+.animate-marquee-ltr:hover, .animate-marquee-rtl:hover {
   animation-play-state: paused;
 }
 
@@ -88,4 +73,10 @@
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.social-grid-texture {
+  background-image: linear-gradient(rgba(248, 155, 52, 0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(248, 155, 52, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
 }

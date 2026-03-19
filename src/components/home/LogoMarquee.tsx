@@ -17,7 +17,7 @@ export function LogoMarquee({ logos, direction = "left" }: LogoMarqueeProps) {
       <div 
         className={cn(
           "carousel-track flex gap-5 min-w-full",
-          direction === "left" ? "animate-marquee-l" : "animate-marquee-r"
+          direction === "left" ? "animate-marquee-ltr" : "animate-marquee-rtl"
         )}
       >
         {items.map((logo, idx) => (

@@ -7,7 +7,7 @@ const SECTORS = ["Agriculture", "Textiles", "Pharma", "Manufacturing", "Chemical
 
 export function Footer() {
   return (
-    <footer className="bg-[#1a1a1a] text-white">
+    <footer className="footer bg-[#1a1a1a]">
       {/* Sector Links Bar */}
       <div className="bg-[#0a0a0a] border-b border-white/5">
         <div className="max-w-[1080px] mx-auto overflow-x-auto scrollbar-hide flex">
@@ -43,7 +43,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div>
+        <div className="footer-col">
           <h6 className="text-[14px] font-bold text-white mb-6 uppercase tracking-wider">Important Links</h6>
           <ul className="flex flex-col gap-3">
             {[["Our Story", "/about"], ["Services", "/services"], ["Our Portfolio", "/portfolio"], ["Sectors", "/sectors"], ["Blog", "/blog"], ["Careers", "/careers"]].map(([l, p]) => (
@@ -56,7 +56,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <div>
+        <div className="footer-col">
           <h6 className="text-[14px] font-bold text-white mb-6 uppercase tracking-wider">Our Ventures</h6>
           <ul className="flex flex-col gap-3">
             <li><Link href="/blog" className="text-[13px] text-white/45 hover:text-primary transition-colors">Trade Desk Blog</Link></li>
@@ -72,13 +72,13 @@ export function Footer() {
           </div>
         </div>
 
-        <div>
+        <div className="footer-col">
           <h6 className="text-[14px] font-bold text-white mb-6 uppercase tracking-wider">Get In Touch</h6>
           <ul className="flex flex-col gap-2.5 text-[13px] text-white/45">
             <li>Mumbai • Delhi • Surat</li>
             <li>Bangalore • Chennai</li>
-            <li className="pt-2">📞 <a href="tel:+919876543210" className="hover:text-primary">+91-98765 43210</a></li>
-            <li>📞 <a href="tel:+918765432109" className="hover:text-primary">+91-87654 32109</a></li>
+            <li className="pt-2">📞 <a href="tel:+919876543210" className="hover:text-primary text-white">+91-98765 43210</a></li>
+            <li>📞 <a href="tel:+918765432109" className="hover:text-primary text-white">+91-87654 32109</a></li>
             <li className="pt-2">✉️ <a href="mailto:info@shyamaoverseas.com" className="text-primary hover:underline">info@shyamaoverseas.com</a></li>
           </ul>
         </div>

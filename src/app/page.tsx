@@ -3,29 +3,42 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { StatsCounter } from "@/components/home/StatsCounter";
 import { LogoMarquee } from "@/components/home/LogoMarquee";
-import { ArrowRight, Plane, Anchor, Building, FileText, Share2, Globe, Package, Play, Twitter } from "lucide-react";
-import Image from "next/image";
+import { Plane, Ship, Building, FileText, Share2, Globe, Package, ArrowRight, Play, Linkedin, Facebook, Twitter, Instagram } from "lucide-react";
 
-/* Sections matched to Socialee sequence */
+const POSTS_R1 = [
+  { name: "Rajhans Textiles", bg: "bg-[#f5e6d3]", icon: "👗", cat: "Textiles Export" },
+  { name: "AgroFresh Exports", bg: "bg-[#e6f5e6]", icon: "🌾", cat: "Agriculture" },
+  { name: "PharmaBridge", bg: "bg-[#e6ecf5]", icon: "💊", cat: "Pharma" },
+  { name: "MetalCraft India", bg: "bg-[#f5f0e6]", icon: "⚙️", cat: "Engineering" },
+];
+
+const POSTS_R2 = [
+  { name: "SpicePath Ltd", bg: "bg-[#f5ece6]", icon: "🌶️", cat: "Food & Beverages" },
+  { name: "GemRoute", bg: "bg-[#fdf5e6]", icon: "💎", cat: "Gems & Jewellery" },
+  { name: "HerbsIndia", bg: "bg-[#e6f5ec]", icon: "🌿", cat: "Organic Exports" },
+  { name: "WeaveCraft", bg: "bg-[#f5e6ec]", icon: "🧵", cat: "Handloom" },
+];
+
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white selection:bg-primary/30">
+    <div className="min-h-screen bg-white">
       <Navbar />
 
       <main className="animate-in fade-in duration-500">
         
-        {/* 1. FULL-WIDTH BANNER IMAGE (1350x600 aspect) */}
-        <section className="mt-[85px] relative w-full aspect-[1350/600] min-h-[400px] socialee-gradient overflow-hidden flex items-center">
-          <div className="absolute inset-0 socialee-banner-overlay" />
-          <div className="absolute inset-0 socialee-grid-texture" />
+        {/* 1. FULL-WIDTH BANNER */}
+        <section className="mt-[85px] relative w-full aspect-[1350/600] min-h-[400px] bg-[#0a0a0a] overflow-hidden flex items-center">
+          <div className="absolute inset-0 social-grid-texture opacity-20" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#080808] via-[#1a0d07] to-[#0d0603]" />
           
-          {/* 2. H1 HEADING (ABSOLUTE OVER BANNER LEFT) + BADGES */}
+          {/* 2. H1 HEADING + BADGES */}
           <div className="relative z-10 max-w-[1080px] mx-auto px-6 w-full flex flex-col lg:flex-row items-center justify-between gap-12">
-            <div className="flex-1 max-w-[600px]">
+            <div className="flex-1">
               <h1 className="text-[32px] md:text-[48px] lg:text-[52px] font-normal text-white leading-[1.15]">
                 India's Leading<br />
                 <span className="text-primary font-bold">International Trade</span><br />
@@ -33,14 +46,14 @@ export default function Home() {
               </h1>
             </div>
             
-            <div className="hidden lg:flex gap-4">
-              <div className="bg-white/5 border border-primary/20 backdrop-blur-md rounded-xl p-6 text-center min-w-[160px] transition-transform hover:-translate-y-1 hover:bg-white/10">
-                <FileText className="w-8 h-8 text-primary mx-auto mb-3" />
+            <div className="flex gap-4">
+              <div className="bg-white/5 border border-primary/20 backdrop-blur-md rounded-xl p-6 text-center min-w-[160px] transition-transform hover:-translate-y-1">
+                <div className="text-2xl mb-2">📋</div>
                 <div className="text-white font-bold text-xs uppercase tracking-wider mb-1">IEC Registered</div>
                 <div className="text-white/40 text-[10px] font-medium">Govt. of India</div>
               </div>
-              <div className="bg-white/5 border border-primary/20 backdrop-blur-md rounded-xl p-6 text-center min-w-[160px] transition-transform hover:-translate-y-1 hover:bg-white/10">
-                <Globe className="w-8 h-8 text-primary mx-auto mb-3" />
+              <div className="bg-white/5 border border-primary/20 backdrop-blur-md rounded-xl p-6 text-center min-w-[160px] transition-transform hover:-translate-y-1">
+                <div className="text-2xl mb-2">🏆</div>
                 <div className="text-white font-bold text-xs uppercase tracking-wider mb-1">FIEO Member</div>
                 <div className="text-white/40 text-[10px] font-medium">Export Excellence</div>
               </div>
@@ -48,7 +61,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 3. ABOUT SECTION (stretched, light bg, col-50+col-50) */}
+        {/* 3. ABOUT SECTION */}
         <section className="bg-[#f5f5f5] py-20 overflow-hidden">
           <div className="max-w-[1080px] mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -66,33 +79,21 @@ export default function Home() {
               </Link>
             </div>
             <div className="relative aspect-[546/426] rounded-lg overflow-hidden shadow-2xl group">
-              <Image 
-                src="https://picsum.photos/seed/about_trade/800/600" 
-                alt="About Trade" 
-                fill 
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                data-ai-hint="international trade"
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <Image src="https://picsum.photos/seed/trade_about/800/600" alt="Trade Global" fill className="object-cover" />
+              <div className="absolute inset-0 bg-primary/10" />
+              <div className="absolute inset-0 flex items-center justify-center text-8xl">🌐</div>
             </div>
           </div>
         </section>
 
-        {/* 4. STATS BAR (4 counters, dark bg) */}
+        {/* 4. STATS BAR */}
         <section className="bg-[#0a0a0a] flex flex-wrap border-y border-white/5">
           <div className="max-w-[1080px] mx-auto w-full grid grid-cols-2 lg:grid-cols-4">
-            <div className="border-r border-white/5">
-              <StatsCounter target={19} suffix="+" label="Years of Expertise" />
-            </div>
-            <div className="lg:border-r border-white/5">
-              <StatsCounter target={250} suffix="+" label="Clients Served" />
-            </div>
-            <div className="border-r border-white/5">
-              <StatsCounter target={40} suffix="+" label="Countries Reached" />
-            </div>
-            <div>
-              <StatsCounter target={15000} suffix="+" label="Shipments Handled" />
-            </div>
+            {STATS.map((s, i) => (
+              <div key={i} className="border-r border-white/5 last:border-0">
+                <StatsCounter target={s.num} suffix={s.suf} label={s.label} />
+              </div>
+            ))}
           </div>
         </section>
 
@@ -104,30 +105,15 @@ export default function Home() {
           </h2>
         </section>
 
-        {/* 6 & 7. SERVICES ROWS (4 hover cards each) */}
+        {/* 6 & 7. SERVICES ROWS */}
         <section className="max-w-[1080px] mx-auto px-6 py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-black/5">
-            {[
-              { icon: Plane, title: "Freight Forwarding", desc: "End-to-end air, sea & land freight solutions." },
-              { icon: Anchor, title: "Sea Freight", desc: "FCL & LCL ocean shipments. Global network." },
-              { icon: Building, title: "Warehousing", desc: "Pan-India storage, pick-pack distribution." },
-              { icon: FileText, title: "Customs Clearance", desc: "Licensed CHAs handle all port compliance." },
-              { icon: Share2, title: "Supply Chain", desc: "Integrated procurement-to-delivery visibility." },
-              { icon: Globe, title: "Export Consulting", desc: "Market entry, HS codes, trade agreements." },
-              { icon: Package, title: "Packaging", desc: "Compliance-ready export packaging solutions." },
-              { icon: ArrowRight, title: "All Services", desc: "See the full suite of trade & logistics." },
-            ].map((s, i) => (
-              <Link 
-                key={i} 
-                href="/services" 
-                className="bg-[#f5f5f5] p-8 group transition-all duration-300 hover:bg-primary border-r border-b border-black/5"
-              >
-                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-white/20 transition-colors">
-                  <s.icon className="w-7 h-7 text-primary group-hover:text-white" />
-                </div>
-                <h5 className="text-[18px] font-bold text-black mb-2 group-hover:text-white transition-colors">{s.title}</h5>
+            {[...SERVICES_ROW1, ...SERVICES_ROW2].map((s, i) => (
+              <Link key={i} href="/services" className="bg-[#f5f5f5] p-8 group transition-all duration-300 hover:bg-primary border-r border-b border-black/5">
+                <div className="text-4xl mb-6">{s.icon}</div>
+                <h5 className="text-[18px] font-bold text-black mb-4 group-hover:text-white transition-colors whitespace-pre-line">{s.title}</h5>
                 <p className="text-[13px] text-black/40 leading-relaxed group-hover:text-white/80 transition-colors mb-4">{s.desc}</p>
-                <div className="w-4 h-4 border-t-2 border-r-2 border-primary group-hover:border-white rotate-45" />
+                <ArrowRight className="w-5 h-5 text-primary group-hover:text-white transition-colors" />
               </Link>
             ))}
           </div>
@@ -141,11 +127,11 @@ export default function Home() {
           </h2>
         </section>
 
-        {/* 9. WORLD MAP REACH (dark bg) */}
+        {/* 9. WORLD MAP REACH */}
         <section className="bg-[#0a0a0a] py-20 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.03] socialee-grid-texture" />
+          <div className="absolute inset-0 opacity-[0.03] social-grid-texture" />
           <div className="relative z-10 max-w-[1080px] mx-auto px-6 text-center">
-            <div className="text-[72px] mb-6 animate-pulse">🌍</div>
+            <div className="text-[72px] mb-6">🌍</div>
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-8">
               Active Trade Corridors in <span className="text-primary">40+ Countries</span>
             </h3>
@@ -159,35 +145,30 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 10 & 11. CREATIVE POSTS ROWS (4x2 portrait grid) */}
-        <section className="grid grid-cols-2 lg:grid-cols-4 border-b border-black/5">
-          {[
-            { icon: "👗", bg: "#f5e6d3" }, { icon: "🌾", bg: "#e6f5e6" }, { icon: "💊", bg: "#e6ecf5" }, { icon: "⚙️", bg: "#f5f0e6" },
-            { icon: "🌶️", bg: "#f5ece6" }, { icon: "💎", bg: "#fdf5e6" }, { icon: "🌿", bg: "#e6f5ec" }, { icon: "🧵", bg: "#f5e6ec" }
-          ].map((p, i) => (
-            <div key={i} className="group relative aspect-[380/560] overflow-hidden cursor-pointer">
-              <div style={{ backgroundColor: p.bg }} className="w-full h-full flex items-center justify-center text-7xl transition-transform duration-700 group-hover:scale-110">
+        {/* 10 & 11. CREATIVE POSTS ROWS */}
+        <section className="grid grid-cols-2 lg:grid-cols-4">
+          {[...POSTS_R1, ...POSTS_R2].map((p, i) => (
+            <div key={i} className={`group relative aspect-[380/560] overflow-hidden cursor-pointer ${p.bg}`}>
+              <div className="w-full h-full flex items-center justify-center text-7xl transition-transform duration-700 group-hover:scale-110">
                 {p.icon}
               </div>
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <div className="text-white font-bold text-sm uppercase tracking-widest">View Project</div>
+              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-6 text-center">
+                <div className="text-white font-bold text-xl mb-2">{p.name}</div>
+                <div className="text-primary font-semibold text-sm uppercase tracking-widest">{p.cat}</div>
               </div>
             </div>
           ))}
         </section>
 
-        {/* 13 & 15. LOGO CAROUSELS */}
-        <section className="py-16 bg-white overflow-hidden">
-          <LogoMarquee direction="left" logos={["Rajhans Textiles", "AgroFresh", "PharmaBridge", "MetalCraft India", "SpicePath", "GemRoute", "HerbsIndia", "WeaveCraft"]} />
-          <div className="h-4" />
-          <LogoMarquee direction="right" logos={["SWEC Group", "National Tenders", "Zydus Exports", "MAS Financial", "Rangoli Exports", "Yug Jewellery", "Vyom Innovation", "Vendstop"]} />
+        {/* 12-16. LOGO CAROUSELS */}
+        <section className="py-16 bg-white overflow-hidden space-y-4">
+          <LogoMarquee direction="left" logos={LOGOS_R1} />
+          <LogoMarquee direction="right" logos={LOGOS_R2} />
         </section>
 
         {/* 17. OUR CLIENTELES BUTTON */}
         <div className="text-center py-12">
-          <Link href="/portfolio" className="bg-[#0a0a0a] text-white px-9 py-4 rounded-sm text-sm font-bold hover:bg-primary transition-all">
-            Our Clienteles
-          </Link>
+          <Link href="/portfolio" className="elementor-btn">Our Clienteles</Link>
         </div>
 
         {/* 18. ADVERTISING ARSENAL */}
@@ -197,45 +178,34 @@ export default function Home() {
             <span className="text-primary font-bold">Our Trade Infrastructure Arsenal</span>
           </h2>
           <div className="flex overflow-hidden group">
-            <div className="flex gap-4 animate-marquee-l">
-              {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div key={i} className="flex-shrink-0 w-[200px] h-[130px] bg-[#f5f5f5] rounded-lg border border-black/5 flex items-center justify-center font-bold text-black/40 hover:bg-primary hover:text-[#0a0a0a] transition-all">
-                  Tool {i}
-                </div>
-              ))}
-              {/* Duplicated for smooth marquee */}
-              {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div key={`dup-${i}`} className="flex-shrink-0 w-[200px] h-[130px] bg-[#f5f5f5] rounded-lg border border-black/5 flex items-center justify-center font-bold text-black/40 hover:bg-primary hover:text-[#0a0a0a] transition-all">
-                  Tool {i}
+            <div className="flex gap-4 animate-marquee-ltr">
+              {ARSENAL.map((a, i) => (
+                <div key={i} className="flex-shrink-0 w-[200px] h-[130px] bg-[#f5f5f5] rounded-lg border border-black/5 flex flex-col items-center justify-center gap-2 hover:bg-primary transition-all">
+                  <div className="text-3xl">{a.icon}</div>
+                  <div className="font-bold text-xs text-black/60">{a.name}</div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* 19. PORTFOLIO GRID (3x2) */}
+        {/* 19. PORTFOLIO GRID */}
         <section className="max-w-[1080px] mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
-            <Link key={i} href="/portfolio" className="group relative aspect-[500/353] overflow-hidden bg-[#f0e0d0]">
-              <Image 
-                src={`https://picsum.photos/seed/port_${i}/500/353`} 
-                alt="Project" 
-                fill 
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                data-ai-hint="logistics export"
-              />
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-6">
-                <span className="text-white font-bold text-center">Project Success Story {i}</span>
+          {PORTFOLIO.map((p, i) => (
+            <div key={i} className="group relative aspect-[500/353] overflow-hidden bg-[#f0e0d0]">
+              <div className={`w-full h-full flex items-center justify-center text-6xl ${p.bg}`}>
+                {p.icon}
               </div>
-            </Link>
+              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-6">
+                <span className="text-white font-bold text-center text-xl">{p.name}</span>
+              </div>
+            </div>
           ))}
         </section>
 
         {/* 20. CHECK ENTIRE PORTFOLIO BUTTON */}
         <div className="text-center py-12">
-          <Link href="/portfolio" className="bg-[#0a0a0a] text-white px-9 py-4 rounded-sm text-sm font-bold hover:bg-primary transition-all">
-            Check our entire Portfolio
-          </Link>
+          <Link href="/portfolio" className="elementor-btn">Check our entire Portfolio</Link>
         </div>
 
         {/* 21. STUDIO SECTION */}
@@ -248,36 +218,32 @@ export default function Home() {
               </h2>
               <p className="text-sm text-black/50 leading-relaxed">We've built a dedicated team of licensed customs brokers, freight coordinators, and logistics specialists — all under one roof.</p>
             </div>
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="aspect-[9/16] bg-[#f5f5f5] rounded-md relative overflow-hidden group">
-                <Image src={`https://picsum.photos/seed/studio_${i}/400/700`} alt="Studio" fill className="object-cover" data-ai-hint="cargo shipping" />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
-                  <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white"><Play className="fill-white" /></div>
-                </div>
+            {[
+              {bg:"bg-[#f5e6d3]",icon:"📦",lbl:"Cargo Handling"},
+              {bg:"bg-[#e6ecf5]",icon:"✈️",lbl:"Air Freight"},
+              {bg:"bg-[#e6f5e6]",icon:"🚢",lbl:"Sea Freight"},
+            ].map((v, i) => (
+              <div key={i} className={`aspect-[9/16] ${v.bg} rounded-md relative overflow-hidden group flex flex-col items-center justify-center`}>
+                <div className="text-6xl mb-4">{v.icon}</div>
+                <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white cursor-pointer"><Play className="fill-white" /></div>
+                <div className="absolute bottom-6 font-bold text-sm text-black/60">{v.lbl}</div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* 22 & 23. BLOG GRID (Photo2 style) */}
+        {/* 22 & 23. BLOG GRID */}
         <section className="bg-white py-20 border-t border-black/5">
           <div className="max-w-[1080px] mx-auto px-6">
             <h2 className="text-3xl font-normal text-black mb-12">Latest from <span className="text-primary font-bold">Blogs</span></h2>
-            <div className="grid md:grid-cols-3 gap-0">
-              {[1, 2, 3].map((i) => (
-                <Link key={i} href="/blog" className="group border border-black/5 transition-all hover:shadow-2xl">
-                  <div className="aspect-[1200/600] overflow-hidden">
-                    <Image 
-                      src={`https://picsum.photos/seed/blog_${i}/600/300`} 
-                      alt="Blog" 
-                      width={600} 
-                      height={300} 
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      data-ai-hint="export documentation"
-                    />
+            <div className="grid md:grid-cols-3 gap-0 border-l border-t border-black/5">
+              {BLOGS.map((b, i) => (
+                <Link key={i} href="/blog" className="group border-r border-b border-black/5 transition-all hover:shadow-2xl">
+                  <div className={`aspect-[1200/600] overflow-hidden ${b.bg} flex items-center justify-center text-6xl`}>
+                    {b.icon}
                   </div>
                   <div className="p-8 text-center">
-                    <h2 className="text-[16px] font-normal text-black group-hover:text-primary transition-colors">How to Navigate New Trade Regulations in 2025</h2>
+                    <h2 className="text-[16px] font-normal text-black group-hover:text-primary transition-colors">{b.title}</h2>
                   </div>
                 </Link>
               ))}
@@ -287,25 +253,25 @@ export default function Home() {
 
         {/* 24. SEE ALL BLOGS BUTTON */}
         <div className="text-center py-12">
-          <Link href="/blog" className="bg-[#0a0a0a] text-white px-9 py-4 rounded-sm text-sm font-bold hover:bg-primary transition-all">
-            See all Blogs
-          </Link>
+          <Link href="/blog" className="elementor-btn">See all Blogs</Link>
         </div>
 
-        {/* 25. TWITTER BANNER (Social banner) */}
-        <section className="bg-[#0a0a0a] py-24 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.04] socialee-grid-texture" />
-          <div className="relative z-10 max-w-[1080px] mx-auto px-6 text-center">
-            <h2 className="text-3xl md:text-4xl text-white font-normal">Connect with <span className="text-primary font-bold">Shyama Overseas</span></h2>
-            <p className="text-white/50 mt-4 max-w-xl mx-auto">Follow us for real-time trade updates, export insights & industry news from India's trade desk.</p>
-            <div className="flex justify-center gap-6 mt-10">
-              <Link href="#" className="flex items-center gap-2 text-primary font-bold text-sm"><Twitter className="w-4 h-4" /> Twitter</Link>
-              <Link href="#" className="flex items-center gap-2 text-primary font-bold text-sm"><Share2 className="w-4 h-4" /> LinkedIn</Link>
+        {/* 25. SOCIAL BANNER */}
+        <section className="social-banner">
+          <div className="social-banner-img">
+            <div className="social-banner-dots"/>
+            <div className="social-banner-text">
+              <h2 className="text-white text-3xl"><strong>Connect with Shyama Overseas</strong></h2>
+              <p className="text-white/60 mt-2">Follow us for trade updates, export insights & industry news</p>
+              <div className="flex gap-6 justify-center mt-8">
+                <Link href="#" className="flex items-center gap-2 text-primary font-bold text-sm"><Linkedin className="w-4 h-4" /> LinkedIn</Link>
+                <Link href="#" className="flex items-center gap-2 text-primary font-bold text-sm"><Twitter className="w-4 h-4" /> Twitter</Link>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* 26. CONTACT SECTION (col-50 form + col-50 info) */}
+        {/* 26. CONTACT SECTION */}
         <section className="max-w-[1080px] mx-auto px-6 py-24">
           <h2 className="text-3xl md:text-4xl font-normal text-black mb-12">
             <span className="text-primary font-bold">Get in touch</span> with us for<br />our Global Trade Services
@@ -322,7 +288,7 @@ export default function Home() {
               </div>
               <input type="text" className="w-full p-4 bg-[#f5f5f5] rounded border-none focus:ring-2 focus:ring-primary outline-none" placeholder="Company Name" />
               <textarea className="w-full p-4 bg-[#f5f5f5] rounded border-none focus:ring-2 focus:ring-primary outline-none min-h-[120px]" placeholder="Please share your requirement in detail"></textarea>
-              <button className="w-full bg-[#00d285] text-white py-4 font-bold rounded-sm hover:bg-[#00b774] transition-colors">Send Message</button>
+              <button type="button" className="w-full bg-[#00d285] text-white py-4 font-bold rounded-sm hover:bg-[#00b774] transition-colors">Send Message</button>
             </form>
             
             <div className="bg-[#0a0a0a] p-10 rounded-sm flex flex-col justify-center h-fit">
@@ -342,6 +308,88 @@ export default function Home() {
       </main>
 
       <Footer />
+      
+      <style jsx>{`
+        .elementor-btn {
+          display: inline-block;
+          background: #0a0a0a;
+          color: #fff;
+          padding: 14px 34px;
+          font-size: 14px;
+          font-weight: 600;
+          border-radius: 5px;
+          transition: all 0.2s;
+        }
+        .elementor-btn:hover {
+          background: #f89b34;
+          color: #0a0a0a;
+        }
+        .social-banner-img {
+          width: 100%;
+          aspect-ratio: 1200/400;
+          background: linear-gradient(135deg, #0a0a0a 0%, #1a0a00 40%, #0a0a0a 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          overflow: hidden;
+        }
+        .social-banner-dots {
+          position: absolute;
+          inset: 0;
+          opacity: .04;
+          background-image: radial-gradient(circle, #f89b34 1px, transparent 1px);
+          background-size: 28px 28px;
+        }
+      `}</style>
     </div>
   );
 }
+
+const STATS = [
+  { label: "Years of Expertise", num: 19, suf: "+" },
+  { label: "Clients Served", num: 250, suf: "+" },
+  { label: "Countries Reached", num: 40, suf: "+" },
+  { label: "Shipments Handled", num: 15000, suf: "+" },
+];
+
+const SERVICES_ROW1 = [
+  { icon: "✈️", title: "Freight\nForwarding", desc: "End-to-end air, sea & land freight solutions." },
+  { icon: "🚢", title: "Sea\nFreight", desc: "FCL & LCL ocean shipments. Global network." },
+  { icon: "🏭", title: "Warehousing\n& Storage", desc: "Pan-India storage, pick-pack distribution." },
+  { icon: "📋", title: "Customs\nClearance", desc: "Licensed CHAs handle all port compliance." },
+];
+
+const SERVICES_ROW2 = [
+  { icon: "🔗", title: "Supply\nChain", desc: "Integrated procurement-to-delivery visibility." },
+  { icon: "🌍", title: "Export\nConsulting", desc: "Market entry, HS codes, trade agreements." },
+  { icon: "📦", title: "Packaging\n& Labeling", desc: "Compliance-ready export packaging solutions." },
+  { icon: "➡️", title: "All\nServices", desc: "See the full suite of trade & logistics." },
+];
+
+const LOGOS_R1 = ["Rajhans Textiles", "AgroFresh", "PharmaBridge", "MetalCraft India", "SpicePath", "GemRoute", "HerbsIndia", "WeaveCraft"];
+const LOGOS_R2 = ["SWEC Group", "National Tenders", "Zydus Exports", "MAS Financial", "Rangoli Exports", "Yug Jewellery", "Vyom Innovation", "Vendstop"];
+
+const ARSENAL = [
+  { icon: "🚢", name: "Ocean Freight" },
+  { icon: "✈️", name: "Air Cargo" },
+  { icon: "🔗", name: "ICEGATE EDI" },
+  { icon: "📊", name: "Shipment Tracking" },
+  { icon: "🏭", name: "Bonded Warehouse" },
+  { icon: "📋", name: "DGFT Portal" },
+];
+
+const PORTFOLIO = [
+  { name: "Rajhans Textiles", bg: "bg-[#f5e6d3]", icon: "👗" },
+  { name: "AgroFresh Exports", bg: "bg-[#e6f5e6]", icon: "🌾" },
+  { name: "PharmaBridge", bg: "bg-[#e6ecf5]", icon: "💊" },
+  { name: "Univo Education", bg: "bg-[#fdf5e6]", icon: "🎓" },
+  { name: "MetalCraft India", bg: "bg-[#f5f0e6]", icon: "⚙️" },
+  { name: "SpicePath Ltd", bg: "bg-[#f5ece6]", icon: "🌶️" },
+];
+
+const BLOGS = [
+  { bg: "bg-[#f5e6d3]", icon: "📋", title: "How to Navigate New Customs Regulations in 2025" },
+  { bg: "bg-[#e6ecf5]", icon: "🚢", title: "Sea vs Air Freight: Making the Right Choice for Your Cargo" },
+  { bg: "bg-[#e6f5e6]", icon: "🌍", title: "India's Export Opportunities: Sectors to Watch in 2025" },
+];
