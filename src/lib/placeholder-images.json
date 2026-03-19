@@ -1,3 +1,22 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-bg",
+      "description": "Global logistics and shipping containers",
+      "imageUrl": "https://picsum.photos/seed/shyama1/1920/1080",
+      "imageHint": "global logistics"
+    },
+    {
+      "id": "about-img",
+      "description": "International trade meeting",
+      "imageUrl": "https://picsum.photos/seed/shyama2/800/600",
+      "imageHint": "international trade"
+    },
+    {
+      "id": "warehouse",
+      "description": "Modern warehouse facility",
+      "imageUrl": "https://picsum.photos/seed/shyama3/800/600",
+      "imageHint": "warehouse"
+    }
+  ]
 }
