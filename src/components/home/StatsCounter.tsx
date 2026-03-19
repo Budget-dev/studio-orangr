@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState, useRef } from "react";
@@ -20,15 +19,15 @@ export function StatsCounter({ target, suffix, label }: StatsCounterProps) {
 
     let start = 0;
     const end = target;
-    const duration = 2000;
+    const duration = 2200;
     const startTime = performance.now();
 
     const animate = (currentTime: number) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      const easeOutCubic = 1 - Math.pow(1 - progress, 3);
       
-      const currentCount = Math.floor(easeOutQuart * end);
+      const currentCount = Math.floor(easeOutCubic * end);
       setCount(currentCount);
 
       if (progress < 1) {
@@ -40,11 +39,11 @@ export function StatsCounter({ target, suffix, label }: StatsCounterProps) {
   }, [isInView, target]);
 
   return (
-    <div ref={ref} className="text-center p-8 border-r last:border-none border-white/10 group">
-      <div className="text-4xl lg:text-5xl font-black text-primary mb-2 transition-transform group-hover:scale-110">
-        {count.toLocaleString()}{suffix}
+    <div ref={ref} className="text-center p-10 border-r last:border-none border-white/10 group">
+      <div className="text-5xl font-black text-primary mb-2 transition-transform group-hover:scale-110">
+        {count.toLocaleString()}<span className="text-3xl font-light">{suffix}</span>
       </div>
-      <div className="text-xs font-bold text-muted-foreground uppercase tracking-widest">
+      <div className="text-[11px] font-bold text-white/50 uppercase tracking-[0.15em]">
         {label}
       </div>
     </div>
