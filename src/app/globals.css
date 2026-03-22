@@ -1,37 +1,36 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 30 33% 98%;
-    --foreground: 20 25% 15%;
+    --background: 0 0% 100%;
+    --foreground: 210 73% 10%;
     --card: 0 0% 100%;
-    --card-foreground: 20 25% 15%;
+    --card-foreground: 210 73% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 20 25% 15%;
-    --primary: 32 94% 59%; /* #f89b34 */
+    --popover-foreground: 210 73% 10%;
+    --primary: 210 73% 15%; /* #0A2540 Deep Navy */
     --primary-foreground: 0 0% 100%;
-    --secondary: 20 30% 95%;
-    --secondary-foreground: 20 25% 35%;
-    --muted: 20 20% 92%;
-    --muted-foreground: 20 15% 45%;
-    --accent: 32 94% 59%;
+    --secondary: 45 54% 54%; /* #C9A84C Gold */
+    --secondary-foreground: 210 73% 10%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 15% 40%;
+    --accent: 45 54% 54%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 20 20% 85%;
-    --input: 20 20% 85%;
-    --ring: 32 94% 59%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 45 54% 54%;
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 0 0% 4%;
-    --foreground: 20 25% 97%;
-    --primary: 32 94% 59%;
-    --primary-foreground: 0 0% 4%;
+    --background: 210 73% 5%;
+    --foreground: 0 0% 98%;
+    --primary: 45 54% 54%;
+    --primary-foreground: 210 73% 10%;
   }
 }
 
@@ -56,11 +55,15 @@
 }
 
 .animate-marquee-ltr {
-  animation: marqueeL 50s linear infinite;
+  animation: marqueeL 40s linear infinite;
 }
 
 .animate-marquee-rtl {
-  animation: marqueeR 110s linear infinite;
+  animation: marqueeR 40s linear infinite;
+}
+
+.animate-marquee-slow {
+  animation: marqueeL 60s linear infinite;
 }
 
 .animate-marquee-ltr:hover, .animate-marquee-rtl:hover {
@@ -75,8 +78,19 @@
   scrollbar-width: none;
 }
 
-.social-grid-texture {
-  background-image: linear-gradient(rgba(248, 155, 52, 0.05) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(248, 155, 52, 0.05) 1px, transparent 1px);
+.trade-grid-texture {
+  background-image: linear-gradient(rgba(201, 168, 76, 0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(201, 168, 76, 0.05) 1px, transparent 1px);
   background-size: 60px 60px;
+}
+
+.gold-glow {
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.2);
+}
+
+.heading-highlight {
+  background-color: hsl(var(--accent));
+  color: white;
+  padding: 0.1em 0.4em;
+  display: inline-block;
 }
