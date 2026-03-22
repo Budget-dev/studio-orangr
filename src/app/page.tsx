@@ -92,7 +92,6 @@ const BLOGS = [
   },
 ];
 
-// Map confirmed placeholder images to the gallery structure
 const AGENCY_GALLERY: MediaItemType[] = [
   {
     id: 1,
@@ -159,9 +158,9 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.4, delay, ease: "easeOut" }}
+      initial={{ opacity: 0, y: 15 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+      transition={{ duration: 0.35, delay, ease: "easeOut" }}
     >
       {children}
     </motion.div>
