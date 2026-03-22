@@ -8,7 +8,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { StatsCounter } from "@/components/home/StatsCounter";
 import { LogoMarquee } from "@/components/home/LogoMarquee";
-import { Plane, Ship, Building, FileText, Share2, Globe, Package, ArrowRight, Play, Linkedin, Facebook, Twitter, Instagram } from "lucide-react";
+import { ArrowRight, Play, Globe, Share2, Linkedin, Facebook, Twitter, Instagram } from "lucide-react";
 
 const POSTS_R1 = [
   { name: "Rajhans Textiles", bg: "bg-[#f5e6d3]", icon: "👗", cat: "Textiles Export" },
@@ -25,6 +25,8 @@ const POSTS_R2 = [
 ];
 
 export default function Home() {
+  const [formSent, setSent] = useState(false);
+
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
@@ -35,6 +37,13 @@ export default function Home() {
         <section className="mt-[85px] relative w-full aspect-[1350/600] min-h-[400px] bg-[#0a0a0a] overflow-hidden flex items-center">
           <div className="absolute inset-0 social-grid-texture opacity-20" />
           <div className="absolute inset-0 bg-gradient-to-br from-[#080808] via-[#1a0d07] to-[#0d0603]" />
+          <Image 
+            src="https://picsum.photos/seed/shyama_banner/1350/600" 
+            alt="Global Trade" 
+            fill 
+            className="object-cover opacity-40 mix-blend-overlay"
+            priority
+          />
           
           {/* 2. H1 HEADING + BADGES */}
           <div className="relative z-10 max-w-[1080px] mx-auto px-6 w-full flex flex-col lg:flex-row items-center justify-between gap-12">
@@ -66,7 +75,7 @@ export default function Home() {
           <div className="max-w-[1080px] mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="flex items-center gap-2 text-[14px] font-bold text-[#262626] mb-4">
-                <span className="text-primary">_</span> ABOUT US
+                <span className="text-primary font-black">_</span> ABOUT US
               </div>
               <h2 className="text-3xl md:text-4xl font-normal text-black leading-[1.3] mb-6">
                 Helping Clients <span className="text-primary font-bold">Build</span><br />
@@ -78,7 +87,7 @@ export default function Home() {
                 Read More <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-            <div className="relative aspect-[546/426] rounded-lg overflow-hidden shadow-2xl group">
+            <div className="relative aspect-[546/426] rounded-lg overflow-hidden shadow-2xl group border-2 border-white">
               <Image src="https://picsum.photos/seed/trade_about/800/600" alt="Trade Global" fill className="object-cover" />
               <div className="absolute inset-0 bg-primary/10" />
               <div className="absolute inset-0 flex items-center justify-center text-8xl">🌐</div>
@@ -109,19 +118,22 @@ export default function Home() {
         <section className="max-w-[1080px] mx-auto px-6 py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-black/5">
             {[...SERVICES_ROW1, ...SERVICES_ROW2].map((s, i) => (
-              <Link key={i} href="/services" className="bg-[#f5f5f5] p-8 group transition-all duration-300 hover:bg-primary border-r border-b border-black/5">
-                <div className="text-4xl mb-6">{s.icon}</div>
-                <h5 className="text-[18px] font-bold text-black mb-4 group-hover:text-white transition-colors whitespace-pre-line">{s.title}</h5>
-                <p className="text-[13px] text-black/40 leading-relaxed group-hover:text-white/80 transition-colors mb-4">{s.desc}</p>
-                <ArrowRight className="w-5 h-5 text-primary group-hover:text-white transition-colors" />
+              <Link key={i} href="/services" className="bg-[#f5f5f5] p-10 group transition-all duration-300 hover:bg-primary border-r border-b border-black/5">
+                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform">{s.icon}</div>
+                <h5 className="text-[18px] font-bold text-black mb-4 group-hover:text-white transition-colors whitespace-pre-line leading-tight">{s.title}</h5>
+                <div className="w-10 h-[2px] bg-primary group-hover:bg-white mb-4 transition-colors" />
+                <p className="text-[13px] text-black/40 leading-relaxed group-hover:text-white/80 transition-colors mb-6">{s.desc}</p>
+                <div className="w-8 h-8 rounded-full border border-primary group-hover:border-white flex items-center justify-center transition-all">
+                  <ArrowRight className="w-4 h-4 text-primary group-hover:text-white" />
+                </div>
               </Link>
             ))}
           </div>
         </section>
 
         {/* 8. CLIENTS HEADING */}
-        <section className="pt-12 pb-4 max-w-[1080px] mx-auto px-6">
-          <h5 className="text-[18px] font-semibold text-black mb-2">Our Reach & Clients</h5>
+        <section className="pt-12 pb-4 max-w-[1080px] mx-auto px-6 text-center lg:text-left">
+          <h5 className="text-[18px] font-semibold text-black mb-2 uppercase tracking-widest text-primary/60">Our Reach & Clients</h5>
           <h2 className="text-3xl md:text-4xl font-normal text-black">
             Worked with <span className="font-bold">250+</span> Clients <span className="text-primary font-bold italic">Across The Globe</span>
           </h2>
@@ -131,13 +143,13 @@ export default function Home() {
         <section className="bg-[#0a0a0a] py-20 relative overflow-hidden">
           <div className="absolute inset-0 opacity-[0.03] social-grid-texture" />
           <div className="relative z-10 max-w-[1080px] mx-auto px-6 text-center">
-            <div className="text-[72px] mb-6">🌍</div>
+            <div className="text-[72px] mb-6 animate-pulse">🌍</div>
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-8">
               Active Trade Corridors in <span className="text-primary">40+ Countries</span>
             </h3>
             <div className="flex flex-wrap justify-center gap-3">
               {["🇮🇳 India", "🇦🇪 UAE", "🇺🇸 USA", "🇬🇧 UK", "🇸🇬 Singapore", "🇩🇪 Germany", "🇦🇺 Australia", "🇯🇵 Japan"].map(c => (
-                <div key={c} className="text-sm font-semibold text-white/60 px-5 py-2.5 border border-primary/20 rounded-full hover:bg-primary/10 transition-colors cursor-default">
+                <div key={c} className="text-sm font-semibold text-white/60 px-5 py-2.5 border border-primary/20 rounded-full hover:bg-primary hover:text-black transition-all cursor-default">
                   {c}
                 </div>
               ))}
@@ -152,16 +164,17 @@ export default function Home() {
               <div className="w-full h-full flex items-center justify-center text-7xl transition-transform duration-700 group-hover:scale-110">
                 {p.icon}
               </div>
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-6 text-center">
-                <div className="text-white font-bold text-xl mb-2">{p.name}</div>
-                <div className="text-primary font-semibold text-sm uppercase tracking-widest">{p.cat}</div>
+              <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-8 text-center">
+                <div className="text-white font-bold text-xl mb-3 translate-y-4 group-hover:translate-y-0 transition-transform">{p.name}</div>
+                <div className="w-12 h-1 bg-primary mb-4" />
+                <div className="text-primary font-semibold text-xs uppercase tracking-widest translate-y-4 group-hover:translate-y-0 transition-transform delay-75">{p.cat}</div>
               </div>
             </div>
           ))}
         </section>
 
         {/* 12-16. LOGO CAROUSELS */}
-        <section className="py-16 bg-white overflow-hidden space-y-4">
+        <section className="py-16 bg-white overflow-hidden space-y-8">
           <LogoMarquee direction="left" logos={LOGOS_R1} />
           <LogoMarquee direction="right" logos={LOGOS_R2} />
         </section>
@@ -173,16 +186,16 @@ export default function Home() {
 
         {/* 18. ADVERTISING ARSENAL */}
         <section className="max-w-[1080px] mx-auto px-6 py-16">
-          <h2 className="text-3xl md:text-4xl font-normal text-black mb-10">
+          <h2 className="text-3xl md:text-4xl font-normal text-black mb-10 text-center lg:text-left">
             Strategic Tools, Measurable Success<br />
             <span className="text-primary font-bold">Our Trade Infrastructure Arsenal</span>
           </h2>
           <div className="flex overflow-hidden group">
             <div className="flex gap-4 animate-marquee-ltr">
-              {ARSENAL.map((a, i) => (
-                <div key={i} className="flex-shrink-0 w-[200px] h-[130px] bg-[#f5f5f5] rounded-lg border border-black/5 flex flex-col items-center justify-center gap-2 hover:bg-primary transition-all">
-                  <div className="text-3xl">{a.icon}</div>
-                  <div className="font-bold text-xs text-black/60">{a.name}</div>
+              {[...ARSENAL, ...ARSENAL].map((a, i) => (
+                <div key={i} className="flex-shrink-0 w-[200px] h-[130px] bg-[#f5f5f5] rounded-lg border border-black/5 flex flex-col items-center justify-center gap-2 hover:bg-primary transition-all group">
+                  <div className="text-3xl group-hover:scale-110 transition-transform">{a.icon}</div>
+                  <div className="font-bold text-[11px] text-black/60 group-hover:text-white uppercase tracking-tighter">{a.name}</div>
                 </div>
               ))}
             </div>
@@ -190,14 +203,15 @@ export default function Home() {
         </section>
 
         {/* 19. PORTFOLIO GRID */}
-        <section className="max-w-[1080px] mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5">
+        <section className="max-w-[1080px] mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {PORTFOLIO.map((p, i) => (
-            <div key={i} className="group relative aspect-[500/353] overflow-hidden bg-[#f0e0d0]">
+            <div key={i} className="group relative aspect-[500/353] overflow-hidden bg-[#f0e0d0] rounded-lg">
               <div className={`w-full h-full flex items-center justify-center text-6xl ${p.bg}`}>
                 {p.icon}
               </div>
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-6">
-                <span className="text-white font-bold text-center text-xl">{p.name}</span>
+              <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-all flex flex-col items-center justify-center p-6 border-2 border-primary m-4 rounded-md">
+                <span className="text-white font-bold text-center text-xl mb-2">{p.name}</span>
+                <div className="w-8 h-[2px] bg-primary" />
               </div>
             </div>
           ))}
@@ -212,7 +226,7 @@ export default function Home() {
         <section className="max-w-[1080px] mx-auto px-6 py-20">
           <div className="grid lg:grid-cols-4 gap-8">
             <div className="lg:col-span-1">
-              <div className="text-xs font-bold text-primary mb-2 uppercase tracking-widest">_ IN-HOUSE OPERATIONS</div>
+              <div className="text-xs font-bold text-primary mb-2 uppercase tracking-[0.3em]">_ IN-HOUSE OPS</div>
               <h2 className="text-2xl font-normal text-black leading-tight mb-6">
                 A trade partner with an <span className="text-primary font-bold">In-house Compliance Setup</span>
               </h2>
@@ -223,10 +237,10 @@ export default function Home() {
               {bg:"bg-[#e6ecf5]",icon:"✈️",lbl:"Air Freight"},
               {bg:"bg-[#e6f5e6]",icon:"🚢",lbl:"Sea Freight"},
             ].map((v, i) => (
-              <div key={i} className={`aspect-[9/16] ${v.bg} rounded-md relative overflow-hidden group flex flex-col items-center justify-center`}>
-                <div className="text-6xl mb-4">{v.icon}</div>
-                <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white cursor-pointer"><Play className="fill-white" /></div>
-                <div className="absolute bottom-6 font-bold text-sm text-black/60">{v.lbl}</div>
+              <div key={i} className={`aspect-[9/16] ${v.bg} rounded-xl relative overflow-hidden group flex flex-col items-center justify-center border-2 border-transparent hover:border-primary transition-all`}>
+                <div className="text-6xl mb-6 group-hover:scale-110 transition-transform">{v.icon}</div>
+                <div className="w-14 h-14 bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-white cursor-pointer hover:bg-primary transition-colors border border-white/20"><Play className="fill-white w-6 h-6" /></div>
+                <div className="absolute bottom-8 font-bold text-xs text-black/60 uppercase tracking-widest">{v.lbl}</div>
               </div>
             ))}
           </div>
@@ -235,15 +249,15 @@ export default function Home() {
         {/* 22 & 23. BLOG GRID */}
         <section className="bg-white py-20 border-t border-black/5">
           <div className="max-w-[1080px] mx-auto px-6">
-            <h2 className="text-3xl font-normal text-black mb-12">Latest from <span className="text-primary font-bold">Blogs</span></h2>
+            <h2 className="text-3xl font-normal text-black mb-12 text-center lg:text-left">Latest from <span className="text-primary font-bold">Blogs</span></h2>
             <div className="grid md:grid-cols-3 gap-0 border-l border-t border-black/5">
               {BLOGS.map((b, i) => (
-                <Link key={i} href="/blog" className="group border-r border-b border-black/5 transition-all hover:shadow-2xl">
-                  <div className={`aspect-[1200/600] overflow-hidden ${b.bg} flex items-center justify-center text-6xl`}>
+                <Link key={i} href="/blog" className="group border-r border-b border-black/5 transition-all hover:shadow-2xl bg-white relative overflow-hidden">
+                  <div className={`aspect-[1200/600] overflow-hidden ${b.bg} flex items-center justify-center text-6xl group-hover:scale-105 transition-transform duration-500`}>
                     {b.icon}
                   </div>
-                  <div className="p-8 text-center">
-                    <h2 className="text-[16px] font-normal text-black group-hover:text-primary transition-colors">{b.title}</h2>
+                  <div className="p-8 text-center bg-white">
+                    <h2 className="text-[16px] font-bold text-black group-hover:text-primary transition-colors leading-snug">{b.title}</h2>
                   </div>
                 </Link>
               ))}
@@ -260,12 +274,12 @@ export default function Home() {
         <section className="social-banner">
           <div className="social-banner-img">
             <div className="social-banner-dots"/>
-            <div className="social-banner-text">
-              <h2 className="text-white text-3xl"><strong>Connect with Shyama Overseas</strong></h2>
-              <p className="text-white/60 mt-2">Follow us for trade updates, export insights & industry news</p>
-              <div className="flex gap-6 justify-center mt-8">
-                <Link href="#" className="flex items-center gap-2 text-primary font-bold text-sm"><Linkedin className="w-4 h-4" /> LinkedIn</Link>
-                <Link href="#" className="flex items-center gap-2 text-primary font-bold text-sm"><Twitter className="w-4 h-4" /> Twitter</Link>
+            <div className="social-banner-text p-6">
+              <h2 className="text-white text-3xl md:text-4xl"><strong>Connect with Shyama Overseas</strong></h2>
+              <p className="text-white/60 mt-4 text-lg">Follow us for trade updates, export insights & industry news</p>
+              <div className="flex gap-8 justify-center mt-10">
+                <Link href="#" className="flex items-center gap-2.5 text-primary font-bold text-sm hover:text-white transition-colors group"><Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" /> LinkedIn</Link>
+                <Link href="#" className="flex items-center gap-2.5 text-primary font-bold text-sm hover:text-white transition-colors group"><Twitter className="w-5 h-5 group-hover:scale-110 transition-transform" /> Twitter</Link>
               </div>
             </div>
           </div>
@@ -277,29 +291,33 @@ export default function Home() {
             <span className="text-primary font-bold">Get in touch</span> with us for<br />our Global Trade Services
           </h2>
           <div className="grid lg:grid-cols-2 gap-16">
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={(e)=>{e.preventDefault(); setSent(true)}}>
               <div className="grid md:grid-cols-2 gap-4">
-                <input type="text" className="w-full p-4 bg-[#f5f5f5] rounded border-none focus:ring-2 focus:ring-primary outline-none" placeholder="Name" />
-                <input type="email" className="w-full p-4 bg-[#f5f5f5] rounded border-none focus:ring-2 focus:ring-primary outline-none" placeholder="Email ID" />
+                <input type="text" className="w-full p-4 bg-[#f5f5f5] rounded-md border-none focus:ring-2 focus:ring-primary outline-none transition-all" placeholder="Name" required />
+                <input type="email" className="w-full p-4 bg-[#f5f5f5] rounded-md border-none focus:ring-2 focus:ring-primary outline-none transition-all" placeholder="Email ID" required />
               </div>
               <div className="grid md:grid-cols-2 gap-4">
-                <input type="tel" className="w-full p-4 bg-[#f5f5f5] rounded border-none focus:ring-2 focus:ring-primary outline-none" placeholder="Contact Number" />
-                <input type="url" className="w-full p-4 bg-[#f5f5f5] rounded border-none focus:ring-2 focus:ring-primary outline-none" placeholder="Website" />
+                <input type="tel" className="w-full p-4 bg-[#f5f5f5] rounded-md border-none focus:ring-2 focus:ring-primary outline-none transition-all" placeholder="Contact Number" required />
+                <input type="url" className="w-full p-4 bg-[#f5f5f5] rounded-md border-none focus:ring-2 focus:ring-primary outline-none transition-all" placeholder="Website" />
               </div>
-              <input type="text" className="w-full p-4 bg-[#f5f5f5] rounded border-none focus:ring-2 focus:ring-primary outline-none" placeholder="Company Name" />
-              <textarea className="w-full p-4 bg-[#f5f5f5] rounded border-none focus:ring-2 focus:ring-primary outline-none min-h-[120px]" placeholder="Please share your requirement in detail"></textarea>
-              <button type="button" className="w-full bg-[#00d285] text-white py-4 font-bold rounded-sm hover:bg-[#00b774] transition-colors">Send Message</button>
+              <input type="text" className="w-full p-4 bg-[#f5f5f5] rounded-md border-none focus:ring-2 focus:ring-primary outline-none transition-all" placeholder="Company Name" required />
+              <textarea className="w-full p-4 bg-[#f5f5f5] rounded-md border-none focus:ring-2 focus:ring-primary outline-none min-h-[120px] transition-all" placeholder="Please share your requirement in detail" required></textarea>
+              <button type="submit" className={`w-full py-4 font-bold rounded-md transition-all ${formSent ? 'bg-primary text-black' : 'bg-[#00d285] text-white hover:bg-[#00b774]'}`}>
+                {formSent ? "Message Sent Successfully!" : "Send Message"}
+              </button>
             </form>
             
-            <div className="bg-[#0a0a0a] p-10 rounded-sm flex flex-col justify-center h-fit">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary"><Share2 /></div>
+            <div className="bg-[#0a0a0a] p-12 rounded-xl flex flex-col justify-center h-fit border border-primary/20 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700" />
+              <div className="flex items-center gap-5 mb-8 relative z-10">
+                <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center text-primary border border-primary/20"><Share2 className="w-6 h-6" /></div>
                 <h3 className="text-2xl font-bold text-white tracking-tight">+91-98765 43210</h3>
               </div>
-              <div className="space-y-4 text-white/60 text-sm">
-                <p>Available Mon-Sat: 09:00 – 18:00 IST</p>
-                <p className="font-bold text-white">Mumbai | Delhi | Surat | Bangalore</p>
-                <p>Email: <Link href="mailto:info@shyamaoverseas.com" className="text-primary hover:underline">info@shyamaoverseas.com</Link></p>
+              <div className="space-y-6 text-white/60 text-sm relative z-10">
+                <p className="flex items-center gap-3"><span className="w-2 h-2 bg-primary rounded-full" /> Available Mon-Sat: 09:00 – 18:00 IST</p>
+                <p className="font-bold text-white text-base">Mumbai | Delhi | Surat | Bangalore</p>
+                <div className="h-px bg-white/10 w-full" />
+                <p className="flex items-center gap-3">Email: <Link href="mailto:info@shyamaoverseas.com" className="text-primary hover:underline">info@shyamaoverseas.com</Link></p>
               </div>
             </div>
           </div>
@@ -314,15 +332,20 @@ export default function Home() {
           display: inline-block;
           background: #0a0a0a;
           color: #fff;
-          padding: 14px 34px;
+          padding: 16px 40px;
           font-size: 14px;
-          font-weight: 600;
+          font-weight: 700;
           border-radius: 5px;
-          transition: all 0.2s;
+          transition: all 0.3s;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          border: 2px solid transparent;
         }
         .elementor-btn:hover {
           background: #f89b34;
           color: #0a0a0a;
+          transform: translateY(-2px);
+          box-shadow: 0 10px 20px rgba(248, 155, 52, 0.2);
         }
         .social-banner-img {
           width: 100%;
@@ -337,9 +360,9 @@ export default function Home() {
         .social-banner-dots {
           position: absolute;
           inset: 0;
-          opacity: .04;
-          background-image: radial-gradient(circle, #f89b34 1px, transparent 1px);
-          background-size: 28px 28px;
+          opacity: .06;
+          background-image: radial-gradient(circle, #f89b34 1.5px, transparent 1.5px);
+          background-size: 32px 32px;
         }
       `}</style>
     </div>
@@ -347,10 +370,10 @@ export default function Home() {
 }
 
 const STATS = [
-  { label: "Years of Expertise", num: 19, suf: "+" },
-  { label: "Clients Served", num: 250, suf: "+" },
-  { label: "Countries Reached", num: 40, suf: "+" },
-  { label: "Shipments Handled", num: 15000, suf: "+" },
+  { label: "Expertise", num: 19, suf: " Yrs+" },
+  { label: "Clients", num: 250, suf: "+" },
+  { label: "Countries", num: 40, suf: "+" },
+  { label: "Shipments", num: 15000, suf: "+" },
 ];
 
 const SERVICES_ROW1 = [
@@ -364,7 +387,7 @@ const SERVICES_ROW2 = [
   { icon: "🔗", title: "Supply\nChain", desc: "Integrated procurement-to-delivery visibility." },
   { icon: "🌍", title: "Export\nConsulting", desc: "Market entry, HS codes, trade agreements." },
   { icon: "📦", title: "Packaging\n& Labeling", desc: "Compliance-ready export packaging solutions." },
-  { icon: "➡️", title: "All\nServices", desc: "See the full suite of trade & logistics." },
+  { icon: "📊", title: "All\nServices", desc: "See the full suite of trade & logistics." },
 ];
 
 const LOGOS_R1 = ["Rajhans Textiles", "AgroFresh", "PharmaBridge", "MetalCraft India", "SpicePath", "GemRoute", "HerbsIndia", "WeaveCraft"];
@@ -374,18 +397,9 @@ const ARSENAL = [
   { icon: "🚢", name: "Ocean Freight" },
   { icon: "✈️", name: "Air Cargo" },
   { icon: "🔗", name: "ICEGATE EDI" },
-  { icon: "📊", name: "Shipment Tracking" },
-  { icon: "🏭", name: "Bonded Warehouse" },
+  { icon: "📊", name: "Tracking" },
+  { icon: "🏭", name: "Bonded Whse" },
   { icon: "📋", name: "DGFT Portal" },
-];
-
-const PORTFOLIO = [
-  { name: "Rajhans Textiles", bg: "bg-[#f5e6d3]", icon: "👗" },
-  { name: "AgroFresh Exports", bg: "bg-[#e6f5e6]", icon: "🌾" },
-  { name: "PharmaBridge", bg: "bg-[#e6ecf5]", icon: "💊" },
-  { name: "Univo Education", bg: "bg-[#fdf5e6]", icon: "🎓" },
-  { name: "MetalCraft India", bg: "bg-[#f5f0e6]", icon: "⚙️" },
-  { name: "SpicePath Ltd", bg: "bg-[#f5ece6]", icon: "🌶️" },
 ];
 
 const BLOGS = [

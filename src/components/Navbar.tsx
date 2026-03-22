@@ -12,12 +12,12 @@ const NAV = [
   { label: "Our Story", page: "/about", children: ["Our Squad"] },
   {
     label: "Services", page: "/services",
-    children: ["Freight Forwarding", "Sea Freight", "Warehousing", "Customs Clearance", "Supply Chain", "Export Consulting"]
+    children: ["Freight Forwarding", "Sea Freight", "Warehousing", "Customs Clearance", "Supply Chain", "Export Consulting", "Packaging & Labeling"]
   },
   { label: "Clients", page: "/portfolio" },
   {
     label: "Sectors", page: "/sectors",
-    children: ["Agriculture", "Textiles", "Pharma", "Manufacturing", "Chemicals", "Food & Beverages"]
+    children: ["Agriculture", "Textiles", "Pharma", "Manufacturing", "Chemicals", "Food & Beverages", "Gems & Jewellery", "Engineering"]
   },
   { label: "Blogs", page: "/blog" },
   { label: "Careers", page: "/careers" },
@@ -68,7 +68,7 @@ export function Navbar() {
               </Link>
               {n.children && (
                 <div className="absolute top-full left-0 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
-                  <div className="bg-[#f2f2f2] min-width-[200px] shadow-2xl rounded-sm overflow-hidden py-1">
+                  <div className="bg-[#f2f2f2] min-width-[200px] shadow-2xl rounded-sm overflow-hidden py-1 border-t-2 border-primary">
                     {n.children.map((c) => (
                       <Link
                         key={c}

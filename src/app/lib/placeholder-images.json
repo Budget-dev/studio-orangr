@@ -1,3 +1,4 @@
+
 {
   "placeholderImages": [
     {
@@ -29,6 +30,12 @@
       "description": "Cargo plane loading",
       "imageUrl": "https://picsum.photos/seed/shyama_air/800/600",
       "imageHint": "cargo plane"
+    },
+    {
+      "id": "client-map",
+      "description": "Global trade reach map",
+      "imageUrl": "https://picsum.photos/seed/shyama_map/1536/612",
+      "imageHint": "world map"
     }
   ]
 }

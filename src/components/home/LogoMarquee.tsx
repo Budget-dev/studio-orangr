@@ -13,19 +13,19 @@ export function LogoMarquee({ logos, direction = "left" }: LogoMarqueeProps) {
   const items = [...logos, ...logos, ...logos];
   
   return (
-    <div className="carousel-wrap relative py-4">
+    <div className="carousel-wrap relative">
       <div 
         className={cn(
-          "carousel-track flex gap-5 min-w-full",
+          "carousel-track flex gap-6 min-w-full",
           direction === "left" ? "animate-marquee-ltr" : "animate-marquee-rtl"
         )}
       >
         {items.map((logo, idx) => (
           <div 
             key={idx} 
-            className="c-slide flex-shrink-0 border border-primary rounded-[15px] bg-white px-12 py-5 shadow-[0_0_10px_rgba(224,189,166,0.3)] flex items-center justify-center min-h-[80px]"
+            className="c-slide flex-shrink-0 border border-primary/40 rounded-[12px] bg-white px-12 py-6 shadow-[0_5px_15px_rgba(248,155,52,0.05)] flex items-center justify-center min-h-[90px] transition-all hover:border-primary hover:scale-105"
           >
-            <span className="text-xs font-bold text-[#6b5247] whitespace-nowrap">
+            <span className="text-[11px] font-black text-[#6b5247] whitespace-nowrap uppercase tracking-tighter">
               {logo}
             </span>
           </div>
