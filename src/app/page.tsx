@@ -33,6 +33,7 @@ import {
   Users
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { WorldMap } from "@/components/WorldMap";
 
 /* ── DATA ── */
 const NAV_LINKS = [
@@ -247,7 +248,7 @@ export default function HomePage() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 bottom-0 w-[80%] max-w-sm bg-[#0a0a0a] z-[1002] p-10 shadow-2xl flex flex-col"
+              className="fixed right-0 top-0 bottom-0 w-[80%] max-sm max-w-sm bg-[#0a0a0a] z-[1002] p-10 shadow-2xl flex flex-col"
             >
               <button onClick={() => setIsMobMenuOpen(false)} className="self-end text-white mb-10 p-2 hover:bg-white/10 rounded-full transition-colors">
                 <X className="w-8 h-8" />
@@ -390,34 +391,40 @@ export default function HomePage() {
               </div>
             </FadeIn>
             
-            <div className="relative aspect-[16/7] max-w-5xl mx-auto">
-              <div className="absolute inset-0 opacity-10 [background-image:radial-gradient(#f89b34_1px,transparent_1px)] [background-size:24px_24px]" />
+            <div className="max-w-5xl mx-auto relative group">
+              <WorldMap
+                lineColor="#f89b34"
+                dots={[
+                  {
+                    start: { lat: 19.0760, lng: 72.8777, label: "Mumbai" }, // Mumbai
+                    end: { lat: 40.7128, lng: -74.0060, label: "New York" }, // New York
+                  },
+                  {
+                    start: { lat: 28.6139, lng: 77.2090, label: "Delhi" }, // Delhi
+                    end: { lat: 51.5074, lng: -0.1278, label: "London" }, // London
+                  },
+                  {
+                    start: { lat: 12.9716, lng: 77.5946, label: "Bangalore" }, // Bangalore
+                    end: { lat: 1.3521, lng: 103.8198, label: "Singapore" }, // Singapore
+                  },
+                  {
+                    start: { lat: 23.0225, lng: 72.5714, label: "Ahmedabad" }, // Ahmedabad
+                    end: { lat: 25.2048, lng: 55.2708, label: "Dubai" }, // Dubai
+                  },
+                  {
+                    start: { lat: 13.0827, lng: 80.2707, label: "Chennai" }, // Chennai
+                    end: { lat: -33.8688, lng: 151.2093, label: "Sydney" }, // Sydney
+                  },
+                ]}
+              />
               
-              {/* Pin visualization */}
-              {[
-                { name: "USA", t: "20%", l: "15%" },
-                { name: "Europe", t: "25%", l: "45%" },
-                { name: "UAE", t: "45%", l: "55%" },
-                { name: "India", t: "50%", l: "68%" },
-                { name: "Australia", t: "75%", l: "85%" },
-              ].map((loc) => (
-                <motion.div 
-                  key={loc.name} 
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  className="absolute z-20 group"
-                  style={{ top: loc.t, left: loc.l }}
-                >
-                  <div className="relative flex items-center justify-center">
-                    <div className="absolute w-8 h-8 bg-[#f89b34]/20 rounded-full animate-ping" />
-                    <div className="w-2.5 h-2.5 bg-[#f89b34] rounded-full shadow-[0_0_10px_#f89b34]" />
-                    <div className="absolute top-full mt-3 bg-[#f89b34] text-[#0a0a0a] font-sora font-bold text-[10px] px-3 py-1 rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
-                      {loc.name}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+              {/* City Name Overlay Labels */}
+              <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-[50%] left-[68%] text-[10px] font-bold text-[#f89b34] uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity">Mumbai</div>
+                <div className="absolute top-[42%] left-[70%] text-[10px] font-bold text-[#f89b34] uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity">Delhi</div>
+                <div className="absolute top-[25%] left-[45%] text-[10px] font-bold text-white/60 uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity">London</div>
+                <div className="absolute top-[30%] left-[15%] text-[10px] font-bold text-white/60 uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity">New York</div>
+              </div>
             </div>
           </div>
         </section>
@@ -771,7 +778,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="max-w-7xl mx-auto px-6 pt-12 border-t border-white/5 flex flex-col md:row justify-between gap-6">
           <p className="text-[11px] text-white/30 uppercase tracking-[3px] font-bold">
             © 2014–2026 | All Rights Reserved by Shyama Overseas
           </p>
