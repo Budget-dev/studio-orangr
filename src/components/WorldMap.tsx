@@ -19,14 +19,14 @@ export function WorldMap({
 }: MapProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   
-  // Memoize map generation to prevent recalculating on every render
+  // Memoize map generation for strictly light mode (white background)
   const svgMap = useMemo(() => {
     const map = new DottedMap({ height: 100, grid: "diagonal" });
     return map.getSVG({
       radius: 0.22,
-      color: "#FFFFFF40",
+      color: "#00000015", // Subtle dark dots for white background
       shape: "circle",
-      backgroundColor: "transparent",
+      backgroundColor: "white",
     });
   }, []);
 
@@ -46,10 +46,10 @@ export function WorldMap({
   };
 
   return (
-    <div className="w-full aspect-[2/1] relative font-sans overflow-hidden">
+    <div className="w-full aspect-[2/1] bg-white rounded-2xl relative font-sans shadow-2xl overflow-hidden border border-black/5">
       <Image
         src={`data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`}
-        className="h-full w-full opacity-20 pointer-events-none select-none"
+        className="h-full w-full opacity-60 pointer-events-none select-none"
         alt="world map"
         height="400"
         width="800"
@@ -70,7 +70,7 @@ export function WorldMap({
                 d={createCurvedPath(startPoint, endPoint)}
                 fill="none"
                 stroke="url(#path-gradient)"
-                strokeWidth="1.5"
+                strokeWidth="2"
                 initial={{
                   pathLength: 0,
                 }}
@@ -78,8 +78,8 @@ export function WorldMap({
                   pathLength: 1,
                 }}
                 transition={{
-                  duration: 1.5,
-                  delay: 0.2 * i,
+                  duration: 1.2,
+                  delay: 0.1 * i,
                   ease: "easeInOut",
                 }}
               ></motion.path>
@@ -97,7 +97,7 @@ export function WorldMap({
 
         {dots.map((dot, i) => (
           <g key={`points-group-${i}`}>
-            {/* Start Point (India) */}
+            {/* Start Point */}
             <g key={`start-${i}`}>
               <circle
                 cx={projectPoint(dot.start.lat, dot.start.lng).x}
@@ -130,7 +130,7 @@ export function WorldMap({
                 />
               </circle>
             </g>
-            {/* End Point (Global) */}
+            {/* End Point */}
             <g key={`end-${i}`}>
               <circle
                 cx={projectPoint(dot.end.lat, dot.end.lng).x}

@@ -118,15 +118,14 @@ const SECTOR_TAGS = [
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);
-  // Adjusted margin so it triggers sooner, making the site feel faster
-  const isInView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
+  const isInView = useInView(ref, { once: true, margin: "0px 0px -100px 0px" });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 10 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-      transition={{ duration: 0.5, delay, ease: "easeOut" }}
+      initial={{ opacity: 0, y: 15 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+      transition={{ duration: 0.4, delay, ease: "easeOut" }}
     >
       {children}
     </motion.div>
@@ -142,7 +141,7 @@ function StatCounter({ value, suffix, label }: { value: number; suffix: string; 
     if (isInView) {
       let start = 0;
       const end = value;
-      const duration = 1500; // Faster counter
+      const duration = 1200;
       const startTime = performance.now();
 
       const animate = (currentTime: number) => {
@@ -401,11 +400,11 @@ export default function HomePage() {
                     end: { lat: 40.7128, lng: -74.0060, label: "New York" },
                   },
                   {
-                    start: { lat: 28.6139, lng: 77.2090, label: "Delhi" },
+                    start: { lat: 17.3850, lng: 78.4867, label: "Hyderabad" },
                     end: { lat: 51.5074, lng: -0.1278, label: "London" },
                   },
                   {
-                    start: { lat: 12.9716, lng: 77.5946, label: "Bangalore" },
+                    start: { lat: 17.6868, lng: 83.2185, label: "Visakhapatnam" },
                     end: { lat: 1.3521, lng: 103.8198, label: "Singapore" },
                   },
                   {
@@ -421,9 +420,8 @@ export default function HomePage() {
               
               <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-[50%] left-[68%] text-[10px] font-bold text-[#f89b34] uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity duration-300">Mumbai</div>
-                <div className="absolute top-[42%] left-[70%] text-[10px] font-bold text-[#f89b34] uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity duration-300">Delhi</div>
-                <div className="absolute top-[25%] left-[45%] text-[10px] font-bold text-white/60 uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity duration-300">London</div>
-                <div className="absolute top-[30%] left-[15%] text-[10px] font-bold text-white/60 uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity duration-300">New York</div>
+                <div className="absolute top-[52%] left-[70%] text-[10px] font-bold text-[#f89b34] uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity duration-300">Hyderabad</div>
+                <div className="absolute top-[51%] left-[72%] text-[10px] font-bold text-[#f89b34] uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity duration-300">Andhra Pradesh</div>
               </div>
             </div>
           </div>
