@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -29,24 +28,25 @@ import {
 import { cn } from "@/lib/utils";
 import { WorldMap } from "@/components/WorldMap";
 import InteractiveBentoGallery, { MediaItemType } from "@/components/InteractiveBentoGallery";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 /* ── DATA ── */
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Our Story", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Clients", href: "/portfolio" },
+  { label: "Portfolio", href: "/portfolio" },
   { label: "Sectors", href: "/sectors" },
-  { label: "Blogs", href: "/blog" },
+  { label: "Insights", href: "/blog" },
   { label: "Careers", href: "/careers" },
   { label: "Contact Us", href: "/contact" },
 ];
 
 const STATS = [
-  { label: "Years of Experience", value: 10, suffix: "+" },
-  { label: "Projects Completed", value: 500, suffix: "+" },
-  { label: "Creative Brains", value: 50, suffix: "+" },
-  { label: "Global Clients", value: 200, suffix: "+" },
+  { label: "Years of Excellence", value: 12, suffix: "+" },
+  { label: "Brands Transformed", value: 200, suffix: "+" },
+  { label: "Creative Minds", value: 45, suffix: "" },
+  { label: "Global Reach", value: 15, suffix: "+" },
 ];
 
 const SERVICES = [
@@ -92,13 +92,14 @@ const BLOGS = [
   },
 ];
 
+// Map confirmed placeholder images to the gallery structure
 const AGENCY_GALLERY: MediaItemType[] = [
   {
     id: 1,
     type: 'image',
     title: 'Visual Masterpiece',
-    desc: 'Bespoke digital experiences crafted with precision.',
-    url: '/assets/images/1.jpg',
+    desc: 'Bespoke digital experiences crafted with precision and ROI in mind.',
+    url: PlaceHolderImages.find(img => img.id === 'hero-bg')?.imageUrl || "https://picsum.photos/seed/shyama1/800/600",
     span: 'md:col-span-2 md:row-span-2'
   },
   {
@@ -106,39 +107,39 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Brand Innovation',
     desc: 'Reimagining corporate identities for the digital age.',
-    url: '/assets/images/2.jpg',
+    url: PlaceHolderImages.find(img => img.id === 'about-img')?.imageUrl || "https://picsum.photos/seed/shyama2/800/600",
     span: 'md:col-span-1 md:row-span-1'
   },
   {
     id: 3,
     type: 'image',
     title: 'Creative Strategy',
-    desc: 'Strategic thinking meets artistic excellence.',
-    url: '/assets/images/3.jpg',
+    desc: 'Strategic thinking meets artistic excellence in every pixel.',
+    url: PlaceHolderImages.find(img => img.id === 'warehouse')?.imageUrl || "https://picsum.photos/seed/shyama3/800/600",
     span: 'md:col-span-1 md:row-span-2'
   },
   {
     id: 4,
     type: 'image',
     title: 'Digital Portal',
-    desc: 'Seamless user interfaces for complex ecosystems.',
-    url: '/assets/images/4.jpg',
+    desc: 'Seamless user interfaces for complex digital ecosystems.',
+    url: "https://picsum.photos/seed/shyama4/800/600",
     span: 'md:col-span-1 md:row-span-1'
   },
   {
     id: 5,
     type: 'image',
     title: 'Next-Gen UI',
-    desc: 'Pushing the boundaries of interactive design.',
-    url: '/assets/images/5.jpg',
+    desc: 'Pushing the boundaries of interactive design and user flow.',
+    url: "https://picsum.photos/seed/shyama5/800/600",
     span: 'md:col-span-2 md:row-span-1'
   },
   {
     id: 6,
     type: 'image',
     title: 'Studio Excellence',
-    desc: 'Our iterative process of design and discovery.',
-    url: '/assets/images/6.jpg',
+    desc: 'Our iterative process of design and discovery yields results.',
+    url: "https://picsum.photos/seed/shyama6/800/600",
     span: 'md:col-span-1 md:row-span-1'
   }
 ];
@@ -153,14 +154,14 @@ const SECTOR_TAGS = [
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
+  const isInView = useInView(ref, { once: true, margin: "0px 0px -100px 0px" });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 15 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
-      transition={{ duration: 0.3, delay, ease: "easeOut" }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.4, delay, ease: "easeOut" }}
     >
       {children}
     </motion.div>
@@ -176,7 +177,7 @@ function StatCounter({ value, suffix, label }: { value: number; suffix: string; 
     if (isInView) {
       let start = 0;
       const end = value;
-      const duration = 1200;
+      const duration = 1500;
       const startTime = performance.now();
 
       const animate = (currentTime: number) => {
@@ -715,7 +716,7 @@ export default function HomePage() {
           <div>
             <h6 className="text-[#f89b34] font-bold uppercase tracking-[3px] text-xs mb-8">Important Links</h6>
             <ul className="space-y-4">
-              {["Our Story", "Services", "Our Portfolio", "Creative Campaigns", "Case Study", "Career"].map(l => (
+              {["Our Story", "Services", "Portfolio", "Case Studies", "Insights", "Career"].map(l => (
                 <li key={l}><Link href="#" className="text-white/50 hover:text-[#f89b34] transition-colors text-sm font-medium">{l}</Link></li>
               ))}
             </ul>

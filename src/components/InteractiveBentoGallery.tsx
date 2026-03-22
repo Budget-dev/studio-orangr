@@ -1,9 +1,8 @@
-
 "use client";
 
 import React, { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X } from 'lucide-react';
+import { X, ImageOff } from 'lucide-react';
 import Image from 'next/image';
 
 export interface MediaItemType {
@@ -19,6 +18,7 @@ const MediaItem = ({ item, className, onClick }: { item: MediaItemType, classNam
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isInView, setIsInView] = useState(false);
     const [isBuffering, setIsBuffering] = useState(true);
+    const [hasError, setHasError] = useState(false);
 
     useEffect(() => {
         const options = {
@@ -87,6 +87,16 @@ const MediaItem = ({ item, className, onClick }: { item: MediaItemType, classNam
         };
     }, [isInView]);
 
+    if (hasError) {
+        return (
+            <div className={`${className} flex flex-col items-center justify-center bg-muted/20 border-2 border-dashed border-border p-4 text-center`}>
+                <ImageOff className="w-8 h-8 text-muted-foreground mb-2" />
+                <span className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest">Image Not Found</span>
+                <span className="text-[8px] text-muted-foreground/60 mt-1 break-all">{item.url}</span>
+            </div>
+        );
+    }
+
     if (item.type === 'video') {
         return (
             <div className={`${className} relative overflow-hidden`}>
@@ -117,13 +127,14 @@ const MediaItem = ({ item, className, onClick }: { item: MediaItemType, classNam
     }
 
     return (
-        <div className={`${className} relative cursor-pointer`} onClick={onClick}>
+        <div className={`${className} relative cursor-pointer group-hover:scale-105 transition-transform duration-700`} onClick={onClick}>
             <Image
                 src={item.url}
                 alt={item.title}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                onError={() => setHasError(true)}
             />
         </div>
     );
@@ -155,25 +166,25 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                 }}
                 className="fixed inset-0 w-full z-[1001] flex items-center justify-center p-4"
             >
-                <div className="absolute inset-0 bg-black/60 backdrop-blur-xl" onClick={onClose} />
+                <div className="absolute inset-0 bg-black/80 backdrop-blur-xl" onClick={onClose} />
                 
-                <div className="relative w-full max-w-5xl aspect-video bg-gray-900 rounded-2xl overflow-hidden shadow-2xl flex flex-col">
+                <div className="relative w-full max-w-5xl aspect-video bg-gray-950 rounded-2xl overflow-hidden shadow-2xl flex flex-col">
                     <div className="flex-1 relative">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={selectedItem.id}
-                                className="w-full h-full flex items-center justify-center"
+                                className="w-full h-full flex items-center justify-center bg-black/40"
                                 initial={{ y: 20, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
                                 exit={{ y: 20, opacity: 0 }}
                                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
                             >
-                                <MediaItem item={selectedItem} className="w-full h-full object-contain" onClick={onClose} />
-                                <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 to-transparent">
-                                    <h3 className="text-white text-2xl font-bold">
+                                <MediaItem item={selectedItem} className="w-full h-full" onClick={onClose} />
+                                <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black via-black/40 to-transparent">
+                                    <h3 className="text-white text-2xl font-bold font-sora">
                                         {selectedItem.title}
                                     </h3>
-                                    <p className="text-white/80 text-base mt-2">
+                                    <p className="text-white/60 text-base mt-2 font-inter italic">
                                         {selectedItem.desc}
                                     </p>
                                 </div>
@@ -183,7 +194,7 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                 </div>
 
                 <motion.button
-                    className="absolute top-8 right-8 p-3 rounded-full bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm z-[1002]"
+                    className="absolute top-8 right-8 p-3 rounded-full bg-white/10 text-white hover:bg-primary hover:text-black backdrop-blur-sm z-[1002] transition-colors"
                     onClick={onClose}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -207,7 +218,7 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                 className="fixed z-[1003] left-1/2 bottom-8 -translate-x-1/2 touch-none"
             >
                 <motion.div
-                    className="relative rounded-2xl bg-[#f89b34]/20 backdrop-blur-2xl border border-[#f89b34]/30 shadow-2xl"
+                    className="relative rounded-2xl bg-[#f89b34]/10 backdrop-blur-3xl border border-[#f89b34]/30 shadow-2xl"
                 >
                     <div className="flex items-center -space-x-3 px-4 py-3">
                         {mediaItems.map((item, index) => (
@@ -283,7 +294,7 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
                     transition={{ duration: 0.5 }}
                 >
                     {title.split(' ').map((word, i) => (
-                      <span key={i} className={word === 'Showcase' || word === 'Creative' || word === 'Work' ? "text-[#f89b34] font-bold italic" : ""}>
+                      <span key={i} className={word === 'Showcase' || word === 'Creative' || word === 'Work' || word === 'Gallery' ? "text-[#f89b34] font-bold italic" : ""}>
                         {word}{' '}
                       </span>
                     ))}
@@ -298,7 +309,7 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
                 </motion.p>
             </div>
             
-            <div className="relative">
+            <div className="relative min-h-[400px]">
               <AnimatePresence mode="wait">
                   {selectedItem ? (
                       <GalleryModal
@@ -310,7 +321,7 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
                       />
                   ) : (
                       <motion.div
-                          className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]"
+                          className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[250px]"
                           initial="hidden"
                           animate="visible"
                           exit="hidden"
@@ -326,10 +337,10 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
                               <motion.div
                                   key={item.id}
                                   layoutId={`media-${item.id}`}
-                                  className={`relative overflow-hidden rounded-2xl cursor-grab active:cursor-grabbing ${item.span}`}
+                                  className={`relative overflow-hidden rounded-2xl group cursor-grab active:cursor-grabbing border border-border/10 shadow-sm ${item.span}`}
                                   onClick={() => !isDragging && setSelectedItem(item)}
                                   variants={{
-                                      hidden: { y: 50, scale: 0.9, opacity: 0 },
+                                      hidden: { y: 30, scale: 0.95, opacity: 0 },
                                       visible: {
                                           y: 0,
                                           scale: 1,
@@ -342,7 +353,7 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
                                           }
                                       }
                                   }}
-                                  whileHover={{ scale: 1.02 }}
+                                  whileHover={{ y: -5, shadow: "0 20px 25px -5px rgb(0 0 0 / 0.1)" }}
                                   drag
                                   dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
                                   dragElastic={1}
@@ -368,16 +379,13 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
                                       onClick={() => !isDragging && setSelectedItem(item)}
                                   />
                                   <motion.div
-                                      className="absolute inset-0 flex flex-col justify-end p-6"
-                                      initial={{ opacity: 0 }}
-                                      whileHover={{ opacity: 1 }}
-                                      transition={{ duration: 0.2 }}
+                                      className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                                   >
                                       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                                      <h3 className="relative text-white text-lg font-bold">
+                                      <h3 className="relative text-white text-lg font-bold font-sora">
                                           {item.title}
                                       </h3>
-                                      <p className="relative text-white/70 text-sm mt-1 line-clamp-2">
+                                      <p className="relative text-white/70 text-sm mt-1 line-clamp-2 font-inter">
                                           {item.desc}
                                       </p>
                                   </motion.div>
