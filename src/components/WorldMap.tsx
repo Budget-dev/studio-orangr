@@ -21,11 +21,12 @@ export function WorldMap({
   const svgRef = useRef<SVGSVGElement>(null);
   
   // Memoize map generation for strictly light mode (white background)
+  // Increased radius and darkened color for better visibility
   const svgMap = useMemo(() => {
     const map = new DottedMap({ height: 100, grid: "diagonal" });
     return map.getSVG({
-      radius: 0.22,
-      color: "#00000015", // Subtle dark dots for visibility on white
+      radius: 0.28,
+      color: "#00000025", 
       shape: "circle",
       backgroundColor: "white",
     });
@@ -46,11 +47,21 @@ export function WorldMap({
     return `M ${start.x} ${start.y} Q ${midX} ${midY} ${end.x} ${end.y}`;
   };
 
+  // Helper to get manual offsets for labels to prevent overlapping
+  const getLabelOffset = (label: string) => {
+    switch (label) {
+      case "Mumbai": return { dx: -10, dy: 15 };
+      case "Hyderabad": return { dx: 15, dy: 5 };
+      case "Visakhapatnam": return { dx: 10, dy: -10 };
+      default: return { dx: 8, dy: 4 };
+    }
+  };
+
   return (
     <div className="w-full aspect-[2/1] bg-white rounded-2xl relative font-sans shadow-2xl overflow-hidden border border-black/5">
       <Image
         src={`data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`}
-        className="h-full w-full opacity-60 pointer-events-none select-none"
+        className="h-full w-full opacity-80 pointer-events-none select-none"
         alt="world map"
         height="400"
         width="800"
@@ -71,7 +82,7 @@ export function WorldMap({
                 d={createCurvedPath(startPoint, endPoint)}
                 fill="none"
                 stroke="url(#path-gradient)"
-                strokeWidth="2"
+                strokeWidth="1.5"
                 initial={{
                   pathLength: 0,
                 }}
@@ -79,8 +90,8 @@ export function WorldMap({
                   pathLength: 1,
                 }}
                 transition={{
-                  duration: 1.2,
-                  delay: 0.1 * i,
+                  duration: 1.5,
+                  delay: 0.2 * i,
                   ease: "easeInOut",
                 }}
               ></motion.path>
@@ -91,14 +102,15 @@ export function WorldMap({
         <defs>
           <linearGradient id="path-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor={lineColor} stopOpacity="0" />
-            <stop offset="50%" stopColor={lineColor} stopOpacity="1" />
+            <stop offset="50%" stopColor={lineColor} stopOpacity="0.8" />
             <stop offset="100%" stopColor={lineColor} stopOpacity="0" />
           </linearGradient>
         </defs>
 
+        {/* Global Connection Points */}
         {dots.map((dot, i) => (
           <g key={`points-group-${i}`}>
-            {/* Start Point */}
+            {/* Start Points (India) */}
             <g key={`start-${i}`}>
               <circle
                 cx={projectPoint(dot.start.lat, dot.start.lng).x}
@@ -116,73 +128,50 @@ export function WorldMap({
                 <animate
                   attributeName="r"
                   from="3"
-                  to="12"
-                  dur="2s"
-                  begin={`${i * 0.2}s`}
+                  to="15"
+                  dur="2.5s"
+                  begin={`${i * 0.3}s`}
                   repeatCount="indefinite"
                 />
                 <animate
                   attributeName="opacity"
                   from="0.5"
                   to="0"
-                  dur="2s"
-                  begin={`${i * 0.2}s`}
+                  dur="2.5s"
+                  begin={`${i * 0.3}s`}
                   repeatCount="indefinite"
                 />
               </circle>
             </g>
-            {/* End Point */}
+            {/* End Points (Global) */}
             <g key={`end-${i}`}>
               <circle
                 cx={projectPoint(dot.end.lat, dot.end.lng).x}
                 cy={projectPoint(dot.end.lat, dot.end.lng).y}
-                r="3"
+                r="2.5"
                 fill={lineColor}
+                opacity="0.6"
               />
-              <circle
-                cx={projectPoint(dot.end.lat, dot.end.lng).x}
-                cy={projectPoint(dot.end.lat, dot.end.lng).y}
-                r="3"
-                fill={lineColor}
-                opacity="0.5"
-              >
-                <animate
-                  attributeName="r"
-                  from="3"
-                  to="12"
-                  dur="2s"
-                  begin={`${i * 0.2 + 1}s`}
-                  repeatCount="indefinite"
-                />
-                <animate
-                  attributeName="opacity"
-                  from="0.5"
-                  to="0"
-                  dur="2s"
-                  begin={`${i * 0.2 + 1}s`}
-                  repeatCount="indefinite"
-                />
-              </circle>
             </g>
           </g>
         ))}
 
-        {/* Labels for Origin Cities (India) */}
-        {/* We filter only unique origin labels to avoid overlapping text */}
+        {/* Unique Labels for Indian Cities with Anti-Overlap Offsets */}
         {Array.from(new Set(dots.map(d => d.start.label))).map((label, idx) => {
           const dot = dots.find(d => d.start.label === label);
-          if (!dot) return null;
+          if (!dot || !label) return null;
           const point = projectPoint(dot.start.lat, dot.start.lng);
+          const offset = getLabelOffset(label);
           return (
             <text
               key={`city-label-${idx}`}
-              x={point.x + 8}
-              y={point.y + 4}
+              x={point.x + offset.dx}
+              y={point.y + offset.dy}
               fill={lineColor}
-              fontSize="9"
+              fontSize="10"
               fontWeight="900"
               className="uppercase select-none pointer-events-none"
-              style={{ letterSpacing: "-0.5px" }}
+              style={{ filter: "drop-shadow(0 1px 2px rgba(255,255,255,0.8))" }}
             >
               {label}
             </text>
