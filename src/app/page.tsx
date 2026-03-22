@@ -381,18 +381,18 @@ export default function HomePage() {
         </section>
 
         {/* WORLD MAP SECTION */}
-        <section className="bg-[#060F1E] py-24 relative overflow-hidden">
+        <section className="bg-white py-24 relative overflow-hidden border-y border-border/10">
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <FadeIn>
               <div className="text-center mb-20">
                 <div className="text-[#f89b34] font-bold uppercase tracking-[4px] text-xs mb-4">Global Reach & Insights</div>
-                <h2 className="text-4xl md:text-5xl font-sora font-light text-white leading-tight">
+                <h2 className="text-4xl md:text-5xl font-sora font-light text-[#0a0a0a] leading-tight">
                   Driving Results for <span className="font-bold">200+ Brands</span> <span className="text-[#f89b34]">Across The Globe</span>
                 </h2>
               </div>
             </FadeIn>
             
-            <div className="max-w-5xl mx-auto relative group">
+            <div className="max-w-7xl mx-auto relative group">
               <WorldMap
                 lineColor="#f89b34"
                 dots={[
@@ -409,11 +409,11 @@ export default function HomePage() {
                     end: { lat: 1.3521, lng: 103.8198, label: "Singapore" },
                   },
                   {
-                    start: { lat: 23.0225, lng: 72.5714, label: "Ahmedabad" },
+                    start: { lat: 19.0760, lng: 72.8777, label: "Mumbai" },
                     end: { lat: 25.2048, lng: 55.2708, label: "Dubai" },
                   },
                   {
-                    start: { lat: 13.0827, lng: 80.2707, label: "Chennai" },
+                    start: { lat: 17.3850, lng: 78.4867, label: "Hyderabad" },
                     end: { lat: -33.8688, lng: 151.2093, label: "Sydney" },
                   },
                 ]}
