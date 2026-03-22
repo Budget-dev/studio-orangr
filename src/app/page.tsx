@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { 
-  Code2, 
   Palette, 
   Megaphone, 
   Search, 
@@ -24,17 +23,12 @@ import {
   ArrowRight,
   Menu,
   X,
-  ChevronDown,
   MonitorSmartphone,
-  CheckCircle2,
-  Lightbulb,
-  Globe,
-  Cpu,
-  Trophy,
-  Users
+  Globe
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { WorldMap } from "@/components/WorldMap";
+import InteractiveBentoGallery, { MediaItemType } from "@/components/InteractiveBentoGallery";
 
 /* ── DATA ── */
 const NAV_LINKS = [
@@ -98,15 +92,55 @@ const BLOGS = [
   },
 ];
 
-const PORTFOLIO_IMAGES = [
-  { url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f", caption: "Fintech Dashboard" },
-  { url: "https://images.unsplash.com/photo-1522542550221-31fd19255a7a", caption: "Corporate Rebrand" },
-  { url: "https://images.unsplash.com/photo-1551288049-bbbda536339a", caption: "E-commerce App" },
-  { url: "https://images.unsplash.com/photo-1558655146-d09347e92766", caption: "SaaS Platform" },
-  { url: "https://images.unsplash.com/photo-1542744094-24638eff58bb", caption: "EdTech Interface" },
-  { url: "https://images.unsplash.com/photo-1519389950473-47ba0277781c", caption: "Product Strategy" },
-  { url: "https://images.unsplash.com/photo-1551434678-e076c223a692", caption: "Agile Development" },
-  { url: "https://images.unsplash.com/photo-1552664730-d307ca884978", caption: "Client Workshop" },
+const AGENCY_GALLERY: MediaItemType[] = [
+  {
+    id: 1,
+    type: 'image',
+    title: 'Modern E-commerce',
+    desc: 'High-conversion retail experience for global brands.',
+    url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f',
+    span: 'md:col-span-2 md:row-span-2'
+  },
+  {
+    id: 2,
+    type: 'image',
+    title: 'SaaS Dashboard',
+    desc: 'Complex data visualized through intuitive UI design.',
+    url: 'https://images.unsplash.com/photo-1551288049-bbbda536339a',
+    span: 'md:col-span-1 md:row-span-1'
+  },
+  {
+    id: 3,
+    type: 'image',
+    title: 'Brand Identity',
+    desc: 'Minimalist corporate rebranding for a tech startup.',
+    url: 'https://images.unsplash.com/photo-1522542550221-31fd19255a7a',
+    span: 'md:col-span-1 md:row-span-2'
+  },
+  {
+    id: 4,
+    type: 'image',
+    title: 'Mobile App',
+    desc: 'Next-gen fintech interface built with React Native.',
+    url: 'https://images.unsplash.com/photo-1558655146-d09347e92766',
+    span: 'md:col-span-1 md:row-span-1'
+  },
+  {
+    id: 5,
+    type: 'image',
+    title: 'Creative Workshop',
+    desc: 'Our iterative design process and strategy sessions.',
+    url: 'https://images.unsplash.com/photo-1552664730-d307ca884978',
+    span: 'md:col-span-2 md:row-span-1'
+  },
+  {
+    id: 6,
+    type: 'image',
+    title: 'Corporate Portal',
+    desc: 'Secure enterprise internal resource management.',
+    url: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c',
+    span: 'md:col-span-1 md:row-span-1'
+  }
 ];
 
 const SECTOR_TAGS = [
@@ -422,35 +456,13 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* CLIENT PORTFOLIO GRID */}
+        {/* INTERACTIVE BENTO GALLERY */}
         <section className="py-24 bg-white">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {PORTFOLIO_IMAGES.map((item, i) => (
-                <motion.div 
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  whileHover={{ scale: 1.02 }}
-                  viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-                  className="relative group aspect-square overflow-hidden rounded-xl bg-muted shadow-sm"
-                >
-                  <Image 
-                    src={item.url} 
-                    alt={item.caption} 
-                    fill 
-                    className="object-cover transition-transform duration-500 group-hover:scale-110" 
-                  />
-                  <div className="absolute inset-0 bg-[#0a0a0a]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6 text-center">
-                    <span className="text-white font-sora font-bold text-sm tracking-widest uppercase">
-                      {item.caption}
-                    </span>
-                    <div className="w-8 h-[2px] bg-[#f89b34] mt-4 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+          <InteractiveBentoGallery 
+            title="Our Creative Showcase" 
+            description="A curated collection of our finest digital works and innovative solutions."
+            mediaItems={AGENCY_GALLERY}
+          />
         </section>
 
         {/* LOGO MARQUEE */}
@@ -520,43 +532,6 @@ export default function HomePage() {
                 ))}
               </div>
             </FadeIn>
-          </div>
-        </section>
-
-        {/* BENTO GRID */}
-        <section className="py-24 bg-white">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-2 gap-4 h-[600px]">
-              <motion.div 
-                whileHover={{ outline: "2px solid #f89b34" }}
-                className="md:col-span-2 relative rounded-2xl overflow-hidden shadow-xl"
-              >
-                <Image src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="Large" fill className="object-cover" />
-              </motion.div>
-              <motion.div 
-                whileHover={{ outline: "2px solid #f89b34" }}
-                className="md:row-span-2 relative rounded-2xl overflow-hidden shadow-xl"
-              >
-                <Image src="https://images.unsplash.com/photo-1551434678-e076c223a692" alt="Tall" fill className="object-cover" />
-              </motion.div>
-              <motion.div 
-                whileHover={{ outline: "2px solid #f89b34" }}
-                className="relative rounded-2xl overflow-hidden shadow-xl"
-              >
-                <Image src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="Med" fill className="object-cover" />
-              </motion.div>
-              <motion.div 
-                whileHover={{ outline: "2px solid #f89b34" }}
-                className="relative rounded-2xl overflow-hidden shadow-xl"
-              >
-                <Image src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Med" fill className="object-cover" />
-              </motion.div>
-            </div>
-            <div className="text-center mt-12">
-              <Link href="/portfolio" className="bg-[#f89b34] text-[#0a0a0a] px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs transition-all shadow-lg hover:shadow-[#f89b34]/30">
-                View Project Showcase
-              </Link>
-            </div>
           </div>
         </section>
 
