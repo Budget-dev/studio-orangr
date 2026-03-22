@@ -4,6 +4,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react';
+import Image from 'next/image';
 
 export interface MediaItemType {
     id: number;
@@ -116,14 +117,15 @@ const MediaItem = ({ item, className, onClick }: { item: MediaItemType, classNam
     }
 
     return (
-        <img
-            src={item.url}
-            alt={item.title}
-            className={`${className} object-cover cursor-pointer`}
-            onClick={onClick}
-            loading="lazy"
-            decoding="async"
-        />
+        <div className={`${className} relative cursor-pointer`} onClick={onClick}>
+            <Image
+                src={item.url}
+                alt={item.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+        </div>
     );
 };
 
@@ -153,10 +155,10 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                 }}
                 className="fixed inset-0 w-full z-[1001] flex items-center justify-center p-4"
             >
-                <div className="absolute inset-0 bg-black/40 backdrop-blur-lg" onClick={onClose} />
+                <div className="absolute inset-0 bg-black/60 backdrop-blur-xl" onClick={onClose} />
                 
-                <div className="relative w-full max-w-5xl aspect-video bg-white/5 rounded-2xl overflow-hidden shadow-2xl flex flex-col">
-                    <div className="flex-1 relative bg-gray-900/40">
+                <div className="relative w-full max-w-5xl aspect-video bg-gray-900 rounded-2xl overflow-hidden shadow-2xl flex flex-col">
+                    <div className="flex-1 relative">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={selectedItem.id}
@@ -167,7 +169,7 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
                             >
                                 <MediaItem item={selectedItem} className="w-full h-full object-contain" onClick={onClose} />
-                                <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
+                                <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 to-transparent">
                                     <h3 className="text-white text-2xl font-bold">
                                         {selectedItem.title}
                                     </h3>
