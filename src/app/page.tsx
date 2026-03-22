@@ -118,14 +118,15 @@ const SECTOR_TAGS = [
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  // Adjusted margin so it triggers sooner, making the site feel faster
+  const isInView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.8, delay }}
+      initial={{ opacity: 0, y: 10 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+      transition={{ duration: 0.5, delay, ease: "easeOut" }}
     >
       {children}
     </motion.div>
@@ -135,13 +136,13 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 function StatCounter({ value, suffix, label }: { value: number; suffix: string; label: string }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true, margin: "0px 0px -20px 0px" });
 
   useEffect(() => {
     if (isInView) {
       let start = 0;
       const end = value;
-      const duration = 2000;
+      const duration = 1500; // Faster counter
       const startTime = performance.now();
 
       const animate = (currentTime: number) => {
@@ -193,7 +194,7 @@ export default function HomePage() {
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -202,7 +203,7 @@ export default function HomePage() {
       
       {/* NAVBAR */}
       <nav className={cn(
-        "fixed top-0 left-0 right-0 z-[1000] transition-all duration-500 px-6 lg:px-12 flex items-center justify-between h-[85px]",
+        "fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 px-6 lg:px-12 flex items-center justify-between h-[85px]",
         isScrolled ? "bg-[#0a0a0a] shadow-xl h-16 translate-y-0" : "bg-transparent translate-y-0"
       )}>
         <Link href="/" className="flex items-center gap-3 group">
@@ -283,9 +284,9 @@ export default function HomePage() {
           
           <div className="relative z-20 max-w-7xl mx-auto px-6 w-full pt-20">
             <motion.div 
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               className="max-w-4xl"
             >
               <div className="text-white font-medium uppercase tracking-[6px] text-sm mb-6 flex items-center gap-4">
@@ -357,12 +358,12 @@ export default function HomePage() {
                   key={svc.title}
                   whileHover={{ y: -5 }}
                   className={cn(
-                    "p-10 transition-all duration-500 group bg-white hover:z-10",
+                    "p-10 transition-all duration-300 group bg-white hover:z-10",
                     svc.isCTA ? "bg-muted/30" : ""
                   )}
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-muted flex items-center justify-center mb-8 group-hover:bg-[#f89b34] transition-colors duration-500">
-                    <svc.icon className="w-7 h-7 text-[#f89b34] group-hover:text-[#0a0a0a] transition-colors duration-500" />
+                  <div className="w-14 h-14 rounded-2xl bg-muted flex items-center justify-center mb-8 group-hover:bg-[#f89b34] transition-colors duration-300">
+                    <svc.icon className="w-7 h-7 text-[#f89b34] group-hover:text-[#0a0a0a] transition-colors duration-300" />
                   </div>
                   <h3 className="text-xl font-sora font-bold mb-4 text-[#0a0a0a] group-hover:text-[#f89b34] transition-colors">
                     {svc.title}
@@ -396,34 +397,33 @@ export default function HomePage() {
                 lineColor="#f89b34"
                 dots={[
                   {
-                    start: { lat: 19.0760, lng: 72.8777, label: "Mumbai" }, // Mumbai
-                    end: { lat: 40.7128, lng: -74.0060, label: "New York" }, // New York
+                    start: { lat: 19.0760, lng: 72.8777, label: "Mumbai" },
+                    end: { lat: 40.7128, lng: -74.0060, label: "New York" },
                   },
                   {
-                    start: { lat: 28.6139, lng: 77.2090, label: "Delhi" }, // Delhi
-                    end: { lat: 51.5074, lng: -0.1278, label: "London" }, // London
+                    start: { lat: 28.6139, lng: 77.2090, label: "Delhi" },
+                    end: { lat: 51.5074, lng: -0.1278, label: "London" },
                   },
                   {
-                    start: { lat: 12.9716, lng: 77.5946, label: "Bangalore" }, // Bangalore
-                    end: { lat: 1.3521, lng: 103.8198, label: "Singapore" }, // Singapore
+                    start: { lat: 12.9716, lng: 77.5946, label: "Bangalore" },
+                    end: { lat: 1.3521, lng: 103.8198, label: "Singapore" },
                   },
                   {
-                    start: { lat: 23.0225, lng: 72.5714, label: "Ahmedabad" }, // Ahmedabad
-                    end: { lat: 25.2048, lng: 55.2708, label: "Dubai" }, // Dubai
+                    start: { lat: 23.0225, lng: 72.5714, label: "Ahmedabad" },
+                    end: { lat: 25.2048, lng: 55.2708, label: "Dubai" },
                   },
                   {
-                    start: { lat: 13.0827, lng: 80.2707, label: "Chennai" }, // Chennai
-                    end: { lat: -33.8688, lng: 151.2093, label: "Sydney" }, // Sydney
+                    start: { lat: 13.0827, lng: 80.2707, label: "Chennai" },
+                    end: { lat: -33.8688, lng: 151.2093, label: "Sydney" },
                   },
                 ]}
               />
               
-              {/* City Name Overlay Labels */}
               <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-[50%] left-[68%] text-[10px] font-bold text-[#f89b34] uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity">Mumbai</div>
-                <div className="absolute top-[42%] left-[70%] text-[10px] font-bold text-[#f89b34] uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity">Delhi</div>
-                <div className="absolute top-[25%] left-[45%] text-[10px] font-bold text-white/60 uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity">London</div>
-                <div className="absolute top-[30%] left-[15%] text-[10px] font-bold text-white/60 uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity">New York</div>
+                <div className="absolute top-[50%] left-[68%] text-[10px] font-bold text-[#f89b34] uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity duration-300">Mumbai</div>
+                <div className="absolute top-[42%] left-[70%] text-[10px] font-bold text-[#f89b34] uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity duration-300">Delhi</div>
+                <div className="absolute top-[25%] left-[45%] text-[10px] font-bold text-white/60 uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity duration-300">London</div>
+                <div className="absolute top-[30%] left-[15%] text-[10px] font-bold text-white/60 uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity duration-300">New York</div>
               </div>
             </div>
           </div>
@@ -436,23 +436,23 @@ export default function HomePage() {
               {PORTFOLIO_IMAGES.map((item, i) => (
                 <motion.div 
                   key={i}
-                  initial={{ opacity: 0, scale: 0.95 }}
+                  initial={{ opacity: 0, scale: 0.98 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   whileHover={{ scale: 1.02 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, margin: "0px 0px -50px 0px" }}
                   className="relative group aspect-square overflow-hidden rounded-xl bg-muted shadow-sm"
                 >
                   <Image 
                     src={item.url} 
                     alt={item.caption} 
                     fill 
-                    className="object-cover transition-transform duration-700 group-hover:scale-110" 
+                    className="object-cover transition-transform duration-500 group-hover:scale-110" 
                   />
-                  <div className="absolute inset-0 bg-[#0a0a0a]/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-6 text-center">
+                  <div className="absolute inset-0 bg-[#0a0a0a]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6 text-center">
                     <span className="text-white font-sora font-bold text-sm tracking-widest uppercase">
                       {item.caption}
                     </span>
-                    <div className="w-8 h-[2px] bg-[#f89b34] mt-4 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                    <div className="w-8 h-[2px] bg-[#f89b34] mt-4 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
                   </div>
                 </motion.div>
               ))}
@@ -477,16 +477,18 @@ export default function HomePage() {
         <section className="py-24 bg-[#FAFAF8] relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24 items-center">
             <div className="studio-text relative">
-              <div className="inline-flex items-center gap-3 text-[#f89b34] font-bold uppercase tracking-[4px] text-xs mb-6 border-l-4 border-[#f89b34] pl-4">
-                Operations
-              </div>
-              <h2 className="text-4xl md:text-5xl font-sora font-light text-[#0a0a0a] mb-8 leading-tight">
-                A company with an<br />
-                <span className="text-[#f89b34] font-bold">In-house Creative Studio</span>
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed font-inter italic border-l-2 border-border pl-8">
-                As a full-service digital house, we manage design, development, content production, and ad-tech implementation entirely in-house — giving you a single point of accountability.
-              </p>
+              <FadeIn>
+                <div className="inline-flex items-center gap-3 text-[#f89b34] font-bold uppercase tracking-[4px] text-xs mb-6 border-l-4 border-[#f89b34] pl-4">
+                  Operations
+                </div>
+                <h2 className="text-4xl md:text-5xl font-sora font-light text-[#0a0a0a] mb-8 leading-tight">
+                  A company with an<br />
+                  <span className="text-[#f89b34] font-bold">In-house Creative Studio</span>
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed font-inter italic border-l-2 border-border pl-8">
+                  As a full-service digital house, we manage design, development, content production, and ad-tech implementation entirely in-house — giving you a single point of accountability.
+                </p>
+              </FadeIn>
             </div>
             
             <div className="grid grid-cols-3 gap-4">
@@ -497,8 +499,10 @@ export default function HomePage() {
               ].map((img, i) => (
                 <motion.div 
                   key={i} 
-                  initial={{ y: i * 20, opacity: 0 }}
+                  initial={{ y: 15, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ delay: i * 0.1 }}
+                  viewport={{ once: true }}
                   className="aspect-[2/3] relative rounded-xl overflow-hidden shadow-2xl"
                 >
                   <Image src={img} alt="Agency Operations" fill className="object-cover" />
@@ -508,19 +512,21 @@ export default function HomePage() {
           </div>
 
           <div className="max-w-7xl mx-auto px-6 mt-32 text-center">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-sora font-light text-[#0a0a0a]">
-                Strategic <span className="font-bold">Platforms</span>, Measurable Results
-              </h2>
-              <p className="text-[#f89b34] font-bold uppercase tracking-widest text-[10px] mt-2">Our Tech Arsenal</p>
-            </div>
-            <div className="flex flex-wrap justify-center items-center gap-16 grayscale opacity-40 hover:opacity-100 hover:grayscale-0 transition-all duration-700">
-              {PLATFORMS.map(p => (
-                <div key={p.name} className="text-2xl font-black text-[#0a0a0a] font-sora hover:scale-110 transition-transform cursor-pointer">
-                  {p.logo}
-                </div>
-              ))}
-            </div>
+            <FadeIn>
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-sora font-light text-[#0a0a0a]">
+                  Strategic <span className="font-bold">Platforms</span>, Measurable Results
+                </h2>
+                <p className="text-[#f89b34] font-bold uppercase tracking-widest text-[10px] mt-2">Our Tech Arsenal</p>
+              </div>
+              <div className="flex flex-wrap justify-center items-center gap-16 grayscale opacity-40 hover:opacity-100 hover:grayscale-0 transition-all duration-500">
+                {PLATFORMS.map(p => (
+                  <div key={p.name} className="text-2xl font-black text-[#0a0a0a] font-sora hover:scale-110 transition-transform cursor-pointer">
+                    {p.logo}
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
           </div>
         </section>
 
@@ -577,10 +583,10 @@ export default function HomePage() {
                 <motion.div 
                   key={i}
                   whileHover={{ y: -10 }}
-                  className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500"
+                  className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300"
                 >
                   <div className="aspect-video relative overflow-hidden">
-                    <Image src={blog.image} alt={blog.title} fill className="object-cover transition-transform duration-700 hover:scale-110" />
+                    <Image src={blog.image} alt={blog.title} fill className="object-cover transition-transform duration-500 hover:scale-110" />
                     <div className="absolute top-4 left-4 bg-[#f89b34] text-[#0a0a0a] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
                       {blog.tag}
                     </div>
@@ -612,9 +618,10 @@ export default function HomePage() {
           <div className="absolute inset-0 opacity-5 [background-image:radial-gradient(#f89b34_1px,transparent_1px)] [background-size:32px_32px]" />
           <div className="max-w-4xl mx-auto px-6 relative z-10">
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
             >
               <h2 className="text-5xl md:text-7xl font-black text-white font-sora mb-4 tracking-tighter">
                 Shyama Overseas
@@ -636,7 +643,8 @@ export default function HomePage() {
                   key={i}
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
-                  transition={{ delay: i * 0.2 }}
+                  transition={{ delay: i * 0.15 }}
+                  viewport={{ once: true }}
                   className="absolute text-white/40 text-xs font-medium tracking-wider whitespace-nowrap hidden md:block"
                   style={{ top: tag.top, left: tag.left }}
                 >
@@ -651,12 +659,14 @@ export default function HomePage() {
         <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-6">
             <div className="mb-16">
-              <h2 className="text-4xl md:text-5xl font-sora font-light text-[#0a0a0a]">
-                <span className="text-[#f89b34] font-bold">Get in touch</span> with us for
-              </h2>
-              <p className="text-2xl text-[#0a0a0a] font-inter font-light mt-2">
-                our Digital & Creative Services
-              </p>
+              <FadeIn>
+                <h2 className="text-4xl md:text-5xl font-sora font-light text-[#0a0a0a]">
+                  <span className="text-[#f89b34] font-bold">Get in touch</span> with us for
+                </h2>
+                <p className="text-2xl text-[#0a0a0a] font-inter font-light mt-2">
+                  our Digital & Creative Services
+                </p>
+              </FadeIn>
             </div>
 
             <div className="grid lg:grid-cols-[1fr_400px] gap-16 items-start">

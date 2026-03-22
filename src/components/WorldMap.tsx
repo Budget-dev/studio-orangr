@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import { motion } from "framer-motion";
 import DottedMap from "dotted-map";
 import Image from "next/image";
@@ -18,14 +18,17 @@ export function WorldMap({
   lineColor = "#f89b34",
 }: MapProps) {
   const svgRef = useRef<SVGSVGElement>(null);
-  const map = new DottedMap({ height: 100, grid: "diagonal" });
-
-  const svgMap = map.getSVG({
-    radius: 0.22,
-    color: "#FFFFFF40",
-    shape: "circle",
-    backgroundColor: "transparent",
-  });
+  
+  // Memoize map generation to prevent recalculating on every render
+  const svgMap = useMemo(() => {
+    const map = new DottedMap({ height: 100, grid: "diagonal" });
+    return map.getSVG({
+      radius: 0.22,
+      color: "#FFFFFF40",
+      shape: "circle",
+      backgroundColor: "transparent",
+    });
+  }, []);
 
   const projectPoint = (lat: number, lng: number) => {
     const x = (lng + 180) * (800 / 360);
@@ -51,6 +54,7 @@ export function WorldMap({
         height="400"
         width="800"
         draggable={false}
+        priority
       />
       <svg
         ref={svgRef}
@@ -74,8 +78,8 @@ export function WorldMap({
                   pathLength: 1,
                 }}
                 transition={{
-                  duration: 2,
-                  delay: 0.5 * i,
+                  duration: 1.5,
+                  delay: 0.2 * i,
                   ease: "easeInOut",
                 }}
               ></motion.path>
