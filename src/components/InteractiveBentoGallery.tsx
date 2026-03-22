@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef, useState } from 'react'
@@ -92,7 +93,7 @@ const MediaItem = ({ item, className, onClick }: { item: MediaItemType, classNam
             <div className={`${className} flex flex-col items-center justify-center bg-muted/20 border-2 border-dashed border-border p-4 text-center`}>
                 <ImageOff className="w-8 h-8 text-muted-foreground mb-2" />
                 <span className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest">Image Not Found</span>
-                <span className="text-[8px] text-muted-foreground/60 mt-1 break-all">{item.url}</span>
+                <span className="text-[8px] text-muted-foreground/60 mt-1 break-all">{decodeURIComponent(item.url)}</span>
             </div>
         );
     }
@@ -127,7 +128,7 @@ const MediaItem = ({ item, className, onClick }: { item: MediaItemType, classNam
     }
 
     return (
-        <div className={`${className} relative cursor-pointer group-hover:scale-105 transition-transform duration-700`} onClick={onClick}>
+        <div className={`${className} relative cursor-pointer`} onClick={onClick}>
             <Image
                 src={item.url}
                 alt={item.title}
@@ -135,6 +136,7 @@ const MediaItem = ({ item, className, onClick }: { item: MediaItemType, classNam
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 onError={() => setHasError(true)}
+                priority={item.id === 1}
             />
         </div>
     );
@@ -164,11 +166,11 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                     stiffness: 400,
                     damping: 30
                 }}
-                className="fixed inset-0 w-full z-[1001] flex items-center justify-center p-4"
+                className="fixed inset-0 w-full z-[1001] flex items-center justify-center p-4 bg-black/80 backdrop-blur-xl"
             >
-                <div className="absolute inset-0 bg-black/80 backdrop-blur-xl" onClick={onClose} />
+                <div className="absolute inset-0" onClick={onClose} />
                 
-                <div className="relative w-full max-w-5xl aspect-video bg-gray-950 rounded-2xl overflow-hidden shadow-2xl flex flex-col">
+                <div className="relative w-full max-w-5xl aspect-video bg-gray-950 rounded-2xl overflow-hidden shadow-2xl flex flex-col pointer-events-auto">
                     <div className="flex-1 relative">
                         <AnimatePresence mode="wait">
                             <motion.div
@@ -194,7 +196,7 @@ const GalleryModal = ({ selectedItem, isOpen, onClose, setSelectedItem, mediaIte
                 </div>
 
                 <motion.button
-                    className="absolute top-8 right-8 p-3 rounded-full bg-white/10 text-white hover:bg-primary hover:text-black backdrop-blur-sm z-[1002] transition-colors"
+                    className="absolute top-8 right-8 p-3 rounded-full bg-white/10 text-white hover:bg-[#f89b34] hover:text-black backdrop-blur-sm z-[1002] transition-colors"
                     onClick={onClose}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}

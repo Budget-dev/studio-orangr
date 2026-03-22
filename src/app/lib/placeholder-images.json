@@ -10,31 +10,31 @@
     {
       "id": "gallery-2",
       "description": "Upper Middle Trade Operations",
-      "imageUrl": "/assets/images/_extra____upper_middle_202603191201 - Copy.png",
+      "imageUrl": "/assets/images/_extra____upper_middle_202603191201%20-%20Copy.png",
       "imageHint": "trade operations"
     },
     {
       "id": "gallery-3",
       "description": "Subject A Trade Insights",
-      "imageUrl": "/assets/images/{__subject___A_202603191142.png",
+      "imageUrl": "/assets/images/%7B__subject___A_202603191142.png",
       "imageHint": "trade insights"
     },
     {
       "id": "gallery-4",
       "description": "Indian Trade Subject 1",
-      "imageUrl": "/assets/images/{__subject___Indian_202603191158.png",
+      "imageUrl": "/assets/images/%7B__subject___Indian_202603191158.png",
       "imageHint": "indian export"
     },
     {
       "id": "gallery-5",
       "description": "Indian Trade Subject 2",
-      "imageUrl": "/assets/images/{__subject___Indian_202603191217.png",
+      "imageUrl": "/assets/images/%7B__subject___Indian_202603191217.png",
       "imageHint": "export logistics"
     },
     {
       "id": "gallery-6",
       "description": "Indian Trade Subject 3",
-      "imageUrl": "/assets/images/{__subject___Indian_202603200952.png",
+      "imageUrl": "/assets/images/%7B__subject___Indian_202603200952.png",
       "imageHint": "global trade"
     }
   ]
