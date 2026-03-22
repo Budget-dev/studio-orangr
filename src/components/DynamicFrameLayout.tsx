@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState, useEffect, useRef } from "react"
@@ -61,7 +62,7 @@ function FrameComponent({
       style={{
         width,
         height,
-        transition: "width 0.3s ease-in-out, height 0.3s ease-in-out",
+        transition: "width 0.3s cubic-bezier(0.23, 1, 0.32, 1), height 0.3s cubic-bezier(0.23, 1, 0.32, 1)",
       }}
     >
       <div className="relative w-full h-full overflow-hidden rounded-xl bg-muted/20 shadow-xl border border-white/10">
@@ -69,7 +70,7 @@ function FrameComponent({
           className="absolute inset-0 flex items-center justify-center"
           style={{
             zIndex: 1,
-            transition: "all 0.3s ease-in-out",
+            transition: "all 0.3s ease-out",
             padding: showFrame ? `${borderThickness}px` : "0",
             width: showFrame ? `${borderSize}%` : "100%",
             height: showFrame ? `${borderSize}%` : "100%",
@@ -82,7 +83,7 @@ function FrameComponent({
             style={{
               transform: `scale(${mediaSize})`,
               transformOrigin: "center",
-              transition: "transform 0.3s ease-in-out",
+              transition: "transform 0.3s ease-out",
             }}
           >
             <video
@@ -91,6 +92,7 @@ function FrameComponent({
               loop
               muted
               playsInline
+              preload="auto"
               ref={videoRef}
             />
           </div>
@@ -177,7 +179,6 @@ export function DynamicFrameLayout({
   const getRowSizes = () => {
     if (hovered === null) return "1fr 1fr 1fr"
     const { row } = hovered
-    // We use a relative scale for the hovered row vs others
     return [0, 1, 2].map((r) => (r === row ? `${hoverSize}fr` : `3fr`)).join(" ")
   }
 
@@ -201,7 +202,7 @@ export function DynamicFrameLayout({
         gridTemplateRows: getRowSizes(),
         gridTemplateColumns: getColSizes(),
         gap: `${gapSize}px`,
-        transition: "grid-template-rows 0.5s cubic-bezier(0.2, 0, 0, 1), grid-template-columns 0.5s cubic-bezier(0.2, 0, 0, 1)",
+        transition: "grid-template-rows 0.4s cubic-bezier(0.2, 0, 0, 1), grid-template-columns 0.4s cubic-bezier(0.2, 0, 0, 1)",
       }}
     >
       {frames.map((frame) => {

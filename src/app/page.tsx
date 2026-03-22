@@ -108,7 +108,7 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Trade Operations',
     desc: 'Reimagining export identities for the global digital age.',
-    url: "/assets/images/_extra____upper_middle_20260319_1201%20-%20Copy.png",
+    url: "/assets/images/_extra____upper_middle_202603191201%20-%20Copy.png",
     span: 'md:col-span-1 md:row-span-1'
   },
   {
@@ -174,7 +174,7 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
       ref={ref}
       initial={{ opacity: 0, y: 15 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
-      transition={{ duration: 0.4, delay, ease: "easeOut" }}
+      transition={{ duration: 0.3, delay, ease: "easeOut" }}
     >
       {children}
     </motion.div>
@@ -190,7 +190,7 @@ function StatCounter({ value, suffix, label }: { value: number; suffix: string; 
     if (isInView) {
       let start = 0;
       const end = value;
-      const duration = 1500;
+      const duration = 1000;
       const startTime = performance.now();
 
       const animate = (currentTime: number) => {
@@ -334,7 +334,7 @@ export default function HomePage() {
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
               className="max-w-4xl"
             >
               <div className="text-white font-medium uppercase tracking-[6px] text-sm mb-6 flex items-center gap-4">
@@ -406,12 +406,12 @@ export default function HomePage() {
                   key={svc.title}
                   whileHover={{ y: -5 }}
                   className={cn(
-                    "p-10 transition-all duration-300 group bg-white hover:z-10",
+                    "p-10 transition-all duration-200 group bg-white hover:z-10",
                     svc.isCTA ? "bg-muted/30" : ""
                   )}
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-muted flex items-center justify-center mb-8 group-hover:bg-[#f89b34] transition-colors duration-300">
-                    <svc.icon className="w-7 h-7 text-[#f89b34] group-hover:text-[#0a0a0a] transition-colors duration-300" />
+                  <div className="w-14 h-14 rounded-2xl bg-muted flex items-center justify-center mb-8 group-hover:bg-[#f89b34] transition-colors duration-200">
+                    <svc.icon className="w-7 h-7 text-[#f89b34] group-hover:text-[#0a0a0a] transition-colors duration-200" />
                   </div>
                   <h3 className="text-xl font-sora font-bold mb-4 text-[#0a0a0a] group-hover:text-[#f89b34] transition-colors">
                     {svc.title}
@@ -494,23 +494,23 @@ export default function HomePage() {
 
         {/* OPERATIONS / STUDIO */}
         <section className="py-24 bg-[#FAFAF8] relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[40%_1fr] gap-24 items-center">
-            <div className="studio-text relative">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="mb-16 text-center max-w-3xl mx-auto">
               <FadeIn>
-                <div className="inline-flex items-center gap-3 text-[#f89b34] font-bold uppercase tracking-[4px] text-xs mb-6 border-l-4 border-[#f89b34] pl-4">
+                <div className="inline-flex items-center gap-3 text-[#f89b34] font-bold uppercase tracking-[4px] text-xs mb-6 border-b-2 border-[#f89b34] pb-2">
                   Operations
                 </div>
                 <h2 className="text-4xl md:text-5xl font-sora font-light text-[#0a0a0a] mb-8 leading-tight">
                   A company with an<br />
                   <span className="text-[#f89b34] font-bold">In-house Creative Studio</span>
                 </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed font-inter italic border-l-2 border-border pl-8">
+                <p className="text-lg text-muted-foreground leading-relaxed font-inter italic max-w-2xl mx-auto">
                   As a full-service digital house, we manage design, development, content production, and ad-tech implementation entirely in-house — giving you a single point of accountability.
                 </p>
               </FadeIn>
             </div>
             
-            <div className="h-[600px] w-full">
+            <div className="h-[700px] w-full mt-12 rounded-3xl overflow-hidden shadow-2xl">
                <DynamicFrameLayout 
                   frames={OPERATIONS_FRAMES} 
                   hoverSize={6}
@@ -592,7 +592,7 @@ export default function HomePage() {
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.4 }}
               viewport={{ once: true }}
             >
               <h2 className="text-5xl md:text-7xl font-black text-white font-sora mb-4 tracking-tighter">
@@ -615,7 +615,7 @@ export default function HomePage() {
                   key={i}
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
-                  transition={{ delay: i * 0.15 }}
+                  transition={{ delay: i * 0.1 }}
                   viewport={{ once: true }}
                   className="absolute text-white/40 text-xs font-medium tracking-wider whitespace-nowrap hidden md:block"
                   style={{ top: tag.top, left: tag.left }}
