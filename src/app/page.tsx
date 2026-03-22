@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -491,7 +492,7 @@ export default function HomePage() {
             
             <div className="grid grid-cols-3 gap-4">
               {[
-                "https://images.unsplash.com/photo-1542744173-8e7e53415bb0",
+                "https://images.unsplash.com/photo-1542744094-24638eff58bb",
                 "https://images.unsplash.com/photo-1552664730-d307ca884978",
                 "https://images.unsplash.com/photo-1522071820081-009f0129c71c"
               ].map((img, i) => (
