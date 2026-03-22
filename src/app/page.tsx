@@ -1,6 +1,7 @@
+
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView, AnimatePresence } from "framer-motion";
@@ -98,7 +99,7 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Visual Masterpiece',
     desc: 'Bespoke digital experiences crafted with precision and ROI in mind.',
-    url: PlaceHolderImages.find(img => img.id === 'hero-bg')?.imageUrl || "https://picsum.photos/seed/shyama1/800/600",
+    url: PlaceHolderImages.find(img => img.id === 'hero-bg')?.imageUrl || "/assets/images/_extra____Indian_private_202603201015.png",
     span: 'md:col-span-2 md:row-span-2'
   },
   {
@@ -106,7 +107,7 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Brand Innovation',
     desc: 'Reimagining corporate identities for the digital age.',
-    url: PlaceHolderImages.find(img => img.id === 'about-img')?.imageUrl || "https://picsum.photos/seed/shyama2/800/600",
+    url: PlaceHolderImages.find(img => img.id === 'about-img')?.imageUrl || "/assets/images/_extra____Indian_private_202603201015.png",
     span: 'md:col-span-1 md:row-span-1'
   },
   {
@@ -114,7 +115,7 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Creative Strategy',
     desc: 'Strategic thinking meets artistic excellence in every pixel.',
-    url: PlaceHolderImages.find(img => img.id === 'warehouse')?.imageUrl || "https://picsum.photos/seed/shyama3/800/600",
+    url: PlaceHolderImages.find(img => img.id === 'warehouse')?.imageUrl || "/assets/images/_extra____Indian_private_202603201015.png",
     span: 'md:col-span-1 md:row-span-2'
   },
   {
@@ -122,7 +123,7 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Digital Portal',
     desc: 'Seamless user interfaces for complex digital ecosystems.',
-    url: "https://picsum.photos/seed/shyama4/800/600",
+    url: PlaceHolderImages.find(img => img.id === 'gallery-4')?.imageUrl || "/assets/images/_extra____Indian_private_202603201015.png",
     span: 'md:col-span-1 md:row-span-1'
   },
   {
@@ -130,7 +131,7 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Next-Gen UI',
     desc: 'Pushing the boundaries of interactive design and user flow.',
-    url: "https://picsum.photos/seed/shyama5/800/600",
+    url: PlaceHolderImages.find(img => img.id === 'gallery-5')?.imageUrl || "/assets/images/_extra____Indian_private_202603201015.png",
     span: 'md:col-span-2 md:row-span-1'
   },
   {
@@ -138,7 +139,7 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Studio Excellence',
     desc: 'Our iterative process of design and discovery yields results.',
-    url: "https://picsum.photos/seed/shyama6/800/600",
+    url: PlaceHolderImages.find(img => img.id === 'gallery-6')?.imageUrl || "/assets/images/_extra____Indian_private_202603201015.png",
     span: 'md:col-span-1 md:row-span-1'
   }
 ];
@@ -153,14 +154,14 @@ const SECTOR_TAGS = [
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "0px 0px -100px 0px" });
+  const isInView = useInView(ref, { once: true, margin: "0px 0px -20px 0px" });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 15 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
-      transition={{ duration: 0.35, delay, ease: "easeOut" }}
+      initial={{ opacity: 0, y: 10 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+      transition={{ duration: 0.3, delay, ease: "easeOut" }}
     >
       {children}
     </motion.div>
@@ -210,7 +211,7 @@ function LogoMarquee({ direction = "left", logos }: { direction?: "left" | "righ
         "flex gap-6 w-max",
         direction === "left" ? "animate-marquee-ltr" : "animate-marquee-rtl"
       )}>
-        {items.map((logo, i) => (
+        {logos.map((logo, i) => (
           <div key={i} className="flex-shrink-0 bg-white border border-border rounded-xl px-10 py-6 min-w-[180px] h-[100px] flex items-center justify-center grayscale hover:grayscale-0 transition-all hover:border-[#f89b34] hover:shadow-lg">
             <span className="text-[#0a0a0a] font-bold text-lg font-sora">{logo}</span>
           </div>
