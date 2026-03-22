@@ -5,13 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { 
-  Anchor, 
-  Ship, 
-  Package, 
-  ClipboardCheck, 
-  Globe, 
-  Briefcase, 
-  Handshake, 
+  Code2, 
+  Palette, 
+  Megaphone, 
+  Search, 
+  Smartphone, 
+  Layers, 
   BarChart3, 
   Plus,
   Phone,
@@ -25,13 +24,13 @@ import {
   Menu,
   X,
   ChevronDown,
-  Warehouse,
+  MonitorSmartphone,
   CheckCircle2,
-  FileSpreadsheet,
-  Network,
-  Truck,
-  Building2,
-  Award
+  Lightbulb,
+  Globe,
+  Cpu,
+  Trophy,
+  Users
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -49,80 +48,69 @@ const NAV_LINKS = [
 
 const STATS = [
   { label: "Years of Experience", value: 10, suffix: "+" },
-  { label: "Clients Served", value: 250, suffix: "+" },
-  { label: "Product Categories", value: 50, suffix: "+" },
-  { label: "Countries Reached", value: 35, suffix: "+" },
+  { label: "Projects Completed", value: 500, suffix: "+" },
+  { label: "Creative Brains", value: 50, suffix: "+" },
+  { label: "Global Clients", value: 200, suffix: "+" },
 ];
 
 const SERVICES = [
-  { icon: Ship, title: "Export Management", desc: "End-to-end export documentation and logistics management." },
-  { icon: Package, title: "Import Solutions", desc: "Seamless import coordination and specialized customs clearance." },
-  { icon: ClipboardCheck, title: "Trade Compliance", desc: "DGFT, IEC, and regulatory compliance support for all trades." },
-  { icon: Network, title: "Global Sourcing", desc: "Connecting you with verified global suppliers and distributors." },
-  { icon: Briefcase, title: "B2B Trade Facilitation", desc: "Business-to-business deal structuring and expert negotiation." },
-  { icon: Handshake, title: "Buyer-Seller Connect", desc: "Matchmaking between top exporters and international buyers." },
-  { icon: BarChart3, title: "Market Intelligence", desc: "Trade data, deep market research, and competitor analysis." },
-  { icon: Plus, title: "All Services →", desc: "View our complete range of specialized trade services.", isCTA: true },
+  { icon: MonitorSmartphone, title: "Web Design & Dev", desc: "Crafting high-performance websites that convert visitors into customers." },
+  { icon: Smartphone, title: "Mobile App Dev", desc: "Building intuitive iOS and Android applications for the modern user." },
+  { icon: Palette, title: "UI/UX Design", desc: "Human-centric design that balances aesthetics with functional excellence." },
+  { icon: Megaphone, title: "Digital Marketing", desc: "Data-driven strategies to amplify your brand's reach and ROI." },
+  { icon: Search, title: "SEO Optimization", desc: "Dominating search results with technical precision and content mastery." },
+  { icon: Layers, title: "Branding & Identity", desc: "Defining your unique voice in a crowded digital marketplace." },
+  { icon: BarChart3, title: "Performance Marketing", desc: "ROI-focused campaigns across Meta, Google, and LinkedIn." },
+  { icon: Plus, title: "All Services →", desc: "Explore our full suite of digital transformation tools.", isCTA: true },
 ];
 
-const CLIENT_LOGOS_R1 = ["IndiaMART", "Alibaba", "Zydus", "Amity University", "National Tenders", "SIG", "FMCG Corp", "Shemaroo"];
-const CLIENT_LOGOS_R2 = ["TradeIndia", "Interakt", "Univo", "Livyor", "Zion Salons", "DA-IICT", "ExportHub", "Rangou"];
+const CLIENT_LOGOS_R1 = ["TechCorp", "Innovate", "GlobalSoft", "Amity Online", "Nexus", "Sigma", "FMCG Lab", "MediaFlow"];
+const CLIENT_LOGOS_R2 = ["CloudNine", "Interakt", "Univo", "Livyor", "Zion Digital", "DA-IICT", "CreativeHub", "Rangou"];
 
 const PLATFORMS = [
-  { name: "IndiaMART", logo: "IndiaMART" },
-  { name: "Alibaba", logo: "Alibaba" },
-  { name: "TradeIndia", logo: "TradeIndia" },
-  { name: "Amazon Global Selling", logo: "Amazon Global" },
-  { name: "ExportHub", logo: "ExportHub" },
+  { name: "Google Ads", logo: "Google Ads" },
+  { name: "Meta Business", logo: "Meta Business" },
+  { name: "Shopify", logo: "Shopify" },
+  { name: "AWS", logo: "AWS Cloud" },
+  { name: "HubSpot", logo: "HubSpot" },
 ];
 
 const BLOGS = [
   { 
-    title: "How to Start Exporting from India: A Step-by-Step Guide", 
-    tag: "Export Guide", 
-    image: "https://images.unsplash.com/photo-1521791136064-7986c2923216",
-    excerpt: "Everything you need to know about starting your international trade journey."
+    title: "The Future of Web Design: Trends to Watch in 2025", 
+    tag: "Design Insights", 
+    image: "https://images.unsplash.com/photo-1581291518062-c9a79414b681",
+    excerpt: "Exploring the intersection of AI and minimalist aesthetics."
   },
   { 
-    title: "Top 10 Products India Exports to the Middle East in 2025", 
-    tag: "Market Trends", 
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c",
-    excerpt: "Emerging opportunities in one of India's fastest growing trade corridors."
+    title: "How to Scale Your E-commerce Brand via Performance Marketing", 
+    tag: "Growth Strategy", 
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
+    excerpt: "A data-driven guide to maximizing your return on ad spend."
   },
   { 
-    title: "How to Select the Right International Freight Forwarder", 
-    tag: "Logistics", 
-    image: "https://images.unsplash.com/photo-1580674285054-bed31e145f59",
-    excerpt: "Key criteria for choosing a partner that aligns with your business goals."
+    title: "Why Custom Software is Better Than Off-the-Shelf Solutions", 
+    tag: "Tech Talk", 
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c",
+    excerpt: "Unlock true business agility with tailored technological infrastructure."
   },
 ];
 
 const PORTFOLIO_IMAGES = [
-  { url: "https://images.unsplash.com/photo-1553413077-190dd305871c", caption: "Smart Warehousing" },
-  { url: "https://images.unsplash.com/photo-1565958011703-44f9829ba187", caption: "Premium Trade Goods" },
-  { url: "https://images.unsplash.com/photo-1504307651254-35680f356dfd", caption: "Industrial Reach" },
-  { url: "https://images.unsplash.com/photo-1578574577315-3fbeb0cecdc2", caption: "Express Logistics" },
-  { url: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d", caption: "Container Management" },
-  { url: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088", caption: "Air Freight Loading" },
-  { url: "https://images.unsplash.com/photo-1560472355-536de3962603", caption: "Client Consultation" },
-  { url: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40", caption: "Global Trade Deals" },
+  { url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f", caption: "Fintech Dashboard" },
+  { url: "https://images.unsplash.com/photo-1522542550221-31fd19255a7a", caption: "Corporate Rebrand" },
+  { url: "https://images.unsplash.com/photo-1551288049-bbbda536339a", caption: "E-commerce App" },
+  { url: "https://images.unsplash.com/photo-1558655146-d09347e92766", caption: "SaaS Platform" },
+  { url: "https://images.unsplash.com/photo-1542744094-24638eff58bb", caption: "EdTech Interface" },
+  { url: "https://images.unsplash.com/photo-1519389950473-47ba0277781c", caption: "Product Strategy" },
+  { url: "https://images.unsplash.com/photo-1551434678-e076c223a692", caption: "Agile Development" },
+  { url: "https://images.unsplash.com/photo-1552664730-d307ca884978", caption: "Client Workshop" },
 ];
 
 const SECTOR_TAGS = [
-  "Agriculture & Food Products", "Textiles & Apparel", "Chemicals & Petrochemicals", 
-  "Pharmaceuticals", "FMCG & Consumer Goods", "Handicrafts & Home Décor", 
-  "Engineering Goods", "Gems & Jewellery", "IT & Software Services"
-];
-
-const LOCATIONS = [
-  { name: "CANADA", top: "25%", left: "15%" },
-  { name: "EUROPE", top: "20%", left: "45%" },
-  { name: "UAE", top: "40%", left: "55%" },
-  { name: "INDIA", top: "45%", left: "65%" },
-  { name: "SOUTH AMERICA", top: "70%", left: "25%" },
-  { name: "SOUTH AFRICA", top: "75%", left: "50%" },
-  { name: "AUSTRALIA", top: "75%", left: "85%" },
-  { name: "NEW ZEALAND", top: "85%", left: "90%" },
+  "E-commerce & Retail", "Fintech & Banking", "Healthcare Digital", 
+  "EdTech Platforms", "Real Estate Tech", "SaaS & Cloud", 
+  "Logistics Software", "Gaming & Entertainment", "Enterprise AI"
 ];
 
 /* ── COMPONENTS ── */
@@ -168,7 +156,7 @@ function StatCounter({ value, suffix, label }: { value: number; suffix: string; 
 
   return (
     <div ref={ref} className="flex flex-col items-center justify-center p-8 text-center relative group">
-      <div className="text-5xl font-sora font-bold text-accent mb-3 group-hover:scale-110 transition-transform">
+      <div className="text-5xl font-sora font-bold text-[#f89b34] mb-3 group-hover:scale-110 transition-transform">
         {count}{suffix}
       </div>
       <div className="text-white/70 text-sm font-semibold uppercase tracking-wider font-sora">
@@ -187,8 +175,8 @@ function LogoMarquee({ direction = "left", logos }: { direction?: "left" | "righ
         direction === "left" ? "animate-marquee-ltr" : "animate-marquee-rtl"
       )}>
         {items.map((logo, i) => (
-          <div key={i} className="flex-shrink-0 bg-white border border-border rounded-xl px-10 py-6 min-w-[180px] h-[100px] flex items-center justify-center grayscale hover:grayscale-0 transition-all hover:border-accent hover:shadow-lg">
-            <span className="text-primary font-bold text-lg font-sora">{logo}</span>
+          <div key={i} className="flex-shrink-0 bg-white border border-border rounded-xl px-10 py-6 min-w-[180px] h-[100px] flex items-center justify-center grayscale hover:grayscale-0 transition-all hover:border-[#f89b34] hover:shadow-lg">
+            <span className="text-[#0a0a0a] font-bold text-lg font-sora">{logo}</span>
           </div>
         ))}
       </div>
@@ -209,32 +197,32 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white selection:bg-accent selection:text-white">
+    <div className="min-h-screen bg-white selection:bg-[#f89b34] selection:text-white">
       
-      {/* CHANGE 2 — NAVBAR */}
+      {/* NAVBAR */}
       <nav className={cn(
         "fixed top-0 left-0 right-0 z-[1000] transition-all duration-500 px-6 lg:px-12 flex items-center justify-between h-[85px]",
-        isScrolled ? "bg-primary shadow-xl h-16 translate-y-0" : "bg-transparent translate-y-0"
+        isScrolled ? "bg-[#0a0a0a] shadow-xl h-16 translate-y-0" : "bg-transparent translate-y-0"
       )}>
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center font-black text-xl text-white group-hover:rotate-12 transition-transform">S</div>
+          <div className="w-10 h-10 bg-[#f89b34] rounded-lg flex items-center justify-center font-black text-xl text-[#0a0a0a] group-hover:rotate-12 transition-transform">S</div>
           <div className="flex flex-col">
-            <span className="text-white font-sora font-bold leading-tight">Shyam Overseas</span>
-            <span className="text-[10px] text-accent font-semibold uppercase tracking-widest">Your Global Trade Partner</span>
+            <span className="text-white font-sora font-bold leading-tight">Shyama Overseas</span>
+            <span className="text-[10px] text-[#f89b34] font-semibold uppercase tracking-widest">Your Global Digital Partner</span>
           </div>
         </Link>
 
         <ul className="hidden lg:flex items-center gap-8">
           {NAV_LINKS.map(link => (
             <li key={link.label}>
-              <Link href={link.href} className="text-white/90 hover:text-accent font-semibold text-[13px] transition-colors uppercase tracking-wider">
+              <Link href={link.href} className="text-white/90 hover:text-[#f89b34] font-semibold text-[13px] transition-colors uppercase tracking-wider">
                 {link.label}
               </Link>
             </li>
           ))}
         </ul>
 
-        <Link href="/contact" className="hidden lg:block bg-accent hover:bg-accent/90 text-white px-8 py-2.5 rounded-full font-bold text-sm transition-all shadow-lg hover:shadow-accent/30">
+        <Link href="/contact" className="hidden lg:block bg-[#f89b34] hover:bg-[#f89b34]/90 text-[#0a0a0a] px-8 py-2.5 rounded-full font-bold text-sm transition-all shadow-lg hover:shadow-[#f89b34]/30">
           Our Profile
         </Link>
 
@@ -259,18 +247,18 @@ export default function HomePage() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 bottom-0 w-[80%] max-w-sm bg-primary z-[1002] p-10 shadow-2xl flex flex-col"
+              className="fixed right-0 top-0 bottom-0 w-[80%] max-w-sm bg-[#0a0a0a] z-[1002] p-10 shadow-2xl flex flex-col"
             >
               <button onClick={() => setIsMobMenuOpen(false)} className="self-end text-white mb-10 p-2 hover:bg-white/10 rounded-full transition-colors">
                 <X className="w-8 h-8" />
               </button>
               <div className="flex flex-col gap-6">
                 {NAV_LINKS.map(link => (
-                  <Link key={link.label} href={link.href} className="text-white text-2xl font-sora font-medium hover:text-accent transition-colors" onClick={() => setIsMobMenuOpen(false)}>
+                  <Link key={link.label} href={link.href} className="text-white text-2xl font-sora font-medium hover:text-[#f89b34] transition-colors" onClick={() => setIsMobMenuOpen(false)}>
                     {link.label}
                   </Link>
                 ))}
-                <Link href="/contact" className="mt-6 bg-accent text-white text-center py-4 rounded-full font-bold text-lg" onClick={() => setIsMobMenuOpen(false)}>
+                <Link href="/contact" className="mt-6 bg-[#f89b34] text-[#0a0a0a] text-center py-4 rounded-full font-bold text-lg" onClick={() => setIsMobMenuOpen(false)}>
                   Our Profile
                 </Link>
               </div>
@@ -281,16 +269,16 @@ export default function HomePage() {
 
       <main>
         
-        {/* CHANGE 1 — HERO SECTION */}
-        <section className="relative h-screen flex items-center overflow-hidden bg-primary">
+        {/* HERO SECTION */}
+        <section className="relative h-screen flex items-center overflow-hidden bg-[#0a0a0a]">
           <Image 
-            src="https://images.unsplash.com/photo-1578574577315-3fbeb0cecdc2" 
-            alt="Cinematic Trade" 
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c" 
+            alt="Cinematic Agency Office" 
             fill 
-            className="object-cover object-center opacity-80"
+            className="object-cover object-center opacity-60"
             priority
           />
-          <div className="absolute inset-0 hero-gradient z-10" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent z-10" />
           
           <div className="relative z-20 max-w-7xl mx-auto px-6 w-full pt-20">
             <motion.div 
@@ -300,26 +288,26 @@ export default function HomePage() {
               className="max-w-4xl"
             >
               <div className="text-white font-medium uppercase tracking-[6px] text-sm mb-6 flex items-center gap-4">
-                <span className="w-12 h-[1px] bg-accent" />
+                <span className="w-12 h-[1px] bg-[#f89b34]" />
                 We are your
               </div>
               
               <div className="relative inline-block mb-10">
-                <div className="bg-accent px-8 py-6 absolute inset-0 -skew-x-6 z-[-1] shadow-2xl" />
-                <h1 className="text-6xl md:text-[100px] font-black text-white leading-[0.9] uppercase font-sora -skew-x-6">
-                  GLOBAL TRADE<br />MAESTROS
+                <div className="bg-[#f89b34] px-8 py-6 absolute inset-0 -skew-x-6 z-[-1] shadow-2xl" />
+                <h1 className="text-6xl md:text-[100px] font-black text-[#0a0a0a] leading-[0.9] uppercase font-sora -skew-x-6">
+                  DIGITAL GROWTH<br />MAESTROS
                 </h1>
               </div>
 
               <p className="text-xl md:text-2xl text-white/90 font-light italic leading-relaxed mb-12 max-w-2xl font-inter">
-                Crafting Your Legacy of International Commerce with Precision, Compliance, and Unmatched Efficiency.
+                Crafting Your Digital Legacy with Precision Design, Cutting-edge Tech, and Unmatched ROI.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-6">
-                <Link href="/services" className="bg-accent text-white px-10 py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:scale-105 transition-transform text-center shadow-2xl shadow-accent/20">
+                <Link href="/services" className="bg-[#f89b34] text-[#0a0a0a] px-10 py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:scale-105 transition-transform text-center shadow-2xl shadow-[#f89b34]/20">
                   Explore Services
                 </Link>
-                <Link href="/contact" className="bg-transparent border-2 border-white text-white px-10 py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-primary transition-all text-center">
+                <Link href="/contact" className="bg-transparent border-2 border-white text-white px-10 py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-[#0a0a0a] transition-all text-center">
                   Contact Us
                 </Link>
               </div>
@@ -331,37 +319,34 @@ export default function HomePage() {
             transition={{ duration: 2, repeat: Infinity }}
             className="absolute bottom-10 left-10 z-20 flex flex-col items-center gap-4"
           >
-            <span className="text-white/40 text-[10px] uppercase tracking-[4px] vertical-text transform -rotate-90 origin-left mb-12">SCROLL</span>
+            <span className="text-white/40 text-[10px] uppercase tracking-[4px] [writing-mode:vertical-lr] mb-12">SCROLL</span>
             <div className="w-[1px] h-16 bg-gradient-to-b from-white/40 to-transparent" />
           </motion.div>
         </section>
 
-        {/* CHANGE 3 — STATS BAR */}
-        <section className="bg-primary relative overflow-hidden">
-          <div className="absolute inset-0 opacity-5 pointer-events-none">
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-accent/20 via-transparent to-transparent" />
-          </div>
+        {/* STATS BAR */}
+        <section className="bg-[#0a0a0a] relative overflow-hidden border-y border-white/5">
           <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 py-16 relative z-10">
             {STATS.map((stat, idx) => (
               <div key={stat.label} className="relative">
                 <StatCounter {...stat} />
                 {idx < 3 && (
-                  <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-0 w-[1px] h-12 bg-accent/30" />
+                  <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-0 w-[1px] h-12 bg-[#f89b34]/30" />
                 )}
               </div>
             ))}
           </div>
         </section>
 
-        {/* CHANGE 4 — SERVICES GRID */}
+        {/* SERVICES GRID */}
         <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-6">
             <FadeIn>
               <div className="text-center mb-20">
-                <h2 className="text-4xl md:text-5xl font-sora font-light text-primary mb-4">
-                  Our Trade & <span className="text-accent italic font-bold">Export Services</span>
+                <h2 className="text-4xl md:text-5xl font-sora font-light text-[#0a0a0a] mb-4">
+                  Our Digital & <span className="text-[#f89b34] italic font-bold">Creative Services</span>
                 </h2>
-                <p className="text-accent font-medium uppercase tracking-[4px] text-xs">Your Instruments</p>
+                <p className="text-[#f89b34] font-medium uppercase tracking-[4px] text-xs">Your Instruments</p>
               </div>
             </FadeIn>
 
@@ -375,16 +360,16 @@ export default function HomePage() {
                     svc.isCTA ? "bg-muted/30" : ""
                   )}
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-muted flex items-center justify-center mb-8 group-hover:bg-accent transition-colors duration-500">
-                    <svc.icon className="w-7 h-7 text-accent group-hover:text-white transition-colors duration-500" />
+                  <div className="w-14 h-14 rounded-2xl bg-muted flex items-center justify-center mb-8 group-hover:bg-[#f89b34] transition-colors duration-500">
+                    <svc.icon className="w-7 h-7 text-[#f89b34] group-hover:text-[#0a0a0a] transition-colors duration-500" />
                   </div>
-                  <h3 className="text-xl font-sora font-bold mb-4 text-primary group-hover:text-accent transition-colors">
+                  <h3 className="text-xl font-sora font-bold mb-4 text-[#0a0a0a] group-hover:text-[#f89b34] transition-colors">
                     {svc.title}
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-8 line-clamp-2">
                     {svc.desc}
                   </p>
-                  <div className="flex items-center gap-2 text-accent font-bold text-xs uppercase tracking-widest transform transition-transform group-hover:translate-x-2">
+                  <div className="flex items-center gap-2 text-[#f89b34] font-bold text-xs uppercase tracking-widest transform transition-transform group-hover:translate-x-2">
                     Learn More <ArrowRight className="w-4 h-4" />
                   </div>
                 </motion.div>
@@ -393,36 +378,41 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* CHANGE 5 — WORLD MAP SECTION */}
+        {/* WORLD MAP SECTION */}
         <section className="bg-[#060F1E] py-24 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <FadeIn>
               <div className="text-center mb-20">
-                <div className="text-accent font-bold uppercase tracking-[4px] text-xs mb-4">Our Reach & Clients</div>
+                <div className="text-[#f89b34] font-bold uppercase tracking-[4px] text-xs mb-4">Global Reach & Insights</div>
                 <h2 className="text-4xl md:text-5xl font-sora font-light text-white leading-tight">
-                  Worked with <span className="font-bold">250+ Clients</span> <span className="text-accent">Across The Globe</span>
+                  Driving Results for <span className="font-bold">200+ Brands</span> <span className="text-[#f89b34]">Across The Globe</span>
                 </h2>
               </div>
             </FadeIn>
             
             <div className="relative aspect-[16/7] max-w-5xl mx-auto">
-              {/* Simplified Dotted World Map Replicated */}
-              <div className="absolute inset-0 opacity-20 world-map-dots" />
+              <div className="absolute inset-0 opacity-10 [background-image:radial-gradient(#f89b34_1px,transparent_1px)] [background-size:24px_24px]" />
               
-              {/* Pins visualization */}
-              {LOCATIONS.map((loc) => (
+              {/* Pin visualization */}
+              {[
+                { name: "USA", t: "20%", l: "15%" },
+                { name: "Europe", t: "25%", l: "45%" },
+                { name: "UAE", t: "45%", l: "55%" },
+                { name: "India", t: "50%", l: "68%" },
+                { name: "Australia", t: "75%", l: "85%" },
+              ].map((loc) => (
                 <motion.div 
                   key={loc.name} 
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
                   className="absolute z-20 group"
-                  style={{ top: loc.top, left: loc.left }}
+                  style={{ top: loc.t, left: loc.l }}
                 >
                   <div className="relative flex items-center justify-center">
-                    <div className="absolute w-12 h-12 bg-accent/20 rounded-full animate-ping" />
-                    <div className="w-3 h-3 bg-accent rounded-full gold-glow" />
-                    <div className="absolute top-full mt-3 bg-accent text-white font-sora font-bold text-[10px] px-3 py-1 rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
+                    <div className="absolute w-8 h-8 bg-[#f89b34]/20 rounded-full animate-ping" />
+                    <div className="w-2.5 h-2.5 bg-[#f89b34] rounded-full shadow-[0_0_10px_#f89b34]" />
+                    <div className="absolute top-full mt-3 bg-[#f89b34] text-[#0a0a0a] font-sora font-bold text-[10px] px-3 py-1 rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
                       {loc.name}
                     </div>
                   </div>
@@ -432,7 +422,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* CHANGE 6 — CLIENT PORTFOLIO GRID */}
+        {/* CLIENT PORTFOLIO GRID */}
         <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -451,11 +441,11 @@ export default function HomePage() {
                     fill 
                     className="object-cover transition-transform duration-700 group-hover:scale-110" 
                   />
-                  <div className="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-6 text-center">
+                  <div className="absolute inset-0 bg-[#0a0a0a]/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-6 text-center">
                     <span className="text-white font-sora font-bold text-sm tracking-widest uppercase">
                       {item.caption}
                     </span>
-                    <div className="w-8 h-[2px] bg-accent mt-4 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                    <div className="w-8 h-[2px] bg-[#f89b34] mt-4 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
                   </div>
                 </motion.div>
               ))}
@@ -463,40 +453,40 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* CHANGE 7 — LOGO MARQUEE */}
+        {/* LOGO MARQUEE */}
         <section className="py-20 bg-muted/20 border-y border-border/10">
           <div className="max-w-7xl mx-auto space-y-8">
             <LogoMarquee direction="left" logos={CLIENT_LOGOS_R1} />
             <LogoMarquee direction="right" logos={CLIENT_LOGOS_R2} />
             <div className="text-center pt-8">
-              <Link href="/portfolio" className="bg-accent hover:bg-accent/90 text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs transition-all shadow-lg hover:shadow-accent/30">
-                Our Clienteles
+              <Link href="/portfolio" className="bg-[#f89b34] hover:bg-[#f89b34]/90 text-[#0a0a0a] px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs transition-all shadow-lg hover:shadow-[#f89b34]/30">
+                Our Client Portfolio
               </Link>
             </div>
           </div>
         </section>
 
-        {/* CHANGE 8 & 10 — PLATFORMS & OPERATIONS */}
+        {/* OPERATIONS / STUDIO */}
         <section className="py-24 bg-[#FAFAF8] relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24 items-center">
             <div className="studio-text relative">
-              <div className="inline-flex items-center gap-3 text-accent font-bold uppercase tracking-[4px] text-xs mb-6 border-l-4 border-accent pl-4">
+              <div className="inline-flex items-center gap-3 text-[#f89b34] font-bold uppercase tracking-[4px] text-xs mb-6 border-l-4 border-[#f89b34] pl-4">
                 Operations
               </div>
-              <h2 className="text-4xl md:text-5xl font-sora font-light text-primary mb-8 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-sora font-light text-[#0a0a0a] mb-8 leading-tight">
                 A company with an<br />
-                <span className="text-accent font-bold">In-house Trade Operations Team</span>
+                <span className="text-[#f89b34] font-bold">In-house Creative Studio</span>
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed font-inter italic border-l-2 border-border pl-8">
-                As a full-service import-export house, we manage sourcing, documentation, compliance, logistics, and buyer communication entirely in-house — giving you a single point of accountability.
+                As a full-service digital house, we manage design, development, content production, and ad-tech implementation entirely in-house — giving you a single point of accountability.
               </p>
             </div>
             
             <div className="grid grid-cols-3 gap-4">
               {[
-                "https://images.unsplash.com/photo-1553413077-190dd305871c",
-                "https://images.unsplash.com/photo-1560472355-536de3962603",
-                "https://images.unsplash.com/photo-1565958011703-44f9829ba187"
+                "https://images.unsplash.com/photo-1542744173-8e7e53415bb0",
+                "https://images.unsplash.com/photo-1552664730-d307ca884978",
+                "https://images.unsplash.com/photo-1522071820081-009f0129c71c"
               ].map((img, i) => (
                 <motion.div 
                   key={i} 
@@ -504,7 +494,7 @@ export default function HomePage() {
                   whileInView={{ y: 0, opacity: 1 }}
                   className="aspect-[2/3] relative rounded-xl overflow-hidden shadow-2xl"
                 >
-                  <Image src={img} alt="Operations" fill className="object-cover" />
+                  <Image src={img} alt="Agency Operations" fill className="object-cover" />
                 </motion.div>
               ))}
             </div>
@@ -512,14 +502,14 @@ export default function HomePage() {
 
           <div className="max-w-7xl mx-auto px-6 mt-32 text-center">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-sora font-light text-primary">
+              <h2 className="text-3xl font-sora font-light text-[#0a0a0a]">
                 Strategic <span className="font-bold">Platforms</span>, Measurable Results
               </h2>
-              <p className="text-accent font-bold uppercase tracking-widest text-[10px] mt-2">Our Trade Arsenal</p>
+              <p className="text-[#f89b34] font-bold uppercase tracking-widest text-[10px] mt-2">Our Tech Arsenal</p>
             </div>
             <div className="flex flex-wrap justify-center items-center gap-16 grayscale opacity-40 hover:opacity-100 hover:grayscale-0 transition-all duration-700">
               {PLATFORMS.map(p => (
-                <div key={p.name} className="text-2xl font-black text-primary font-sora hover:scale-110 hover:shadow-2xl transition-transform cursor-pointer">
+                <div key={p.name} className="text-2xl font-black text-[#0a0a0a] font-sora hover:scale-110 transition-transform cursor-pointer">
                   {p.logo}
                 </div>
               ))}
@@ -527,50 +517,50 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* CHANGE 9 — BENTO GRID */}
+        {/* BENTO GRID */}
         <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-2 gap-4 h-[600px]">
               <motion.div 
-                whileHover={{ outline: "2px solid #C9A84C" }}
+                whileHover={{ outline: "2px solid #f89b34" }}
                 className="md:col-span-2 relative rounded-2xl overflow-hidden shadow-xl"
               >
-                <Image src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d" alt="Large" fill className="object-cover" />
+                <Image src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="Large" fill className="object-cover" />
               </motion.div>
               <motion.div 
-                whileHover={{ outline: "2px solid #C9A84C" }}
+                whileHover={{ outline: "2px solid #f89b34" }}
                 className="md:row-span-2 relative rounded-2xl overflow-hidden shadow-xl"
               >
-                <Image src="https://images.unsplash.com/photo-1578574577315-3fbeb0cecdc2" alt="Tall" fill className="object-cover" />
+                <Image src="https://images.unsplash.com/photo-1551434678-e076c223a692" alt="Tall" fill className="object-cover" />
               </motion.div>
               <motion.div 
-                whileHover={{ outline: "2px solid #C9A84C" }}
+                whileHover={{ outline: "2px solid #f89b34" }}
                 className="relative rounded-2xl overflow-hidden shadow-xl"
               >
-                <Image src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088" alt="Med" fill className="object-cover" />
+                <Image src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="Med" fill className="object-cover" />
               </motion.div>
               <motion.div 
-                whileHover={{ outline: "2px solid #C9A84C" }}
+                whileHover={{ outline: "2px solid #f89b34" }}
                 className="relative rounded-2xl overflow-hidden shadow-xl"
               >
-                <Image src="https://images.unsplash.com/photo-1504307651254-35680f356dfd" alt="Med" fill className="object-cover" />
+                <Image src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Med" fill className="object-cover" />
               </motion.div>
             </div>
             <div className="text-center mt-12">
-              <Link href="/portfolio" className="bg-accent text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs transition-all shadow-lg hover:shadow-accent/30">
-                View Our Trade Portfolio
+              <Link href="/portfolio" className="bg-[#f89b34] text-[#0a0a0a] px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs transition-all shadow-lg hover:shadow-[#f89b34]/30">
+                View Project Showcase
               </Link>
             </div>
           </div>
         </section>
 
-        {/* CHANGE 11 — BLOG CARDS */}
+        {/* BLOG CARDS */}
         <section className="py-24 bg-muted/10">
           <div className="max-w-7xl mx-auto px-6">
             <FadeIn>
               <div className="text-center mb-16">
-                <h2 className="text-4xl font-sora font-light text-primary">
-                  Latest from <span className="text-accent font-bold">Insights</span>
+                <h2 className="text-4xl font-sora font-light text-[#0a0a0a]">
+                  Latest from <span className="text-[#f89b34] font-bold">Insights</span>
                 </h2>
               </div>
             </FadeIn>
@@ -584,18 +574,18 @@ export default function HomePage() {
                 >
                   <div className="aspect-video relative overflow-hidden">
                     <Image src={blog.image} alt={blog.title} fill className="object-cover transition-transform duration-700 hover:scale-110" />
-                    <div className="absolute top-4 left-4 bg-accent text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
+                    <div className="absolute top-4 left-4 bg-[#f89b34] text-[#0a0a0a] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
                       {blog.tag}
                     </div>
                   </div>
                   <div className="p-8">
-                    <h3 className="text-xl font-sora font-bold text-primary mb-4 leading-snug h-14 overflow-hidden">
+                    <h3 className="text-xl font-sora font-bold text-[#0a0a0a] mb-4 leading-snug h-14 overflow-hidden">
                       {blog.title}
                     </h3>
                     <p className="text-sm text-muted-foreground mb-8 line-clamp-1 font-inter">
                       {blog.excerpt}
                     </p>
-                    <Link href="/blog" className="text-accent font-bold text-xs uppercase tracking-widest flex items-center gap-2 hover:gap-4 transition-all">
+                    <Link href="/blog" className="text-[#f89b34] font-bold text-xs uppercase tracking-widest flex items-center gap-2 hover:gap-4 transition-all">
                       Read More <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
@@ -603,16 +593,16 @@ export default function HomePage() {
               ))}
             </div>
             <div className="text-center mt-16">
-              <Link href="/blog" className="border-2 border-accent text-accent px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-accent hover:text-white transition-all">
+              <Link href="/blog" className="border-2 border-[#f89b34] text-[#f89b34] px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-[#f89b34] hover:text-[#0a0a0a] transition-all">
                 See all Insights →
               </Link>
             </div>
           </div>
         </section>
 
-        {/* CHANGE 12 — BRAND BANNER */}
+        {/* BRAND BANNER */}
         <section className="py-24 bg-[#0D1B2A] relative overflow-hidden text-center">
-          <div className="absolute inset-0 opacity-5 pointer-events-none world-map-dots" />
+          <div className="absolute inset-0 opacity-5 [background-image:radial-gradient(#f89b34_1px,transparent_1px)] [background-size:32px_32px]" />
           <div className="max-w-4xl mx-auto px-6 relative z-10">
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
@@ -620,20 +610,20 @@ export default function HomePage() {
               transition={{ duration: 1 }}
             >
               <h2 className="text-5xl md:text-7xl font-black text-white font-sora mb-4 tracking-tighter">
-                Shyam Overseas
+                Shyama Overseas
               </h2>
-              <p className="text-accent text-xl italic font-light mb-16 font-inter">
-                Your Global Trade Partner
+              <p className="text-[#f89b34] text-xl italic font-light mb-16 font-inter">
+                Your Global Digital Partner
               </p>
             </motion.div>
 
             <div className="relative h-40">
               {[
-                { text: "Trade solutions that drive results →", top: "0%", left: "10%" },
-                { text: "Focus on compliance →", top: "20%", left: "60%" },
-                { text: "Result-oriented mindset →", top: "60%", left: "20%" },
-                { text: "A team of seasoned trade professionals →", top: "80%", left: "55%" },
-                { text: "End-to-end trade management →", top: "40%", left: "40%" },
+                { text: "Digital solutions that drive results →", top: "0%", left: "10%" },
+                { text: "Focus on human-centric design →", top: "20%", left: "60%" },
+                { text: "ROI-oriented engineering →", top: "60%", left: "20%" },
+                { text: "A team of seasoned creative techies →", top: "80%", left: "55%" },
+                { text: "End-to-end digital transformation →", top: "40%", left: "40%" },
               ].map((tag, i) => (
                 <motion.div 
                   key={i}
@@ -650,50 +640,50 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* CHANGE 13 — CONTACT SECTION */}
+        {/* CONTACT SECTION */}
         <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-6">
             <div className="mb-16">
-              <h2 className="text-4xl md:text-5xl font-sora font-light text-primary">
-                <span className="text-accent font-bold">Get in touch</span> with us for
+              <h2 className="text-4xl md:text-5xl font-sora font-light text-[#0a0a0a]">
+                <span className="text-[#f89b34] font-bold">Get in touch</span> with us for
               </h2>
-              <p className="text-2xl text-primary font-inter font-light mt-2">
-                our Trade & Export Services
+              <p className="text-2xl text-[#0a0a0a] font-inter font-light mt-2">
+                our Digital & Creative Services
               </p>
             </div>
 
             <div className="grid lg:grid-cols-[1fr_400px] gap-16 items-start">
               <form className="space-y-8">
                 <div className="grid md:grid-cols-2 gap-8">
-                  <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-accent transition-colors text-primary font-medium" placeholder="Name" />
-                  <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-accent transition-colors text-primary font-medium" placeholder="Email ID" />
+                  <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-[#f89b34] transition-colors text-[#0a0a0a] font-medium" placeholder="Name" />
+                  <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-[#f89b34] transition-colors text-[#0a0a0a] font-medium" placeholder="Email ID" />
                 </div>
                 <div className="grid md:grid-cols-2 gap-8">
-                  <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-accent transition-colors text-primary font-medium" placeholder="Contact Number" />
-                  <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-accent transition-colors text-primary font-medium" placeholder="Website / Company" />
+                  <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-[#f89b34] transition-colors text-[#0a0a0a] font-medium" placeholder="Contact Number" />
+                  <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-[#f89b34] transition-colors text-[#0a0a0a] font-medium" placeholder="Website / LinkedIn" />
                 </div>
-                <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-accent transition-colors text-primary font-medium" placeholder="Company Name" />
-                <textarea className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-accent transition-colors text-primary font-medium resize-none" rows={4} placeholder="Please share your requirement in detail..." />
-                <button className="bg-accent hover:bg-accent/90 text-white w-full py-5 rounded-full font-bold uppercase tracking-[4px] text-sm transition-all shadow-xl shadow-accent/20">
+                <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-[#f89b34] transition-colors text-[#0a0a0a] font-medium" placeholder="Company Name" />
+                <textarea className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-[#f89b34] transition-colors text-[#0a0a0a] font-medium resize-none" rows={4} placeholder="Please share your digital requirement in detail..." />
+                <button className="bg-[#f89b34] hover:bg-[#f89b34]/90 text-[#0a0a0a] w-full py-5 rounded-full font-bold uppercase tracking-[4px] text-sm transition-all shadow-xl shadow-[#f89b34]/20">
                   SEND MESSAGE
                 </button>
               </form>
 
-              <div className="bg-primary p-12 rounded-3xl text-white shadow-2xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full -mr-16 -mt-16" />
+              <div className="bg-[#0a0a0a] p-12 rounded-3xl text-white shadow-2xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#f89b34]/10 rounded-full -mr-16 -mt-16" />
                 <div className="relative z-10 space-y-10">
                   <div>
-                    <div className="text-accent text-4xl font-sora font-bold mb-2">9033131093</div>
+                    <div className="text-[#f89b34] text-4xl font-sora font-bold mb-2">+91 9033131093</div>
                     <p className="text-white/50 text-sm tracking-wider uppercase font-medium">available from 10:00 – 18:00</p>
                   </div>
                   <div className="space-y-6">
                     <div>
-                      <h4 className="text-accent font-bold uppercase tracking-[3px] text-[10px] mb-2">Locations</h4>
+                      <h4 className="text-[#f89b34] font-bold uppercase tracking-[3px] text-[10px] mb-2">Locations</h4>
                       <p className="text-lg font-sora font-semibold">Ahmedabad | Surat | Vadodara</p>
                     </div>
                     <div>
-                      <h4 className="text-accent font-bold uppercase tracking-[3px] text-[10px] mb-2">Email Us</h4>
-                      <Link href="mailto:info@shyamoverseas.com" className="text-lg font-sora font-semibold hover:text-accent transition-colors">
+                      <h4 className="text-[#f89b34] font-bold uppercase tracking-[3px] text-[10px] mb-2">Email Us</h4>
+                      <Link href="mailto:info@shyamoverseas.com" className="text-lg font-sora font-semibold hover:text-[#f89b34] transition-colors">
                         info@shyamoverseas.com
                       </Link>
                     </div>
@@ -704,8 +694,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* CHANGE 16 — SECTOR TAGS STRIP */}
-        <section className="bg-primary py-8 overflow-hidden border-y border-white/5">
+        {/* SECTOR TAGS STRIP */}
+        <section className="bg-[#0a0a0a] py-8 overflow-hidden border-y border-white/5">
           <div className="flex gap-12 w-max animate-marquee-slow px-6">
             {[...SECTOR_TAGS, ...SECTOR_TAGS].map((s, i) => (
               <span key={i} className="text-white/30 text-xs font-bold uppercase tracking-[4px] whitespace-nowrap">
@@ -717,64 +707,64 @@ export default function HomePage() {
 
       </main>
 
-      {/* CHANGE 14 — FOOTER */}
+      {/* FOOTER */}
       <footer className="bg-[#060F1E] text-white pt-24 pb-12">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           <div className="space-y-8">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-accent rounded flex items-center justify-center font-black text-xl text-white">S</div>
-              <span className="text-2xl font-sora font-bold">Shyam Overseas</span>
+              <div className="w-10 h-10 bg-[#f89b34] rounded flex items-center justify-center font-black text-xl text-[#0a0a0a]">S</div>
+              <span className="text-2xl font-sora font-bold">Shyama Overseas</span>
             </Link>
             <p className="text-white/50 text-sm leading-relaxed font-inter">
-              We are one of India's Leading Import-Export Companies, committed to building reliable bridges between Indian excellence and global markets.
+              We are one of India's Leading Digital & Creative Agencies, committed to building reliable bridges between your vision and global digital excellence.
             </p>
             <div className="flex gap-4">
-              {[Instagram, Linkedin, Building2, Facebook, Twitter, Youtube].map((Icon, i) => (
-                <div key={i} className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-accent hover:border-accent transition-all cursor-pointer group">
-                  <Icon className="w-4 h-4 group-hover:text-white" />
+              {[Instagram, Linkedin, Facebook, Twitter, Youtube].map((Icon, i) => (
+                <div key={i} className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-[#f89b34] hover:border-[#f89b34] transition-all cursor-pointer group">
+                  <Icon className="w-4 h-4 group-hover:text-[#0a0a0a]" />
                 </div>
               ))}
             </div>
           </div>
 
           <div>
-            <h6 className="text-accent font-bold uppercase tracking-[3px] text-xs mb-8">Important Links</h6>
+            <h6 className="text-[#f89b34] font-bold uppercase tracking-[3px] text-xs mb-8">Important Links</h6>
             <ul className="space-y-4">
-              {["Our Story", "Services", "Our Portfolio", "Trade Campaigns", "Case Study", "Career"].map(l => (
-                <li key={l}><Link href="#" className="text-white/50 hover:text-accent transition-colors text-sm font-medium">{l}</Link></li>
+              {["Our Story", "Services", "Our Portfolio", "Creative Campaigns", "Case Study", "Career"].map(l => (
+                <li key={l}><Link href="#" className="text-white/50 hover:text-[#f89b34] transition-colors text-sm font-medium">{l}</Link></li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h6 className="text-accent font-bold uppercase tracking-[3px] text-xs mb-8">Our Ventures</h6>
+            <h6 className="text-[#f89b34] font-bold uppercase tracking-[3px] text-xs mb-8">Our Ventures</h6>
             <div className="space-y-8">
               <div className="bg-white/5 p-6 rounded-2xl border border-white/10">
                 <div className="text-white font-bold mb-2 text-sm font-sora">Official Partners</div>
-                <p className="text-white/40 text-[10px] leading-relaxed uppercase tracking-widest font-bold">Official Partner of FIEO and DGFT.</p>
+                <p className="text-white/40 text-[10px] leading-relaxed uppercase tracking-widest font-bold">Google & Meta Business Partner Agency.</p>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-full border border-accent/20 flex items-center justify-center text-[10px] font-bold text-accent text-center font-sora">
+                <div className="w-16 h-16 rounded-full border border-[#f89b34]/20 flex items-center justify-center text-[10px] font-bold text-[#f89b34] text-center font-sora">
                   ISO<br />9001<br />2015
                 </div>
-                <div className="text-[10px] text-white/40 uppercase tracking-widest font-bold">Certified<br/>Logistics<br/>Agency</div>
+                <div className="text-[10px] text-white/40 uppercase tracking-widest font-bold">Certified<br/>Creative<br/>Agency</div>
               </div>
             </div>
           </div>
 
           <div>
-            <h6 className="text-accent font-bold uppercase tracking-[3px] text-xs mb-8">Get In Touch</h6>
+            <h6 className="text-[#f89b34] font-bold uppercase tracking-[3px] text-xs mb-8">Get In Touch</h6>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <span className="text-accent mt-1"><Building2 className="w-4 h-4" /></span>
-                <p className="text-white/50 text-sm font-medium">Nariman Point, Mumbai 400 021, India</p>
+                <span className="text-[#f89b34] mt-1"><Globe className="w-4 h-4" /></span>
+                <p className="text-white/50 text-sm font-medium">Ahmedabad | Surat | Vadodara</p>
               </div>
               <div className="flex items-center gap-4">
-                <span className="text-accent"><Phone className="w-4 h-4" /></span>
+                <span className="text-[#f89b34]"><Phone className="w-4 h-4" /></span>
                 <p className="text-white/50 text-sm font-medium">+91-90331 31093</p>
               </div>
               <div className="flex items-center gap-4">
-                <span className="text-accent"><Mail className="w-4 h-4" /></span>
+                <span className="text-[#f89b34]"><Mail className="w-4 h-4" /></span>
                 <p className="text-white/50 text-sm font-medium">info@shyamoverseas.com</p>
               </div>
             </div>
@@ -783,7 +773,7 @@ export default function HomePage() {
 
         <div className="max-w-7xl mx-auto px-6 pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-[11px] text-white/30 uppercase tracking-[3px] font-bold">
-            © 2014–2026 | All Rights Reserved by Shyam Overseas
+            © 2014–2026 | All Rights Reserved by Shyama Overseas
           </p>
           <p className="text-[11px] text-white/30 uppercase tracking-[3px] font-bold">
             Expanding Horizons, Building Bridges.
