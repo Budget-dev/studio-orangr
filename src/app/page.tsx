@@ -418,12 +418,6 @@ export default function HomePage() {
                   },
                 ]}
               />
-              
-              <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-[50%] left-[68%] text-[10px] font-bold text-[#f89b34] uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity duration-300">Mumbai</div>
-                <div className="absolute top-[52%] left-[70%] text-[10px] font-bold text-[#f89b34] uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity duration-300">Hyderabad</div>
-                <div className="absolute top-[51%] left-[72%] text-[10px] font-bold text-[#f89b34] uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity duration-300">Andhra Pradesh</div>
-              </div>
             </div>
           </div>
         </section>

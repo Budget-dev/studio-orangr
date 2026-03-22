@@ -25,7 +25,7 @@ export function WorldMap({
     const map = new DottedMap({ height: 100, grid: "diagonal" });
     return map.getSVG({
       radius: 0.22,
-      color: "#00000015", // Subtle dark dots for white background
+      color: "#00000015", // Subtle dark dots for visibility on white
       shape: "circle",
       backgroundColor: "white",
     });
@@ -166,6 +166,28 @@ export function WorldMap({
             </g>
           </g>
         ))}
+
+        {/* Labels for Origin Cities (India) */}
+        {/* We filter only unique origin labels to avoid overlapping text */}
+        {Array.from(new Set(dots.map(d => d.start.label))).map((label, idx) => {
+          const dot = dots.find(d => d.start.label === label);
+          if (!dot) return null;
+          const point = projectPoint(dot.start.lat, dot.start.lng);
+          return (
+            <text
+              key={`city-label-${idx}`}
+              x={point.x + 8}
+              y={point.y + 4}
+              fill={lineColor}
+              fontSize="9"
+              fontWeight="900"
+              className="uppercase select-none pointer-events-none"
+              style={{ letterSpacing: "-0.5px" }}
+            >
+              {label}
+            </text>
+          );
+        })}
       </svg>
     </div>
   );
