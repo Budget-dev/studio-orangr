@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -44,10 +45,10 @@ const NAV_LINKS = [
 ];
 
 const STATS = [
-  { label: "Years of Excellence", value: 12, suffix: "+" },
-  { label: "Brands Transformed", value: 200, suffix: "+" },
-  { label: "Creative Minds", value: 45, suffix: "" },
-  { label: "Global Reach", value: 15, suffix: "+" },
+  { label: "Years of Excellence", value: 19, suffix: "+" },
+  { label: "Clients Served", value: 250, suffix: "+" },
+  { label: "Countries Reached", value: 40, suffix: "+" },
+  { label: "Shipments Handled", value: 15, suffix: "K+" },
 ];
 
 const SERVICES = [
@@ -107,7 +108,7 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Trade Operations',
     desc: 'Reimagining export identities for the global digital age.',
-    url: "/assets/images/_extra____upper_middle_202603191201%20-%20Copy.png",
+    url: "/assets/images/_extra____upper_middle_20260319_1201%20-%20Copy.png",
     span: 'md:col-span-1 md:row-span-1'
   },
   {
@@ -434,7 +435,7 @@ export default function HomePage() {
               <div className="text-center mb-20">
                 <div className="text-[#f89b34] font-bold uppercase tracking-[4px] text-xs mb-4">Global Reach & Insights</div>
                 <h2 className="text-4xl md:text-5xl font-sora font-light text-[#0a0a0a] leading-tight">
-                  Driving Results for <span className="font-bold">200+ Brands</span> <span className="text-[#f89b34]">Across The Globe</span>
+                  Driving Results for <span className="font-bold">250+ Brands</span> <span className="text-[#f89b34]">Across The Globe</span>
                 </h2>
               </div>
             </FadeIn>
@@ -514,6 +515,7 @@ export default function HomePage() {
                   frames={OPERATIONS_FRAMES} 
                   hoverSize={6}
                   gapSize={12}
+                  showFrames={false}
                />
             </div>
           </div>

@@ -1,22 +1,40 @@
 {
   "placeholderImages": [
     {
-      "id": "hero-bg",
-      "description": "Global logistics and shipping containers",
+      "id": "gallery-1",
+      "description": "Indian Private Trade Logistics",
       "imageUrl": "/assets/images/_extra____Indian_private_202603201015.png",
       "imageHint": "global logistics"
     },
     {
-      "id": "about-img",
-      "description": "International trade meeting",
-      "imageUrl": "https://picsum.photos/seed/shyama2/800/600",
-      "imageHint": "international trade"
+      "id": "gallery-2",
+      "description": "Upper Middle Trade Operations",
+      "imageUrl": "/assets/images/_extra____upper_middle_202603191201%20-%20Copy.png",
+      "imageHint": "trade operations"
     },
     {
-      "id": "warehouse",
-      "description": "Modern warehouse facility",
-      "imageUrl": "https://picsum.photos/seed/shyama3/800/600",
-      "imageHint": "warehouse"
+      "id": "gallery-3",
+      "description": "Subject A Trade Insights",
+      "imageUrl": "/assets/images/%7B__subject___A_202603191142.png",
+      "imageHint": "trade insights"
+    },
+    {
+      "id": "gallery-4",
+      "description": "Indian Trade Subject 1",
+      "imageUrl": "/assets/images/%7B__subject___Indian_202603191158.png",
+      "imageHint": "indian export"
+    },
+    {
+      "id": "gallery-5",
+      "description": "Indian Trade Subject 2",
+      "imageUrl": "/assets/images/%7B__subject___Indian_202603191217.png",
+      "imageHint": "export logistics"
+    },
+    {
+      "id": "gallery-6",
+      "description": "Indian Trade Subject 3",
+      "imageUrl": "/assets/images/%7B__subject___Indian_202603200952.png",
+      "imageHint": "global trade"
     }
   ]
 }
