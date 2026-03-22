@@ -1,9 +1,22 @@
-import type {Metadata} from 'next';
+import type { Metadata } from 'next';
+import { Sora, Inter } from 'next/font/google';
 import './globals.css';
 
+const sora = Sora({ 
+  subsets: ['latin'],
+  variable: '--font-sora',
+  weight: ['300', '400', '500', '600', '700', '800']
+});
+
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',
+  weight: ['300', '400', '500', '600', '700']
+});
+
 export const metadata: Metadata = {
-  title: 'Shyama Overseas | Global Trade & Logistics Solutions',
-  description: 'Connecting India to the world since 2005. Expert freight forwarding, customs clearance, and supply chain solutions.',
+  title: 'Shyam Overseas | Global Trade Maestros',
+  description: 'Expanding Horizons, Building Bridges. Leading Import-Export and Logistics Solutions.',
 };
 
 export default function RootLayout({
@@ -12,13 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-      </head>
-      <body className="font-body antialiased selection:bg-primary/30 selection:text-primary-foreground">
+    <html lang="en" className="scroll-smooth">
+      <body className={`${sora.variable} ${inter.variable} font-inter antialiased selection:bg-accent/30 selection:text-accent-foreground`}>
         {children}
       </body>
     </html>
