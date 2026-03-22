@@ -96,49 +96,49 @@ const AGENCY_GALLERY: MediaItemType[] = [
   {
     id: 1,
     type: 'image',
-    title: 'Modern E-commerce',
-    desc: 'High-conversion retail experience for global brands.',
-    url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f',
+    title: 'Visual Masterpiece',
+    desc: 'Bespoke digital experiences crafted with precision.',
+    url: '/assets/images/1.jpg',
     span: 'md:col-span-2 md:row-span-2'
   },
   {
     id: 2,
     type: 'image',
-    title: 'SaaS Dashboard',
-    desc: 'Complex data visualized through intuitive UI design.',
-    url: 'https://images.unsplash.com/photo-1551288049-bbbda536339a',
+    title: 'Brand Innovation',
+    desc: 'Reimagining corporate identities for the digital age.',
+    url: '/assets/images/2.jpg',
     span: 'md:col-span-1 md:row-span-1'
   },
   {
     id: 3,
     type: 'image',
-    title: 'Brand Identity',
-    desc: 'Minimalist corporate rebranding for a tech startup.',
-    url: 'https://images.unsplash.com/photo-1522542550221-31fd19255a7a',
+    title: 'Creative Strategy',
+    desc: 'Strategic thinking meets artistic excellence.',
+    url: '/assets/images/3.jpg',
     span: 'md:col-span-1 md:row-span-2'
   },
   {
     id: 4,
     type: 'image',
-    title: 'Mobile App',
-    desc: 'Next-gen fintech interface built with React Native.',
-    url: 'https://images.unsplash.com/photo-1558655146-d09347e92766',
+    title: 'Digital Portal',
+    desc: 'Seamless user interfaces for complex ecosystems.',
+    url: '/assets/images/4.jpg',
     span: 'md:col-span-1 md:row-span-1'
   },
   {
     id: 5,
     type: 'image',
-    title: 'Creative Workshop',
-    desc: 'Our iterative design process and strategy sessions.',
-    url: 'https://images.unsplash.com/photo-1552664730-d307ca884978',
+    title: 'Next-Gen UI',
+    desc: 'Pushing the boundaries of interactive design.',
+    url: '/assets/images/5.jpg',
     span: 'md:col-span-2 md:row-span-1'
   },
   {
     id: 6,
     type: 'image',
-    title: 'Corporate Portal',
-    desc: 'Secure enterprise internal resource management.',
-    url: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c',
+    title: 'Studio Excellence',
+    desc: 'Our iterative process of design and discovery.',
+    url: '/assets/images/6.jpg',
     span: 'md:col-span-1 md:row-span-1'
   }
 ];
@@ -153,14 +153,14 @@ const SECTOR_TAGS = [
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "0px 0px -100px 0px" });
+  const isInView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
 
   return (
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 15 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
-      transition={{ duration: 0.4, delay, ease: "easeOut" }}
+      transition={{ duration: 0.3, delay, ease: "easeOut" }}
     >
       {children}
     </motion.div>
@@ -769,3 +769,4 @@ export default function HomePage() {
     </div>
   );
 }
+
