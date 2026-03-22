@@ -2,40 +2,40 @@
 {
   "placeholderImages": [
     {
-      "id": "hero-bg",
-      "description": "Global logistics and shipping containers",
+      "id": "gallery-1",
+      "description": "Indian Private Trade Logistics",
       "imageUrl": "/assets/images/_extra____Indian_private_202603201015.png",
       "imageHint": "global logistics"
     },
     {
-      "id": "about-img",
-      "description": "International trade meeting",
-      "imageUrl": "/assets/images/_extra____Indian_private_202603201015.png",
-      "imageHint": "international trade"
+      "id": "gallery-2",
+      "description": "Upper Middle Trade Operations",
+      "imageUrl": "/assets/images/_extra____upper_middle_202603191201 - Copy.png",
+      "imageHint": "trade operations"
     },
     {
-      "id": "warehouse",
-      "description": "Modern warehouse facility",
-      "imageUrl": "/assets/images/_extra____Indian_private_202603201015.png",
-      "imageHint": "warehouse"
+      "id": "gallery-3",
+      "description": "Subject A Trade Insights",
+      "imageUrl": "/assets/images/{__subject___A_202603191142.png",
+      "imageHint": "trade insights"
     },
     {
       "id": "gallery-4",
-      "description": "Logistics hub operations",
-      "imageUrl": "/assets/images/_extra____Indian_private_202603201015.png",
-      "imageHint": "logistics hub"
+      "description": "Indian Trade Subject 1",
+      "imageUrl": "/assets/images/{__subject___Indian_202603191158.png",
+      "imageHint": "indian export"
     },
     {
       "id": "gallery-5",
-      "description": "Global supply chain management",
-      "imageUrl": "/assets/images/_extra____Indian_private_202603201015.png",
-      "imageHint": "supply chain"
+      "description": "Indian Trade Subject 2",
+      "imageUrl": "/assets/images/{__subject___Indian_202603191217.png",
+      "imageHint": "export logistics"
     },
     {
       "id": "gallery-6",
-      "description": "Trade excellence",
-      "imageUrl": "/assets/images/_extra____Indian_private_202603201015.png",
-      "imageHint": "trade excellence"
+      "description": "Indian Trade Subject 3",
+      "imageUrl": "/assets/images/{__subject___Indian_202603200952.png",
+      "imageHint": "global trade"
     }
   ]
 }

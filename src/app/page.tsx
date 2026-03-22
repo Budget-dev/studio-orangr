@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView, AnimatePresence } from "framer-motion";
@@ -97,49 +97,49 @@ const AGENCY_GALLERY: MediaItemType[] = [
   {
     id: 1,
     type: 'image',
-    title: 'Visual Masterpiece',
-    desc: 'Bespoke digital experiences crafted with precision and ROI in mind.',
-    url: PlaceHolderImages.find(img => img.id === 'hero-bg')?.imageUrl || "/assets/images/_extra____Indian_private_202603201015.png",
+    title: 'Global Logistics',
+    desc: 'Bespoke trade solutions crafted with precision and ROI in mind.',
+    url: PlaceHolderImages.find(img => img.id === 'gallery-1')?.imageUrl || "/assets/images/_extra____Indian_private_202603201015.png",
     span: 'md:col-span-2 md:row-span-2'
   },
   {
     id: 2,
     type: 'image',
-    title: 'Brand Innovation',
-    desc: 'Reimagining corporate identities for the digital age.',
-    url: PlaceHolderImages.find(img => img.id === 'about-img')?.imageUrl || "/assets/images/_extra____Indian_private_202603201015.png",
+    title: 'Trade Operations',
+    desc: 'Reimagining export identities for the global digital age.',
+    url: PlaceHolderImages.find(img => img.id === 'gallery-2')?.imageUrl || "/assets/images/_extra____upper_middle_202603191201 - Copy.png",
     span: 'md:col-span-1 md:row-span-1'
   },
   {
     id: 3,
     type: 'image',
-    title: 'Creative Strategy',
-    desc: 'Strategic thinking meets artistic excellence in every pixel.',
-    url: PlaceHolderImages.find(img => img.id === 'warehouse')?.imageUrl || "/assets/images/_extra____Indian_private_202603201015.png",
+    title: 'Strategic Insights',
+    desc: 'Strategic thinking meets logistical excellence in every route.',
+    url: PlaceHolderImages.find(img => img.id === 'gallery-3')?.imageUrl || "/assets/images/{__subject___A_202603191142.png",
     span: 'md:col-span-1 md:row-span-2'
   },
   {
     id: 4,
     type: 'image',
     title: 'Digital Portal',
-    desc: 'Seamless user interfaces for complex digital ecosystems.',
-    url: PlaceHolderImages.find(img => img.id === 'gallery-4')?.imageUrl || "/assets/images/_extra____Indian_private_202603201015.png",
+    desc: 'Seamless user interfaces for complex trade ecosystems.',
+    url: PlaceHolderImages.find(img => img.id === 'gallery-4')?.imageUrl || "/assets/images/{__subject___Indian_202603191158.png",
     span: 'md:col-span-1 md:row-span-1'
   },
   {
     id: 5,
     type: 'image',
-    title: 'Next-Gen UI',
-    desc: 'Pushing the boundaries of interactive design and user flow.',
-    url: PlaceHolderImages.find(img => img.id === 'gallery-5')?.imageUrl || "/assets/images/_extra____Indian_private_202603201015.png",
+    title: 'Next-Gen Logistics',
+    desc: 'Pushing the boundaries of international trade and supply chain flow.',
+    url: PlaceHolderImages.find(img => img.id === 'gallery-5')?.imageUrl || "/assets/images/{__subject___Indian_202603191217.png",
     span: 'md:col-span-2 md:row-span-1'
   },
   {
     id: 6,
     type: 'image',
     title: 'Studio Excellence',
-    desc: 'Our iterative process of design and discovery yields results.',
-    url: PlaceHolderImages.find(img => img.id === 'gallery-6')?.imageUrl || "/assets/images/_extra____Indian_private_202603201015.png",
+    desc: 'Our iterative process of trade and discovery yields results.',
+    url: PlaceHolderImages.find(img => img.id === 'gallery-6')?.imageUrl || "/assets/images/{__subject___Indian_202603200952.png",
     span: 'md:col-span-1 md:row-span-1'
   }
 ];
@@ -154,14 +154,14 @@ const SECTOR_TAGS = [
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "0px 0px -20px 0px" });
+  const isInView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 10 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-      transition={{ duration: 0.3, delay, ease: "easeOut" }}
+      initial={{ opacity: 0, y: 15 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+      transition={{ duration: 0.4, delay, ease: "easeOut" }}
     >
       {children}
     </motion.div>
