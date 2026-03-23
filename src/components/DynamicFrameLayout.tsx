@@ -47,10 +47,10 @@ function FrameComponent({
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
-    if (isHovered) {
-      videoRef.current?.play().catch(() => {})
-    } else {
-      videoRef.current?.pause()
+    if (isHovered && videoRef.current) {
+      videoRef.current.play().catch(() => {})
+    } else if (videoRef.current) {
+      videoRef.current.pause()
     }
   }, [isHovered])
 
@@ -63,7 +63,7 @@ function FrameComponent({
         transition: "width 0.3s ease-in-out, height 0.3s ease-in-out",
       }}
     >
-      <div className="relative w-full h-full overflow-hidden border border-white/5 bg-secondary/20">
+      <div className="relative w-full h-full overflow-hidden rounded-xl bg-secondary/10">
         <div
           className="absolute inset-0 flex items-center justify-center"
           style={{
@@ -79,7 +79,7 @@ function FrameComponent({
           <div
             className="w-full h-full overflow-hidden"
             style={{
-              transform: `scale(${isHovered ? mediaSize * 1.1 : mediaSize})`,
+              transform: `scale(${isHovered ? 1.1 : mediaSize})`,
               transformOrigin: "center",
               transition: "transform 0.4s ease-out",
             }}
@@ -90,6 +90,7 @@ function FrameComponent({
               loop
               muted
               playsInline
+              autoPlay
               ref={videoRef}
             />
           </div>
@@ -176,7 +177,7 @@ export function DynamicFrameLayout({
   className,
   showFrames = false,
   hoverSize = 6,
-  gapSize = 4
+  gapSize = 12
 }: DynamicFrameLayoutProps) {
   const [hovered, setHovered] = useState<{ row: number; col: number } | null>(null)
 
@@ -238,11 +239,4 @@ export function DynamicFrameLayout({
               borderThickness={frame.borderThickness}
               borderSize={frame.borderSize}
               showFrame={showFrames}
-              isHovered={hovered?.row === row && hovered?.col === col}
-            />
-          </motion.div>
-        )
-      })}
-    </div>
-  )
-}
+              isHovered={hovered?.row === row && hovered?.
