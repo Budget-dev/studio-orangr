@@ -1,10 +1,11 @@
+
 "use client";
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { 
   Palette, 
   Megaphone, 
@@ -21,8 +22,6 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { WorldMap } from "@/components/WorldMap";
-import InteractiveBentoGallery, { MediaItemType } from "@/components/InteractiveBentoGallery";
-import { DynamicFrameLayout } from "@/components/DynamicFrameLayout";
 import { LogoCloud } from "@/components/LogoCloud";
 
 /* ── DATA ── */
@@ -62,72 +61,9 @@ const SERVICES = [
   { icon: Plus, title: "All Services →", desc: "Explore our full suite of digital transformation tools.", isCTA: true },
 ];
 
-const AGENCY_GALLERY: MediaItemType[] = [
-  {
-    id: 1,
-    type: 'image',
-    title: 'Global Logistics',
-    desc: 'Bespoke trade solutions crafted with precision and ROI in mind.',
-    url: "/assets/images/_extra____Indian_private_202603201015.png",
-    span: 'md:col-span-2 md:row-span-2'
-  },
-  {
-    id: 2,
-    type: 'image',
-    title: 'Trade Operations',
-    desc: 'Reimagining export identities for the global digital age.',
-    url: "/assets/images/_extra____upper_middle_202603191201 - Copy.png",
-    span: 'md:col-span-1 md:row-span-1'
-  },
-  {
-    id: 3,
-    type: 'image',
-    title: 'Strategic Insights',
-    desc: 'Strategic thinking meets logistical excellence in every route.',
-    url: "/assets/images/imagecolur.png",
-    span: 'md:col-span-1 md:row-span-2'
-  },
-  {
-    id: 4,
-    type: 'image',
-    title: 'Digital Portal',
-    desc: 'Seamless user interfaces for complex trade ecosystems.',
-    url: "/assets/images/imagesloyred.png",
-    span: 'md:col-span-1 md:row-span-1'
-  },
-  {
-    id: 5,
-    type: 'image',
-    title: 'Next-Gen Logistics',
-    desc: 'Pushing the boundaries of international trade and supply chain flow.',
-    url: "/assets/images/nyf.png",
-    span: 'md:col-span-2 md:row-span-1'
-  },
-  {
-    id: 6,
-    type: 'image',
-    title: 'Studio Excellence',
-    desc: 'Our iterative process of trade and discovery yields results.',
-    url: "/assets/images/niraj.png",
-    span: 'md:col-span-1 md:row-span-1'
-  }
-];
-
-const OPERATIONS_FRAMES = [
-  { id: 1, video: "/assets/videos/1.mp4", defaultPos: { x: 0, y: 0, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.2, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 2, video: "/assets/videos/2.mp4", defaultPos: { x: 4, y: 0, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.2, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 3, video: "/assets/videos/3.mp4", defaultPos: { x: 8, y: 0, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.2, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 4, video: "/assets/videos/1.mp4", defaultPos: { x: 0, y: 4, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.2, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 5, video: "/assets/videos/2.mp4", defaultPos: { x: 4, y: 4, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.2, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 6, video: "/assets/videos/3.mp4", defaultPos: { x: 8, y: 4, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.2, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 7, video: "/assets/videos/1.mp4", defaultPos: { x: 0, y: 8, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.2, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 8, video: "/assets/videos/2.mp4", defaultPos: { x: 4, y: 8, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.2, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 9, video: "/assets/videos/3.mp4", defaultPos: { x: 8, y: 8, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.2, borderThickness: 0, borderSize: 100, isHovered: false },
-];
-
 const testimonials = [
   {
-    text: "Shyama Overseas transformed our digital presence. Their attention to detail in UI/UX is truly unmatched in India. They turned our vision into a global growth reality.",
+    text: "Shyama Overseas transformed our digital presence. Their attention to detail in UI/UX is truly unmatched. They turned our vision into a global growth reality.",
     name: "Arjun Mehta",
     role: "CEO, Innovate India",
     image: "https://picsum.photos/seed/arjun/100/100"
@@ -166,7 +102,7 @@ const testimonials = [
 
 /* ── COMPONENTS ── */
 
-export const TestimonialsColumn = (props: {
+const TestimonialsColumn = (props: {
   className?: string;
   testimonials: typeof testimonials;
   duration?: number;
@@ -190,7 +126,7 @@ export const TestimonialsColumn = (props: {
             <React.Fragment key={index}>
               {props.testimonials.map(({ text, image, name, role }, i) => (
                 <div className="p-10 rounded-3xl border shadow-lg shadow-primary/10 max-w-xs w-full bg-white" key={i}>
-                  <div className="text-sm text-muted-foreground leading-relaxed italic mb-6">"{text}"</div>
+                  <div className="text-sm text-secondary font-medium italic mb-6">"{text}"</div>
                   <div className="flex items-center gap-2 mt-5">
                     <img
                       width={40}
@@ -200,8 +136,8 @@ export const TestimonialsColumn = (props: {
                       className="h-10 w-10 rounded-full"
                     />
                     <div className="flex flex-col">
-                      <div className="font-medium tracking-tight leading-5 text-secondary">{name}</div>
-                      <div className="leading-5 opacity-60 tracking-tight text-primary font-bold text-xs uppercase">{role}</div>
+                      <div className="font-bold text-secondary text-sm tracking-tight leading-5">{name}</div>
+                      <div className="leading-5 text-primary font-bold text-[10px] uppercase tracking-wider">{role}</div>
                     </div>
                   </div>
                 </div>
@@ -239,7 +175,7 @@ function StatCounter({ value, suffix, label }: { value: number; suffix: string; 
     if (isInView) {
       let start = 0;
       const end = value;
-      const duration = 1000;
+      const duration = 1500;
       const startTime = performance.now();
 
       const animate = (currentTime: number) => {
@@ -353,72 +289,56 @@ export default function HomePage() {
         {/* HERO SECTION */}
         <section className="relative h-screen flex items-center overflow-hidden bg-secondary w-full">
           <Image 
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c" 
-            alt="Cinematic Agency Office" 
+            src="/assets/images/_extra____Indian_private_202603201015.png" 
+            alt="Hero Background" 
             fill 
-            className="object-cover object-center opacity-70"
+            className="object-cover object-center opacity-60"
             priority
+            unoptimized
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/50 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary/80 via-secondary/40 to-transparent z-10" />
           
           <div className="relative z-20 w-full px-6">
             <div className="max-w-7xl mx-auto">
               <motion.div 
-                initial={{ opacity: 0, x: -100 }}
+                initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1.2, ease: "easeOut" }}
+                transition={{ duration: 1 }}
                 className="max-w-4xl"
               >
-                <motion.div 
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                  className="text-white font-medium uppercase tracking-[6px] text-sm mb-6 flex items-center gap-4"
-                >
-                  <span className="w-12 h-[1px] bg-primary" />
-                  We are your
-                </motion.div>
-                
-                <div className="relative inline-block mb-10 overflow-hidden">
-                  <motion.div 
-                    initial={{ width: 0 }}
-                    animate={{ width: "100%" }}
-                    transition={{ duration: 1, delay: 0.3 }}
-                    className="bg-primary px-8 py-6 absolute inset-0 -skew-x-6 z-[-1] shadow-2xl" 
-                  />
-                  <motion.h1 
-                    initial={{ x: -200, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 1, delay: 0.6, type: "spring", stiffness: 50 }}
-                    className="text-5xl md:text-[90px] font-black text-secondary leading-[0.9] uppercase font-sora -skew-x-6"
-                  >
-                    DIGITAL GROWTH<br />MAESTROS
-                  </motion.h1>
+                <div className="text-primary font-black uppercase tracking-[8px] text-xs mb-6 flex items-center gap-4">
+                  <span className="w-12 h-[2px] bg-primary" />
+                  Your Partners in
                 </div>
+                
+                <h1 className="text-6xl md:text-[100px] font-black text-white leading-[0.9] uppercase font-sora mb-8 italic">
+                  Digital<br /><span className="text-primary not-italic">Dominance</span>
+                </h1>
 
-                <motion.p 
-                  initial={{ opacity: 0, x: -50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 1, delay: 1 }}
-                  className="text-xl md:text-2xl text-white/90 font-light italic leading-relaxed mb-12 max-w-2xl font-inter"
-                >
-                  Crafting Your Digital Legacy with Precision Design, Cutting-edge Tech, and Unmatched ROI.
-                </motion.p>
+                <p className="text-xl md:text-2xl text-white/80 font-light leading-relaxed mb-12 max-w-2xl font-inter border-l-4 border-primary pl-8">
+                  Redefining Global Trade with Cutting-edge Design, Tech, and Strategic Excellence.
+                </p>
 
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.2 }}
-                  className="flex flex-col sm:flex-row gap-6"
-                >
-                  <Link href="/services" className="bg-primary text-secondary px-10 py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:scale-105 transition-transform text-center shadow-2xl shadow-primary/20">
-                    Explore Services
+                <div className="flex flex-col sm:flex-row gap-6">
+                  <Link href="/services" className="bg-primary text-secondary px-12 py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:scale-105 transition-transform text-center shadow-xl shadow-primary/20">
+                    Our Services
                   </Link>
-                  <Link href="/contact" className="bg-transparent border-2 border-white text-white px-10 py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-secondary transition-all text-center">
-                    Contact Us
+                  <Link href="/contact" className="bg-transparent border-2 border-white/50 text-white px-12 py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-secondary transition-all text-center">
+                    Get Started
                   </Link>
-                </motion.div>
+                </div>
               </motion.div>
+            </div>
+          </div>
+
+          {/* MOVING TEXT BAR */}
+          <div className="absolute bottom-0 left-0 right-0 bg-primary py-5 overflow-hidden border-t-2 border-secondary/20 z-30">
+            <div className="flex gap-16 w-max animate-marquee-slow items-center">
+              {[...Array(6)].map((_, i) => (
+                <span key={i} className="text-secondary font-black text-5xl uppercase tracking-[12px] whitespace-nowrap opacity-90 italic">
+                  DIGITAL GROWTH MAESTROS • GLOBAL TRADE • STRATEGIC DESIGN • 
+                </span>
+              ))}
             </div>
           </div>
         </section>
@@ -443,9 +363,9 @@ export default function HomePage() {
             <FadeIn>
               <div className="text-center mb-16">
                 <h2 className="text-4xl font-sora font-light text-secondary">
-                  Trusted by <span className="text-primary font-bold">Global Leaders</span>
+                  Our <span className="text-primary font-bold">Strategic Network</span>
                 </h2>
-                <p className="text-primary font-bold uppercase tracking-widest text-[10px] mt-2">Strategic Partnerships</p>
+                <p className="text-primary font-bold uppercase tracking-widest text-[10px] mt-2 italic">Trusted by Global Leaders</p>
               </div>
               <LogoCloud />
             </FadeIn>
@@ -453,58 +373,64 @@ export default function HomePage() {
         </section>
 
         {/* SERVICES GRID */}
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-[#FAFAF8]">
           <div className="max-w-7xl mx-auto px-6">
             <FadeIn>
               <div className="text-center mb-20">
                 <h2 className="text-4xl md:text-5xl font-sora font-light text-secondary mb-4">
-                  Our Digital & <span className="text-primary italic font-bold">Creative Services</span>
+                  Full-Suite <span className="text-primary font-bold">Digital Services</span>
                 </h2>
-                <p className="text-primary font-medium uppercase tracking-[4px] text-xs">Your Instruments</p>
+                <p className="text-primary font-medium uppercase tracking-[4px] text-xs">Innovation Unleashed</p>
               </div>
             </FadeIn>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-border/20 border border-border/20 overflow-hidden rounded-2xl shadow-sm">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {SERVICES.map((svc, i) => (
                 <motion.div 
                   key={svc.title}
-                  whileHover={{ y: -5 }}
+                  whileHover={{ y: -10 }}
                   className={cn(
-                    "p-10 transition-all duration-200 group bg-white hover:z-10",
-                    svc.isCTA ? "bg-muted/30" : ""
+                    "p-10 rounded-3xl transition-all duration-300 group bg-white shadow-xl shadow-secondary/5 border border-transparent hover:border-primary",
+                    svc.isCTA ? "bg-secondary text-white" : ""
                   )}
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-muted flex items-center justify-center mb-8 group-hover:bg-primary transition-colors duration-200">
-                    <svc.icon className="w-7 h-7 text-primary group-hover:text-secondary transition-colors duration-200" />
+                  <div className={cn(
+                    "w-16 h-16 rounded-2xl flex items-center justify-center mb-8 transition-colors duration-300",
+                    svc.isCTA ? "bg-primary" : "bg-muted group-hover:bg-primary"
+                  )}>
+                    <svc.icon className={cn(
+                      "w-8 h-8 transition-colors duration-300",
+                      svc.isCTA ? "text-secondary" : "text-primary group-hover:text-white"
+                    )} />
                   </div>
-                  <h3 className="text-xl font-sora font-bold mb-4 text-secondary group-hover:text-primary transition-colors">
+                  <h3 className={cn(
+                    "text-xl font-sora font-bold mb-4",
+                    svc.isCTA ? "text-white" : "text-secondary group-hover:text-primary"
+                  )}>
                     {svc.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-8 line-clamp-2">
+                  <p className={cn(
+                    "text-sm leading-relaxed mb-8",
+                    svc.isCTA ? "text-white/60" : "text-muted-foreground"
+                  )}>
                     {svc.desc}
                   </p>
-                  <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest transform transition-transform group-hover:translate-x-2">
+                  <Link href="/services" className={cn(
+                    "flex items-center gap-2 font-bold text-xs uppercase tracking-widest transition-transform group-hover:translate-x-2",
+                    svc.isCTA ? "text-primary" : "text-primary"
+                  )}>
                     Learn More <ArrowRight className="w-4 h-4" />
-                  </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* INTERACTIVE BENTO GALLERY */}
-        <section className="py-24 bg-white">
-          <InteractiveBentoGallery 
-            title="Our Creative Showcase" 
-            description="A curated collection of our finest digital works and innovative solutions."
-            mediaItems={AGENCY_GALLERY}
-          />
-        </section>
-
-        {/* OPERATIONS / STUDIO */}
-        <section className="py-24 bg-[#FAFAF8] relative overflow-hidden w-full">
-          <div className="w-full px-6">
-            <div className="mb-16 text-center max-w-4xl mx-auto">
+        {/* OPERATIONS SECTION */}
+        <section className="py-24 bg-white overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="mb-16 text-center">
               <FadeIn>
                 <div className="inline-flex items-center gap-3 text-primary font-bold uppercase tracking-[4px] text-xs mb-6 border-b-2 border-primary pb-2">
                   Operations
@@ -518,14 +444,24 @@ export default function HomePage() {
                 </p>
               </FadeIn>
             </div>
-            
-            <div className="w-full mt-12 overflow-hidden aspect-video md:aspect-[21/9]">
-               <DynamicFrameLayout 
-                  frames={OPERATIONS_FRAMES} 
-                  hoverSize={6}
-                  gapSize={4}
-                  showFrames={false}
-               />
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-[500px]">
+              {[1, 2, 3].map((id) => (
+                <div key={id} className="relative rounded-3xl overflow-hidden shadow-2xl group border-2 border-primary/10">
+                  <video 
+                    src={`/assets/videos/${id}.mp4`}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-10">
+                    <p className="text-primary font-black text-xs uppercase tracking-[4px] mb-2">Process Stage</p>
+                    <h4 className="text-white font-sora font-bold text-2xl">Production 0{id}</h4>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -535,7 +471,7 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <FadeIn>
               <div className="text-center mb-20">
-                <div className="text-primary font-bold uppercase tracking-[4px] text-xs mb-4">Global Reach & Insights</div>
+                <div className="text-primary font-bold uppercase tracking-[4px] text-xs mb-4">Global Reach</div>
                 <h2 className="text-4xl md:text-5xl font-sora font-light text-secondary leading-tight">
                   Driving Results for <span className="font-bold">250+ Brands</span> <span className="text-primary">Across The Globe</span>
                 </h2>
@@ -573,18 +509,18 @@ export default function HomePage() {
         </section>
 
         {/* TESTIMONIALS SECTION */}
-        <section className="py-24 bg-muted/10 overflow-hidden">
+        <section className="py-24 bg-[#FAFAF8] overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
             <FadeIn>
               <div className="text-center mb-16">
                 <h2 className="text-4xl font-sora font-light text-secondary">
-                  Latest from <span className="text-primary font-bold">Insights</span>
+                  Our <span className="text-primary font-bold italic">Indian Partners</span>
                 </h2>
-                <p className="text-primary font-bold uppercase tracking-widest text-[10px] mt-2">What our Indian partners say</p>
+                <p className="text-primary font-bold uppercase tracking-widest text-[10px] mt-2 italic">Voices of Success</p>
               </div>
             </FadeIn>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 h-[500px] items-start">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 h-[500px] items-start">
               <TestimonialsColumn 
                 testimonials={testimonials.slice(0, 2)} 
                 duration={15} 
@@ -609,46 +545,45 @@ export default function HomePage() {
             <div className="mb-16">
               <FadeIn>
                 <h2 className="text-4xl md:text-5xl font-sora font-light text-secondary">
-                  <span className="text-primary font-bold">Get in touch</span> with us for
+                  <span className="text-primary font-bold">Get in touch</span> with us
                 </h2>
-                <p className="text-2xl text-secondary font-inter font-light mt-2">
-                  our Digital & Creative Services
+                <p className="text-2xl text-secondary font-inter font-light mt-2 italic">
+                  Let's craft your digital legacy.
                 </p>
               </FadeIn>
             </div>
 
-            <div className="grid lg:grid-cols-[1fr_400px] gap-16 items-start">
-              <form className="space-y-8">
-                <div className="grid md:grid-cols-2 gap-8">
-                  <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-medium" placeholder="Name" />
-                  <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-medium" placeholder="Email ID" />
+            <div className="grid lg:grid-cols-[1fr_450px] gap-20 items-start">
+              <form className="space-y-10">
+                <div className="grid md:grid-cols-2 gap-10">
+                  <input className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal" placeholder="Full Name" />
+                  <input className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal" placeholder="Email Address" />
                 </div>
-                <div className="grid md:grid-cols-2 gap-8">
-                  <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-medium" placeholder="Contact Number" />
-                  <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-medium" placeholder="Website / LinkedIn" />
+                <div className="grid md:grid-cols-2 gap-10">
+                  <input className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal" placeholder="Contact Number" />
+                  <input className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal" placeholder="Company Website" />
                 </div>
-                <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-medium" placeholder="Company Name" />
-                <textarea className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-medium resize-none" rows={4} placeholder="Please share your digital requirement in detail..." />
-                <button className="bg-primary hover:bg-primary/90 text-secondary w-full py-5 rounded-full font-bold uppercase tracking-[4px] text-sm transition-all shadow-xl shadow-primary/20">
-                  SEND MESSAGE
+                <textarea className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal resize-none" rows={4} placeholder="How can we help you dominant your industry?" />
+                <button className="bg-primary hover:bg-primary/90 text-secondary w-full py-6 rounded-full font-black uppercase tracking-[6px] text-sm transition-all shadow-2xl shadow-primary/30">
+                  INITIATE GROWTH
                 </button>
               </form>
 
-              <div className="bg-secondary p-12 rounded-3xl text-white shadow-2xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full -mr-16 -mt-16" />
-                <div className="relative z-10 space-y-10">
+              <div className="bg-secondary p-16 rounded-[40px] text-white shadow-2xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full -mr-20 -mt-20 blur-3xl" />
+                <div className="relative z-10 space-y-12">
                   <div>
-                    <div className="text-primary text-4xl font-sora font-bold mb-2">+91 9033131093</div>
-                    <p className="text-white/50 text-sm tracking-wider uppercase font-medium">available from 10:00 – 18:00</p>
+                    <div className="text-primary text-5xl font-sora font-black mb-3">+91 9033131093</div>
+                    <p className="text-white/40 text-[10px] font-bold tracking-[4px] uppercase">Available 10:00 – 18:00 IST</p>
                   </div>
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="text-primary font-bold uppercase tracking-[3px] text-[10px] mb-2">Locations</h4>
-                      <p className="text-lg font-sora font-semibold">Ahmedabad | Surat | Vadodara</p>
+                  <div className="space-y-8">
+                    <div className="group">
+                      <h4 className="text-primary font-black uppercase tracking-[4px] text-[10px] mb-3 group-hover:translate-x-2 transition-transform">HQ Locations</h4>
+                      <p className="text-xl font-sora font-bold">Ahmedabad • Surat • Vadodara</p>
                     </div>
-                    <div>
-                      <h4 className="text-primary font-bold uppercase tracking-[3px] text-[10px] mb-2">Email Us</h4>
-                      <Link href="mailto:info@shyamoverseas.com" className="text-lg font-sora font-semibold hover:text-primary transition-colors">
+                    <div className="group">
+                      <h4 className="text-primary font-black uppercase tracking-[4px] text-[10px] mb-3 group-hover:translate-x-2 transition-transform">Email Support</h4>
+                      <Link href="mailto:info@shyamoverseas.com" className="text-xl font-sora font-bold hover:text-primary transition-colors block">
                         info@shyamoverseas.com
                       </Link>
                     </div>
@@ -660,11 +595,11 @@ export default function HomePage() {
         </section>
 
         {/* SECTOR TAGS STRIP */}
-        <section className="bg-secondary py-8 overflow-hidden border-y border-white/5">
-          <div className="flex gap-12 w-max animate-marquee-slow px-6">
+        <section className="bg-secondary py-10 overflow-hidden border-y border-white/5">
+          <div className="flex gap-20 w-max animate-marquee-slow px-6 items-center">
             {[...SECTOR_TAGS, ...SECTOR_TAGS].map((s, i) => (
-              <span key={i} className="text-white/30 text-xs font-bold uppercase tracking-[4px] whitespace-nowrap">
-                {s}
+              <span key={i} className="text-white/20 text-xs font-black uppercase tracking-[6px] whitespace-nowrap">
+                {s} •
               </span>
             ))}
           </div>
@@ -673,43 +608,43 @@ export default function HomePage() {
       </main>
 
       {/* FOOTER */}
-      <footer className="bg-[#060F1E] text-white pt-24 pb-12">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
-          <div className="space-y-8">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-primary rounded flex items-center justify-center font-black text-xl text-secondary">S</div>
-              <span className="text-2xl font-sora font-bold">Shyama Overseas</span>
+      <footer className="bg-[#050B14] text-white pt-24 pb-12">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-20">
+          <div className="space-y-10">
+            <Link href="/" className="flex items-center gap-4 group">
+              <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center font-black text-2xl text-secondary group-hover:scale-110 transition-transform">S</div>
+              <span className="text-2xl font-sora font-black tracking-tight">Shyama Overseas</span>
             </Link>
-            <p className="text-white/50 text-sm leading-relaxed font-inter">
-              We are one of India's Leading Digital & Creative Agencies, committed to building reliable bridges between your vision and global digital excellence.
+            <p className="text-white/40 text-sm leading-relaxed font-inter italic border-l-2 border-primary pl-6">
+              Empowering Indian brands to transcend borders through strategic digital excellence.
             </p>
           </div>
 
           <div>
-            <h6 className="text-primary font-bold uppercase tracking-[3px] text-xs mb-8">Important Links</h6>
-            <ul className="space-y-4">
-              {["Our Story", "Services", "Portfolio", "Case Studies", "Insights", "Career"].map(l => (
-                <li key={l}><Link href="#" className="text-white/50 hover:text-primary transition-colors text-sm font-medium">{l}</Link></li>
+            <h6 className="text-primary font-black uppercase tracking-[4px] text-[10px] mb-10">Navigation</h6>
+            <ul className="space-y-5">
+              {["Our Story", "Services", "Portfolio", "Insights", "Careers"].map(l => (
+                <li key={l}><Link href="#" className="text-white/40 hover:text-primary transition-all text-sm font-bold flex items-center gap-2 group"><span className="w-1.5 h-1.5 bg-primary/20 rounded-full group-hover:bg-primary" /> {l}</Link></li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h6 className="text-primary font-bold uppercase tracking-[3px] text-xs mb-8">Our Ventures</h6>
-            <div className="space-y-8">
-              <div className="bg-white/5 p-6 rounded-2xl border border-white/10">
-                <div className="text-white font-bold mb-2 text-sm font-sora">Official Partners</div>
-                <p className="text-white/40 text-[10px] leading-relaxed uppercase tracking-widest font-bold">Google & Meta Business Partner Agency.</p>
+            <h6 className="text-primary font-black uppercase tracking-[4px] text-[10px] mb-10">Accreditations</h6>
+            <div className="space-y-10">
+              <div className="bg-white/5 p-8 rounded-3xl border border-white/10 group hover:border-primary transition-colors">
+                <div className="text-white font-bold mb-3 text-sm font-sora">Official Partner</div>
+                <p className="text-white/30 text-[9px] leading-relaxed uppercase tracking-widest font-black italic">Google & Meta Certified Growth Agency</p>
               </div>
             </div>
           </div>
 
           <div>
-            <h6 className="text-primary font-bold uppercase tracking-[3px] text-xs mb-8">Get In Touch</h6>
+            <h6 className="text-primary font-black uppercase tracking-[4px] text-[10px] mb-10">Connectivity</h6>
             <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <span className="text-primary mt-1"><Globe className="w-4 h-4" /></span>
-                <p className="text-white/50 text-sm font-medium">Ahmedabad | Surat | Vadodara</p>
+              <div className="flex items-center gap-5 text-white/40 group">
+                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-primary transition-colors"><Globe className="w-5 h-5 group-hover:text-secondary" /></div>
+                <p className="text-sm font-bold">Pan-India Presence</p>
               </div>
             </div>
           </div>
