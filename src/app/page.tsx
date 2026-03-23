@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -493,7 +492,7 @@ export default function HomePage() {
 
         {/* OPERATIONS / STUDIO */}
         <section className="py-24 bg-[#FAFAF8] relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-[1400px] mx-auto px-6">
             <div className="mb-16 text-center max-w-4xl mx-auto">
               <FadeIn>
                 <div className="inline-flex items-center gap-3 text-[#f89b34] font-bold uppercase tracking-[4px] text-xs mb-6 border-b-2 border-[#f89b34] pb-2">
@@ -513,7 +512,7 @@ export default function HomePage() {
                <DynamicFrameLayout 
                   frames={OPERATIONS_FRAMES} 
                   hoverSize={6}
-                  gapSize={12}
+                  gapSize={4}
                   showFrames={false}
                />
             </div>
