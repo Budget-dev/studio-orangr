@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Plus } from "lucide-react";
@@ -25,15 +26,15 @@ export function LogoCloud({ className, ...props }: LogoCloudProps) {
       <div className="-translate-x-1/2 -top-px pointer-events-none absolute left-1/2 w-screen border-t border-border/40" />
 
       <LogoCard
-        className="relative border-r border-b border-border/40 bg-secondary/5 dark:bg-secondary/20"
+        className="relative border-r border-b border-border/40 bg-muted/5 dark:bg-muted/10"
         logo={{
           src: "https://svgl.app/library/nvidia-wordmark-light.svg",
           alt: "Nvidia Logo",
         }}
       >
         <Plus
-          className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 text-[#f89b34]"
-          strokeWidth={1}
+          className="-right-[12px] -bottom-[12px] absolute z-10 size-6 text-[#f89b34]"
+          strokeWidth={1.5}
         />
       </LogoCard>
 
@@ -46,24 +47,24 @@ export function LogoCloud({ className, ...props }: LogoCloudProps) {
       />
 
       <LogoCard
-        className="relative border-r border-b border-border/40 md:bg-secondary/5 dark:md:bg-secondary/20"
+        className="relative border-r border-b border-border/40 md:bg-muted/5 dark:md:bg-muted/10"
         logo={{
           src: "https://svgl.app/library/github_wordmark_light.svg",
           alt: "GitHub Logo",
         }}
       >
         <Plus
-          className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 text-[#f89b34]"
-          strokeWidth={1}
+          className="-right-[12px] -bottom-[12px] absolute z-10 size-6 text-[#f89b34]"
+          strokeWidth={1.5}
         />
         <Plus
-          className="-bottom-[12.5px] -left-[12.5px] absolute z-10 hidden size-6 md:block text-[#f89b34]"
-          strokeWidth={1}
+          className="-bottom-[12px] -left-[12px] absolute z-10 hidden size-6 md:block text-[#f89b34]"
+          strokeWidth={1.5}
         />
       </LogoCard>
 
       <LogoCard
-        className="relative border-b border-border/40 bg-secondary/5 md:bg-background dark:bg-secondary/20 md:dark:bg-background"
+        className="relative border-b border-border/40 bg-muted/5 md:bg-background dark:bg-muted/10 md:dark:bg-background"
         logo={{
           src: "https://svgl.app/library/openai_wordmark_light.svg",
           alt: "OpenAI Logo",
@@ -71,20 +72,20 @@ export function LogoCloud({ className, ...props }: LogoCloudProps) {
       />
 
       <LogoCard
-        className="relative border-r border-b border-border/40 bg-secondary/5 md:border-b-0 md:bg-background dark:bg-secondary/20 md:dark:bg-background"
+        className="relative border-r border-b border-border/40 bg-muted/5 md:border-b-0 md:bg-background dark:bg-muted/10 md:dark:bg-background"
         logo={{
           src: "https://svgl.app/library/turso-wordmark-light.svg",
           alt: "Turso Logo",
         }}
       >
         <Plus
-          className="-right-[12.5px] -bottom-[12.5px] md:-left-[12.5px] absolute z-10 size-6 md:hidden text-[#f89b34]"
-          strokeWidth={1}
+          className="-right-[12px] -bottom-[12px] md:-left-[12px] absolute z-10 size-6 md:hidden text-[#f89b34]"
+          strokeWidth={1.5}
         />
       </LogoCard>
 
       <LogoCard
-        className="border-b border-border/40 bg-background md:border-r md:border-b-0 md:bg-secondary/5 dark:md:bg-secondary/20"
+        className="border-b border-border/40 bg-background md:border-r md:border-b-0 md:bg-muted/5 dark:md:bg-muted/10"
         logo={{
           src: "https://svgl.app/library/clerk-wordmark-light.svg",
           alt: "Clerk Logo",
@@ -100,7 +101,7 @@ export function LogoCloud({ className, ...props }: LogoCloudProps) {
       />
 
       <LogoCard
-        className="bg-secondary/5 dark:bg-secondary/20"
+        className="bg-muted/5 dark:bg-muted/10"
         logo={{
           src: "https://svgl.app/library/vercel_wordmark.svg",
           alt: "Vercel Logo",

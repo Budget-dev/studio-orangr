@@ -29,7 +29,6 @@ import {
 import { cn } from "@/lib/utils";
 import { WorldMap } from "@/components/WorldMap";
 import InteractiveBentoGallery, { MediaItemType } from "@/components/InteractiveBentoGallery";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { DynamicFrameLayout, Frame } from "@/components/DynamicFrameLayout";
 import { LogoCloud } from "@/components/LogoCloud";
 
@@ -61,14 +60,6 @@ const SERVICES = [
   { icon: Layers, title: "Branding & Identity", desc: "Defining your unique voice in a crowded digital marketplace." },
   { icon: BarChart3, title: "Performance Marketing", desc: "ROI-focused campaigns across Meta, Google, and LinkedIn." },
   { icon: Plus, title: "All Services →", desc: "Explore our full suite of digital transformation tools.", isCTA: true },
-];
-
-const PLATFORMS = [
-  { name: "Google Ads", logo: "Google Ads" },
-  { name: "Meta Business", logo: "Meta Business" },
-  { name: "Shopify", logo: "Shopify" },
-  { name: "AWS", logo: "AWS Cloud" },
-  { name: "HubSpot", logo: "HubSpot" },
 ];
 
 const BLOGS = [
@@ -172,7 +163,7 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
       ref={ref}
       initial={{ opacity: 0, y: 10 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-      transition={{ duration: 0.25, delay, ease: "easeOut" }}
+      transition={{ duration: 0.2, delay, ease: "easeOut" }}
     >
       {children}
     </motion.div>
@@ -188,7 +179,7 @@ function StatCounter({ value, suffix, label }: { value: number; suffix: string; 
     if (isInView) {
       let start = 0;
       const end = value;
-      const duration = 1000;
+      const duration = 800;
       const startTime = performance.now();
 
       const animate = (currentTime: number) => {
@@ -315,7 +306,7 @@ export default function HomePage() {
             <motion.div 
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
               className="max-w-4xl"
             >
               <div className="text-white font-medium uppercase tracking-[6px] text-sm mb-6 flex items-center gap-4">
@@ -347,7 +338,7 @@ export default function HomePage() {
 
           <motion.div 
             animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
+            transition={{ duration: 1.5, repeat: Infinity }}
             className="absolute bottom-10 left-10 z-20 flex flex-col items-center gap-4"
           >
             <span className="text-white/40 text-[10px] uppercase tracking-[4px] [writing-mode:vertical-lr] mb-12">SCROLL</span>
@@ -366,6 +357,26 @@ export default function HomePage() {
                 )}
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* LOGO CLOUD */}
+        <section className="py-24 bg-white border-b border-border/10 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6">
+            <FadeIn>
+              <div className="text-center mb-16">
+                <h2 className="text-4xl font-sora font-light text-[#0a0a0a]">
+                  Trusted by <span className="text-[#f89b34] font-bold">Global Leaders</span>
+                </h2>
+                <p className="text-[#f89b34] font-bold uppercase tracking-widest text-[10px] mt-2">Strategic Partnerships</p>
+              </div>
+              <LogoCloud />
+              <div className="text-center mt-12">
+                <Link href="/portfolio" className="bg-[#f89b34] hover:bg-[#f89b34]/90 text-[#0a0a0a] px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs transition-all shadow-lg hover:shadow-[#f89b34]/30">
+                  Our Client Portfolio
+                </Link>
+              </div>
+            </FadeIn>
           </div>
         </section>
 
@@ -405,6 +416,44 @@ export default function HomePage() {
                   </div>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* INTERACTIVE BENTO GALLERY */}
+        <section className="py-24 bg-white">
+          <InteractiveBentoGallery 
+            title="Our Creative Showcase" 
+            description="A curated collection of our finest digital works and innovative solutions."
+            mediaItems={AGENCY_GALLERY}
+          />
+        </section>
+
+        {/* OPERATIONS / STUDIO */}
+        <section className="py-24 bg-[#FAFAF8] relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="mb-16 text-center max-w-4xl mx-auto">
+              <FadeIn>
+                <div className="inline-flex items-center gap-3 text-[#f89b34] font-bold uppercase tracking-[4px] text-xs mb-6 border-b-2 border-[#f89b34] pb-2">
+                  Operations
+                </div>
+                <h2 className="text-4xl md:text-5xl font-sora font-light text-[#0a0a0a] mb-8 leading-tight">
+                  A company with an<br />
+                  <span className="text-[#f89b34] font-bold">In-house Creative Studio</span>
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed font-inter italic max-w-3xl mx-auto">
+                  As a full-service digital house, we manage design, development, content production, and ad-tech implementation entirely in-house — giving you a single point of accountability.
+                </p>
+              </FadeIn>
+            </div>
+            
+            <div className="w-full mt-12 rounded-3xl overflow-hidden shadow-2xl aspect-video md:aspect-[21/9]">
+               <DynamicFrameLayout 
+                  frames={OPERATIONS_FRAMES} 
+                  hoverSize={6}
+                  gapSize={12}
+                  showFrames={false}
+               />
             </div>
           </div>
         </section>
@@ -451,82 +500,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* INTERACTIVE BENTO GALLERY */}
-        <section className="py-24 bg-white">
-          <InteractiveBentoGallery 
-            title="Our Creative Showcase" 
-            description="A curated collection of our finest digital works and innovative solutions."
-            mediaItems={AGENCY_GALLERY}
-          />
-        </section>
-
-        {/* LOGO CLOUD */}
-        <section className="py-24 bg-muted/20 border-y border-border/10 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6">
-            <FadeIn>
-              <div className="text-center mb-16">
-                <h2 className="text-4xl font-sora font-light text-[#0a0a0a]">
-                  Trusted by <span className="text-[#f89b34] font-bold">Global Leaders</span>
-                </h2>
-                <p className="text-[#f89b34] font-bold uppercase tracking-widest text-[10px] mt-2">Strategic Partnerships</p>
-              </div>
-              <LogoCloud />
-              <div className="text-center mt-12">
-                <Link href="/portfolio" className="bg-[#f89b34] hover:bg-[#f89b34]/90 text-[#0a0a0a] px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs transition-all shadow-lg hover:shadow-[#f89b34]/30">
-                  Our Client Portfolio
-                </Link>
-              </div>
-            </FadeIn>
-          </div>
-        </section>
-
-        {/* OPERATIONS / STUDIO */}
-        <section className="py-24 bg-[#FAFAF8] relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="mb-16 text-center max-w-3xl mx-auto">
-              <FadeIn>
-                <div className="inline-flex items-center gap-3 text-[#f89b34] font-bold uppercase tracking-[4px] text-xs mb-6 border-b-2 border-[#f89b34] pb-2">
-                  Operations
-                </div>
-                <h2 className="text-4xl md:text-5xl font-sora font-light text-[#0a0a0a] mb-8 leading-tight">
-                  A company with an<br />
-                  <span className="text-[#f89b34] font-bold">In-house Creative Studio</span>
-                </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed font-inter italic max-w-2xl mx-auto">
-                  As a full-service digital house, we manage design, development, content production, and ad-tech implementation entirely in-house — giving you a single point of accountability.
-                </p>
-              </FadeIn>
-            </div>
-            
-            <div className="w-full mt-12 rounded-3xl overflow-hidden shadow-2xl aspect-video md:aspect-[21/9]">
-               <DynamicFrameLayout 
-                  frames={OPERATIONS_FRAMES} 
-                  hoverSize={6}
-                  gapSize={12}
-                  showFrames={false}
-               />
-            </div>
-          </div>
-
-          <div className="max-w-7xl mx-auto px-6 mt-32 text-center">
-            <FadeIn>
-              <div className="text-center mb-12">
-                <h2 className="text-3xl font-sora font-light text-[#0a0a0a]">
-                  Strategic <span className="font-bold">Platforms</span>, Measurable Results
-                </h2>
-                <p className="text-[#f89b34] font-bold uppercase tracking-widest text-[10px] mt-2">Our Tech Arsenal</p>
-              </div>
-              <div className="flex flex-wrap justify-center items-center gap-16 grayscale opacity-40 hover:opacity-100 hover:grayscale-0 transition-all duration-500">
-                {PLATFORMS.map(p => (
-                  <div key={p.name} className="text-2xl font-black text-[#0a0a0a] font-sora hover:scale-110 transition-transform cursor-pointer">
-                    {p.logo}
-                  </div>
-                ))}
-              </div>
-            </FadeIn>
-          </div>
-        </section>
-
         {/* BLOG CARDS */}
         <section className="py-24 bg-muted/10">
           <div className="max-w-7xl mx-auto px-6">
@@ -569,48 +542,6 @@ export default function HomePage() {
               <Link href="/blog" className="border-2 border-[#f89b34] text-[#f89b34] px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-[#f89b34] hover:text-[#0a0a0a] transition-all">
                 See all Insights →
               </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* BRAND BANNER */}
-        <section className="py-24 bg-[#0D1B2A] relative overflow-hidden text-center">
-          <div className="absolute inset-0 opacity-5 [background-image:radial-gradient(#f89b34_1px,transparent_1px)] [background-size:32px_32px]" />
-          <div className="max-w-4xl mx-auto px-6 relative z-10">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-5xl md:text-7xl font-black text-white font-sora mb-4 tracking-tighter">
-                Shyama Overseas
-              </h2>
-              <p className="text-[#f89b34] text-xl italic font-light mb-16 font-inter">
-                Your Global Digital Partner
-              </p>
-            </motion.div>
-
-            <div className="relative h-40">
-              {[
-                { text: "Digital solutions that drive results →", top: "0%", left: "10%" },
-                { text: "Focus on human-centric design →", top: "20%", left: "60%" },
-                { text: "ROI-oriented engineering →", top: "60%", left: "20%" },
-                { text: "A team of seasoned creative techies →", top: "80%", left: "55%" },
-                { text: "End-to-end digital transformation →", top: "40%", left: "40%" },
-              ].map((tag, i) => (
-                <motion.div 
-                  key={i}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: i * 0.1 }}
-                  viewport={{ once: true }}
-                  className="absolute text-white/40 text-xs font-medium tracking-wider whitespace-nowrap hidden md:block"
-                  style={{ top: tag.top, left: tag.left }}
-                >
-                  {tag.text}
-                </motion.div>
-              ))}
             </div>
           </div>
         </section>
