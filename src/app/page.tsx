@@ -4,6 +4,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { 
   Palette, 
@@ -60,27 +61,6 @@ const SERVICES = [
   { icon: Layers, title: "Branding & Identity", desc: "Defining your unique voice in a crowded digital marketplace." },
   { icon: BarChart3, title: "Performance Marketing", desc: "ROI-focused campaigns across Meta, Google, and LinkedIn." },
   { icon: Plus, title: "All Services →", desc: "Explore our full suite of digital transformation tools.", isCTA: true },
-];
-
-const BLOGS = [
-  { 
-    title: "The Future of Web Design: Trends to Watch in 2025", 
-    tag: "Design Insights", 
-    image: "https://images.unsplash.com/photo-1581291518062-c9a79414b681",
-    excerpt: "Exploring the intersection of AI and minimalist aesthetics."
-  },
-  { 
-    title: "How to Scale Your E-commerce Brand via Performance Marketing", 
-    tag: "Growth Strategy", 
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
-    excerpt: "A data-driven guide to maximizing your return on ad spend."
-  },
-  { 
-    title: "Why Custom Software is Better Than Off-the-Shelf Solutions", 
-    tag: "Tech Talk", 
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c",
-    excerpt: "Unlock true business agility with tailored technological infrastructure."
-  },
 ];
 
 const AGENCY_GALLERY: MediaItemType[] = [
@@ -152,7 +132,94 @@ const SECTOR_TAGS = [
   "Logistics Software", "Gaming & Entertainment", "Enterprise AI"
 ];
 
+const testimonials = [
+  {
+    text: "Shyama Overseas transformed our digital presence. Their attention to detail in UI/UX is truly unmatched in India.",
+    name: "Arjun Mehta",
+    role: "CEO, Innovate India",
+    image: "https://picsum.photos/seed/arjun/100/100"
+  },
+  {
+    text: "The SEO results were beyond our expectations. We're now ranking #1 for all our core keywords.",
+    name: "Priya Sharma",
+    role: "Marketing Director, Ethos Retail",
+    image: "https://picsum.photos/seed/priya/100/100"
+  },
+  {
+    text: "Reliable, creative, and fast. They are the perfect digital partner for scaling any business.",
+    name: "Vikram Goel",
+    role: "Founder, Goel Logistics",
+    image: "https://picsum.photos/seed/vikram/100/100"
+  },
+  {
+    text: "From branding to performance marketing, they handle it all with absolute professionalism.",
+    name: "Sanjay Gupta",
+    role: "Head of Digital, Bharat Tech",
+    image: "https://picsum.photos/seed/sanjay/100/100"
+  },
+  {
+    text: "Their team brought our vision to life. The new website has significantly improved our conversion rates.",
+    name: "Neha Kapoor",
+    role: "Product Manager, Style Quotient",
+    image: "https://picsum.photos/seed/neha/100/100"
+  },
+  {
+    text: "Partnering with Shyama Overseas was the best decision for our digital transformation journey.",
+    name: "Rohan Varma",
+    role: "CTO, NextGen FinCorp",
+    image: "https://picsum.photos/seed/rohan/100/100"
+  }
+];
+
 /* ── COMPONENTS ── */
+
+const TestimonialsColumn = (props: {
+  className?: string;
+  testimonials: typeof testimonials;
+  duration?: number;
+}) => {
+  return (
+    <div className={props.className}>
+      <motion.div
+        animate={{
+          translateY: "-50%",
+        }}
+        transition={{
+          duration: props.duration || 10,
+          repeat: Infinity,
+          ease: "linear",
+          repeatType: "loop",
+        }}
+        className="flex flex-col gap-6 pb-6 bg-transparent"
+      >
+        {[
+          ...new Array(2).fill(0).map((_, index) => (
+            <React.Fragment key={index}>
+              {props.testimonials.map(({ text, image, name, role }, i) => (
+                <div className="p-10 rounded-3xl border bg-white shadow-lg shadow-primary/5 max-w-xs w-full" key={i}>
+                  <div className="text-sm text-muted-foreground leading-relaxed italic">"{text}"</div>
+                  <div className="flex items-center gap-3 mt-6">
+                    <img
+                      width={40}
+                      height={40}
+                      src={image}
+                      alt={name}
+                      className="h-10 w-10 rounded-full border border-primary/20"
+                    />
+                    <div className="flex flex-col">
+                      <div className="font-bold tracking-tight text-[#0a0a0a] text-sm">{name}</div>
+                      <div className="text-xs opacity-60 tracking-tight text-primary font-semibold">{role}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </React.Fragment>
+          )),
+        ]}
+      </motion.div>
+    </div>
+  );
+};
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);
@@ -500,48 +567,33 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* BLOG CARDS */}
-        <section className="py-24 bg-muted/10">
+        {/* TESTIMONIALS SECTION */}
+        <section className="py-24 bg-muted/10 overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
             <FadeIn>
               <div className="text-center mb-16">
                 <h2 className="text-4xl font-sora font-light text-[#0a0a0a]">
                   Latest from <span className="text-[#f89b34] font-bold">Insights</span>
                 </h2>
+                <p className="text-primary font-bold uppercase tracking-widest text-[10px] mt-2">What our Indian partners say</p>
               </div>
             </FadeIn>
             
-            <div className="grid md:grid-cols-3 gap-8">
-              {BLOGS.map((blog, i) => (
-                <motion.div 
-                  key={i}
-                  whileHover={{ y: -10 }}
-                  className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300"
-                >
-                  <div className="aspect-video relative overflow-hidden">
-                    <Image src={blog.image} alt={blog.title} fill className="object-cover transition-transform duration-500 hover:scale-110" />
-                    <div className="absolute top-4 left-4 bg-[#f89b34] text-[#0a0a0a] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
-                      {blog.tag}
-                    </div>
-                  </div>
-                  <div className="p-8">
-                    <h3 className="text-xl font-sora font-bold text-[#0a0a0a] mb-4 leading-snug h-14 overflow-hidden">
-                      {blog.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mb-8 line-clamp-1 font-inter">
-                      {blog.excerpt}
-                    </p>
-                    <Link href="/blog" className="text-[#f89b34] font-bold text-xs uppercase tracking-widest flex items-center gap-2 hover:gap-4 transition-all">
-                      Read More <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-            <div className="text-center mt-16">
-              <Link href="/blog" className="border-2 border-[#f89b34] text-[#f89b34] px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-[#f89b34] hover:text-[#0a0a0a] transition-all">
-                See all Insights →
-              </Link>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 h-[500px] items-start">
+              <TestimonialsColumn 
+                testimonials={testimonials.slice(0, 2)} 
+                duration={15} 
+                className="hidden lg:block"
+              />
+              <TestimonialsColumn 
+                testimonials={testimonials.slice(2, 4)} 
+                duration={18}
+              />
+              <TestimonialsColumn 
+                testimonials={testimonials.slice(4, 6)} 
+                duration={16}
+                className="hidden md:block"
+              />
             </div>
           </div>
         </section>
