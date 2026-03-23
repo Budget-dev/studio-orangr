@@ -1,10 +1,8 @@
-
 "use client";
 
 import React, { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ImageOff } from 'lucide-react';
-import Image from 'next/image';
 
 export interface MediaItemType {
     id: number;
@@ -92,8 +90,8 @@ const MediaItem = ({ item, className, onClick }: { item: MediaItemType, classNam
         return (
             <div className={`${className} flex flex-col items-center justify-center bg-muted/20 border-2 border-dashed border-border p-4 text-center`}>
                 <ImageOff className="w-8 h-8 text-muted-foreground mb-2" />
-                <span className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest">Image Not Found</span>
-                <span className="text-[8px] text-muted-foreground/60 mt-1 break-all">{item.url}</span>
+                <span className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest leading-none">Not Found</span>
+                <span className="text-[8px] text-muted-foreground/40 mt-1 break-all line-clamp-1">{item.url.split('/').pop()}</span>
             </div>
         );
     }
@@ -127,15 +125,12 @@ const MediaItem = ({ item, className, onClick }: { item: MediaItemType, classNam
 
     return (
         <div className={`${className} relative cursor-pointer`} onClick={onClick}>
-            <Image
+            <img
                 src={item.url}
                 alt={item.title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="w-full h-full object-cover"
                 onError={() => setHasError(true)}
-                unoptimized
-                priority
+                loading="eager"
             />
         </div>
     );

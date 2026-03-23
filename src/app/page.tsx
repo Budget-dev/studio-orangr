@@ -80,7 +80,7 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Strategic Insights',
     desc: 'Strategic thinking meets logistical excellence in every route.',
-    url: "/assets/images/{__subject___A_202603191142.png",
+    url: "/assets/images/imagecolur.png",
     span: 'md:col-span-1 md:row-span-2'
   },
   {
@@ -88,7 +88,7 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Digital Portal',
     desc: 'Seamless user interfaces for complex trade ecosystems.',
-    url: "/assets/images/{__subject___Indian_202603191158.png",
+    url: "/assets/images/imagesloyred.png",
     span: 'md:col-span-1 md:row-span-1'
   },
   {
@@ -96,7 +96,7 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Next-Gen Logistics',
     desc: 'Pushing the boundaries of international trade and supply chain flow.',
-    url: "/assets/images/{__subject___Indian_202603191217.png",
+    url: "/assets/images/nyf.png",
     span: 'md:col-span-2 md:row-span-1'
   },
   {
@@ -104,13 +104,13 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Studio Excellence',
     desc: 'Our iterative process of trade and discovery yields results.',
-    url: "/assets/images/{__subject___Indian_202603200952.png",
+    url: "/assets/images/niraj.png",
     span: 'md:col-span-1 md:row-span-1'
   }
 ];
 
 const OPERATIONS_FRAMES: Frame[] = [
-  { id: 1, video: "/assets/videos/1.mp4", defaultPos: { x: 0, y: 0, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
+  { id: 1, video: "/assets/WhatsApp Video 2026-03-19 at 12.41.14 PM.mp4", defaultPos: { x: 0, y: 0, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
   { id: 2, video: "/assets/videos/2.mp4", defaultPos: { x: 4, y: 0, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
   { id: 3, video: "/assets/videos/3.mp4", defaultPos: { x: 8, y: 0, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
   { id: 4, video: "/assets/videos/1.mp4", defaultPos: { x: 0, y: 4, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
