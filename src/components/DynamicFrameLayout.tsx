@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState, useEffect, useRef } from "react"
@@ -49,12 +48,16 @@ function FrameComponent({
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
-    if (videoRef.current) {
-      if (isHovered) {
-        videoRef.current.play().catch(() => {})
-      } else {
-        // Option to pause or keep playing. For a background effect, loop/play is good.
-      }
+    // Ensure video is playing even if not hovered, but perhaps different behavior
+    const videoElement = videoRef.current
+    if (videoElement) {
+      videoElement.play().catch(() => {})
+    }
+  }, [])
+
+  useEffect(() => {
+    if (isHovered) {
+      videoRef.current?.play()
     }
   }, [isHovered])
 
@@ -67,7 +70,7 @@ function FrameComponent({
         transition: "width 0.3s ease-in-out, height 0.3s ease-in-out",
       }}
     >
-      <div className="relative w-full h-full overflow-hidden border border-white/5">
+      <div className="relative w-full h-full overflow-hidden border border-white/10">
         <div
           className="absolute inset-0 flex items-center justify-center"
           style={{
@@ -85,7 +88,7 @@ function FrameComponent({
             style={{
               transform: `scale(${isHovered ? mediaSize * 1.1 : mediaSize})`,
               transformOrigin: "center",
-              transition: "transform 0.5s ease-out",
+              transition: "transform 0.4s ease-out",
             }}
           >
             <video
@@ -93,8 +96,8 @@ function FrameComponent({
               src={video}
               loop
               muted
-              playsInline
               autoPlay
+              playsInline
               ref={videoRef}
             />
           </div>

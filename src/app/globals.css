@@ -10,26 +10,26 @@
     --card-foreground: 210 73% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 210 73% 10%;
-    --primary: 210 73% 15%; /* #0A2540 Deep Navy */
+    --primary: 33 93% 59%; /* #f89b34 Vibrant Orange */
     --primary-foreground: 0 0% 100%;
-    --secondary: 36 54% 54%; /* #C9A84C Gold */
-    --secondary-foreground: 210 73% 10%;
-    --muted: 60 10% 96%; /* #F5F5F0 Light BG */
+    --secondary: 210 73% 15%; /* #0A2540 Deep Navy */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 60 10% 96%;
     --muted-foreground: 210 15% 40%;
-    --accent: 36 54% 54%;
+    --accent: 33 93% 59%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 40 10% 85%; /* #E5E0D5 */
+    --border: 40 10% 85%;
     --input: 210 20% 90%;
-    --ring: 36 54% 54%;
+    --ring: 33 93% 59%;
     --radius: 0.5rem;
   }
 
   .dark {
     --background: 210 73% 5%;
     --foreground: 0 0% 98%;
-    --primary: 36 54% 54%;
+    --primary: 33 93% 59%;
     --primary-foreground: 210 73% 10%;
   }
 }
@@ -44,31 +44,19 @@
   }
 }
 
-/* Marquee Animations */
+/* Custom Text Outline for Hero */
+.text-outline-white {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+  color: transparent;
+}
+
 @keyframes marqueeL {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
 
-@keyframes marqueeR {
-  from { transform: translateX(-50%); }
-  to { transform: translateX(0); }
-}
-
-.animate-marquee-ltr {
-  animation: marqueeL 40s linear infinite;
-}
-
-.animate-marquee-rtl {
-  animation: marqueeR 40s linear infinite;
-}
-
 .animate-marquee-slow {
   animation: marqueeL 60s linear infinite;
-}
-
-.animate-marquee-ltr:hover, .animate-marquee-rtl:hover {
-  animation-play-state: paused;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
@@ -77,24 +65,4 @@
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
-
-.gold-glow {
-  box-shadow: 0 0 15px rgba(201, 168, 76, 0.4);
-}
-
-.hero-gradient {
-  background: linear-gradient(to top right, rgba(10, 37, 64, 0.85) 0%, rgba(10, 37, 64, 0.4) 60%, transparent 100%);
-}
-
-.text-gold {
-  color: #C9A84C;
-}
-
-.bg-gold {
-  background-color: #C9A84C;
-}
-
-.border-gold {
-  border-color: #C9A84C;
 }

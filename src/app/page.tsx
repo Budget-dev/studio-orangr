@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -14,8 +13,6 @@ import {
   Layers, 
   BarChart3, 
   Plus,
-  Phone,
-  Mail,
   ArrowRight,
   Menu,
   X,
@@ -169,7 +166,7 @@ const testimonials = [
 
 /* ── COMPONENTS ── */
 
-const TestimonialsColumn = (props: {
+export const TestimonialsColumn = (props: {
   className?: string;
   testimonials: typeof testimonials;
   duration?: number;
@@ -186,15 +183,15 @@ const TestimonialsColumn = (props: {
           ease: "linear",
           repeatType: "loop",
         }}
-        className="flex flex-col gap-6 pb-6 bg-transparent"
+        className="flex flex-col gap-6 pb-6 bg-background"
       >
         {[
           ...new Array(2).fill(0).map((_, index) => (
             <React.Fragment key={index}>
               {props.testimonials.map(({ text, image, name, role }, i) => (
-                <div className="p-10 rounded-3xl border bg-white shadow-lg shadow-primary/10 max-w-xs w-full" key={i}>
+                <div className="p-10 rounded-3xl border shadow-lg shadow-primary/10 max-w-xs w-full bg-white" key={i}>
                   <div className="text-sm text-muted-foreground leading-relaxed italic mb-6">"{text}"</div>
-                  <div className="flex items-center gap-3 mt-5">
+                  <div className="flex items-center gap-2 mt-5">
                     <img
                       width={40}
                       height={40}
@@ -203,8 +200,8 @@ const TestimonialsColumn = (props: {
                       className="h-10 w-10 rounded-full"
                     />
                     <div className="flex flex-col">
-                      <div className="font-bold tracking-tight text-[#0a0a0a] text-sm">{name}</div>
-                      <div className="text-xs opacity-60 tracking-tight text-primary font-semibold">{role}</div>
+                      <div className="font-medium tracking-tight leading-5 text-secondary">{name}</div>
+                      <div className="leading-5 opacity-60 tracking-tight text-primary font-bold text-xs uppercase">{role}</div>
                     </div>
                   </div>
                 </div>
@@ -258,7 +255,7 @@ function StatCounter({ value, suffix, label }: { value: number; suffix: string; 
 
   return (
     <div ref={ref} className="flex flex-col items-center justify-center p-8 text-center relative group">
-      <div className="text-5xl font-sora font-bold text-[#f89b34] mb-3 group-hover:scale-110 transition-transform">
+      <div className="text-5xl font-sora font-bold text-primary mb-3 group-hover:scale-110 transition-transform">
         {count}{suffix}
       </div>
       <div className="text-white/70 text-sm font-semibold uppercase tracking-wider font-sora">
@@ -281,32 +278,32 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white selection:bg-[#f89b34] selection:text-white">
+    <div className="min-h-screen bg-white selection:bg-primary selection:text-white">
       
       {/* NAVBAR */}
       <nav className={cn(
         "fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 px-6 lg:px-12 flex items-center justify-between h-[85px]",
-        isScrolled ? "bg-[#0a0a0a] shadow-xl h-16 translate-y-0" : "bg-transparent translate-y-0"
+        isScrolled ? "bg-secondary shadow-xl h-16 translate-y-0" : "bg-transparent translate-y-0"
       )}>
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 bg-[#f89b34] rounded-lg flex items-center justify-center font-black text-xl text-[#0a0a0a] group-hover:rotate-12 transition-transform">S</div>
+          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center font-black text-xl text-secondary group-hover:rotate-12 transition-transform">S</div>
           <div className="flex flex-col">
             <span className="text-white font-sora font-bold leading-tight">Shyama Overseas</span>
-            <span className="text-[10px] text-[#f89b34] font-semibold uppercase tracking-widest">Global Trade Solutions</span>
+            <span className="text-[10px] text-primary font-semibold uppercase tracking-widest">Global Trade Solutions</span>
           </div>
         </Link>
 
         <ul className="hidden lg:flex items-center gap-8">
           {NAV_LINKS.map(link => (
             <li key={link.label}>
-              <Link href={link.href} className="text-white/90 hover:text-[#f89b34] font-semibold text-[13px] transition-colors uppercase tracking-wider">
+              <Link href={link.href} className="text-white/90 hover:text-primary font-semibold text-[13px] transition-colors uppercase tracking-wider">
                 {link.label}
               </Link>
             </li>
           ))}
         </ul>
 
-        <Link href="/contact" className="hidden lg:block bg-[#f89b34] hover:bg-[#f89b34]/90 text-[#0a0a0a] px-8 py-2.5 rounded-full font-bold text-sm transition-all shadow-lg hover:shadow-[#f89b34]/30">
+        <Link href="/contact" className="hidden lg:block bg-primary hover:bg-primary/90 text-secondary px-8 py-2.5 rounded-full font-bold text-sm transition-all shadow-lg hover:shadow-primary/30">
           Our Profile
         </Link>
 
@@ -331,18 +328,18 @@ export default function HomePage() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 bottom-0 w-[80%] max-sm max-w-sm bg-[#0a0a0a] z-[1002] p-10 shadow-2xl flex flex-col"
+              className="fixed right-0 top-0 bottom-0 w-[80%] max-sm max-w-sm bg-secondary z-[1002] p-10 shadow-2xl flex flex-col"
             >
               <button onClick={() => setIsMobMenuOpen(false)} className="self-end text-white mb-10 p-2 hover:bg-white/10 rounded-full transition-colors">
                 <X className="w-8 h-8" />
               </button>
               <div className="flex flex-col gap-6">
                 {NAV_LINKS.map(link => (
-                  <Link key={link.label} href={link.href} className="text-white text-2xl font-sora font-medium hover:text-[#f89b34] transition-colors" onClick={() => setIsMobMenuOpen(false)}>
+                  <Link key={link.label} href={link.href} className="text-white text-2xl font-sora font-medium hover:text-primary transition-colors" onClick={() => setIsMobMenuOpen(false)}>
                     {link.label}
                   </Link>
                 ))}
-                <Link href="/contact" className="mt-6 bg-[#f89b34] text-[#0a0a0a] text-center py-4 rounded-full font-bold text-lg" onClick={() => setIsMobMenuOpen(false)}>
+                <Link href="/contact" className="mt-6 bg-primary text-secondary text-center py-4 rounded-full font-bold text-lg" onClick={() => setIsMobMenuOpen(false)}>
                   Our Profile
                 </Link>
               </div>
@@ -354,7 +351,7 @@ export default function HomePage() {
       <main>
         
         {/* HERO SECTION */}
-        <section className="relative h-[90vh] md:h-screen flex items-center overflow-hidden bg-[#0a0a0a] w-full">
+        <section className="relative h-screen flex items-center overflow-hidden bg-secondary w-full">
           <Image 
             src="https://images.unsplash.com/photo-1497366216548-37526070297c" 
             alt="Cinematic Agency Office" 
@@ -362,80 +359,78 @@ export default function HomePage() {
             className="object-cover object-center opacity-70"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/50 to-transparent z-10" />
           
-          <div className="relative z-20 w-full max-w-7xl mx-auto px-6 pt-20">
-            <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="max-w-4xl"
-            >
-              <div className="text-white font-medium uppercase tracking-[6px] text-sm mb-6 flex items-center gap-4">
-                <span className="w-12 h-[1px] bg-[#f89b34]" />
-                We are your
-              </div>
-              
-              <div className="relative inline-block mb-10 overflow-hidden">
-                <motion.div 
-                  initial={{ width: 0 }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="bg-[#f89b34] px-8 py-6 absolute inset-0 -skew-x-6 z-[-1] shadow-2xl" 
-                />
-                <motion.h1 
-                  initial={{ y: 50, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                  className="text-5xl md:text-[90px] font-black text-[#0a0a0a] leading-[0.9] uppercase font-sora -skew-x-6"
-                >
-                  DIGITAL GROWTH<br />MAESTROS
-                </motion.h1>
-              </div>
-
-              <motion.p 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 1 }}
-                className="text-xl md:text-2xl text-white/90 font-light italic leading-relaxed mb-12 max-w-2xl font-inter"
-              >
-                Crafting Your Digital Legacy with Precision Design, Cutting-edge Tech, and Unmatched ROI.
-              </motion.p>
-
+          <div className="relative z-20 w-full px-6">
+            <div className="max-w-7xl mx-auto">
               <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.2 }}
-                className="flex flex-col sm:flex-row gap-6"
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+                className="max-w-4xl"
               >
-                <Link href="/services" className="bg-[#f89b34] text-[#0a0a0a] px-10 py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:scale-105 transition-transform text-center shadow-2xl shadow-[#f89b34]/20">
-                  Explore Services
-                </Link>
-                <Link href="/contact" className="bg-transparent border-2 border-white text-white px-10 py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-[#0a0a0a] transition-all text-center">
-                  Contact Us
-                </Link>
-              </motion.div>
-            </motion.div>
-          </div>
+                <motion.div 
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                  className="text-white font-medium uppercase tracking-[6px] text-sm mb-6 flex items-center gap-4"
+                >
+                  <span className="w-12 h-[1px] bg-primary" />
+                  We are your
+                </motion.div>
+                
+                <div className="relative inline-block mb-10 overflow-hidden">
+                  <motion.div 
+                    initial={{ width: 0 }}
+                    animate={{ width: "100%" }}
+                    transition={{ duration: 1, delay: 0.3 }}
+                    className="bg-primary px-8 py-6 absolute inset-0 -skew-x-6 z-[-1] shadow-2xl" 
+                  />
+                  <motion.h1 
+                    initial={{ x: -200, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 1, delay: 0.6, type: "spring", stiffness: 50 }}
+                    className="text-5xl md:text-[90px] font-black text-secondary leading-[0.9] uppercase font-sora -skew-x-6"
+                  >
+                    DIGITAL GROWTH<br />MAESTROS
+                  </motion.h1>
+                </div>
 
-          <motion.div 
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="absolute bottom-10 left-1/2 -translate-x-1/2 md:left-10 md:translate-x-0 z-20 flex flex-col items-center gap-4"
-          >
-            <span className="text-white/40 text-[10px] uppercase tracking-[4px] [writing-mode:vertical-lr] hidden md:block mb-12">SCROLL</span>
-            <div className="w-[1px] h-16 bg-gradient-to-b from-white/40 to-transparent" />
-          </motion.div>
+                <motion.p 
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1, delay: 1 }}
+                  className="text-xl md:text-2xl text-white/90 font-light italic leading-relaxed mb-12 max-w-2xl font-inter"
+                >
+                  Crafting Your Digital Legacy with Precision Design, Cutting-edge Tech, and Unmatched ROI.
+                </motion.p>
+
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.2 }}
+                  className="flex flex-col sm:flex-row gap-6"
+                >
+                  <Link href="/services" className="bg-primary text-secondary px-10 py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:scale-105 transition-transform text-center shadow-2xl shadow-primary/20">
+                    Explore Services
+                  </Link>
+                  <Link href="/contact" className="bg-transparent border-2 border-white text-white px-10 py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-secondary transition-all text-center">
+                    Contact Us
+                  </Link>
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
         </section>
 
         {/* STATS BAR */}
-        <section className="bg-[#0a0a0a] relative overflow-hidden border-y border-white/5">
+        <section className="bg-secondary relative overflow-hidden border-y border-white/5">
           <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 py-16 relative z-10">
             {STATS.map((stat, idx) => (
               <div key={stat.label} className="relative">
                 <StatCounter {...stat} />
                 {idx < 3 && (
-                  <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-0 w-[1px] h-12 bg-[#f89b34]/30" />
+                  <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-0 w-[1px] h-12 bg-primary/30" />
                 )}
               </div>
             ))}
@@ -447,17 +442,12 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-6">
             <FadeIn>
               <div className="text-center mb-16">
-                <h2 className="text-4xl font-sora font-light text-[#0a0a0a]">
-                  Trusted by <span className="text-[#f89b34] font-bold">Global Leaders</span>
+                <h2 className="text-4xl font-sora font-light text-secondary">
+                  Trusted by <span className="text-primary font-bold">Global Leaders</span>
                 </h2>
-                <p className="text-[#f89b34] font-bold uppercase tracking-widest text-[10px] mt-2">Strategic Partnerships</p>
+                <p className="text-primary font-bold uppercase tracking-widest text-[10px] mt-2">Strategic Partnerships</p>
               </div>
               <LogoCloud />
-              <div className="text-center mt-12">
-                <Link href="/portfolio" className="bg-[#f89b34] hover:bg-[#f89b34]/90 text-[#0a0a0a] px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs transition-all shadow-lg hover:shadow-[#f89b34]/30">
-                  Our Client Portfolio
-                </Link>
-              </div>
             </FadeIn>
           </div>
         </section>
@@ -467,10 +457,10 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-6">
             <FadeIn>
               <div className="text-center mb-20">
-                <h2 className="text-4xl md:text-5xl font-sora font-light text-[#0a0a0a] mb-4">
-                  Our Digital & <span className="text-[#f89b34] italic font-bold">Creative Services</span>
+                <h2 className="text-4xl md:text-5xl font-sora font-light text-secondary mb-4">
+                  Our Digital & <span className="text-primary italic font-bold">Creative Services</span>
                 </h2>
-                <p className="text-[#f89b34] font-medium uppercase tracking-[4px] text-xs">Your Instruments</p>
+                <p className="text-primary font-medium uppercase tracking-[4px] text-xs">Your Instruments</p>
               </div>
             </FadeIn>
 
@@ -484,16 +474,16 @@ export default function HomePage() {
                     svc.isCTA ? "bg-muted/30" : ""
                   )}
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-muted flex items-center justify-center mb-8 group-hover:bg-[#f89b34] transition-colors duration-200">
-                    <svc.icon className="w-7 h-7 text-[#f89b34] group-hover:text-[#0a0a0a] transition-colors duration-200" />
+                  <div className="w-14 h-14 rounded-2xl bg-muted flex items-center justify-center mb-8 group-hover:bg-primary transition-colors duration-200">
+                    <svc.icon className="w-7 h-7 text-primary group-hover:text-secondary transition-colors duration-200" />
                   </div>
-                  <h3 className="text-xl font-sora font-bold mb-4 text-[#0a0a0a] group-hover:text-[#f89b34] transition-colors">
+                  <h3 className="text-xl font-sora font-bold mb-4 text-secondary group-hover:text-primary transition-colors">
                     {svc.title}
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-8 line-clamp-2">
                     {svc.desc}
                   </p>
-                  <div className="flex items-center gap-2 text-[#f89b34] font-bold text-xs uppercase tracking-widest transform transition-transform group-hover:translate-x-2">
+                  <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest transform transition-transform group-hover:translate-x-2">
                     Learn More <ArrowRight className="w-4 h-4" />
                   </div>
                 </motion.div>
@@ -516,12 +506,12 @@ export default function HomePage() {
           <div className="w-full px-6">
             <div className="mb-16 text-center max-w-4xl mx-auto">
               <FadeIn>
-                <div className="inline-flex items-center gap-3 text-[#f89b34] font-bold uppercase tracking-[4px] text-xs mb-6 border-b-2 border-[#f89b34] pb-2">
+                <div className="inline-flex items-center gap-3 text-primary font-bold uppercase tracking-[4px] text-xs mb-6 border-b-2 border-primary pb-2">
                   Operations
                 </div>
-                <h2 className="text-4xl md:text-5xl font-sora font-light text-[#0a0a0a] mb-8 leading-tight">
+                <h2 className="text-4xl md:text-5xl font-sora font-light text-secondary mb-8 leading-tight">
                   A company with an<br />
-                  <span className="text-[#f89b34] font-bold">In-house Creative Studio</span>
+                  <span className="text-primary font-bold">In-house Creative Studio</span>
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed font-inter italic max-w-3xl mx-auto">
                   As a full-service digital house, we manage design, development, content production, and ad-tech implementation entirely in-house — giving you a single point of accountability.
@@ -529,7 +519,7 @@ export default function HomePage() {
               </FadeIn>
             </div>
             
-            <div className="w-full mt-12 rounded-3xl overflow-hidden shadow-2xl aspect-video md:aspect-[21/9]">
+            <div className="w-full mt-12 overflow-hidden aspect-video md:aspect-[21/9]">
                <DynamicFrameLayout 
                   frames={OPERATIONS_FRAMES} 
                   hoverSize={6}
@@ -545,9 +535,9 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <FadeIn>
               <div className="text-center mb-20">
-                <div className="text-[#f89b34] font-bold uppercase tracking-[4px] text-xs mb-4">Global Reach & Insights</div>
-                <h2 className="text-4xl md:text-5xl font-sora font-light text-[#0a0a0a] leading-tight">
-                  Driving Results for <span className="font-bold">250+ Brands</span> <span className="text-[#f89b34]">Across The Globe</span>
+                <div className="text-primary font-bold uppercase tracking-[4px] text-xs mb-4">Global Reach & Insights</div>
+                <h2 className="text-4xl md:text-5xl font-sora font-light text-secondary leading-tight">
+                  Driving Results for <span className="font-bold">250+ Brands</span> <span className="text-primary">Across The Globe</span>
                 </h2>
               </div>
             </FadeIn>
@@ -587,8 +577,8 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-6">
             <FadeIn>
               <div className="text-center mb-16">
-                <h2 className="text-4xl font-sora font-light text-[#0a0a0a]">
-                  Latest from <span className="text-[#f89b34] font-bold">Insights</span>
+                <h2 className="text-4xl font-sora font-light text-secondary">
+                  Latest from <span className="text-primary font-bold">Insights</span>
                 </h2>
                 <p className="text-primary font-bold uppercase tracking-widest text-[10px] mt-2">What our Indian partners say</p>
               </div>
@@ -618,10 +608,10 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="mb-16">
               <FadeIn>
-                <h2 className="text-4xl md:text-5xl font-sora font-light text-[#0a0a0a]">
-                  <span className="text-[#f89b34] font-bold">Get in touch</span> with us for
+                <h2 className="text-4xl md:text-5xl font-sora font-light text-secondary">
+                  <span className="text-primary font-bold">Get in touch</span> with us for
                 </h2>
-                <p className="text-2xl text-[#0a0a0a] font-inter font-light mt-2">
+                <p className="text-2xl text-secondary font-inter font-light mt-2">
                   our Digital & Creative Services
                 </p>
               </FadeIn>
@@ -630,35 +620,35 @@ export default function HomePage() {
             <div className="grid lg:grid-cols-[1fr_400px] gap-16 items-start">
               <form className="space-y-8">
                 <div className="grid md:grid-cols-2 gap-8">
-                  <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-[#f89b34] transition-colors text-[#0a0a0a] font-medium" placeholder="Name" />
-                  <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-[#f89b34] transition-colors text-[#0a0a0a] font-medium" placeholder="Email ID" />
+                  <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-medium" placeholder="Name" />
+                  <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-medium" placeholder="Email ID" />
                 </div>
                 <div className="grid md:grid-cols-2 gap-8">
-                  <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-[#f89b34] transition-colors text-[#0a0a0a] font-medium" placeholder="Contact Number" />
-                  <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-[#f89b34] transition-colors text-[#0a0a0a] font-medium" placeholder="Website / LinkedIn" />
+                  <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-medium" placeholder="Contact Number" />
+                  <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-medium" placeholder="Website / LinkedIn" />
                 </div>
-                <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-[#f89b34] transition-colors text-[#0a0a0a] font-medium" placeholder="Company Name" />
-                <textarea className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-[#f89b34] transition-colors text-[#0a0a0a] font-medium resize-none" rows={4} placeholder="Please share your digital requirement in detail..." />
-                <button className="bg-[#f89b34] hover:bg-[#f89b34]/90 text-[#0a0a0a] w-full py-5 rounded-full font-bold uppercase tracking-[4px] text-sm transition-all shadow-xl shadow-[#f89b34]/20">
+                <input className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-medium" placeholder="Company Name" />
+                <textarea className="w-full bg-transparent border-b-2 border-border/40 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-medium resize-none" rows={4} placeholder="Please share your digital requirement in detail..." />
+                <button className="bg-primary hover:bg-primary/90 text-secondary w-full py-5 rounded-full font-bold uppercase tracking-[4px] text-sm transition-all shadow-xl shadow-primary/20">
                   SEND MESSAGE
                 </button>
               </form>
 
-              <div className="bg-[#0a0a0a] p-12 rounded-3xl text-white shadow-2xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#f89b34]/10 rounded-full -mr-16 -mt-16" />
+              <div className="bg-secondary p-12 rounded-3xl text-white shadow-2xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full -mr-16 -mt-16" />
                 <div className="relative z-10 space-y-10">
                   <div>
-                    <div className="text-[#f89b34] text-4xl font-sora font-bold mb-2">+91 9033131093</div>
+                    <div className="text-primary text-4xl font-sora font-bold mb-2">+91 9033131093</div>
                     <p className="text-white/50 text-sm tracking-wider uppercase font-medium">available from 10:00 – 18:00</p>
                   </div>
                   <div className="space-y-6">
                     <div>
-                      <h4 className="text-[#f89b34] font-bold uppercase tracking-[3px] text-[10px] mb-2">Locations</h4>
+                      <h4 className="text-primary font-bold uppercase tracking-[3px] text-[10px] mb-2">Locations</h4>
                       <p className="text-lg font-sora font-semibold">Ahmedabad | Surat | Vadodara</p>
                     </div>
                     <div>
-                      <h4 className="text-[#f89b34] font-bold uppercase tracking-[3px] text-[10px] mb-2">Email Us</h4>
-                      <Link href="mailto:info@shyamoverseas.com" className="text-lg font-sora font-semibold hover:text-[#f89b34] transition-colors">
+                      <h4 className="text-primary font-bold uppercase tracking-[3px] text-[10px] mb-2">Email Us</h4>
+                      <Link href="mailto:info@shyamoverseas.com" className="text-lg font-sora font-semibold hover:text-primary transition-colors">
                         info@shyamoverseas.com
                       </Link>
                     </div>
@@ -670,7 +660,7 @@ export default function HomePage() {
         </section>
 
         {/* SECTOR TAGS STRIP */}
-        <section className="bg-[#0a0a0a] py-8 overflow-hidden border-y border-white/5">
+        <section className="bg-secondary py-8 overflow-hidden border-y border-white/5">
           <div className="flex gap-12 w-max animate-marquee-slow px-6">
             {[...SECTOR_TAGS, ...SECTOR_TAGS].map((s, i) => (
               <span key={i} className="text-white/30 text-xs font-bold uppercase tracking-[4px] whitespace-nowrap">
@@ -687,7 +677,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           <div className="space-y-8">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-[#f89b34] rounded flex items-center justify-center font-black text-xl text-[#0a0a0a]">S</div>
+              <div className="w-10 h-10 bg-primary rounded flex items-center justify-center font-black text-xl text-secondary">S</div>
               <span className="text-2xl font-sora font-bold">Shyama Overseas</span>
             </Link>
             <p className="text-white/50 text-sm leading-relaxed font-inter">
@@ -696,16 +686,16 @@ export default function HomePage() {
           </div>
 
           <div>
-            <h6 className="text-[#f89b34] font-bold uppercase tracking-[3px] text-xs mb-8">Important Links</h6>
+            <h6 className="text-primary font-bold uppercase tracking-[3px] text-xs mb-8">Important Links</h6>
             <ul className="space-y-4">
               {["Our Story", "Services", "Portfolio", "Case Studies", "Insights", "Career"].map(l => (
-                <li key={l}><Link href="#" className="text-white/50 hover:text-[#f89b34] transition-colors text-sm font-medium">{l}</Link></li>
+                <li key={l}><Link href="#" className="text-white/50 hover:text-primary transition-colors text-sm font-medium">{l}</Link></li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h6 className="text-[#f89b34] font-bold uppercase tracking-[3px] text-xs mb-8">Our Ventures</h6>
+            <h6 className="text-primary font-bold uppercase tracking-[3px] text-xs mb-8">Our Ventures</h6>
             <div className="space-y-8">
               <div className="bg-white/5 p-6 rounded-2xl border border-white/10">
                 <div className="text-white font-bold mb-2 text-sm font-sora">Official Partners</div>
@@ -715,10 +705,10 @@ export default function HomePage() {
           </div>
 
           <div>
-            <h6 className="text-[#f89b34] font-bold uppercase tracking-[3px] text-xs mb-8">Get In Touch</h6>
+            <h6 className="text-primary font-bold uppercase tracking-[3px] text-xs mb-8">Get In Touch</h6>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <span className="text-[#f89b34] mt-1"><Globe className="w-4 h-4" /></span>
+                <span className="text-primary mt-1"><Globe className="w-4 h-4" /></span>
                 <p className="text-white/50 text-sm font-medium">Ahmedabad | Surat | Vadodara</p>
               </div>
             </div>
