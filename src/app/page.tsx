@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -61,9 +62,6 @@ const SERVICES = [
   { icon: BarChart3, title: "Performance Marketing", desc: "ROI-focused campaigns across Meta, Google, and LinkedIn." },
   { icon: Plus, title: "All Services →", desc: "Explore our full suite of digital transformation tools.", isCTA: true },
 ];
-
-const CLIENT_LOGOS_R1 = ["TechCorp", "Innovate", "GlobalSoft", "Amity Online", "Nexus", "Sigma", "FMCG Lab", "MediaFlow"];
-const CLIENT_LOGOS_R2 = ["CloudNine", "Interakt", "Univo", "Livyor", "Zion Digital", "DA-IICT", "CreativeHub", "Rangou"];
 
 const PLATFORMS = [
   { name: "Google Ads", logo: "Google Ads" },
@@ -216,24 +214,6 @@ function StatCounter({ value, suffix, label }: { value: number; suffix: string; 
   );
 }
 
-function LogoMarquee({ direction = "left", logos }: { direction?: "left" | "right", logos: string[] }) {
-  const items = [...logos, ...logos, ...logos, ...logos];
-  return (
-    <div className="overflow-hidden py-4 w-full">
-      <div className={cn(
-        "flex gap-6 w-max",
-        direction === "left" ? "animate-marquee-ltr" : "animate-marquee-rtl"
-      )}>
-        {logos.map((logo, i) => (
-          <div key={i} className="flex-shrink-0 bg-white border border-border rounded-xl px-10 py-6 min-w-[180px] h-[100px] flex items-center justify-center grayscale hover:grayscale-0 transition-all hover:border-[#f89b34] hover:shadow-lg">
-            <span className="text-[#0a0a0a] font-bold text-lg font-sora">{logo}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 /* ── MAIN PAGE ── */
 
 export default function HomePage() {
@@ -335,7 +315,7 @@ export default function HomePage() {
             <motion.div 
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
               className="max-w-4xl"
             >
               <div className="text-white font-medium uppercase tracking-[6px] text-sm mb-6 flex items-center gap-4">
@@ -480,9 +460,9 @@ export default function HomePage() {
           />
         </section>
 
-        {/* LOGO CLOUD & MARQUEE */}
+        {/* LOGO CLOUD */}
         <section className="py-24 bg-muted/20 border-y border-border/10 overflow-hidden">
-          <div className="max-w-7xl mx-auto mb-20 px-6">
+          <div className="max-w-7xl mx-auto px-6">
             <FadeIn>
               <div className="text-center mb-16">
                 <h2 className="text-4xl font-sora font-light text-[#0a0a0a]">
@@ -491,17 +471,12 @@ export default function HomePage() {
                 <p className="text-[#f89b34] font-bold uppercase tracking-widest text-[10px] mt-2">Strategic Partnerships</p>
               </div>
               <LogoCloud />
+              <div className="text-center mt-12">
+                <Link href="/portfolio" className="bg-[#f89b34] hover:bg-[#f89b34]/90 text-[#0a0a0a] px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs transition-all shadow-lg hover:shadow-[#f89b34]/30">
+                  Our Client Portfolio
+                </Link>
+              </div>
             </FadeIn>
-          </div>
-          
-          <div className="max-w-7xl mx-auto space-y-8">
-            <LogoMarquee direction="left" logos={CLIENT_LOGOS_R1} />
-            <LogoMarquee direction="right" logos={CLIENT_LOGOS_R2} />
-            <div className="text-center pt-8">
-              <Link href="/portfolio" className="bg-[#f89b34] hover:bg-[#f89b34]/90 text-[#0a0a0a] px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs transition-all shadow-lg hover:shadow-[#f89b34]/30">
-                Our Client Portfolio
-              </Link>
-            </div>
           </div>
         </section>
 
@@ -523,7 +498,7 @@ export default function HomePage() {
               </FadeIn>
             </div>
             
-            <div className="h-[700px] w-full mt-12 rounded-3xl overflow-hidden shadow-2xl">
+            <div className="w-full mt-12 rounded-3xl overflow-hidden shadow-2xl aspect-video md:aspect-[21/9]">
                <DynamicFrameLayout 
                   frames={OPERATIONS_FRAMES} 
                   hoverSize={6}
