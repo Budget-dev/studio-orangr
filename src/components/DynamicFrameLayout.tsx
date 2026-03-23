@@ -171,21 +171,23 @@ export function DynamicFrameLayout({
   className,
   showFrames = false,
   hoverSize = 6,
-  gapSize = 8
+  gapSize = 12
 }: DynamicFrameLayoutProps) {
   const [frames] = useState<Frame[]>(initialFrames)
   const [hovered, setHovered] = useState<{ row: number; col: number } | null>(null)
 
   const getRowSizes = () => {
-    if (hovered === null) return "1fr 1fr 1fr"
+    if (hovered === null) return "4fr 4fr 4fr"
     const { row } = hovered
-    return [0, 1, 2].map((r) => (r === row ? `${hoverSize}fr` : `3fr`)).join(" ")
+    const nonHoveredSize = (12 - hoverSize) / 2
+    return [0, 1, 2].map((r) => (r === row ? `${hoverSize}fr` : `${nonHoveredSize}fr`)).join(" ")
   }
 
   const getColSizes = () => {
-    if (hovered === null) return "1fr 1fr 1fr"
+    if (hovered === null) return "4fr 4fr 4fr"
     const { col } = hovered
-    return [0, 1, 2].map((c) => (c === col ? `${hoverSize}fr` : `3fr`)).join(" ")
+    const nonHoveredSize = (12 - hoverSize) / 2
+    return [0, 1, 2].map((c) => (c === col ? `${hoverSize}fr` : `${nonHoveredSize}fr`)).join(" ")
   }
 
   const getTransformOrigin = (x: number, y: number) => {
