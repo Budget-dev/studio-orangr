@@ -8,8 +8,6 @@ import React from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { 
   Palette, 
-  Megaphone, 
-  Search, 
   Smartphone, 
   Layers, 
   BarChart3, 
@@ -18,11 +16,14 @@ import {
   Menu,
   X,
   MonitorSmartphone,
-  Globe
+  Globe,
+  Search,
+  Megaphone
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { WorldMap } from "@/components/WorldMap";
 import { LogoCloud } from "@/components/LogoCloud";
+import InteractiveBentoGallery, { type MediaItemType } from "@/components/InteractiveBentoGallery";
 
 /* ── DATA ── */
 const NAV_LINKS = [
@@ -41,13 +42,6 @@ const STATS = [
   { label: "Clients Served", value: 250, suffix: "+" },
   { label: "Countries Reached", value: 40, suffix: "+" },
   { label: "Shipments Handled", value: 15, suffix: "K+" },
-];
-
-const SECTOR_TAGS = [
-  "Agriculture", "Textiles", "Pharma", "Manufacturing", 
-  "Chemicals", "Food & Beverages", "Gems & Jewellery", 
-  "Engineering", "Logistics", "Supply Chain", "Export",
-  "B2B", "FMCG", "Digital Trade"
 ];
 
 const SERVICES = [
@@ -98,6 +92,15 @@ const testimonials = [
     role: "CTO, NextGen FinCorp",
     image: "https://picsum.photos/seed/rohan/100/100"
   }
+];
+
+const GALLERY_ITEMS: MediaItemType[] = [
+  { id: 1, type: 'image', title: 'Global Logistics', desc: 'Indian Private Trade Logistics Operations', url: '/assets/images/_extra____Indian_private_202603201015.png', span: 'md:col-span-2 md:row-span-2' },
+  { id: 2, type: 'image', title: 'Trade Operations', desc: 'Upper Middle Trade Operations Excellence', url: '/assets/images/_extra____upper_middle_202603191201 - Copy.png', span: 'md:col-span-1 md:row-span-1' },
+  { id: 3, type: 'image', title: 'Digital Insights', desc: 'Subject A Trade Insights Analysis', url: '/assets/images/imagecolur.png', span: 'md:col-span-1 md:row-span-1' },
+  { id: 4, type: 'image', title: 'Export Hub', desc: 'Indian Trade Subject 1 - Primary Port', url: '/assets/images/imagesloyred.png', span: 'md:col-span-1 md:row-span-1' },
+  { id: 5, type: 'image', title: 'Logistics Network', desc: 'Indian Trade Subject 2 - Global Reach', url: '/assets/images/nyf.png', span: 'md:col-span-1 md:row-span-2' },
+  { id: 6, type: 'image', title: 'Trade Mastery', desc: 'Indian Trade Subject 3 - Strategic Growth', url: '/assets/images/niraj.png', span: 'md:col-span-2 md:row-span-1' },
 ];
 
 /* ── COMPONENTS ── */
@@ -201,8 +204,6 @@ function StatCounter({ value, suffix, label }: { value: number; suffix: string; 
   );
 }
 
-/* ── MAIN PAGE ── */
-
 export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobMenuOpen, setIsMobMenuOpen] = useState(false);
@@ -219,7 +220,7 @@ export default function HomePage() {
       {/* NAVBAR */}
       <nav className={cn(
         "fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 px-6 lg:px-12 flex items-center justify-between h-[85px]",
-        isScrolled ? "bg-secondary shadow-xl h-16 translate-y-0" : "bg-transparent translate-y-0"
+        isScrolled ? "bg-secondary shadow-xl h-16" : "bg-transparent"
       )}>
         <Link href="/" className="flex items-center gap-3 group">
           <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center font-black text-xl text-secondary group-hover:rotate-12 transition-transform">S</div>
@@ -248,7 +249,7 @@ export default function HomePage() {
         </button>
       </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobMenuOpen && (
           <>
@@ -263,8 +264,7 @@ export default function HomePage() {
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 bottom-0 w-[80%] max-sm max-w-sm bg-secondary z-[1002] p-10 shadow-2xl flex flex-col"
+              className="fixed right-0 top-0 bottom-0 w-[80%] max-w-sm bg-secondary z-[1002] p-10 shadow-2xl flex flex-col"
             >
               <button onClick={() => setIsMobMenuOpen(false)} className="self-end text-white mb-10 p-2 hover:bg-white/10 rounded-full transition-colors">
                 <X className="w-8 h-8" />
@@ -275,9 +275,6 @@ export default function HomePage() {
                     {link.label}
                   </Link>
                 ))}
-                <Link href="/contact" className="mt-6 bg-primary text-secondary text-center py-4 rounded-full font-bold text-lg" onClick={() => setIsMobMenuOpen(false)}>
-                  Our Profile
-                </Link>
               </div>
             </motion.div>
           </>
@@ -292,39 +289,39 @@ export default function HomePage() {
             src="/assets/images/_extra____Indian_private_202603201015.png" 
             alt="Hero Background" 
             fill 
-            className="object-cover object-center opacity-60"
+            className="object-cover object-center opacity-40"
             priority
             unoptimized
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary/80 via-secondary/40 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 via-secondary/40 to-transparent z-10" />
           
           <div className="relative z-20 w-full px-6">
             <div className="max-w-7xl mx-auto">
               <motion.div 
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1 }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
                 className="max-w-4xl"
               >
                 <div className="text-primary font-black uppercase tracking-[8px] text-xs mb-6 flex items-center gap-4">
                   <span className="w-12 h-[2px] bg-primary" />
-                  Your Partners in
+                  India's Digital Powerhouse
                 </div>
                 
-                <h1 className="text-6xl md:text-[100px] font-black text-white leading-[0.9] uppercase font-sora mb-8 italic">
-                  Digital<br /><span className="text-primary not-italic">Dominance</span>
+                <h1 className="text-6xl md:text-[90px] font-black text-white leading-[0.95] uppercase font-sora mb-8">
+                  DIGITAL<br /><span className="text-primary italic">MAESTROS</span>
                 </h1>
 
-                <p className="text-xl md:text-2xl text-white/80 font-light leading-relaxed mb-12 max-w-2xl font-inter border-l-4 border-primary pl-8">
-                  Redefining Global Trade with Cutting-edge Design, Tech, and Strategic Excellence.
+                <p className="text-xl md:text-2xl text-white/80 font-light leading-relaxed mb-12 max-w-2xl border-l-4 border-primary pl-8">
+                  Turning Visions into Global Landmarks with Precision Trade and Tech.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-6">
                   <Link href="/services" className="bg-primary text-secondary px-12 py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:scale-105 transition-transform text-center shadow-xl shadow-primary/20">
-                    Our Services
+                    Explore Services
                   </Link>
                   <Link href="/contact" className="bg-transparent border-2 border-white/50 text-white px-12 py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-secondary transition-all text-center">
-                    Get Started
+                    Initiate Growth
                   </Link>
                 </div>
               </motion.div>
@@ -332,28 +329,14 @@ export default function HomePage() {
           </div>
 
           {/* MOVING TEXT BAR */}
-          <div className="absolute bottom-0 left-0 right-0 bg-primary py-5 overflow-hidden border-t-2 border-secondary/20 z-30">
+          <div className="absolute bottom-0 left-0 right-0 bg-primary py-4 overflow-hidden z-30">
             <div className="flex gap-16 w-max animate-marquee-slow items-center">
               {[...Array(6)].map((_, i) => (
-                <span key={i} className="text-secondary font-black text-5xl uppercase tracking-[12px] whitespace-nowrap opacity-90 italic">
-                  DIGITAL GROWTH MAESTROS • GLOBAL TRADE • STRATEGIC DESIGN • 
+                <span key={i} className="text-secondary font-black text-3xl uppercase tracking-[10px] whitespace-nowrap opacity-90">
+                  GLOBAL TRADE SOLUTIONS • DIGITAL DOMINANCE • STRATEGIC EXCELLENCE • 
                 </span>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* STATS BAR */}
-        <section className="bg-secondary relative overflow-hidden border-y border-white/5">
-          <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 py-16 relative z-10">
-            {STATS.map((stat, idx) => (
-              <div key={stat.label} className="relative">
-                <StatCounter {...stat} />
-                {idx < 3 && (
-                  <div className="hidden lg:block absolute top-1/2 -translate-y-1/2 right-0 w-[1px] h-12 bg-primary/30" />
-                )}
-              </div>
-            ))}
           </div>
         </section>
 
@@ -372,93 +355,44 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* SERVICES GRID */}
-        <section className="py-24 bg-[#FAFAF8]">
-          <div className="max-w-7xl mx-auto px-6">
-            <FadeIn>
-              <div className="text-center mb-20">
-                <h2 className="text-4xl md:text-5xl font-sora font-light text-secondary mb-4">
-                  Full-Suite <span className="text-primary font-bold">Digital Services</span>
-                </h2>
-                <p className="text-primary font-medium uppercase tracking-[4px] text-xs">Innovation Unleashed</p>
-              </div>
-            </FadeIn>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {SERVICES.map((svc, i) => (
-                <motion.div 
-                  key={svc.title}
-                  whileHover={{ y: -10 }}
-                  className={cn(
-                    "p-10 rounded-3xl transition-all duration-300 group bg-white shadow-xl shadow-secondary/5 border border-transparent hover:border-primary",
-                    svc.isCTA ? "bg-secondary text-white" : ""
-                  )}
-                >
-                  <div className={cn(
-                    "w-16 h-16 rounded-2xl flex items-center justify-center mb-8 transition-colors duration-300",
-                    svc.isCTA ? "bg-primary" : "bg-muted group-hover:bg-primary"
-                  )}>
-                    <svc.icon className={cn(
-                      "w-8 h-8 transition-colors duration-300",
-                      svc.isCTA ? "text-secondary" : "text-primary group-hover:text-white"
-                    )} />
-                  </div>
-                  <h3 className={cn(
-                    "text-xl font-sora font-bold mb-4",
-                    svc.isCTA ? "text-white" : "text-secondary group-hover:text-primary"
-                  )}>
-                    {svc.title}
-                  </h3>
-                  <p className={cn(
-                    "text-sm leading-relaxed mb-8",
-                    svc.isCTA ? "text-white/60" : "text-muted-foreground"
-                  )}>
-                    {svc.desc}
-                  </p>
-                  <Link href="/services" className={cn(
-                    "flex items-center gap-2 font-bold text-xs uppercase tracking-widest transition-transform group-hover:translate-x-2",
-                    svc.isCTA ? "text-primary" : "text-primary"
-                  )}>
-                    Learn More <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+        {/* BENTO GALLERY */}
+        <section className="py-24 bg-white border-b border-border/10">
+          <InteractiveBentoGallery 
+            mediaItems={GALLERY_ITEMS} 
+            title="Our Creative Showcase" 
+            description="A Visual Journey Through Our Global Success"
+          />
         </section>
 
         {/* OPERATIONS SECTION */}
-        <section className="py-24 bg-white overflow-hidden">
+        <section className="py-24 bg-[#FAFAF8] overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
             <div className="mb-16 text-center">
               <FadeIn>
-                <div className="inline-flex items-center gap-3 text-primary font-bold uppercase tracking-[4px] text-xs mb-6 border-b-2 border-primary pb-2">
-                  Operations
-                </div>
+                <div className="text-primary font-bold uppercase tracking-[4px] text-xs mb-6">Operations</div>
                 <h2 className="text-4xl md:text-5xl font-sora font-light text-secondary mb-8 leading-tight">
                   A company with an<br />
-                  <span className="text-primary font-bold">In-house Creative Studio</span>
+                  <span className="text-primary font-bold italic">In-house Creative Studio</span>
                 </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed font-inter italic max-w-3xl mx-auto">
-                  As a full-service digital house, we manage design, development, content production, and ad-tech implementation entirely in-house — giving you a single point of accountability.
+                <p className="text-lg text-muted-foreground leading-relaxed italic max-w-3xl mx-auto">
+                  We manage design, development, content production, and ad-tech implementation entirely in-house — giving you a single point of accountability.
                 </p>
               </FadeIn>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-[500px]">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[1, 2, 3].map((id) => (
-                <div key={id} className="relative rounded-3xl overflow-hidden shadow-2xl group border-2 border-primary/10">
+                <div key={id} className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl group border border-primary/10">
                   <video 
                     src={`/assets/videos/${id}.mp4`}
                     autoPlay
                     loop
                     muted
                     playsInline
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                    className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-10">
-                    <p className="text-primary font-black text-xs uppercase tracking-[4px] mb-2">Process Stage</p>
-                    <h4 className="text-white font-sora font-bold text-2xl">Production 0{id}</h4>
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
+                    <h4 className="text-white font-sora font-bold text-xl">Digital Studio 0{id}</h4>
                   </div>
                 </div>
               ))}
@@ -466,75 +400,44 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* WORLD MAP SECTION */}
+        {/* WORLD MAP */}
         <section className="bg-white py-24 relative overflow-hidden border-y border-border/10">
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <FadeIn>
               <div className="text-center mb-20">
                 <div className="text-primary font-bold uppercase tracking-[4px] text-xs mb-4">Global Reach</div>
                 <h2 className="text-4xl md:text-5xl font-sora font-light text-secondary leading-tight">
-                  Driving Results for <span className="font-bold">250+ Brands</span> <span className="text-primary">Across The Globe</span>
+                  Empowering <span className="font-bold">250+ Brands</span> <span className="text-primary">Worldwide</span>
                 </h2>
               </div>
             </FadeIn>
-            
-            <div className="max-w-7xl mx-auto relative group">
-              <WorldMap
-                lineColor="#f89b34"
-                dots={[
-                  {
-                    start: { lat: 19.0760, lng: 72.8777, label: "Mumbai" },
-                    end: { lat: 40.7128, lng: -74.0060, label: "New York" },
-                  },
-                  {
-                    start: { lat: 17.3850, lng: 78.4867, label: "Hyderabad" },
-                    end: { lat: 51.5074, lng: -0.1278, label: "London" },
-                  },
-                  {
-                    start: { lat: 17.6868, lng: 83.2185, label: "Visakhapatnam" },
-                    end: { lat: 1.3521, lng: 103.8198, label: "Singapore" },
-                  },
-                  {
-                    start: { lat: 19.0760, lng: 72.8777, label: "Mumbai" },
-                    end: { lat: 25.2048, lng: 55.2708, label: "Dubai" },
-                  },
-                  {
-                    start: { lat: 17.3850, lng: 78.4867, label: "Hyderabad" },
-                    end: { lat: -33.8688, lng: 151.2093, label: "Sydney" },
-                  },
-                ]}
-              />
-            </div>
+            <WorldMap 
+              lineColor="#f89b34"
+              dots={[
+                { start: { lat: 19.0760, lng: 72.8777, label: "Mumbai" }, end: { lat: 40.7128, lng: -74.0060, label: "New York" } },
+                { start: { lat: 17.3850, lng: 78.4867, label: "Hyderabad" }, end: { lat: 51.5074, lng: -0.1278, label: "London" } },
+                { start: { lat: 19.0760, lng: 72.8777, label: "Mumbai" }, end: { lat: 25.2048, lng: 55.2708, label: "Dubai" } },
+              ]}
+            />
           </div>
         </section>
 
-        {/* TESTIMONIALS SECTION */}
+        {/* TESTIMONIALS */}
         <section className="py-24 bg-[#FAFAF8] overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
             <FadeIn>
               <div className="text-center mb-16">
                 <h2 className="text-4xl font-sora font-light text-secondary">
-                  Our <span className="text-primary font-bold italic">Indian Partners</span>
+                  Latest from <span className="text-primary font-bold italic">Our Partners</span>
                 </h2>
-                <p className="text-primary font-bold uppercase tracking-widest text-[10px] mt-2 italic">Voices of Success</p>
+                <p className="text-primary font-bold uppercase tracking-widest text-[10px] mt-2 italic">Client Voices</p>
               </div>
             </FadeIn>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 h-[500px] items-start">
-              <TestimonialsColumn 
-                testimonials={testimonials.slice(0, 2)} 
-                duration={15} 
-                className="hidden lg:block"
-              />
-              <TestimonialsColumn 
-                testimonials={testimonials.slice(2, 4)} 
-                duration={18}
-              />
-              <TestimonialsColumn 
-                testimonials={testimonials.slice(4, 6)} 
-                duration={16}
-                className="hidden md:block"
-              />
+              <TestimonialsColumn testimonials={testimonials.slice(0, 2)} duration={15} className="hidden lg:block" />
+              <TestimonialsColumn testimonials={testimonials.slice(2, 4)} duration={18} />
+              <TestimonialsColumn testimonials={testimonials.slice(4, 6)} duration={16} className="hidden md:block" />
             </div>
           </div>
         </section>
@@ -547,7 +450,7 @@ export default function HomePage() {
                 <h2 className="text-4xl md:text-5xl font-sora font-light text-secondary">
                   <span className="text-primary font-bold">Get in touch</span> with us
                 </h2>
-                <p className="text-2xl text-secondary font-inter font-light mt-2 italic">
+                <p className="text-2xl text-secondary font-light mt-2 italic">
                   Let's craft your digital legacy.
                 </p>
               </FadeIn>
@@ -559,33 +462,22 @@ export default function HomePage() {
                   <input className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal" placeholder="Full Name" />
                   <input className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal" placeholder="Email Address" />
                 </div>
-                <div className="grid md:grid-cols-2 gap-10">
-                  <input className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal" placeholder="Contact Number" />
-                  <input className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal" placeholder="Company Website" />
-                </div>
                 <textarea className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal resize-none" rows={4} placeholder="How can we help you dominant your industry?" />
-                <button className="bg-primary hover:bg-primary/90 text-secondary w-full py-6 rounded-full font-black uppercase tracking-[6px] text-sm transition-all shadow-2xl shadow-primary/30">
+                <button className="bg-primary hover:bg-primary/90 text-secondary w-full py-6 rounded-full font-black uppercase tracking-[6px] text-sm transition-all">
                   INITIATE GROWTH
                 </button>
               </form>
 
-              <div className="bg-secondary p-16 rounded-[40px] text-white shadow-2xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full -mr-20 -mt-20 blur-3xl" />
-                <div className="relative z-10 space-y-12">
+              <div className="bg-secondary p-16 rounded-[40px] text-white shadow-2xl">
+                <div className="space-y-12">
                   <div>
                     <div className="text-primary text-5xl font-sora font-black mb-3">+91 9033131093</div>
                     <p className="text-white/40 text-[10px] font-bold tracking-[4px] uppercase">Available 10:00 – 18:00 IST</p>
                   </div>
                   <div className="space-y-8">
                     <div className="group">
-                      <h4 className="text-primary font-black uppercase tracking-[4px] text-[10px] mb-3 group-hover:translate-x-2 transition-transform">HQ Locations</h4>
+                      <h4 className="text-primary font-black uppercase tracking-[4px] text-[10px] mb-3">HQ Locations</h4>
                       <p className="text-xl font-sora font-bold">Ahmedabad • Surat • Vadodara</p>
-                    </div>
-                    <div className="group">
-                      <h4 className="text-primary font-black uppercase tracking-[4px] text-[10px] mb-3 group-hover:translate-x-2 transition-transform">Email Support</h4>
-                      <Link href="mailto:info@shyamoverseas.com" className="text-xl font-sora font-bold hover:text-primary transition-colors block">
-                        info@shyamoverseas.com
-                      </Link>
                     </div>
                   </div>
                 </div>
@@ -593,60 +485,20 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-
-        {/* SECTOR TAGS STRIP */}
-        <section className="bg-secondary py-10 overflow-hidden border-y border-white/5">
-          <div className="flex gap-20 w-max animate-marquee-slow px-6 items-center">
-            {[...SECTOR_TAGS, ...SECTOR_TAGS].map((s, i) => (
-              <span key={i} className="text-white/20 text-xs font-black uppercase tracking-[6px] whitespace-nowrap">
-                {s} •
-              </span>
-            ))}
-          </div>
-        </section>
-
       </main>
-
+      
       {/* FOOTER */}
-      <footer className="bg-[#050B14] text-white pt-24 pb-12">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-20">
-          <div className="space-y-10">
-            <Link href="/" className="flex items-center gap-4 group">
-              <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center font-black text-2xl text-secondary group-hover:scale-110 transition-transform">S</div>
-              <span className="text-2xl font-sora font-black tracking-tight">Shyama Overseas</span>
-            </Link>
-            <p className="text-white/40 text-sm leading-relaxed font-inter italic border-l-2 border-primary pl-6">
-              Empowering Indian brands to transcend borders through strategic digital excellence.
-            </p>
-          </div>
-
-          <div>
-            <h6 className="text-primary font-black uppercase tracking-[4px] text-[10px] mb-10">Navigation</h6>
-            <ul className="space-y-5">
-              {["Our Story", "Services", "Portfolio", "Insights", "Careers"].map(l => (
-                <li key={l}><Link href="#" className="text-white/40 hover:text-primary transition-all text-sm font-bold flex items-center gap-2 group"><span className="w-1.5 h-1.5 bg-primary/20 rounded-full group-hover:bg-primary" /> {l}</Link></li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h6 className="text-primary font-black uppercase tracking-[4px] text-[10px] mb-10">Accreditations</h6>
-            <div className="space-y-10">
-              <div className="bg-white/5 p-8 rounded-3xl border border-white/10 group hover:border-primary transition-colors">
-                <div className="text-white font-bold mb-3 text-sm font-sora">Official Partner</div>
-                <p className="text-white/30 text-[9px] leading-relaxed uppercase tracking-widest font-black italic">Google & Meta Certified Growth Agency</p>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h6 className="text-primary font-black uppercase tracking-[4px] text-[10px] mb-10">Connectivity</h6>
-            <div className="space-y-6">
-              <div className="flex items-center gap-5 text-white/40 group">
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-primary transition-colors"><Globe className="w-5 h-5 group-hover:text-secondary" /></div>
-                <p className="text-sm font-bold">Pan-India Presence</p>
-              </div>
-            </div>
+      <footer className="bg-[#050B14] text-white pt-24 pb-12 text-center">
+        <div className="max-w-7xl mx-auto px-6">
+          <Link href="/" className="flex items-center justify-center gap-4 group mb-12">
+            <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center font-black text-2xl text-secondary">S</div>
+            <span className="text-2xl font-sora font-black tracking-tight">Shyama Overseas</span>
+          </Link>
+          <p className="text-white/40 text-sm italic mb-12 max-w-xl mx-auto">
+            Empowering Indian brands to transcend borders through strategic digital excellence.
+          </p>
+          <div className="pt-12 border-t border-white/5 text-white/20 text-xs font-bold uppercase tracking-widest">
+            © 2005–2025 Shyama Overseas | India's Gateway to Global Trade
           </div>
         </div>
       </footer>
