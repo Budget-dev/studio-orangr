@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -7,23 +6,15 @@ import Link from "next/link";
 import React from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { 
-  Palette, 
-  Smartphone, 
-  Layers, 
-  BarChart3, 
-  Plus,
-  ArrowRight,
   Menu,
   X,
-  MonitorSmartphone,
-  Globe,
-  Search,
-  Megaphone
+  Plus
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { WorldMap } from "@/components/WorldMap";
 import { LogoCloud } from "@/components/LogoCloud";
 import InteractiveBentoGallery, { type MediaItemType } from "@/components/InteractiveBentoGallery";
+import { DynamicFrameLayout, type Frame } from "@/components/DynamicFrameLayout";
 
 /* ── DATA ── */
 const NAV_LINKS = [
@@ -35,24 +26,6 @@ const NAV_LINKS = [
   { label: "Insights", href: "/blog" },
   { label: "Careers", href: "/careers" },
   { label: "Contact Us", href: "/contact" },
-];
-
-const STATS = [
-  { label: "Years of Excellence", value: 19, suffix: "+" },
-  { label: "Clients Served", value: 250, suffix: "+" },
-  { label: "Countries Reached", value: 40, suffix: "+" },
-  { label: "Shipments Handled", value: 15, suffix: "K+" },
-];
-
-const SERVICES = [
-  { icon: MonitorSmartphone, title: "Web Design & Dev", desc: "Crafting high-performance websites that convert visitors into customers." },
-  { icon: Smartphone, title: "Mobile App Dev", desc: "Building intuitive iOS and Android applications for the modern user." },
-  { icon: Palette, title: "UI/UX Design", desc: "Human-centric design that balances aesthetics with functional excellence." },
-  { icon: Megaphone, title: "Digital Marketing", desc: "Data-driven strategies to amplify your brand's reach and ROI." },
-  { icon: Search, title: "SEO Optimization", desc: "Dominating search results with technical precision and content mastery." },
-  { icon: Layers, title: "Branding & Identity", desc: "Defining your unique voice in a crowded digital marketplace." },
-  { icon: BarChart3, title: "Performance Marketing", desc: "ROI-focused campaigns across Meta, Google, and LinkedIn." },
-  { icon: Plus, title: "All Services →", desc: "Explore our full suite of digital transformation tools.", isCTA: true },
 ];
 
 const testimonials = [
@@ -101,6 +74,18 @@ const GALLERY_ITEMS: MediaItemType[] = [
   { id: 4, type: 'image', title: 'Export Hub', desc: 'Indian Trade Subject 1 - Primary Port', url: '/assets/images/imagesloyred.png', span: 'md:col-span-1 md:row-span-1' },
   { id: 5, type: 'image', title: 'Logistics Network', desc: 'Indian Trade Subject 2 - Global Reach', url: '/assets/images/nyf.png', span: 'md:col-span-1 md:row-span-2' },
   { id: 6, type: 'image', title: 'Trade Mastery', desc: 'Indian Trade Subject 3 - Strategic Growth', url: '/assets/images/niraj.png', span: 'md:col-span-2 md:row-span-1' },
+];
+
+const OPERATIONS_FRAMES: Frame[] = [
+  { id: 1, video: "https://cdn.pixabay.com/video/2016/10/05/5638-184518428_tiny.mp4", defaultPos: { x: 0, y: 0, w: 4, h: 4 }, mediaSize: 1, borderThickness: 1, borderSize: 100 },
+  { id: 2, video: "https://cdn.pixabay.com/video/2021/04/12/70874-538186175_tiny.mp4", defaultPos: { x: 4, y: 0, w: 4, h: 4 }, mediaSize: 1, borderThickness: 1, borderSize: 100 },
+  { id: 3, video: "https://cdn.pixabay.com/video/2016/09/08/5115-182885449_tiny.mp4", defaultPos: { x: 8, y: 0, w: 4, h: 4 }, mediaSize: 1, borderThickness: 1, borderSize: 100 },
+  { id: 4, video: "https://cdn.pixabay.com/video/2019/12/11/30113-379656114_tiny.mp4", defaultPos: { x: 0, y: 4, w: 4, h: 4 }, mediaSize: 1, borderThickness: 1, borderSize: 100 },
+  { id: 5, video: "https://cdn.pixabay.com/video/2022/10/25/136427-764359400_tiny.mp4", defaultPos: { x: 4, y: 4, w: 4, h: 4 }, mediaSize: 1, borderThickness: 1, borderSize: 100 },
+  { id: 6, video: "https://cdn.pixabay.com/video/2015/12/11/1572-147814041_tiny.mp4", defaultPos: { x: 8, y: 4, w: 4, h: 4 }, mediaSize: 1, borderThickness: 1, borderSize: 100 },
+  { id: 7, video: "https://cdn.pixabay.com/video/2016/10/16/5923-185419951_tiny.mp4", defaultPos: { x: 0, y: 8, w: 4, h: 4 }, mediaSize: 1, borderThickness: 1, borderSize: 100 },
+  { id: 8, video: "https://cdn.pixabay.com/video/2017/04/24/8834-213328082_tiny.mp4", defaultPos: { x: 4, y: 8, w: 4, h: 4 }, mediaSize: 1, borderThickness: 1, borderSize: 100 },
+  { id: 9, video: "https://cdn.pixabay.com/video/2020/05/25/40118-424754407_tiny.mp4", defaultPos: { x: 8, y: 8, w: 4, h: 4 }, mediaSize: 1, borderThickness: 1, borderSize: 100 },
 ];
 
 /* ── COMPONENTS ── */
@@ -169,41 +154,6 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
   );
 }
 
-function StatCounter({ value, suffix, label }: { value: number; suffix: string; label: string }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "0px 0px -20px 0px" });
-
-  useEffect(() => {
-    if (isInView) {
-      let start = 0;
-      const end = value;
-      const duration = 1500;
-      const startTime = performance.now();
-
-      const animate = (currentTime: number) => {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const ease = 1 - Math.pow(1 - progress, 3);
-        setCount(Math.floor(ease * end));
-        if (progress < 1) requestAnimationFrame(animate);
-      };
-      requestAnimationFrame(animate);
-    }
-  }, [isInView, value]);
-
-  return (
-    <div ref={ref} className="flex flex-col items-center justify-center p-8 text-center relative group">
-      <div className="text-5xl font-sora font-bold text-primary mb-3 group-hover:scale-110 transition-transform">
-        {count}{suffix}
-      </div>
-      <div className="text-white/70 text-sm font-semibold uppercase tracking-wider font-sora">
-        {label}
-      </div>
-    </div>
-  );
-}
-
 export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobMenuOpen, setIsMobMenuOpen] = useState(false);
@@ -225,8 +175,8 @@ export default function HomePage() {
         <Link href="/" className="flex items-center gap-3 group">
           <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center font-black text-xl text-secondary group-hover:rotate-12 transition-transform">S</div>
           <div className="flex flex-col">
-            <span className="text-white font-sora font-bold leading-tight">Shyama Overseas</span>
-            <span className="text-[10px] text-primary font-semibold uppercase tracking-widest">Global Trade Solutions</span>
+            <span className="text-white font-sora font-bold leading-tight uppercase">Shyama Overseas</span>
+            <span className="text-[10px] text-primary font-semibold uppercase tracking-widest italic">Global Trade Solutions</span>
           </div>
         </Link>
 
@@ -289,7 +239,7 @@ export default function HomePage() {
             src="/assets/images/_extra____Indian_private_202603201015.png" 
             alt="Hero Background" 
             fill 
-            className="object-cover object-center opacity-40"
+            className="object-cover object-center opacity-60"
             priority
             unoptimized
           />
@@ -305,15 +255,15 @@ export default function HomePage() {
               >
                 <div className="text-primary font-black uppercase tracking-[8px] text-xs mb-6 flex items-center gap-4">
                   <span className="w-12 h-[2px] bg-primary" />
-                  India's Digital Powerhouse
+                  Digital Growth Maestros
                 </div>
                 
-                <h1 className="text-6xl md:text-[90px] font-black text-white leading-[0.95] uppercase font-sora mb-8">
-                  DIGITAL<br /><span className="text-primary italic">MAESTROS</span>
+                <h1 className="text-6xl md:text-[100px] font-black text-white leading-[0.9] uppercase font-sora mb-8">
+                  IDEA TO<br /><span className="text-primary italic">VISION</span>
                 </h1>
 
-                <p className="text-xl md:text-2xl text-white/80 font-light leading-relaxed mb-12 max-w-2xl border-l-4 border-primary pl-8">
-                  Turning Visions into Global Landmarks with Precision Trade and Tech.
+                <p className="text-xl md:text-2xl text-white/80 font-light leading-relaxed mb-12 max-w-2xl border-l-4 border-primary pl-8 italic">
+                  Scaling Indian brands to global landmarks with precision digital trade and creative ad-tech.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-6">
@@ -329,7 +279,7 @@ export default function HomePage() {
           </div>
 
           {/* MOVING TEXT BAR */}
-          <div className="absolute bottom-0 left-0 right-0 bg-primary py-4 overflow-hidden z-30">
+          <div className="absolute bottom-0 left-0 right-0 bg-primary py-5 overflow-hidden z-30">
             <div className="flex gap-16 w-max animate-marquee-slow items-center">
               {[...Array(6)].map((_, i) => (
                 <span key={i} className="text-secondary font-black text-3xl uppercase tracking-[10px] whitespace-nowrap opacity-90">
@@ -341,12 +291,12 @@ export default function HomePage() {
         </section>
 
         {/* LOGO CLOUD */}
-        <section className="py-24 bg-white border-b border-border/10 overflow-hidden">
+        <section className="py-24 bg-white border-b border-border/10">
           <div className="max-w-7xl mx-auto px-6">
             <FadeIn>
               <div className="text-center mb-16">
                 <h2 className="text-4xl font-sora font-light text-secondary">
-                  Our <span className="text-primary font-bold">Strategic Network</span>
+                  Our <span className="text-primary font-bold italic">Strategic Network</span>
                 </h2>
                 <p className="text-primary font-bold uppercase tracking-widest text-[10px] mt-2 italic">Trusted by Global Leaders</p>
               </div>
@@ -365,38 +315,28 @@ export default function HomePage() {
         </section>
 
         {/* OPERATIONS SECTION */}
-        <section className="py-24 bg-[#FAFAF8] overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="mb-16 text-center">
-              <FadeIn>
-                <div className="text-primary font-bold uppercase tracking-[4px] text-xs mb-6">Operations</div>
-                <h2 className="text-4xl md:text-5xl font-sora font-light text-secondary mb-8 leading-tight">
-                  A company with an<br />
-                  <span className="text-primary font-bold italic">In-house Creative Studio</span>
-                </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed italic max-w-3xl mx-auto">
-                  We manage design, development, content production, and ad-tech implementation entirely in-house — giving you a single point of accountability.
-                </p>
-              </FadeIn>
-            </div>
+        <section className="py-24 bg-[#FAFAF8] overflow-hidden min-h-[800px] flex flex-col">
+          <div className="max-w-7xl mx-auto px-6 mb-16">
+            <FadeIn>
+              <div className="text-primary font-bold uppercase tracking-[4px] text-xs mb-6">Operations</div>
+              <h2 className="text-4xl md:text-5xl font-sora font-light text-secondary mb-8 leading-tight">
+                A company with an<br />
+                <span className="text-primary font-bold italic">In-house Creative Studio</span>
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed italic max-w-3xl">
+                As a full-service digital house, we manage design, development, content production, and ad-tech implementation entirely in-house — giving you a single point of accountability.
+              </p>
+            </FadeIn>
+          </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[1, 2, 3].map((id) => (
-                <div key={id} className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl group border border-primary/10">
-                  <video 
-                    src={`/assets/videos/${id}.mp4`}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
-                    <h4 className="text-white font-sora font-bold text-xl">Digital Studio 0{id}</h4>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div className="flex-1 w-full max-w-[1600px] mx-auto px-6 h-[600px]">
+            <DynamicFrameLayout 
+              frames={OPERATIONS_FRAMES} 
+              className="w-full h-full"
+              showFrames={false}
+              hoverSize={6}
+              gapSize={12}
+            />
           </div>
         </section>
 
@@ -448,7 +388,7 @@ export default function HomePage() {
             <div className="mb-16">
               <FadeIn>
                 <h2 className="text-4xl md:text-5xl font-sora font-light text-secondary">
-                  <span className="text-primary font-bold">Get in touch</span> with us
+                  <span className="text-primary font-bold italic">Get in touch</span> with us
                 </h2>
                 <p className="text-2xl text-secondary font-light mt-2 italic">
                   Let's craft your digital legacy.
@@ -462,8 +402,8 @@ export default function HomePage() {
                   <input className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal" placeholder="Full Name" />
                   <input className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal" placeholder="Email Address" />
                 </div>
-                <textarea className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal resize-none" rows={4} placeholder="How can we help you dominant your industry?" />
-                <button className="bg-primary hover:bg-primary/90 text-secondary w-full py-6 rounded-full font-black uppercase tracking-[6px] text-sm transition-all">
+                <textarea className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal resize-none" rows={4} placeholder="How can we help you dominate your industry?" />
+                <button className="bg-primary hover:bg-primary/90 text-secondary w-full py-6 rounded-full font-black uppercase tracking-[6px] text-sm transition-all shadow-xl shadow-primary/20">
                   INITIATE GROWTH
                 </button>
               </form>
@@ -471,7 +411,7 @@ export default function HomePage() {
               <div className="bg-secondary p-16 rounded-[40px] text-white shadow-2xl">
                 <div className="space-y-12">
                   <div>
-                    <div className="text-primary text-5xl font-sora font-black mb-3">+91 9033131093</div>
+                    <div className="text-primary text-5xl font-sora font-black mb-3 italic">+91 9033131093</div>
                     <p className="text-white/40 text-[10px] font-bold tracking-[4px] uppercase">Available 10:00 – 18:00 IST</p>
                   </div>
                   <div className="space-y-8">
@@ -491,8 +431,8 @@ export default function HomePage() {
       <footer className="bg-[#050B14] text-white pt-24 pb-12 text-center">
         <div className="max-w-7xl mx-auto px-6">
           <Link href="/" className="flex items-center justify-center gap-4 group mb-12">
-            <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center font-black text-2xl text-secondary">S</div>
-            <span className="text-2xl font-sora font-black tracking-tight">Shyama Overseas</span>
+            <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center font-black text-2xl text-secondary transition-transform group-hover:rotate-12">S</div>
+            <span className="text-2xl font-sora font-black tracking-tight uppercase">Shyama Overseas</span>
           </Link>
           <p className="text-white/40 text-sm italic mb-12 max-w-xl mx-auto">
             Empowering Indian brands to transcend borders through strategic digital excellence.

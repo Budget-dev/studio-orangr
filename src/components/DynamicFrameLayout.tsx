@@ -7,13 +7,12 @@ export interface Frame {
   id: number
   video: string
   defaultPos: { x: number; y: number; w: number; h: number }
-  corner: string
-  edgeHorizontal: string
-  edgeVertical: string
+  corner?: string
+  edgeHorizontal?: string
+  edgeVertical?: string
   mediaSize: number
   borderThickness: number
   borderSize: number
-  isHovered: boolean
 }
 
 interface FrameComponentProps {
@@ -21,9 +20,9 @@ interface FrameComponentProps {
   width: number | string
   height: number | string
   className?: string
-  corner: string
-  edgeHorizontal: string
-  edgeVertical: string
+  corner?: string
+  edgeHorizontal?: string
+  edgeVertical?: string
   mediaSize: number
   borderThickness: number
   borderSize: number
@@ -48,16 +47,10 @@ function FrameComponent({
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
-    // Ensure video is playing even if not hovered, but perhaps different behavior
-    const videoElement = videoRef.current
-    if (videoElement) {
-      videoElement.play().catch(() => {})
-    }
-  }, [])
-
-  useEffect(() => {
     if (isHovered) {
-      videoRef.current?.play()
+      videoRef.current?.play().catch(() => {})
+    } else {
+      videoRef.current?.pause()
     }
   }, [isHovered])
 
@@ -70,7 +63,7 @@ function FrameComponent({
         transition: "width 0.3s ease-in-out, height 0.3s ease-in-out",
       }}
     >
-      <div className="relative w-full h-full overflow-hidden border border-white/10">
+      <div className="relative w-full h-full overflow-hidden border border-white/5 bg-secondary/20">
         <div
           className="absolute inset-0 flex items-center justify-center"
           style={{
@@ -96,12 +89,75 @@ function FrameComponent({
               src={video}
               loop
               muted
-              autoPlay
               playsInline
               ref={videoRef}
             />
           </div>
         </div>
+
+        {showFrame && corner && (
+          <div className="absolute inset-0" style={{ zIndex: 2 }}>
+            <div
+              className="absolute top-0 left-0 w-16 h-16 bg-contain bg-no-repeat"
+              style={{ backgroundImage: `url(${corner})` }}
+            />
+            <div
+              className="absolute top-0 right-0 w-16 h-16 bg-contain bg-no-repeat"
+              style={{ backgroundImage: `url(${corner})`, transform: "scaleX(-1)" }}
+            />
+            <div
+              className="absolute bottom-0 left-0 w-16 h-16 bg-contain bg-no-repeat"
+              style={{ backgroundImage: `url(${corner})`, transform: "scaleY(-1)" }}
+            />
+            <div
+              className="absolute bottom-0 right-0 w-16 h-16 bg-contain bg-no-repeat"
+              style={{ backgroundImage: `url(${corner})`, transform: "scale(-1, -1)" }}
+            />
+
+            {edgeHorizontal && (
+              <>
+                <div
+                  className="absolute top-0 left-16 right-16 h-16"
+                  style={{
+                    backgroundImage: `url(${edgeHorizontal})`,
+                    backgroundSize: "auto 64px",
+                    backgroundRepeat: "repeat-x",
+                  }}
+                />
+                <div
+                  className="absolute bottom-0 left-16 right-16 h-16"
+                  style={{
+                    backgroundImage: `url(${edgeHorizontal})`,
+                    backgroundSize: "auto 64px",
+                    backgroundRepeat: "repeat-x",
+                    transform: "rotate(180deg)",
+                  }}
+                />
+              </>
+            )}
+            {edgeVertical && (
+              <>
+                <div
+                  className="absolute left-0 top-16 bottom-16 w-16"
+                  style={{
+                    backgroundImage: `url(${edgeVertical})`,
+                    backgroundSize: "64px auto",
+                    backgroundRepeat: "repeat-y",
+                  }}
+                />
+                <div
+                  className="absolute right-0 top-16 bottom-16 w-16"
+                  style={{
+                    backgroundImage: `url(${edgeVertical})`,
+                    backgroundSize: "64px auto",
+                    backgroundRepeat: "repeat-y",
+                    transform: "scaleX(-1)",
+                  }}
+                />
+              </>
+            )}
+          </div>
+        )}
       </div>
     </div>
   )
@@ -122,7 +178,6 @@ export function DynamicFrameLayout({
   hoverSize = 6,
   gapSize = 4
 }: DynamicFrameLayoutProps) {
-  const [frames] = useState<Frame[]>(initialFrames)
   const [hovered, setHovered] = useState<{ row: number; col: number } | null>(null)
 
   const getRowSizes = () => {
@@ -156,7 +211,7 @@ export function DynamicFrameLayout({
         transition: "grid-template-rows 0.4s ease, grid-template-columns 0.4s ease",
       }}
     >
-      {frames.map((frame) => {
+      {initialFrames.map((frame) => {
         const row = Math.floor(frame.defaultPos.y / 4)
         const col = Math.floor(frame.defaultPos.x / 4)
         const transformOrigin = getTransformOrigin(frame.defaultPos.x, frame.defaultPos.y)
