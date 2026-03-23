@@ -1,0 +1,139 @@
+"use client";
+
+import { Plus } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+type Logo = {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+};
+
+type LogoCloudProps = React.ComponentProps<"div">;
+
+export function LogoCloud({ className, ...props }: LogoCloudProps) {
+  return (
+    <div
+      className={cn(
+        "relative grid grid-cols-2 border-x border-border/40 md:grid-cols-4",
+        className
+      )}
+      {...props}
+    >
+      {/* Top Line */}
+      <div className="-translate-x-1/2 -top-px pointer-events-none absolute left-1/2 w-screen border-t border-border/40" />
+
+      <LogoCard
+        className="relative border-r border-b border-border/40 bg-secondary/5 dark:bg-secondary/20"
+        logo={{
+          src: "https://svgl.app/library/nvidia-wordmark-light.svg",
+          alt: "Nvidia Logo",
+        }}
+      >
+        <Plus
+          className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 text-[#f89b34]"
+          strokeWidth={1}
+        />
+      </LogoCard>
+
+      <LogoCard
+        className="border-b border-r border-border/40 md:border-r"
+        logo={{
+          src: "https://svgl.app/library/supabase_wordmark_light.svg",
+          alt: "Supabase Logo",
+        }}
+      />
+
+      <LogoCard
+        className="relative border-r border-b border-border/40 md:bg-secondary/5 dark:md:bg-secondary/20"
+        logo={{
+          src: "https://svgl.app/library/github_wordmark_light.svg",
+          alt: "GitHub Logo",
+        }}
+      >
+        <Plus
+          className="-right-[12.5px] -bottom-[12.5px] absolute z-10 size-6 text-[#f89b34]"
+          strokeWidth={1}
+        />
+        <Plus
+          className="-bottom-[12.5px] -left-[12.5px] absolute z-10 hidden size-6 md:block text-[#f89b34]"
+          strokeWidth={1}
+        />
+      </LogoCard>
+
+      <LogoCard
+        className="relative border-b border-border/40 bg-secondary/5 md:bg-background dark:bg-secondary/20 md:dark:bg-background"
+        logo={{
+          src: "https://svgl.app/library/openai_wordmark_light.svg",
+          alt: "OpenAI Logo",
+        }}
+      />
+
+      <LogoCard
+        className="relative border-r border-b border-border/40 bg-secondary/5 md:border-b-0 md:bg-background dark:bg-secondary/20 md:dark:bg-background"
+        logo={{
+          src: "https://svgl.app/library/turso-wordmark-light.svg",
+          alt: "Turso Logo",
+        }}
+      >
+        <Plus
+          className="-right-[12.5px] -bottom-[12.5px] md:-left-[12.5px] absolute z-10 size-6 md:hidden text-[#f89b34]"
+          strokeWidth={1}
+        />
+      </LogoCard>
+
+      <LogoCard
+        className="border-b border-border/40 bg-background md:border-r md:border-b-0 md:bg-secondary/5 dark:md:bg-secondary/20"
+        logo={{
+          src: "https://svgl.app/library/clerk-wordmark-light.svg",
+          alt: "Clerk Logo",
+        }}
+      />
+
+      <LogoCard
+        className="border-r border-border/40"
+        logo={{
+          src: "https://svgl.app/library/claude-ai-wordmark-icon_light.svg",
+          alt: "Claude AI Logo",
+        }}
+      />
+
+      <LogoCard
+        className="bg-secondary/5 dark:bg-secondary/20"
+        logo={{
+          src: "https://svgl.app/library/vercel_wordmark.svg",
+          alt: "Vercel Logo",
+        }}
+      />
+
+      {/* Bottom Line */}
+      <div className="-translate-x-1/2 -bottom-px pointer-events-none absolute left-1/2 w-screen border-b border-border/40" />
+    </div>
+  );
+}
+
+type LogoCardProps = React.ComponentProps<"div"> & {
+  logo: Logo;
+};
+
+function LogoCard({ logo, className, children, ...props }: LogoCardProps) {
+  return (
+    <div
+      className={cn(
+        "flex items-center justify-center bg-background px-4 py-12 md:p-14 transition-colors hover:bg-muted/30",
+        className
+      )}
+      {...props}
+    >
+      <img
+        alt={logo.alt}
+        className="pointer-events-none h-6 select-none md:h-8 dark:brightness-0 dark:invert opacity-80"
+        height={logo.height || "auto"}
+        src={logo.src}
+        width={logo.width || "auto"}
+      />
+      {children}
+    </div>
+  );
+}

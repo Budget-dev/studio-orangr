@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -31,6 +30,7 @@ import { WorldMap } from "@/components/WorldMap";
 import InteractiveBentoGallery, { MediaItemType } from "@/components/InteractiveBentoGallery";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { DynamicFrameLayout, Frame } from "@/components/DynamicFrameLayout";
+import { LogoCloud } from "@/components/LogoCloud";
 
 /* ── DATA ── */
 const NAV_LINKS = [
@@ -480,8 +480,20 @@ export default function HomePage() {
           />
         </section>
 
-        {/* LOGO MARQUEE */}
-        <section className="py-20 bg-muted/20 border-y border-border/10">
+        {/* LOGO CLOUD & MARQUEE */}
+        <section className="py-24 bg-muted/20 border-y border-border/10 overflow-hidden">
+          <div className="max-w-7xl mx-auto mb-20 px-6">
+            <FadeIn>
+              <div className="text-center mb-16">
+                <h2 className="text-4xl font-sora font-light text-[#0a0a0a]">
+                  Trusted by <span className="text-[#f89b34] font-bold">Global Leaders</span>
+                </h2>
+                <p className="text-[#f89b34] font-bold uppercase tracking-widest text-[10px] mt-2">Strategic Partnerships</p>
+              </div>
+              <LogoCloud />
+            </FadeIn>
+          </div>
+          
           <div className="max-w-7xl mx-auto space-y-8">
             <LogoMarquee direction="left" logos={CLIENT_LOGOS_R1} />
             <LogoMarquee direction="right" logos={CLIENT_LOGOS_R2} />
