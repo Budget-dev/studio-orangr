@@ -100,7 +100,7 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Global Logistics',
     desc: 'Bespoke trade solutions crafted with precision and ROI in mind.',
-    url: "/assets/images/_extra____Indian_private_202603201015.png",
+    url: PlaceHolderImages[0].imageUrl,
     span: 'md:col-span-2 md:row-span-2'
   },
   {
@@ -108,7 +108,7 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Trade Operations',
     desc: 'Reimagining export identities for the global digital age.',
-    url: "/assets/images/_extra____upper_middle_202603191201%20-%20Copy.png",
+    url: PlaceHolderImages[1].imageUrl,
     span: 'md:col-span-1 md:row-span-1'
   },
   {
@@ -116,7 +116,7 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Strategic Insights',
     desc: 'Strategic thinking meets logistical excellence in every route.',
-    url: "/assets/images/%7B__subject___A_202603191142.png",
+    url: PlaceHolderImages[2].imageUrl,
     span: 'md:col-span-1 md:row-span-2'
   },
   {
@@ -124,7 +124,7 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Digital Portal',
     desc: 'Seamless user interfaces for complex trade ecosystems.',
-    url: "/assets/images/%7B__subject___Indian_202603191158.png",
+    url: PlaceHolderImages[3].imageUrl,
     span: 'md:col-span-1 md:row-span-1'
   },
   {
@@ -132,7 +132,7 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Next-Gen Logistics',
     desc: 'Pushing the boundaries of international trade and supply chain flow.',
-    url: "/assets/images/%7B__subject___Indian_202603191217.png",
+    url: PlaceHolderImages[4].imageUrl,
     span: 'md:col-span-2 md:row-span-1'
   },
   {
@@ -140,21 +140,21 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Studio Excellence',
     desc: 'Our iterative process of trade and discovery yields results.',
-    url: "/assets/images/%7B__subject___Indian_202603200952.png",
+    url: PlaceHolderImages[5].imageUrl,
     span: 'md:col-span-1 md:row-span-1'
   }
 ];
 
 const OPERATIONS_FRAMES: Frame[] = [
-  { id: 1, video: "/videos/1.mp4", defaultPos: { x: 0, y: 0, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 2, video: "/videos/2.mp4", defaultPos: { x: 4, y: 0, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 3, video: "/videos/3.mp4", defaultPos: { x: 8, y: 0, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 4, video: "/videos/1.mp4", defaultPos: { x: 0, y: 4, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 5, video: "/videos/2.mp4", defaultPos: { x: 4, y: 4, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 6, video: "/videos/3.mp4", defaultPos: { x: 8, y: 4, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 7, video: "/videos/1.mp4", defaultPos: { x: 0, y: 8, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 8, video: "/videos/2.mp4", defaultPos: { x: 4, y: 8, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 9, video: "/videos/3.mp4", defaultPos: { x: 8, y: 8, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
+  { id: 1, video: "/assets/videos/1.mp4", defaultPos: { x: 0, y: 0, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
+  { id: 2, video: "/assets/videos/2.mp4", defaultPos: { x: 4, y: 0, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
+  { id: 3, video: "/assets/videos/3.mp4", defaultPos: { x: 8, y: 0, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
+  { id: 4, video: "/assets/videos/1.mp4", defaultPos: { x: 0, y: 4, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
+  { id: 5, video: "/assets/videos/2.mp4", defaultPos: { x: 4, y: 4, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
+  { id: 6, video: "/assets/videos/3.mp4", defaultPos: { x: 8, y: 4, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
+  { id: 7, video: "/assets/videos/1.mp4", defaultPos: { x: 0, y: 8, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
+  { id: 8, video: "/assets/videos/2.mp4", defaultPos: { x: 4, y: 8, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
+  { id: 9, video: "/assets/videos/3.mp4", defaultPos: { x: 8, y: 8, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
 ];
 
 const SECTOR_TAGS = [
@@ -172,9 +172,9 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 15 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
-      transition={{ duration: 0.3, delay, ease: "easeOut" }}
+      initial={{ opacity: 0, y: 10 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+      transition={{ duration: 0.25, delay, ease: "easeOut" }}
     >
       {children}
     </motion.div>
@@ -327,14 +327,15 @@ export default function HomePage() {
             fill 
             className="object-cover object-center opacity-60"
             priority
+            loading="eager"
           />
           <div className="absolute inset-0 bg-gradient-to-tr from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent z-10" />
           
           <div className="relative z-20 max-w-7xl mx-auto px-6 w-full pt-20">
             <motion.div 
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
               className="max-w-4xl"
             >
               <div className="text-white font-medium uppercase tracking-[6px] text-sm mb-6 flex items-center gap-4">

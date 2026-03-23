@@ -62,15 +62,15 @@ function FrameComponent({
       style={{
         width,
         height,
-        transition: "width 0.3s cubic-bezier(0.23, 1, 0.32, 1), height 0.3s cubic-bezier(0.23, 1, 0.32, 1)",
+        transition: "width 0.2s ease-out, height 0.2s ease-out",
       }}
     >
-      <div className="relative w-full h-full overflow-hidden rounded-xl bg-muted/20 shadow-xl border border-white/10">
+      <div className="relative w-full h-full overflow-hidden rounded-xl bg-muted/10 border border-white/5">
         <div
           className="absolute inset-0 flex items-center justify-center"
           style={{
             zIndex: 1,
-            transition: "all 0.3s ease-out",
+            transition: "all 0.2s ease-out",
             padding: showFrame ? `${borderThickness}px` : "0",
             width: showFrame ? `${borderSize}%` : "100%",
             height: showFrame ? `${borderSize}%` : "100%",
@@ -83,7 +83,7 @@ function FrameComponent({
             style={{
               transform: `scale(${mediaSize})`,
               transformOrigin: "center",
-              transition: "transform 0.3s ease-out",
+              transition: "transform 0.2s ease-out",
             }}
           >
             <video
@@ -204,7 +204,7 @@ export function DynamicFrameLayout({
         gridTemplateRows: getRowSizes(),
         gridTemplateColumns: getColSizes(),
         gap: `${gapSize}px`,
-        transition: "grid-template-rows 0.4s cubic-bezier(0.2, 0, 0, 1), grid-template-columns 0.4s cubic-bezier(0.2, 0, 0, 1)",
+        transition: "grid-template-rows 0.3s cubic-bezier(0.2, 0, 0, 1), grid-template-columns 0.3s cubic-bezier(0.2, 0, 0, 1)",
       }}
     >
       {frames.map((frame) => {
