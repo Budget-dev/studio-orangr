@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -24,7 +25,7 @@ import {
 import { cn } from "@/lib/utils";
 import { WorldMap } from "@/components/WorldMap";
 import InteractiveBentoGallery, { MediaItemType } from "@/components/InteractiveBentoGallery";
-import { DynamicFrameLayout, Frame } from "@/components/DynamicFrameLayout";
+import { DynamicFrameLayout } from "@/components/DynamicFrameLayout";
 import { LogoCloud } from "@/components/LogoCloud";
 
 /* ── DATA ── */
@@ -44,6 +45,13 @@ const STATS = [
   { label: "Clients Served", value: 250, suffix: "+" },
   { label: "Countries Reached", value: 40, suffix: "+" },
   { label: "Shipments Handled", value: 15, suffix: "K+" },
+];
+
+const SECTOR_TAGS = [
+  "Agriculture", "Textiles", "Pharma", "Manufacturing", 
+  "Chemicals", "Food & Beverages", "Gems & Jewellery", 
+  "Engineering", "Logistics", "Supply Chain", "Export",
+  "B2B", "FMCG", "Digital Trade"
 ];
 
 const SERVICES = [
@@ -108,57 +116,51 @@ const AGENCY_GALLERY: MediaItemType[] = [
   }
 ];
 
-const OPERATIONS_FRAMES: Frame[] = [
-  { id: 1, video: "/assets/WhatsApp Video 2026-03-19 at 12.41.14 PM.mp4", defaultPos: { x: 0, y: 0, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 2, video: "/assets/videos/2.mp4", defaultPos: { x: 4, y: 0, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 3, video: "/assets/videos/3.mp4", defaultPos: { x: 8, y: 0, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 4, video: "/assets/videos/1.mp4", defaultPos: { x: 0, y: 4, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 5, video: "/assets/videos/2.mp4", defaultPos: { x: 4, y: 4, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 6, video: "/assets/videos/3.mp4", defaultPos: { x: 8, y: 4, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 7, video: "/assets/videos/1.mp4", defaultPos: { x: 0, y: 8, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 8, video: "/assets/videos/2.mp4", defaultPos: { x: 4, y: 8, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
-  { id: 9, video: "/assets/videos/3.mp4", defaultPos: { x: 8, y: 8, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.5, borderThickness: 0, borderSize: 100, isHovered: false },
-];
-
-const SECTOR_TAGS = [
-  "E-commerce & Retail", "Fintech & Banking", "Healthcare Digital", 
-  "EdTech Platforms", "Real Estate Tech", "SaaS & Cloud", 
-  "Logistics Software", "Gaming & Entertainment", "Enterprise AI"
+const OPERATIONS_FRAMES = [
+  { id: 1, video: "/assets/videos/1.mp4", defaultPos: { x: 0, y: 0, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.2, borderThickness: 0, borderSize: 100, isHovered: false },
+  { id: 2, video: "/assets/videos/2.mp4", defaultPos: { x: 4, y: 0, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.2, borderThickness: 0, borderSize: 100, isHovered: false },
+  { id: 3, video: "/assets/videos/3.mp4", defaultPos: { x: 8, y: 0, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.2, borderThickness: 0, borderSize: 100, isHovered: false },
+  { id: 4, video: "/assets/videos/1.mp4", defaultPos: { x: 0, y: 4, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.2, borderThickness: 0, borderSize: 100, isHovered: false },
+  { id: 5, video: "/assets/videos/2.mp4", defaultPos: { x: 4, y: 4, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.2, borderThickness: 0, borderSize: 100, isHovered: false },
+  { id: 6, video: "/assets/videos/3.mp4", defaultPos: { x: 8, y: 4, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.2, borderThickness: 0, borderSize: 100, isHovered: false },
+  { id: 7, video: "/assets/videos/1.mp4", defaultPos: { x: 0, y: 8, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.2, borderThickness: 0, borderSize: 100, isHovered: false },
+  { id: 8, video: "/assets/videos/2.mp4", defaultPos: { x: 4, y: 8, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.2, borderThickness: 0, borderSize: 100, isHovered: false },
+  { id: 9, video: "/assets/videos/3.mp4", defaultPos: { x: 8, y: 8, w: 4, h: 4 }, corner: "", edgeHorizontal: "", edgeVertical: "", mediaSize: 1.2, borderThickness: 0, borderSize: 100, isHovered: false },
 ];
 
 const testimonials = [
   {
-    text: "Shyama Overseas transformed our digital presence. Their attention to detail in UI/UX is truly unmatched in India.",
+    text: "Shyama Overseas transformed our digital presence. Their attention to detail in UI/UX is truly unmatched in India. They turned our vision into a global growth reality.",
     name: "Arjun Mehta",
     role: "CEO, Innovate India",
     image: "https://picsum.photos/seed/arjun/100/100"
   },
   {
-    text: "The SEO results were beyond our expectations. We're now ranking #1 for all our core keywords.",
+    text: "The digital trade solutions provided by Shyama helped us reach 40+ countries. Their expertise in logistics and ad-tech is phenomenal.",
     name: "Priya Sharma",
     role: "Marketing Director, Ethos Retail",
     image: "https://picsum.photos/seed/priya/100/100"
   },
   {
-    text: "Reliable, creative, and fast. They are the perfect digital partner for scaling any business in India.",
+    text: "Reliable, creative, and fast. They are the perfect partner for scaling any business. Their in-house studio handled everything perfectly.",
     name: "Vikram Goel",
     role: "Founder, Goel Logistics",
     image: "https://picsum.photos/seed/vikram/100/100"
   },
   {
-    text: "From branding to performance marketing, they handle it all with absolute professionalism and Indian insight.",
+    text: "From branding to performance marketing, they handle it all with absolute professionalism and deep insight into the Indian export market.",
     name: "Sanjay Gupta",
     role: "Head of Digital, Bharat Tech",
     image: "https://picsum.photos/seed/sanjay/100/100"
   },
   {
-    text: "Their team brought our vision to life. The new website has significantly improved our conversion rates.",
+    text: "Their team brought our vision to life. The new digital portal has significantly improved our conversion rates and trade flow.",
     name: "Neha Kapoor",
     role: "Product Manager, Style Quotient",
     image: "https://picsum.photos/seed/neha/100/100"
   },
   {
-    text: "Partnering with Shyama Overseas was the best decision for our digital transformation journey.",
+    text: "Partnering with Shyama Overseas was the best decision for our digital transformation. They are truly maestros of global growth.",
     name: "Rohan Varma",
     role: "CTO, NextGen FinCorp",
     image: "https://picsum.photos/seed/rohan/100/100"
@@ -190,15 +192,15 @@ const TestimonialsColumn = (props: {
           ...new Array(2).fill(0).map((_, index) => (
             <React.Fragment key={index}>
               {props.testimonials.map(({ text, image, name, role }, i) => (
-                <div className="p-10 rounded-3xl border bg-white shadow-lg shadow-primary/5 max-w-xs w-full" key={i}>
-                  <div className="text-sm text-muted-foreground leading-relaxed italic">"{text}"</div>
-                  <div className="flex items-center gap-3 mt-6">
+                <div className="p-10 rounded-3xl border bg-white shadow-lg shadow-primary/10 max-w-xs w-full" key={i}>
+                  <div className="text-sm text-muted-foreground leading-relaxed italic mb-6">"{text}"</div>
+                  <div className="flex items-center gap-3 mt-5">
                     <img
                       width={40}
                       height={40}
                       src={image}
                       alt={name}
-                      className="h-10 w-10 rounded-full border border-primary/20"
+                      className="h-10 w-10 rounded-full"
                     />
                     <div className="flex flex-col">
                       <div className="font-bold tracking-tight text-[#0a0a0a] text-sm">{name}</div>
@@ -224,7 +226,7 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
       ref={ref}
       initial={{ opacity: 0, y: 10 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-      transition={{ duration: 0.2, delay, ease: "easeOut" }}
+      transition={{ duration: 0.3, delay, ease: "easeOut" }}
     >
       {children}
     </motion.div>
@@ -240,7 +242,7 @@ function StatCounter({ value, suffix, label }: { value: number; suffix: string; 
     if (isInView) {
       let start = 0;
       const end = value;
-      const duration = 800;
+      const duration = 1000;
       const startTime = performance.now();
 
       const animate = (currentTime: number) => {
@@ -290,7 +292,7 @@ export default function HomePage() {
           <div className="w-10 h-10 bg-[#f89b34] rounded-lg flex items-center justify-center font-black text-xl text-[#0a0a0a] group-hover:rotate-12 transition-transform">S</div>
           <div className="flex flex-col">
             <span className="text-white font-sora font-bold leading-tight">Shyama Overseas</span>
-            <span className="text-[10px] text-[#f89b34] font-semibold uppercase tracking-widest">Your Global Digital Partner</span>
+            <span className="text-[10px] text-[#f89b34] font-semibold uppercase tracking-widest">Global Trade Solutions</span>
           </div>
         </Link>
 
@@ -352,22 +354,21 @@ export default function HomePage() {
       <main>
         
         {/* HERO SECTION */}
-        <section className="relative h-screen flex items-center overflow-hidden bg-[#0a0a0a]">
+        <section className="relative h-[90vh] md:h-screen flex items-center overflow-hidden bg-[#0a0a0a] w-full">
           <Image 
             src="https://images.unsplash.com/photo-1497366216548-37526070297c" 
             alt="Cinematic Agency Office" 
             fill 
-            className="object-cover object-center opacity-60"
+            className="object-cover object-center opacity-70"
             priority
-            loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-tr from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent z-10" />
           
-          <div className="relative z-20 max-w-7xl mx-auto px-6 w-full pt-20">
+          <div className="relative z-20 w-full max-w-7xl mx-auto px-6 pt-20">
             <motion.div 
-              initial={{ opacity: 0, x: -10 }}
+              initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               className="max-w-4xl"
             >
               <div className="text-white font-medium uppercase tracking-[6px] text-sm mb-6 flex items-center gap-4">
@@ -375,34 +376,54 @@ export default function HomePage() {
                 We are your
               </div>
               
-              <div className="relative inline-block mb-10">
-                <div className="bg-[#f89b34] px-8 py-6 absolute inset-0 -skew-x-6 z-[-1] shadow-2xl" />
-                <h1 className="text-6xl md:text-[100px] font-black text-[#0a0a0a] leading-[0.9] uppercase font-sora -skew-x-6">
+              <div className="relative inline-block mb-10 overflow-hidden">
+                <motion.div 
+                  initial={{ width: 0 }}
+                  animate={{ width: "100%" }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  className="bg-[#f89b34] px-8 py-6 absolute inset-0 -skew-x-6 z-[-1] shadow-2xl" 
+                />
+                <motion.h1 
+                  initial={{ y: 50, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  className="text-5xl md:text-[90px] font-black text-[#0a0a0a] leading-[0.9] uppercase font-sora -skew-x-6"
+                >
                   DIGITAL GROWTH<br />MAESTROS
-                </h1>
+                </motion.h1>
               </div>
 
-              <p className="text-xl md:text-2xl text-white/90 font-light italic leading-relaxed mb-12 max-w-2xl font-inter">
+              <motion.p 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 1 }}
+                className="text-xl md:text-2xl text-white/90 font-light italic leading-relaxed mb-12 max-w-2xl font-inter"
+              >
                 Crafting Your Digital Legacy with Precision Design, Cutting-edge Tech, and Unmatched ROI.
-              </p>
+              </motion.p>
 
-              <div className="flex flex-col sm:flex-row gap-6">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+                className="flex flex-col sm:flex-row gap-6"
+              >
                 <Link href="/services" className="bg-[#f89b34] text-[#0a0a0a] px-10 py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:scale-105 transition-transform text-center shadow-2xl shadow-[#f89b34]/20">
                   Explore Services
                 </Link>
                 <Link href="/contact" className="bg-transparent border-2 border-white text-white px-10 py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-[#0a0a0a] transition-all text-center">
                   Contact Us
                 </Link>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
 
           <motion.div 
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="absolute bottom-10 left-10 z-20 flex flex-col items-center gap-4"
+            className="absolute bottom-10 left-1/2 -translate-x-1/2 md:left-10 md:translate-x-0 z-20 flex flex-col items-center gap-4"
           >
-            <span className="text-white/40 text-[10px] uppercase tracking-[4px] [writing-mode:vertical-lr] mb-12">SCROLL</span>
+            <span className="text-white/40 text-[10px] uppercase tracking-[4px] [writing-mode:vertical-lr] hidden md:block mb-12">SCROLL</span>
             <div className="w-[1px] h-16 bg-gradient-to-b from-white/40 to-transparent" />
           </motion.div>
         </section>
@@ -491,8 +512,8 @@ export default function HomePage() {
         </section>
 
         {/* OPERATIONS / STUDIO */}
-        <section className="py-24 bg-[#FAFAF8] relative overflow-hidden">
-          <div className="max-w-[1400px] mx-auto px-6">
+        <section className="py-24 bg-[#FAFAF8] relative overflow-hidden w-full">
+          <div className="w-full px-6">
             <div className="mb-16 text-center max-w-4xl mx-auto">
               <FadeIn>
                 <div className="inline-flex items-center gap-3 text-[#f89b34] font-bold uppercase tracking-[4px] text-xs mb-6 border-b-2 border-[#f89b34] pb-2">
@@ -672,9 +693,6 @@ export default function HomePage() {
             <p className="text-white/50 text-sm leading-relaxed font-inter">
               We are one of India's Leading Digital & Creative Agencies, committed to building reliable bridges between your vision and global digital excellence.
             </p>
-            <div className="flex gap-4">
-              {/* Social icons removed for brevity, but assume they are here as in the layout */}
-            </div>
           </div>
 
           <div>

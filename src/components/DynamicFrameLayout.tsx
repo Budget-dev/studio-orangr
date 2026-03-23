@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState, useEffect, useRef } from "react"
@@ -48,10 +49,12 @@ function FrameComponent({
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
-    if (isHovered) {
-      videoRef.current?.play().catch(() => {})
-    } else {
-      videoRef.current?.pause()
+    if (videoRef.current) {
+      if (isHovered) {
+        videoRef.current.play().catch(() => {})
+      } else {
+        // Option to pause or keep playing. For a background effect, loop/play is good.
+      }
     }
   }, [isHovered])
 
@@ -64,7 +67,7 @@ function FrameComponent({
         transition: "width 0.3s ease-in-out, height 0.3s ease-in-out",
       }}
     >
-      <div className="relative w-full h-full overflow-hidden rounded-xl bg-muted/10 border border-white/5">
+      <div className="relative w-full h-full overflow-hidden border border-white/5">
         <div
           className="absolute inset-0 flex items-center justify-center"
           style={{
@@ -80,9 +83,9 @@ function FrameComponent({
           <div
             className="w-full h-full overflow-hidden"
             style={{
-              transform: `scale(${mediaSize})`,
+              transform: `scale(${isHovered ? mediaSize * 1.1 : mediaSize})`,
               transformOrigin: "center",
-              transition: "transform 0.3s ease-in-out",
+              transition: "transform 0.5s ease-out",
             }}
           >
             <video
@@ -91,67 +94,11 @@ function FrameComponent({
               loop
               muted
               playsInline
-              preload="auto"
+              autoPlay
               ref={videoRef}
             />
           </div>
         </div>
-
-        {showFrame && (
-          <div className="absolute inset-0" style={{ zIndex: 2 }}>
-            <div
-              className="absolute top-0 left-0 w-16 h-16 bg-contain bg-no-repeat"
-              style={{ backgroundImage: `url(${corner})` }}
-            />
-            <div
-              className="absolute top-0 right-0 w-16 h-16 bg-contain bg-no-repeat"
-              style={{ backgroundImage: `url(${corner})`, transform: "scaleX(-1)" }}
-            />
-            <div
-              className="absolute bottom-0 left-0 w-16 h-16 bg-contain bg-no-repeat"
-              style={{ backgroundImage: `url(${corner})`, transform: "scaleY(-1)" }}
-            />
-            <div
-              className="absolute bottom-0 right-0 w-16 h-16 bg-contain bg-no-repeat"
-              style={{ backgroundImage: `url(${corner})`, transform: "scale(-1, -1)" }}
-            />
-
-            <div
-              className="absolute top-0 left-16 right-16 h-16"
-              style={{
-                backgroundImage: `url(${edgeHorizontal})`,
-                backgroundSize: "auto 64px",
-                backgroundRepeat: "repeat-x",
-              }}
-            />
-            <div
-              className="absolute bottom-0 left-16 right-16 h-16"
-              style={{
-                backgroundImage: `url(${edgeHorizontal})`,
-                backgroundSize: "auto 64px",
-                backgroundRepeat: "repeat-x",
-                transform: "rotate(180deg)",
-              }}
-            />
-            <div
-              className="absolute left-0 top-16 bottom-16 w-16"
-              style={{
-                backgroundImage: `url(${edgeVertical})`,
-                backgroundSize: "64px auto",
-                backgroundRepeat: "repeat-y",
-              }}
-            />
-            <div
-              className="absolute right-0 top-16 bottom-16 w-16"
-              style={{
-                backgroundImage: `url(${edgeVertical})`,
-                backgroundSize: "64px auto",
-                backgroundRepeat: "repeat-y",
-                transform: "scaleX(-1)",
-              }}
-            />
-          </div>
-        )}
       </div>
     </div>
   )
@@ -214,10 +161,9 @@ export function DynamicFrameLayout({
         return (
           <motion.div
             key={frame.id}
-            className="relative"
+            className="relative h-full w-full"
             style={{
               transformOrigin,
-              transition: "transform 0.4s ease",
             }}
             onMouseEnter={() => setHovered({ row, col })}
             onMouseLeave={() => setHovered(null)}

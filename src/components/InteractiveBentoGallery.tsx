@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef, useState } from 'react'
@@ -91,7 +92,7 @@ const MediaItem = ({ item, className, onClick }: { item: MediaItemType, classNam
             <div className={`${className} flex flex-col items-center justify-center bg-muted/20 border-2 border-dashed border-border p-4 text-center`}>
                 <ImageOff className="w-8 h-8 text-muted-foreground mb-2" />
                 <span className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest leading-none">Not Found</span>
-                <span className="text-[8px] text-muted-foreground/40 mt-1 break-all line-clamp-1">{item.url.split('/').pop()}</span>
+                <span className="text-[8px] text-muted-foreground/40 mt-1 break-all line-clamp-1">{item.url}</span>
             </div>
         );
     }
@@ -269,13 +270,13 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
                     transition={{ duration: 0.3 }}
                 >
                     {title.split(' ').map((word, i) => (
-                      <span key={i} className={word === 'Showcase' || word === 'Creative' || word === 'Work' || word === 'Gallery' ? "text-primary font-bold italic" : ""}>
+                      <span key={i} className={word === 'Showcase' || word === 'Creative' || word === 'Work' || word === 'Gallery' ? "text-[#f89b34] font-bold italic" : ""}>
                         {word}{' '}
                       </span>
                     ))}
                 </motion.h2>
                 <motion.p
-                    className="mt-4 text-primary font-bold uppercase tracking-[4px] text-xs"
+                    className="mt-4 text-[#f89b34] font-bold uppercase tracking-[4px] text-xs"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.1 }}
