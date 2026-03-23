@@ -98,7 +98,7 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Global Logistics',
     desc: 'Bespoke trade solutions crafted with precision and ROI in mind.',
-    url: PlaceHolderImages[0].imageUrl,
+    url: "/assets/images/_extra____Indian_private_202603201015.png",
     span: 'md:col-span-2 md:row-span-2'
   },
   {
@@ -106,7 +106,7 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Trade Operations',
     desc: 'Reimagining export identities for the global digital age.',
-    url: PlaceHolderImages[1].imageUrl,
+    url: "/assets/images/_extra____upper_middle_202603191201%20-%20Copy.png",
     span: 'md:col-span-1 md:row-span-1'
   },
   {
@@ -114,7 +114,7 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Strategic Insights',
     desc: 'Strategic thinking meets logistical excellence in every route.',
-    url: PlaceHolderImages[2].imageUrl,
+    url: "/assets/images/%7B__subject___A_202603191142.png",
     span: 'md:col-span-1 md:row-span-2'
   },
   {
@@ -122,7 +122,7 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Digital Portal',
     desc: 'Seamless user interfaces for complex trade ecosystems.',
-    url: PlaceHolderImages[3].imageUrl,
+    url: "/assets/images/%7B__subject___Indian_202603191158.png",
     span: 'md:col-span-1 md:row-span-1'
   },
   {
@@ -130,7 +130,7 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Next-Gen Logistics',
     desc: 'Pushing the boundaries of international trade and supply chain flow.',
-    url: PlaceHolderImages[4].imageUrl,
+    url: "/assets/images/%7B__subject___Indian_202603191217.png",
     span: 'md:col-span-2 md:row-span-1'
   },
   {
@@ -138,7 +138,7 @@ const AGENCY_GALLERY: MediaItemType[] = [
     type: 'image',
     title: 'Studio Excellence',
     desc: 'Our iterative process of trade and discovery yields results.',
-    url: PlaceHolderImages[5].imageUrl,
+    url: "/assets/images/%7B__subject___Indian_202603200952.png",
     span: 'md:col-span-1 md:row-span-1'
   }
 ];
@@ -315,7 +315,7 @@ export default function HomePage() {
             <motion.div 
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
               className="max-w-4xl"
             >
               <div className="text-white font-medium uppercase tracking-[6px] text-sm mb-6 flex items-center gap-4">
