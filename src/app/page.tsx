@@ -252,7 +252,7 @@ export default function HomePage() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 via-secondary/40 to-transparent z-10" />
           
-          <div className="relative z-20 w-full px-6 md:px-12 pb-[120px] md:pb-0">
+          <div className="relative z-20 w-full px-6 md:px-12 pb-[140px] md:pb-0">
             <div className="max-w-7xl mx-auto">
               <div className="max-w-4xl">
                 <motion.div
@@ -262,7 +262,7 @@ export default function HomePage() {
                 >
                   <div className="text-primary font-black uppercase tracking-[4px] md:tracking-[8px] text-[10px] md:text-xs mb-6 flex items-center gap-4">
                     <span className="w-8 md:w-12 h-[2px] bg-primary" />
-                    Digital Growth Maestros
+                    Digital Growth Agency
                   </div>
                   
                   <h1 className="text-5xl md:text-[100px] font-black text-white leading-[0.9] uppercase font-sora mb-8 tracking-tighter">
@@ -273,7 +273,7 @@ export default function HomePage() {
                     Scaling ambitious brands to global landmarks with precision performance marketing and creative digital strategy.
                   </p>
 
-                  <div className="flex flex-col sm:flex-row gap-4 md:gap-6 mb-8 md:mb-0">
+                  <div className="flex flex-col sm:flex-row gap-4 md:gap-6 mb-8 md:mb-0 relative z-30">
                     <Link href="/services" className="bg-primary text-secondary px-8 md:px-12 py-4 md:py-5 rounded-full font-bold uppercase tracking-widest text-xs md:text-sm hover:scale-105 transition-transform text-center shadow-xl shadow-primary/20">
                       Explore Services
                     </Link>
@@ -340,17 +340,18 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="relative aspect-video w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
               <video 
-                src="https://cdn.pixabay.com/video/2020/09/03/49211-457312111_tiny.mp4" 
+                src="/assets/videos/WhatsApp Video 2026-03-19 at 12.41.23 PM (2).mp4" 
                 className="w-full h-full object-cover"
                 autoPlay 
                 muted 
                 loop 
                 playsInline 
+                preload="auto"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
               <div className="absolute bottom-4 md:bottom-8 left-4 md:left-8 text-white">
-                <div className="text-primary font-bold uppercase tracking-widest text-[10px] md:text-xs mb-2">Live Demo</div>
-                <h3 className="text-lg md:text-2xl font-black uppercase">Growth Dashboard in Action</h3>
+                <div className="text-primary font-bold uppercase tracking-widest text-[10px] md:text-xs mb-2">Growth Dashboard</div>
+                <h3 className="text-lg md:text-2xl font-black uppercase">Data-Led Strategy in Action</h3>
               </div>
             </div>
           </div>
