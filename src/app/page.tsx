@@ -117,9 +117,9 @@ function FadeIn({ children, shadow = false, delay = 0 }: { children: React.React
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.6, delay, ease: "easeOut" }}
+      initial={{ opacity: 0, y: 15 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+      transition={{ duration: 0.4, delay, ease: "easeOut" }}
       className={cn(shadow && "relative z-10")}
     >
       {children}
@@ -246,19 +246,19 @@ export default function HomePage() {
             src="https://img.freepik.com/premium-vector/digital-marketing-agency-corporate-social-media-banner_1109882-7771.jpg?w=1480" 
             alt="Digital Growth Banner" 
             fill 
-            className="object-cover object-center opacity-60 scale-105 animate-pulse-slow"
+            className="object-cover object-center opacity-60"
             priority
             unoptimized
           />
           <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 via-secondary/40 to-transparent z-10" />
           
-          <div className="relative z-20 w-full px-6 md:px-12">
+          <div className="relative z-20 w-full px-6 md:px-12 pb-[120px] md:pb-0">
             <div className="max-w-7xl mx-auto">
               <div className="max-w-4xl">
                 <motion.div
-                  initial={{ opacity: 0, x: -50 }}
+                  initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
                 >
                   <div className="text-primary font-black uppercase tracking-[4px] md:tracking-[8px] text-[10px] md:text-xs mb-6 flex items-center gap-4">
                     <span className="w-8 md:w-12 h-[2px] bg-primary" />
@@ -273,7 +273,7 @@ export default function HomePage() {
                     Scaling ambitious brands to global landmarks with precision performance marketing and creative digital strategy.
                   </p>
 
-                  <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
+                  <div className="flex flex-col sm:flex-row gap-4 md:gap-6 mb-8 md:mb-0">
                     <Link href="/services" className="bg-primary text-secondary px-8 md:px-12 py-4 md:py-5 rounded-full font-bold uppercase tracking-widest text-xs md:text-sm hover:scale-105 transition-transform text-center shadow-xl shadow-primary/20">
                       Explore Services
                     </Link>
