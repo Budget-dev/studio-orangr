@@ -1,6 +1,7 @@
-import { ServicePageTemplate } from "@/components/ServicePageTemplate";
-import { SERVICES_DATA } from "@/data/services-data";
+
+import { ServicePageTemplate } from "@/components/services/ServicePageTemplate";
+import data from "@/data/services/seo.json";
 
 export default function SEOPage() {
-  return <ServicePageTemplate data={SERVICES_DATA["seo"]} />;
+  return <ServicePageTemplate data={data} />;
 }

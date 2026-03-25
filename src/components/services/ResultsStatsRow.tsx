@@ -1,13 +1,15 @@
+
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { useInView } from "framer-motion";
 import { Reveal, fadeInUp, Stagger } from "./AnimationWrappers";
 
 interface StatsRowProps {
   stats: Array<{
     prefix?: string;
-    value: number;
+    metric?: string; // Fallback for simple metric display
+    value?: number;
     suffix?: string;
     label: string;
     context?: string;
@@ -30,9 +32,7 @@ function Counter({ value, prefix = "", suffix = "" }: { value: number; prefix?: 
       const progress = timestamp - startTime;
       const percentage = Math.min(progress / duration, 1);
       
-      // easeOutQuart
       const ease = 1 - Math.pow(1 - percentage, 4);
-      
       setCount(value * ease);
 
       if (percentage < 1) {
@@ -59,9 +59,15 @@ export function ResultsStatsRow({ stats }: StatsRowProps) {
         <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {stats.map((stat, i) => (
             <Reveal key={i} variants={fadeInUp}>
-              <div className="flex flex-col gap-4 text-center md:text-left relative">
+              <div className="flex flex-col gap-4 text-center md:text-left relative h-full">
                 {i > 0 && <div className="absolute left-0 top-0 bottom-0 w-px bg-border/20 hidden lg:block -ml-6" />}
-                <Counter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
+                {stat.value !== undefined ? (
+                  <Counter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
+                ) : (
+                  <span className="text-5xl md:text-6xl font-black text-primary italic font-sora uppercase">
+                    {stat.metric}
+                  </span>
+                )}
                 <div>
                   <div className="text-lg font-bold text-secondary uppercase tracking-tight">{stat.label}</div>
                   <div className="text-xs text-muted-foreground italic mt-1 leading-relaxed">{stat.context}</div>

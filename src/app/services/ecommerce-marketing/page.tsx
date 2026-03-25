@@ -1,6 +1,7 @@
-import { ServicePageTemplate } from "@/components/ServicePageTemplate";
-import { SERVICES_DATA } from "@/data/services-data";
+
+import { ServicePageTemplate } from "@/components/services/ServicePageTemplate";
+import data from "@/data/services/ecommerce-marketing.json";
 
 export default function EcommerceMarketingPage() {
-  return <ServicePageTemplate data={SERVICES_DATA["ecommerce-marketing"]} />;
+  return <ServicePageTemplate data={data} />;
 }

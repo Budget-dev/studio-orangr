@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -23,7 +24,7 @@ export const slideInLeft = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } }
 };
 
-export function Reveal({ children, variants = fadeInUp, delay = 0 }: { children: ReactNode, variants?: any, delay?: number }) {
+export function Reveal({ children, variants = fadeInUp, delay = 0, className = "" }: { children: ReactNode, variants?: any, delay?: number, className?: string }) {
   return (
     <motion.div
       initial="hidden"
@@ -31,6 +32,7 @@ export function Reveal({ children, variants = fadeInUp, delay = 0 }: { children:
       viewport={{ once: true, margin: "-50px" }}
       variants={variants}
       custom={delay}
+      className={className}
     >
       {children}
     </motion.div>

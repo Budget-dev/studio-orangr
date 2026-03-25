@@ -1,6 +1,7 @@
-import { ServicePageTemplate } from "@/components/ServicePageTemplate";
-import { SERVICES_DATA } from "@/data/services-data";
+
+import { ServicePageTemplate } from "@/components/services/ServicePageTemplate";
+import data from "@/data/services/cro.json";
 
 export default function CROPage() {
-  return <ServicePageTemplate data={SERVICES_DATA["cro"]} />;
+  return <ServicePageTemplate data={data} />;
 }

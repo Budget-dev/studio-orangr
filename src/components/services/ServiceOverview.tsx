@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Reveal, fadeInUp } from "./AnimationWrappers";
@@ -6,7 +7,7 @@ import * as Icons from "lucide-react";
 interface OverviewProps {
   pullQuote: string;
   body: string[];
-  inlineStats: Array<{ value: string; label: string; icon: string }>;
+  inlineStats: Array<{ value: string; label: string; icon?: string }>;
 }
 
 export function ServiceOverview({ pullQuote, body, inlineStats }: OverviewProps) {
@@ -31,7 +32,7 @@ export function ServiceOverview({ pullQuote, body, inlineStats }: OverviewProps)
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-10">
               {inlineStats.map((stat, i) => {
-                const IconComp = (Icons as any)[stat.icon] || Icons.Zap;
+                const IconComp = stat.icon ? (Icons as any)[stat.icon] : Icons.Zap;
                 return (
                   <Reveal key={i} variants={fadeInUp} delay={i * 0.1}>
                     <div className="flex items-center gap-4">

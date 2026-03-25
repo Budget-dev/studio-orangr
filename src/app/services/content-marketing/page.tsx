@@ -1,7 +1,7 @@
-import { ServicePageTemplate } from "@/components/ServicePageTemplate";
-    import { SERVICES_DATA } from "@/data/services-data";
-    
-    export default function ContentMarketingPage() {
-      return <ServicePageTemplate data={SERVICES_DATA["content-marketing"]} />;
-    }
-    
+
+import { ServicePageTemplate } from "@/components/services/ServicePageTemplate";
+import data from "@/data/services/content-marketing.json";
+
+export default function ContentMarketingPage() {
+  return <ServicePageTemplate data={data} />;
+}

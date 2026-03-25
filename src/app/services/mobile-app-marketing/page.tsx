@@ -1,6 +1,7 @@
-import { ServicePageTemplate } from "@/components/ServicePageTemplate";
-import { SERVICES_DATA } from "@/data/services-data";
+
+import { ServicePageTemplate } from "@/components/services/ServicePageTemplate";
+import data from "@/data/services/mobile-app-marketing.json";
 
 export default function MobileAppMarketingPage() {
-  return <ServicePageTemplate data={SERVICES_DATA["mobile-app-marketing"]} />;
+  return <ServicePageTemplate data={data} />;
 }
