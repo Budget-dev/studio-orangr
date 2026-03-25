@@ -1,0 +1,61 @@
+{
+  "serviceName": "Content Marketing",
+  "slug": "content-marketing",
+  "hero": {
+    "badge": "Content Marketing",
+    "headline": "Content That Earns Trust and Drives Revenue",
+    "subheadline": "Strategic content creation — blogs, whitepapers, videos, and more — built to rank, educate, and convert.",
+    "primaryCTA": { "label": "Build My Content Strategy", "href": "/contact" },
+    "secondaryCTA": { "label": "Read Our Case Studies", "href": "#results" }
+  },
+  "overview": {
+    "pullQuote": "Every piece earns its place.",
+    "body": [
+      "Most content fails because it's created without strategy. We start with your buyer's journey, map every content type to a specific stage, and ensure each piece is built to move people forward — not just fill a blog.",
+      "We produce SEO-driven long-form content, thought leadership articles, case studies, video scripts, email newsletters, and sales enablement assets — all aligned to your brand voice and business objectives.",
+      "Our distribution strategy ensures your content reaches the right audience: organic search, social amplification, email nurturing, and PR syndication working in concert."
+    ],
+    "inlineStats": [
+      { "value": "3.6x", "label": "Organic traffic increase from content programmes", "icon": "TrendingUp" },
+      { "value": "280%", "label": "Average MQL growth over 12 months", "icon": "Target" },
+      { "value": "200+", "label": "Long-form assets produced monthly", "icon": "FileText" }
+    ]
+  },
+  "approach": [
+    { "number": 1, "title": "Content Audit & Gap Analysis", "description": "Review existing content performance, identify keyword opportunities, and map gaps against your buyer stages." },
+    { "number": 2, "title": "Content Strategy Blueprint", "description": "Build a 90-day roadmap with topics, formats, target keywords, funnel stage, and distribution channels." },
+    { "number": 3, "title": "Production & Editorial", "description": "In-house writers, designers, and video editors produce assets on a consistent publishing schedule." },
+    { "number": 4, "title": "SEO & On-Page Optimisation", "description": "Every piece is optimised for search intent, internal linking, schema markup, and Core Web Vitals." },
+    { "number": 5, "title": "Distribution & Amplification", "description": "Social publishing, email inclusion, outreach for backlinks, and paid amplification of top-performing assets." },
+    { "number": 6, "title": "Performance Analysis", "description": "Monthly review of organic rankings, engagement, lead attribution, and content-assisted conversions." }
+  ],
+  "features": [
+    { "icon": "FileText", "title": "Long-Form SEO Content", "description": "In-depth articles, guides, and pillar pages built to rank for high-value, commercial keywords." },
+    { "icon": "BookOpen", "title": "Thought Leadership & Whitepapers", "description": "Authoritative research and opinion pieces that position your brand as the industry expert." },
+    { "icon": "Film", "title": "Video Content Production", "description": "Explainer videos, testimonials, product demos, and social video scripted, shot, and edited." },
+    { "icon": "Mail", "title": "Email Content & Newsletters", "description": "Campaigns and nurture sequences that deliver value and drive action at every funnel stage." },
+    { "icon": "Briefcase", "title": "Sales Enablement Content", "description": "Case studies, one-pagers, decks, and battle cards that help your sales team close faster." },
+    { "icon": "Share2", "title": "Content Distribution Strategy", "description": "Multi-channel amplification including social, PR, email, and paid promotion." }
+  ],
+  "benefits": {
+    "hero": { "title": "Authority that compounds", "description": "Quality content published consistently builds domain authority and brand trust that takes competitors years to replicate.", "metric": "Long-term moat" },
+    "list": [
+      { "icon": "Search", "title": "Organic lead generation", "description": "Content that ranks brings leads 24/7 — no ad spend required." },
+      { "icon": "Link", "title": "Backlink acquisition", "description": "High-quality assets attract natural backlinks that strengthen your SEO foundation." },
+      { "icon": "MessageSquare", "title": "Nurture automation-ready", "description": "Content designed to slot directly into your email and marketing automation workflows." },
+      { "icon": "FileCheck", "title": "Brand-aligned always", "description": "Every piece follows your tone-of-voice guide — consistent across every format and channel." }
+    ]
+  },
+  "caseStudies": [
+    { "prefix": "", "value": 3.6, "suffix": "x", "label": "Traffic Growth", "context": "12-month growth from content programme" },
+    { "prefix": "", "value": 280, "suffix": "%", "label": "MQL Increase", "context": "Content-attributed leads over 12 months" },
+    { "prefix": "", "value": 40, "suffix": "+", "label": "Commercial Rankings", "context": "Achieved for commercial keywords" },
+    { "prefix": "", "value": 8, "suffix": "min", "label": "Time on Page", "context": "For long-form guides published" }
+  ],
+  "cta": {
+    "headline": "Start Building Content That Works While You Sleep",
+    "supporting": "A free content audit shows you exactly where the opportunity is hiding.",
+    "primaryCTA": { "label": "Get My Free Content Audit", "href": "/contact" },
+    "secondaryCTA": { "label": "Explore Our Content Samples →", "href": "/contact" }
+  }
+}

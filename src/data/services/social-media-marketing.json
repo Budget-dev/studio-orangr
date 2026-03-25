@@ -1,0 +1,61 @@
+{
+  "serviceName": "Social Media Marketing",
+  "slug": "social-media-marketing",
+  "hero": {
+    "badge": "Social Media Marketing",
+    "headline": "Build a Brand People Actually Follow",
+    "subheadline": "Organic social strategies and paid social campaigns that grow real audiences and convert them into customers.",
+    "primaryCTA": { "label": "Audit My Social Presence", "href": "/contact" },
+    "secondaryCTA": { "label": "See Our Content Work", "href": "#results" }
+  },
+  "overview": {
+    "pullQuote": "Attention is the asset.",
+    "body": [
+      "Social media is no longer optional — it's where your customers form opinions about your brand, discover products, and decide whether to trust you. We help you show up with intention.",
+      "We handle everything: content strategy, creative production, community management, influencer partnerships, and paid social amplification. One team, one voice, consistent results.",
+      "Our approach is platform-native. We don't repurpose the same post everywhere. We create content built for how people actually behave on Instagram, LinkedIn, YouTube Shorts, and X."
+    ],
+    "inlineStats": [
+      { "value": "4.8x", "label": "Engagement rate vs industry average", "icon": "TrendingUp" },
+      { "value": "60K+", "label": "Organic followers grown across accounts", "icon": "Users" },
+      { "value": "32%", "label": "Conversion lift from social traffic", "icon": "Target" }
+    ]
+  },
+  "approach": [
+    { "number": 1, "title": "Brand & Audience Audit", "description": "Analyse your current social presence, voice, content performance, and competitor benchmarking." },
+    { "number": 2, "title": "Platform Content Strategy", "description": "Build a platform-specific content calendar — each channel gets formats, frequencies, and objectives matched to its audience behaviour." },
+    { "number": 3, "title": "Creative Production", "description": "Design, copy, and short-form video production handled in-house — or in collaboration with your team." },
+    { "number": 4, "title": "Community Management", "description": "Daily engagement, comment responses, DM management, and proactive outreach to build genuine community." },
+    { "number": 5, "title": "Paid Social Amplification", "description": "Boost organic winners, run awareness and conversion campaigns, and retarget engaged audiences." },
+    { "number": 6, "title": "Monthly Performance Review", "description": "Review reach, engagement, follower growth, and traffic attribution — adjust strategy accordingly." }
+  ],
+  "features": [
+    { "icon": "Instagram", "title": "Instagram & Facebook", "description": "Feed posts, Reels, Stories, and Lives — built for both organic reach and paid amplification." },
+    { "icon": "Linkedin", "title": "LinkedIn Marketing", "description": "B2B-focused content and thought leadership that positions founders and brands as industry authorities." },
+    { "icon": "Youtube", "title": "YouTube & Shorts", "description": "Long-form brand storytelling and Shorts-first vertical video strategies for discovery-driven growth." },
+    { "icon": "Video", "title": "Short-Form Video Production", "description": "Reels, Shorts, and TikTok-style content scripted, shot, and edited for maximum watch time." },
+    { "icon": "Users", "title": "Influencer & Creator Partnerships", "description": "Nano-to-macro influencer identification, outreach, briefing, and performance tracking." },
+    { "icon": "MessageCircle", "title": "Community Management", "description": "Turn comments and DMs into brand loyalty through consistent, on-voice engagement." }
+  ],
+  "benefits": {
+    "hero": { "title": "Organic reach that compounds", "description": "Every post builds on a foundation of audience trust and algorithmic credibility — reducing your paid dependency over time.", "metric": "Organic-first" },
+    "list": [
+      { "icon": "Pen", "title": "Consistent brand voice", "description": "Content guidelines and a clear TOV ensure every post sounds like the same brand." },
+      { "icon": "BarChart", "title": "Data-driven content", "description": "We use platform analytics to double down on formats and topics that outperform." },
+      { "icon": "Award", "title": "Platform-native expertise", "description": "No repurposed content. Every platform gets strategy built specifically for it." },
+      { "icon": "Calendar", "title": "Consistent publishing", "description": "Content calendars planned 30 days ahead — no scrambling, no gaps." }
+    ]
+  },
+  "caseStudies": [
+    { "prefix": "", "value": 4.8, "suffix": "x", "label": "Engagement Rate", "context": "vs category average across managed accounts" },
+    { "prefix": "", "value": 60, "suffix": "K+", "label": "Followers Grown", "context": "Organic growth, no paid followers" },
+    { "prefix": "", "value": 32, "suffix": "%", "label": "Conversion Lift", "context": "From social-sourced website traffic" },
+    { "prefix": "", "value": 12, "suffix": "%", "label": "Reach Increase MoM", "context": "Month-over-month average across accounts" }
+  ],
+  "cta": {
+    "headline": "Your Audience Is Waiting. Start Showing Up.",
+    "supporting": "Let us build a social media presence your competitors will watch with envy.",
+    "primaryCTA": { "label": "Get a Social Audit", "href": "/contact" },
+    "secondaryCTA": { "label": "See Our Content Portfolio →", "href": "/contact" }
+  }
+}

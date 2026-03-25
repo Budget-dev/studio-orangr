@@ -1,0 +1,61 @@
+{
+  "serviceName": "Conversion Rate Optimisation",
+  "slug": "cro",
+  "hero": {
+    "badge": "Conversion Rate Optimisation",
+    "headline": "More Revenue From the Traffic You Already Have",
+    "subheadline": "Data-driven CRO that turns visitors into leads, customers, and repeat buyers — without increasing ad spend.",
+    "primaryCTA": { "label": "Audit My Conversion Funnel", "href": "/contact" },
+    "secondaryCTA": { "label": "Explore Our Process", "href": "#approach" }
+  },
+  "overview": {
+    "pullQuote": "Fix the leaks first.",
+    "body": [
+      "Before you spend another rupee on traffic, ask yourself: what percentage of visitors actually convert? For most businesses, improving that number is the fastest and cheapest way to grow revenue.",
+      "We apply a rigorous, evidence-based CRO methodology — behavioural research, heuristic analysis, A/B and multivariate testing — to systematically identify and fix friction in your funnel.",
+      "Our CRO work covers landing pages, product pages, checkout flows, pricing pages, sign-up forms, and any high-traffic touchpoint where conversion improvement compounds into real revenue."
+    ],
+    "inlineStats": [
+      { "value": "41%", "label": "Average conversion rate improvement", "icon": "TrendingUp" },
+      { "value": "2.3x", "label": "Revenue per visitor uplift", "icon": "Target" },
+      { "value": "300+", "label": "A/B tests run to date", "icon": "TestTube" }
+    ]
+  },
+  "approach": [
+    { "number": 1, "title": "Quantitative Research", "description": "Set up or audit analytics to identify high-traffic, low-conversion pages and drop-off points in the funnel." },
+    { "number": 2, "title": "Qualitative Research", "description": "Session recordings, heatmaps, click maps, and user surveys reveal the 'why' behind the numbers." },
+    { "number": 3, "title": "Hypothesis Development", "description": "Synthesise research into ranked hypotheses — each tied to a specific behaviour, barrier, and proposed fix." },
+    { "number": 4, "title": "Test Design & Build", "description": "Design variants in Figma, implement in your testing tool, and set up statistical significance parameters." },
+    { "number": 5, "title": "Experiment Launch", "description": "Run A/B or multivariate tests with proper traffic allocation, sample sizes, and contamination controls." },
+    { "number": 6, "title": "Analysis & Iteration", "description": "Analyse winning variants, implement learnings site-wide, and roll into the next test cycle." }
+  ],
+  "features": [
+    { "icon": "MousePointer", "title": "Landing Page Optimisation", "description": "Hero sections, CTAs, trust signals, and form structures tested and refined to maximise conversion." },
+    { "icon": "ShoppingBag", "title": "Checkout Flow Optimisation", "description": "Step-by-step analysis and testing of your checkout to reduce abandonment and increase completions." },
+    { "icon": "FormInput", "title": "Form & Lead Gen Optimisation", "description": "Field reduction, progressive disclosure, microcopy, and submit button testing for higher fill rates." },
+    { "icon": "Layout", "title": "UX Heuristic Analysis", "description": "Expert review of your site's usability against 10 proven heuristics to identify quick-win friction." },
+    { "icon": "BarChart2", "title": "Analytics & Funnel Setup", "description": "GA4, Mixpanel, or Amplitude configured to track every meaningful action in your conversion funnel." },
+    { "icon": "TestTube", "title": "A/B & Multivariate Testing", "description": "Statistically rigorous experimentation using VWO, Optimizely, or Google Optimize." }
+  ],
+  "benefits": {
+    "hero": { "title": "Multiplies every marketing channel", "description": "A 20% improvement in conversion rate makes your SEO, paid ads, and email campaigns 20% more effective — without extra spend.", "metric": "Leveraged returns" },
+    "list": [
+      { "icon": "TrendingUp", "title": "Evidence-led, not opinion-led", "description": "Every change is backed by data — not hunches or best practices borrowed from someone else's site." },
+      { "icon": "DollarSign", "title": "Immediate revenue impact", "description": "Unlike SEO or brand building, CRO wins can appear in your revenue within days of going live." },
+      { "icon": "Repeat", "title": "Compounding test library", "description": "Every test adds to your customer understanding — the insight compounds across future experiments." },
+      { "icon": "Lock", "title": "Risk-controlled testing", "description": "Tests run on a percentage of traffic — your baseline is always protected while experiments run." }
+    ]
+  },
+  "caseStudies": [
+    { "prefix": "", "value": 41, "suffix": "%", "label": "CVR Improvement", "context": "Across all active CRO programmes" },
+    { "prefix": "", "value": 2.3, "suffix": "x", "label": "Revenue per Visitor", "context": "Post CRO programme (12 months)" },
+    { "prefix": "", "value": 300, "suffix": "+", "label": "Tests Run", "context": "Across client portfolio to date" },
+    { "prefix": "", "value": 18, "suffix": "d", "label": "Average Test Win", "context": "From launch to statistically significant result" }
+  ],
+  "cta": {
+    "headline": "Stop Losing Customers at the Finish Line",
+    "supporting": "A free funnel audit identifies your highest-value CRO opportunities — in 48 hours.",
+    "primaryCTA": { "label": "Get My Funnel Audited", "href": "/contact" },
+    "secondaryCTA": { "label": "Talk to a CRO Specialist →", "href": "/contact" }
+  }
+}

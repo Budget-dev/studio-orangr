@@ -1,0 +1,61 @@
+{
+  "serviceName": "Mobile App Marketing",
+  "slug": "mobile-app-marketing",
+  "hero": {
+    "badge": "Mobile App Marketing",
+    "headline": "Grow Your App. Retain Your Users.",
+    "subheadline": "Full-stack mobile growth strategies — from user acquisition to in-app engagement and re-engagement.",
+    "primaryCTA": { "label": "Audit My App Growth", "href": "/contact" },
+    "secondaryCTA": { "label": "View Case Studies", "href": "#results" }
+  },
+  "overview": {
+    "pullQuote": "Install is just the beginning.",
+    "body": [
+      "Getting app installs is easy. Getting users who actually open, engage, and convert — that requires a completely different strategy. That's where we specialise.",
+      "We run mobile-first campaigns across Apple Search Ads, Google UAC, Meta App Install, and TikTok — combined with deep ASO work to ensure your app ranks organically.",
+      "Post-install, we design lifecycle messaging (push, in-app, email) that drives feature adoption and long-term retention, reducing churn before it hurts your metrics."
+    ],
+    "inlineStats": [
+      { "value": "52%", "label": "Average Day-7 retention improvement", "icon": "TrendingUp" },
+      { "value": "3.4x", "label": "Install-to-activation rate increase", "icon": "Activity" },
+      { "value": "80+", "label": "App growth projects delivered", "icon": "Smartphone" }
+    ]
+  },
+  "approach": [
+    { "number": 1, "title": "App Store Audit", "description": "We evaluate your app store listing, screenshots, ratings, keyword positioning, and competitor share of voice." },
+    { "number": 2, "title": "User Persona Mapping", "description": "Define your ideal user profiles by platform, geography, behaviour, and in-app intent." },
+    { "number": 3, "title": "Paid UA Campaign Launch", "description": "Run acquisition campaigns optimised toward install, registration, or in-app purchase events — not just clicks." },
+    { "number": 4, "title": "ASO & Organic Growth", "description": "Keyword optimisation, A/B testing of store assets, and review management to improve organic ranking continuously." },
+    { "number": 5, "title": "Retention Engineering", "description": "Set up onboarding flows, push notification sequences, and re-engagement campaigns to reduce Day-30 churn." },
+    { "number": 6, "title": "LTV Optimisation", "description": "Measure cohort LTV and adjust targeting to acquire higher-value users over time." }
+  ],
+  "features": [
+    { "icon": "Smartphone", "title": "Apple Search Ads", "description": "Capture iOS users actively searching for apps like yours in the App Store." },
+    { "icon": "Cpu", "title": "Google UAC", "description": "Machine-learning-driven campaigns that automatically find and convert Android users." },
+    { "icon": "Search", "title": "App Store Optimisation", "description": "Keyword research, listing copy, and visual asset testing to rank higher organically." },
+    { "icon": "Bell", "title": "Push & In-App Messaging", "description": "Lifecycle messaging flows that move users from install to loyal, paying customer." },
+    { "icon": "RotateCcw", "title": "Re-engagement Campaigns", "description": "Win back lapsed users with personalised ads and deep-link retargeting." },
+    { "icon": "Activity", "title": "Mobile Analytics Setup", "description": "Firebase, Adjust, or AppsFlyer setup to track the metrics that actually predict growth." }
+  ],
+  "benefits": {
+    "hero": { "title": "Lower CPI, higher LTV", "description": "We optimise not just for install cost but for the quality of users — targeting cohorts that spend, subscribe, and stay.", "metric": "Quality-first" },
+    "list": [
+      { "icon": "Globe", "title": "Cross-platform expertise", "description": "iOS and Android treated as distinct platforms with distinct strategies." },
+      { "icon": "Filter", "title": "Fraud-free traffic", "description": "MMP integrations and click fingerprinting eliminate invalid installs." },
+      { "icon": "Star", "title": "5-star rating strategy", "description": "Structured review request flows that improve your store rating sustainably." },
+      { "icon": "Users", "title": "Cohort-level reporting", "description": "See Day-1, Day-7, Day-30 retention and LTV by channel and campaign." }
+    ]
+  },
+  "caseStudies": [
+    { "prefix": "", "value": 3.4, "suffix": "x", "label": "Install-to-activation", "context": "Achieved after onboarding flow redesign" },
+    { "prefix": "", "value": 52, "suffix": "%", "label": "Day-7 Retention Boost", "context": "Post push notification strategy overhaul" },
+    { "prefix": "₹", "value": 18, "suffix": "", "label": "Average CPI", "context": "Across iOS and Android combined" },
+    { "prefix": "", "value": 4.6, "suffix": "★", "label": "Store Rating", "context": "After review management program" }
+  ],
+  "cta": {
+    "headline": "Your App Deserves More Than Installs",
+    "supporting": "Let us build a mobile growth engine — from store to screen to subscription.",
+    "primaryCTA": { "label": "Start Growing Today", "href": "/contact" },
+    "secondaryCTA": { "label": "Explore the Strategy →", "href": "/contact" }
+  }
+}

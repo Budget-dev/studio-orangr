@@ -1,0 +1,61 @@
+{
+  "serviceName": "E-Commerce Marketing",
+  "slug": "ecommerce-marketing",
+  "hero": {
+    "badge": "E-Commerce Marketing",
+    "headline": "Sell More. Spend Smarter. Scale Faster.",
+    "subheadline": "End-to-end e-commerce growth — from traffic acquisition to cart abandonment recovery and post-purchase retention.",
+    "primaryCTA": { "label": "Audit My Store", "href": "/contact" },
+    "secondaryCTA": { "label": "See What We've Built", "href": "#results" }
+  },
+  "overview": {
+    "pullQuote": "Full funnel, full control.",
+    "body": [
+      "E-commerce success is not just about driving traffic. It's about attracting the right buyers, converting them efficiently, and keeping them coming back. We own all three stages.",
+      "We combine paid acquisition with conversion rate optimisation, email/SMS lifecycle flows, and retention programs to maximise revenue per visitor.",
+      "Whether you're on Shopify, WooCommerce, Magento, or a custom stack, our team builds growth systems that compound over time."
+    ],
+    "inlineStats": [
+      { "value": "5.2x", "label": "Peak ROAS for Shopping campaigns", "icon": "TrendingUp" },
+      { "value": "34%", "label": "Average cart recovery rate", "icon": "ShoppingCart" },
+      { "value": "₹12Cr+", "label": "Annual GMV managed", "icon": "Package" }
+    ]
+  },
+  "approach": [
+    { "number": 1, "title": "Store & Funnel Audit", "description": "We map your full customer journey — from ad click to checkout — and score every step for friction." },
+    { "number": 2, "title": "Traffic Architecture", "description": "Design a paid and organic traffic mix that balances acquisition cost with conversion quality." },
+    { "number": 3, "title": "Feed & Catalogue Optimisation", "description": "Clean your product feed, write conversion-focused titles, and group SKUs for smart bidding." },
+    { "number": 4, "title": "Lifecycle Email & SMS Setup", "description": "Build abandoned cart, post-purchase, win-back, and VIP flows using Klaviyo or existing ESP." },
+    { "number": 5, "title": "Conversion Rate Optimisation", "description": "A/B test product pages, checkout flow, and offer structures to increase revenue per visitor." },
+    { "number": 6, "title": "Retention & LTV Programme", "description": "Loyalty mechanics, repeat purchase incentives, and VIP tiers to build a self-sustaining customer base." }
+  ],
+  "features": [
+    { "icon": "ShoppingCart", "title": "Google Shopping Campaigns", "description": "Product listing ads and Performance Max campaigns structured for profit, not just revenue." },
+    { "icon": "Image", "title": "Meta Dynamic Product Ads", "description": "Automated ads that show each user exactly the products they viewed or are most likely to buy." },
+    { "icon": "Mail", "title": "Email & SMS Lifecycle", "description": "Abandoned cart, welcome series, and repeat purchase flows built for e-commerce revenue." },
+    { "icon": "Package", "title": "Product Feed Management", "description": "Optimised feeds for Google Merchant Center, Meta Catalogue, and marketplace channels." },
+    { "icon": "TrendingUp", "title": "Marketplace Ads", "description": "Sponsored product and brand campaigns on the marketplaces where your buyers are already shopping." },
+    { "icon": "Percent", "title": "Offer & Promotion Strategy", "description": "Data-driven promotion planning that drives sales without training buyers to wait for discounts." }
+  ],
+  "benefits": {
+    "hero": { "title": "Compounding revenue growth", "description": "Every optimisation we make stacks on the last. Your store gets more efficient month over month.", "metric": "Compound effect" },
+    "list": [
+      { "icon": "Database", "title": "Single source of truth", "description": "Unified reporting across all channels in one dashboard — no more spreadsheet chaos." },
+      { "icon": "Repeat", "title": "Repeat buyer acceleration", "description": "Lifecycle programs that turn one-time buyers into loyal customers." },
+      { "icon": "AlertTriangle", "title": "Margin-aware optimisation", "description": "We optimise for profit margin, not just revenue — ROAS targets set per product category." },
+      { "icon": "Cpu", "title": "Platform-agnostic", "description": "Shopify, WooCommerce, Magento, custom — our systems work across all stacks." }
+    ]
+  },
+  "caseStudies": [
+    { "prefix": "", "value": 5.2, "suffix": "x", "label": "Peak ROAS", "context": "Google Shopping for a fashion brand" },
+    { "prefix": "", "value": 34, "suffix": "%", "label": "Cart Recovery", "context": "Email and SMS abandoned cart flow" },
+    { "prefix": "", "value": 2.1, "suffix": "x", "label": "Repeat Purchase Rate", "context": "Post loyalty programme launch" },
+    { "prefix": "₹", "value": 12, "suffix": "Cr+", "label": "GMV Managed", "context": "Across active e-commerce clients" }
+  ],
+  "cta": {
+    "headline": "Your Store Has More Revenue Hidden in It",
+    "supporting": "We'll find it. Book a free e-commerce growth audit today.",
+    "primaryCTA": { "label": "Get My Store Audited", "href": "/contact" },
+    "secondaryCTA": { "label": "Talk to a Specialist →", "href": "/contact" }
+  }
+}

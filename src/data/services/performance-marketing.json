@@ -1,0 +1,60 @@
+{
+  "serviceName": "Performance Marketing",
+  "slug": "performance-marketing",
+  "hero": {
+    "badge": "Performance Marketing",
+    "headline": "Turn Every Rupee Into Measurable Revenue",
+    "subheadline": "Data-led paid media campaigns that deliver trackable ROI across Google, Meta, and beyond.",
+    "primaryCTA": { "label": "Get a Free Audit", "href": "/contact" },
+    "secondaryCTA": { "label": "See Our Results", "href": "#results" }
+  },
+  "overview": {
+    "pullQuote": "Spend less. Earn more.",
+    "body": [
+      "Performance marketing eliminates guesswork. Every campaign we run is tied to a specific outcome — leads, sales, app installs, or sign-ups. No vanity metrics.",
+      "We build full-funnel paid media strategies across Google Search, Google Display, Meta Ads, YouTube, and programmatic channels. Each channel is selected based on your audience's actual behaviour, not assumptions.",
+      "Our proprietary tracking setup ensures every conversion is attributed correctly, giving you complete clarity on what's working and what needs optimisation."
+    ],
+    "inlineStats": [
+      { "value": "4.1x", "label": "Average ROAS delivered", "icon": "TrendingUp" },
+      { "value": "38%", "label": "Average CPA reduction", "icon": "Target" },
+      { "value": "120+", "label": "Active campaigns managed", "icon": "Layers" }
+    ]
+  },
+  "approach": [
+    { "number": 1, "title": "Discovery & Audit", "description": "We analyse your existing ad accounts, competitor landscape, and conversion funnel to identify gaps and opportunities before spending a rupee." },
+    { "number": 2, "title": "Strategy & Channel Mix", "description": "We build a channel-specific paid media plan aligned to your customer acquisition cost targets and lifetime value estimates." },
+    { "number": 3, "title": "Campaign Build & Launch", "description": "Structured ad sets, audience segmentation, creative variants, and landing page alignment — set up for maximum Quality Score and relevance." },
+    { "number": 4, "title": "Optimisation Loops", "description": "Weekly bid adjustments, A/B creative testing, and audience pruning based on performance signals." },
+    { "number": 5, "title": "Reporting & Scaling", "description": "Monthly performance reviews with clear revenue attribution. Budgets are scaled only when efficiency targets are met." }
+  ],
+  "features": [
+    { "icon": "Target", "title": "Google Search Ads", "description": "Capture high-intent buyers at the exact moment they're searching for what you sell." },
+    { "icon": "BarChart2", "title": "Meta & Instagram Ads", "description": "Social-first campaigns built for awareness, consideration, and direct-response conversion." },
+    { "icon": "Play", "title": "YouTube Advertising", "description": "Video ad formats that drive brand recall and direct traffic at scale." },
+    { "icon": "Layers", "title": "Programmatic Display", "description": "Precision audience targeting across millions of premium placements with real-time bidding." },
+    { "icon": "RefreshCw", "title": "Retargeting Funnels", "description": "Recover lost visitors and warm audiences with sequenced, intent-based ad flows." },
+    { "icon": "PieChart", "title": "Attribution & Analytics", "description": "Multi-touch attribution models that show the true value of every channel and touchpoint." }
+  ],
+  "benefits": {
+    "hero": { "title": "Full revenue visibility", "description": "See exactly which campaign, ad set, and keyword generated each conversion — down to the rupee.", "metric": "100% tracked" },
+    "list": [
+      { "icon": "Zap", "title": "No wasted budget", "description": "Negative keyword lists, audience exclusions, and dayparting eliminate low-value spend." },
+      { "icon": "TrendingUp", "title": "Scales with your business", "description": "Campaigns are structured to scale budget without sacrificing efficiency." },
+      { "icon": "Shield", "title": "Brand-safe placements", "description": "All display and video placements are vetted through inclusion lists." },
+      { "icon": "Clock", "title": "Rapid iteration", "description": "Creative and copy variants are tested and rotated on a 2-week cycle." }
+    ]
+  },
+  "caseStudies": [
+    { "prefix": "", "value": 4, "suffix": ".1x", "label": "ROAS", "context": "Achieved within 90 days for an e-commerce client" },
+    { "prefix": "", "value": 45, "suffix": "%", "label": "CPA drop", "context": "After funnel restructure for a SaaS lead gen campaign" },
+    { "prefix": "", "value": 2.8, "suffix": "M+", "label": "Monthly Impressions", "context": "Average reach for active performance accounts" },
+    { "prefix": "", "value": 62, "suffix": "%", "label": "CTR improvement", "context": "Post creative refresh across Meta campaigns" }
+  ],
+  "cta": {
+    "headline": "Ready to Make Every Click Count?",
+    "supporting": "Get a personalised performance audit with zero commitment.",
+    "primaryCTA": { "label": "Book Your Free Audit", "href": "/contact" },
+    "secondaryCTA": { "label": "Talk to a Strategist →", "href": "/contact" }
+  }
+}
