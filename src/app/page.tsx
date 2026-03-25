@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -14,16 +15,12 @@ import { cn } from "@/lib/utils";
 import { WorldMap } from "@/components/WorldMap";
 import { LogoCloud } from "@/components/LogoCloud";
 import InteractiveBentoGallery, { type MediaItemType } from "@/components/InteractiveBentoGallery";
-import { DynamicFrameLayout, type Frame } from "@/components/DynamicFrameLayout";
 
 /* ── DATA ── */
 const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Our Story", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Success Stories", href: "/portfolio" },
-  { label: "Sectors", href: "/sectors" },
-  { label: "Insights", href: "/blog" },
+  { label: "About Us", href: "/about" },
   { label: "Contact Us", href: "/contact" },
 ];
 
@@ -61,18 +58,6 @@ const GALLERY_ITEMS: MediaItemType[] = [
   { id: 4, type: 'image', title: 'E-Commerce Growth', desc: 'Scaling D2C Brands to 8-Figures', url: '/assets/images/imagesloyred.png', span: 'md:col-span-1 md:row-span-1' },
   { id: 5, type: 'image', title: 'Social Impact', desc: 'Viral Campaigns with Massive Reach', url: '/assets/images/nyf.png', span: 'md:col-span-1 md:row-span-2' },
   { id: 6, type: 'image', title: 'Conversion (CRO)', desc: 'Optimizing the User Journey for ROI', url: '/assets/images/niraj.png', span: 'md:col-span-2 md:row-span-1' },
-];
-
-const OPERATIONS_FRAMES: Frame[] = [
-  { id: 1, video: "https://cdn.pixabay.com/video/2016/10/05/5638-184518428_tiny.mp4", defaultPos: { x: 0, y: 0, w: 4, h: 4 }, mediaSize: 1, borderThickness: 1, borderSize: 100 },
-  { id: 2, video: "https://cdn.pixabay.com/video/2021/04/12/70874-538186175_tiny.mp4", defaultPos: { x: 4, y: 0, w: 4, h: 4 }, mediaSize: 1, borderThickness: 1, borderSize: 100 },
-  { id: 3, video: "https://cdn.pixabay.com/video/2016/09/08/5115-182885449_tiny.mp4", defaultPos: { x: 8, y: 0, w: 4, h: 4 }, mediaSize: 1, borderThickness: 1, borderSize: 100 },
-  { id: 4, video: "https://cdn.pixabay.com/video/2019/12/11/30113-379656114_tiny.mp4", defaultPos: { x: 0, y: 4, w: 4, h: 4 }, mediaSize: 1, borderThickness: 1, borderSize: 100 },
-  { id: 5, video: "https://cdn.pixabay.com/video/2022/10/25/136427-764359400_tiny.mp4", defaultPos: { x: 4, y: 4, w: 4, h: 4 }, mediaSize: 1, borderThickness: 1, borderSize: 100 },
-  { id: 6, video: "https://cdn.pixabay.com/video/2015/12/11/1572-147814041_tiny.mp4", defaultPos: { x: 8, y: 4, w: 4, h: 4 }, mediaSize: 1, borderThickness: 1, borderSize: 100 },
-  { id: 7, video: "https://cdn.pixabay.com/video/2016/10/16/5923-185419951_tiny.mp4", defaultPos: { x: 0, y: 8, w: 4, h: 4 }, mediaSize: 1, borderThickness: 1, borderSize: 100 },
-  { id: 8, video: "https://cdn.pixabay.com/video/2017/04/24/8834-213328082_tiny.mp4", defaultPos: { x: 4, y: 8, w: 4, h: 4 }, mediaSize: 1, borderThickness: 1, borderSize: 100 },
-  { id: 9, video: "https://cdn.pixabay.com/video/2020/05/25/40118-424754407_tiny.mp4", defaultPos: { x: 8, y: 8, w: 4, h: 4 }, mediaSize: 1, borderThickness: 1, borderSize: 100 },
 ];
 
 /* ── COMPONENTS ── */
@@ -176,7 +161,7 @@ export default function HomePage() {
               <Link
                 href={n.href}
                 className={cn(
-                  "px-3.5 text-[13.5px] font-semibold transition-colors flex items-center gap-1",
+                  "px-5 text-[13.5px] font-semibold transition-colors flex items-center gap-1",
                   isScrolled ? "text-secondary hover:text-primary" : "text-white/90 hover:text-primary"
                 )}
               >
@@ -190,7 +175,7 @@ export default function HomePage() {
           href="/contact"
           className="hidden lg:block bg-primary border-2 border-primary text-secondary px-5 py-2 rounded-full text-[13px] font-bold hover:bg-transparent hover:text-primary transition-all"
         >
-          Get Free Audit
+          Get Audit
         </Link>
 
         <button className={cn("lg:hidden p-2", isScrolled ? "text-secondary" : "text-white")} onClick={() => setIsMobMenuOpen(true)}>
@@ -315,7 +300,7 @@ export default function HomePage() {
         </section>
 
         {/* OPERATIONS SECTION */}
-        <section className="py-24 bg-[#FAFAF8] overflow-hidden min-h-[800px] flex flex-col border-b border-border/10">
+        <section className="py-24 bg-[#FAFAF8] overflow-hidden border-b border-border/10">
           <div className="max-w-7xl mx-auto px-6 mb-16">
             <FadeIn>
               <div className="text-primary font-bold uppercase tracking-[4px] text-xs mb-6 font-sora">Operations</div>
@@ -329,14 +314,22 @@ export default function HomePage() {
             </FadeIn>
           </div>
 
-          <div className="w-full max-w-[1600px] mx-auto px-6 flex-1 h-[600px]">
-            <DynamicFrameLayout 
-              frames={OPERATIONS_FRAMES} 
-              className="w-full h-full"
-              showFrames={false}
-              hoverSize={6}
-              gapSize={12}
-            />
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="relative aspect-video w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+              <video 
+                src="https://cdn.pixabay.com/video/2020/09/03/49211-457312111_tiny.mp4" 
+                className="w-full h-full object-cover"
+                autoPlay 
+                muted 
+                loop 
+                playsInline 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+              <div className="absolute bottom-8 left-8 text-white">
+                <div className="text-primary font-bold uppercase tracking-widest text-xs mb-2">Live Demo</div>
+                <h3 className="text-2xl font-black uppercase">Growth Dashboard in Action</h3>
+              </div>
+            </div>
           </div>
         </section>
 

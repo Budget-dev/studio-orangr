@@ -20,7 +20,6 @@ interface NavItem {
 
 const NAV: NavItem[] = [
   { label: "Home", page: "/" },
-  { label: "About", page: "/about" },
   {
     label: "Services", 
     page: "/services",
@@ -34,9 +33,8 @@ const NAV: NavItem[] = [
       { label: "CRO", href: "/services/cro" },
     ]
   },
-  { label: "Success Stories", page: "/portfolio" },
-  { label: "Insights", page: "/blog" },
-  { label: "Contact", page: "/contact" },
+  { label: "About Us", page: "/about" },
+  { label: "Contact Us", page: "/contact" },
 ];
 
 export function Navbar() {
@@ -74,7 +72,7 @@ export function Navbar() {
               <Link
                 href={n.page}
                 className={cn(
-                  "px-3.5 text-[13.5px] font-semibold transition-colors flex items-center gap-1",
+                  "px-5 text-[13.5px] font-semibold transition-colors flex items-center gap-1",
                   pathname === n.page ? "text-primary" : "text-white/90 hover:text-primary"
                 )}
               >
