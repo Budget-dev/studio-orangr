@@ -9,12 +9,21 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 import { 
   Menu, 
   X, 
-  ArrowRight
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { WorldMap } from "@/components/WorldMap";
 import { LogoCloud } from "@/components/LogoCloud";
 import InteractiveBentoGallery, { type MediaItemType } from "@/components/InteractiveBentoGallery";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 /* ── DATA ── */
 const NAV_LINKS = [
@@ -58,6 +67,12 @@ const GALLERY_ITEMS: MediaItemType[] = [
   { id: 4, type: 'image', title: 'E-Commerce Growth', desc: 'Scaling D2C Brands to 8-Figures', url: '/assets/images/imagesloyred.png', span: 'md:col-span-1 md:row-span-1' },
   { id: 5, type: 'image', title: 'Social Impact', desc: 'Viral Campaigns with Massive Reach', url: '/assets/images/nyf.png', span: 'md:col-span-1 md:row-span-2' },
   { id: 6, type: 'image', title: 'Conversion (CRO)', desc: 'Optimizing the User Journey for ROI', url: '/assets/images/niraj.png', span: 'md:col-span-2 md:row-span-1' },
+];
+
+const OPERATIONS_VIDEOS = [
+  { id: 1, src: "/assets/videos/WhatsApp Video 2026-03-19 at 12.41.23 PM (2).mp4", title: "Growth Dashboard", subtitle: "Data-Led Strategy in Action" },
+  { id: 2, src: "/assets/videos/video1.mp4", title: "Performance Analysis", subtitle: "Real-time Metrics Tracking" },
+  { id: 3, src: "/assets/videos/video2.mp4", title: "Campaign Launch", subtitle: "Seamless Execution & Optimization" },
 ];
 
 /* ── COMPONENTS ── */
@@ -337,23 +352,37 @@ export default function HomePage() {
             </FadeIn>
           </div>
 
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="relative aspect-video w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-              <video 
-                src="/assets/videos/WhatsApp Video 2026-03-19 at 12.41.23 PM (2).mp4" 
-                className="w-full h-full object-cover"
-                autoPlay 
-                muted 
-                loop 
-                playsInline 
-                preload="auto"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
-              <div className="absolute bottom-4 md:bottom-8 left-4 md:left-8 text-white">
-                <div className="text-primary font-bold uppercase tracking-widest text-[10px] md:text-xs mb-2">Growth Dashboard</div>
-                <h3 className="text-lg md:text-2xl font-black uppercase">Data-Led Strategy in Action</h3>
+          <div className="max-w-7xl mx-auto px-6 relative group">
+            <Carousel className="w-full" opts={{ loop: true }}>
+              <CarouselContent>
+                {OPERATIONS_VIDEOS.map((video) => (
+                  <CarouselItem key={video.id}>
+                    <div className="relative aspect-video w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-black">
+                      <video 
+                        src={video.src} 
+                        className="w-full h-full object-cover"
+                        autoPlay 
+                        muted 
+                        loop 
+                        playsInline 
+                        preload="auto"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+                      <div className="absolute bottom-4 md:bottom-8 left-4 md:left-8 text-white">
+                        <div className="text-primary font-bold uppercase tracking-widest text-[10px] md:text-xs mb-2">{video.title}</div>
+                        <h3 className="text-lg md:text-2xl font-black uppercase">{video.subtitle}</h3>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div className="absolute top-1/2 -left-4 md:-left-12 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <CarouselPrevious className="relative left-0 bg-white shadow-xl hover:bg-primary border-none text-secondary" />
               </div>
-            </div>
+              <div className="absolute top-1/2 -right-4 md:-right-12 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <CarouselNext className="relative right-0 bg-white shadow-xl hover:bg-primary border-none text-secondary" />
+              </div>
+            </Carousel>
           </div>
         </section>
 
