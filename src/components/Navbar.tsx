@@ -48,12 +48,21 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent scroll when mobile menu is open
+  useEffect(() => {
+    if (mob) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [mob]);
+
   return (
     <>
       <nav
         className={cn(
-          "fixed top-0 left-0 right-0 z-[1000] bg-[#0a0a0a] transition-all duration-300 px-6 lg:px-12 flex items-center justify-between",
-          scrolled || pathname !== "/" ? "h-16 shadow-2xl" : "h-[85px]"
+          "fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 px-6 lg:px-12 flex items-center justify-between",
+          scrolled || pathname !== "/" ? "h-16 bg-[#0a0a0a] shadow-2xl" : "h-[85px] bg-transparent"
         )}
       >
         <Link href="/" className="flex items-center gap-2.5 group">
@@ -98,61 +107,69 @@ export function Navbar() {
           ))}
         </ul>
 
-        <Link
-          href="/contact"
-          className="hidden lg:block bg-primary border-2 border-primary text-secondary px-6 py-2 rounded-full text-[13px] font-bold hover:bg-transparent hover:text-primary transition-all"
-        >
-          Get Audit
-        </Link>
+        <div className="flex items-center gap-4">
+          <Link
+            href="/contact"
+            className="hidden sm:block bg-primary border-2 border-primary text-secondary px-6 py-2 rounded-full text-[13px] font-bold hover:bg-transparent hover:text-primary transition-all"
+          >
+            Get Audit
+          </Link>
 
-        <button className="lg:hidden text-white p-2" onClick={() => setMob(!mob)}>
-          {mob ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+          <button className="lg:hidden text-white p-2 hover:bg-white/10 rounded-full transition-colors" onClick={() => setMob(!mob)}>
+            {mob ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 top-0 bg-[#0a0a0a] z-[1001] transition-transform duration-300 lg:hidden overflow-y-auto",
-          mob ? "translate-x-0" : "translate-x-full"
+          "fixed inset-0 bg-[#0a0a0a] z-[1001] transition-all duration-500 lg:hidden overflow-y-auto flex flex-col",
+          mob ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
       >
-        <div className="flex flex-col p-8 pt-24 gap-4">
-          <button className="absolute top-6 right-6 text-white" onClick={() => setMob(false)}>
+        <div className="p-8 pt-24 flex flex-col gap-8 h-full">
+          <button className="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-full" onClick={() => setMob(false)}>
             <X className="w-8 h-8" />
           </button>
-          {NAV.map((n) => (
-            <div key={n.label} className="flex flex-col gap-2">
-              <Link
-                href={n.page}
-                className="text-2xl font-bold text-white hover:text-primary"
-                onClick={() => !n.children && setMob(false)}
-              >
-                {n.label}
-              </Link>
-              {n.children && (
-                <div className="flex flex-col gap-2 pl-4 border-l border-white/10 mt-2 mb-4">
-                  {n.children.map(child => (
-                    <Link 
-                      key={child.label} 
-                      href={child.href} 
-                      className="text-white/60 hover:text-primary text-lg"
-                      onClick={() => setMob(false)}
-                    >
-                      {child.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-          <Link
-            href="/contact"
-            className="mt-8 w-full text-center bg-primary text-[#0a0a0a] py-5 rounded-full font-black text-lg uppercase tracking-widest"
-            onClick={() => setMob(false)}
-          >
-            Get Free Audit
-          </Link>
+          
+          <div className="flex flex-col gap-6">
+            {NAV.map((n) => (
+              <div key={n.label} className="flex flex-col gap-4">
+                <Link
+                  href={n.page}
+                  className="text-4xl font-bold text-white hover:text-primary transition-colors"
+                  onClick={() => !n.children && setMob(false)}
+                >
+                  {n.label}
+                </Link>
+                {n.children && (
+                  <div className="flex flex-col gap-4 pl-6 border-l-2 border-primary/20 mt-2 mb-4">
+                    {n.children.map(child => (
+                      <Link 
+                        key={child.label} 
+                        href={child.href} 
+                        className="text-white/60 hover:text-primary text-xl font-medium"
+                        onClick={() => setMob(false)}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-auto pb-12">
+            <Link
+              href="/contact"
+              className="w-full text-center bg-primary text-[#0a0a0a] py-5 rounded-2xl font-black text-lg uppercase tracking-widest shadow-xl shadow-primary/20"
+              onClick={() => setMob(false)}
+            >
+              Get Free Audit
+            </Link>
+          </div>
         </div>
       </div>
     </>

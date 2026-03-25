@@ -79,13 +79,13 @@ export const TestimonialsColumn = (props: {
           ease: "linear",
           repeatType: "loop",
         }}
-        className="flex flex-col gap-6 pb-6 bg-background"
+        className="flex flex-col gap-6 pb-6 bg-transparent"
       >
         {[
           ...new Array(2).fill(0).map((_, index) => (
             <React.Fragment key={index}>
               {props.testimonials.map(({ text, image, name, role }, i) => (
-                <div className="p-10 rounded-3xl border border-border/50 shadow-lg shadow-primary/10 max-w-xs w-full bg-white" key={i}>
+                <div className="p-8 md:p-10 rounded-3xl border border-border/50 shadow-lg shadow-primary/10 max-w-xs w-full bg-white" key={i}>
                   <div className="text-secondary font-medium italic text-sm">"{text}"</div>
                   <div className="flex items-center gap-2 mt-5">
                     <img
@@ -138,12 +138,12 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <div className="min-h-screen bg-white overflow-x-hidden font-body">
       
       {/* NAVBAR */}
       <nav className={cn(
         "fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 px-6 lg:px-12 flex items-center justify-between",
-        isScrolled ? "h-16 bg-white/90 backdrop-blur-md shadow-sm border-b" : "h-[85px] bg-transparent"
+        isScrolled ? "h-16 bg-white/95 backdrop-blur-md shadow-sm border-b" : "h-[85px] bg-transparent"
       )}>
         <Link href="/" className="flex items-center gap-2.5 group">
           <div className="w-9 h-9 bg-primary rounded-md flex items-center justify-center font-black text-lg text-[#0a0a0a] flex-shrink-0 transition-transform group-hover:scale-105">
@@ -171,16 +171,18 @@ export default function HomePage() {
           ))}
         </ul>
 
-        <Link
-          href="/contact"
-          className="hidden lg:block bg-primary border-2 border-primary text-secondary px-5 py-2 rounded-full text-[13px] font-bold hover:bg-transparent hover:text-primary transition-all"
-        >
-          Get Audit
-        </Link>
+        <div className="flex items-center gap-4">
+          <Link
+            href="/contact"
+            className="hidden sm:block bg-primary border-2 border-primary text-secondary px-5 py-2 rounded-full text-[13px] font-bold hover:bg-transparent hover:text-primary transition-all"
+          >
+            Get Audit
+          </Link>
 
-        <button className={cn("lg:hidden p-2", isScrolled ? "text-secondary" : "text-white")} onClick={() => setIsMobMenuOpen(true)}>
-          <Menu className="w-6 h-6" />
-        </button>
+          <button className={cn("lg:hidden p-2", isScrolled ? "text-secondary" : "text-white")} onClick={() => setIsMobMenuOpen(true)}>
+            <Menu className="w-6 h-6" />
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Menu */}
@@ -192,23 +194,44 @@ export default function HomePage() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMobMenuOpen(false)}
-              className="fixed inset-0 bg-black/60 z-[1001] backdrop-blur-sm"
+              className="fixed inset-0 bg-black/80 z-[1001] backdrop-blur-md"
             />
             <motion.div 
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              className="fixed right-0 top-0 bottom-0 w-[80%] max-w-sm bg-secondary z-[1002] p-10 shadow-2xl flex flex-col"
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed right-0 top-0 bottom-0 w-[85%] max-w-sm bg-secondary z-[1002] p-8 shadow-2xl flex flex-col"
             >
-              <button onClick={() => setIsMobMenuOpen(false)} className="self-end text-white mb-10 p-2 hover:bg-white/10 rounded-full transition-colors">
-                <X className="w-8 h-8" />
-              </button>
-              <div className="flex flex-col gap-6">
+              <div className="flex items-center justify-between mb-12">
+                <div className="w-10 h-10 bg-primary rounded-md flex items-center justify-center font-black text-xl text-secondary">
+                  S
+                </div>
+                <button onClick={() => setIsMobMenuOpen(false)} className="text-white p-2 hover:bg-white/10 rounded-full transition-colors">
+                  <X className="w-8 h-8" />
+                </button>
+              </div>
+              <div className="flex flex-col gap-8">
                 {NAV_LINKS.map(link => (
-                  <Link key={link.label} href={link.href} className="text-white text-2xl font-sora font-medium hover:text-primary transition-colors" onClick={() => setIsMobMenuOpen(false)}>
+                  <Link 
+                    key={link.label} 
+                    href={link.href} 
+                    className="text-white text-3xl font-bold hover:text-primary transition-colors flex items-center justify-between group" 
+                    onClick={() => setIsMobMenuOpen(false)}
+                  >
                     {link.label}
+                    <ArrowRight className="w-6 h-6 opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all" />
                   </Link>
                 ))}
+              </div>
+              <div className="mt-auto">
+                <Link
+                  href="/contact"
+                  className="w-full bg-primary text-secondary py-5 rounded-2xl font-black text-center block uppercase tracking-widest text-sm shadow-xl shadow-primary/20"
+                  onClick={() => setIsMobMenuOpen(false)}
+                >
+                  Initiate Growth
+                </Link>
               </div>
             </motion.div>
           </>
@@ -218,7 +241,7 @@ export default function HomePage() {
       <main>
         
         {/* HERO SECTION */}
-        <section className="relative h-screen flex items-center overflow-hidden bg-secondary w-full">
+        <section className="relative min-h-screen h-[100svh] flex items-center overflow-hidden bg-secondary w-full">
           <Image 
             src="https://img.freepik.com/premium-vector/digital-marketing-agency-corporate-social-media-banner_1109882-7771.jpg?w=1480" 
             alt="Digital Growth Banner" 
@@ -229,7 +252,7 @@ export default function HomePage() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 via-secondary/40 to-transparent z-10" />
           
-          <div className="relative z-20 w-full px-6">
+          <div className="relative z-20 w-full px-6 md:px-12">
             <div className="max-w-7xl mx-auto">
               <div className="max-w-4xl">
                 <motion.div
@@ -237,24 +260,24 @@ export default function HomePage() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
                 >
-                  <div className="text-primary font-black uppercase tracking-[8px] text-xs mb-6 flex items-center gap-4">
-                    <span className="w-12 h-[2px] bg-primary" />
+                  <div className="text-primary font-black uppercase tracking-[4px] md:tracking-[8px] text-[10px] md:text-xs mb-6 flex items-center gap-4">
+                    <span className="w-8 md:w-12 h-[2px] bg-primary" />
                     Digital Growth Maestros
                   </div>
                   
-                  <h1 className="text-6xl md:text-[100px] font-black text-white leading-[0.9] uppercase font-sora mb-8 tracking-tighter">
+                  <h1 className="text-5xl md:text-[100px] font-black text-white leading-[0.9] uppercase font-sora mb-8 tracking-tighter">
                     IDEA TO<br /><span className="text-primary italic">VISION</span>
                   </h1>
 
-                  <p className="text-xl md:text-2xl text-white/80 font-light leading-relaxed mb-12 max-w-2xl border-l-4 border-primary pl-8 italic">
+                  <p className="text-lg md:text-2xl text-white/80 font-light leading-relaxed mb-12 max-w-2xl border-l-4 border-primary pl-6 md:pl-8 italic">
                     Scaling ambitious brands to global landmarks with precision performance marketing and creative digital strategy.
                   </p>
 
-                  <div className="flex flex-col sm:flex-row gap-6">
-                    <Link href="/services" className="bg-primary text-secondary px-12 py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:scale-105 transition-transform text-center shadow-xl shadow-primary/20">
+                  <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
+                    <Link href="/services" className="bg-primary text-secondary px-8 md:px-12 py-4 md:py-5 rounded-full font-bold uppercase tracking-widest text-xs md:text-sm hover:scale-105 transition-transform text-center shadow-xl shadow-primary/20">
                       Explore Services
                     </Link>
-                    <Link href="/contact" className="bg-transparent border-2 border-white/50 text-white px-12 py-5 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-secondary transition-all text-center">
+                    <Link href="/contact" className="bg-transparent border-2 border-white/50 text-white px-8 md:px-12 py-4 md:py-5 rounded-full font-bold uppercase tracking-widest text-xs md:text-sm hover:bg-white hover:text-secondary transition-all text-center">
                       Initiate Growth
                     </Link>
                   </div>
@@ -264,10 +287,10 @@ export default function HomePage() {
           </div>
 
           {/* MOVING TEXT BAR */}
-          <div className="absolute bottom-0 left-0 right-0 bg-primary py-5 overflow-hidden z-30 shadow-[0_-10px_30px_rgba(248,155,52,0.3)]">
+          <div className="absolute bottom-0 left-0 right-0 bg-primary py-4 md:py-5 overflow-hidden z-30 shadow-[0_-10px_30px_rgba(248,155,52,0.3)]">
             <div className="flex gap-16 w-max animate-marquee-slow items-center">
               {[...Array(6)].map((_, i) => (
-                <span key={i} className="text-secondary font-black text-3xl uppercase tracking-[10px] whitespace-nowrap">
+                <span key={i} className="text-secondary font-black text-xl md:text-3xl uppercase tracking-[10px] whitespace-nowrap">
                   PERFORMANCE MARKETING • DIGITAL DOMINANCE • CREATIVE EXCELLENCE • 
                 </span>
               ))}
@@ -276,11 +299,11 @@ export default function HomePage() {
         </section>
 
         {/* LOGO CLOUD */}
-        <section className="py-24 bg-white border-b border-border/10">
+        <section className="py-16 md:py-24 bg-white border-b border-border/10">
           <div className="max-w-7xl mx-auto px-6 text-center">
             <FadeIn>
-              <div className="mb-16">
-                <h2 className="text-4xl font-sora font-light text-secondary">
+              <div className="mb-12 md:mb-16">
+                <h2 className="text-3xl md:text-4xl font-sora font-light text-secondary">
                   Our <span className="text-primary font-bold italic">Strategic Network</span>
                 </h2>
                 <p className="text-primary font-bold uppercase tracking-widest text-[10px] mt-2 italic">Brands We've Transformed</p>
@@ -291,7 +314,7 @@ export default function HomePage() {
         </section>
 
         {/* BENTO GALLERY */}
-        <section className="py-24 bg-white border-b border-border/10">
+        <section className="py-16 md:py-24 bg-white border-b border-border/10">
           <InteractiveBentoGallery 
             mediaItems={GALLERY_ITEMS} 
             title="Our Creative Showcase" 
@@ -300,22 +323,22 @@ export default function HomePage() {
         </section>
 
         {/* OPERATIONS SECTION */}
-        <section className="py-24 bg-[#FAFAF8] overflow-hidden border-b border-border/10">
-          <div className="max-w-7xl mx-auto px-6 mb-16">
+        <section className="py-16 md:py-24 bg-[#FAFAF8] overflow-hidden border-b border-border/10">
+          <div className="max-w-7xl mx-auto px-6 mb-12 md:mb-16">
             <FadeIn>
               <div className="text-primary font-bold uppercase tracking-[4px] text-xs mb-6 font-sora">Operations</div>
-              <h2 className="text-4xl md:text-5xl font-sora font-light text-secondary mb-8 leading-tight">
+              <h2 className="text-3xl md:text-5xl font-sora font-light text-secondary mb-8 leading-tight">
                 A company with an<br />
                 <span className="text-primary font-bold italic">In-house Creative Studio</span>
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed italic max-w-3xl">
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed italic max-w-3xl">
                 As a full-service digital house, we manage strategy, creative, development, and ad-tech implementation entirely in-house — giving you a single point of accountability.
               </p>
             </FadeIn>
           </div>
 
           <div className="max-w-7xl mx-auto px-6">
-            <div className="relative aspect-video w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+            <div className="relative aspect-video w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
               <video 
                 src="https://cdn.pixabay.com/video/2020/09/03/49211-457312111_tiny.mp4" 
                 className="w-full h-full object-cover"
@@ -325,92 +348,95 @@ export default function HomePage() {
                 playsInline 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
-              <div className="absolute bottom-8 left-8 text-white">
-                <div className="text-primary font-bold uppercase tracking-widest text-xs mb-2">Live Demo</div>
-                <h3 className="text-2xl font-black uppercase">Growth Dashboard in Action</h3>
+              <div className="absolute bottom-4 md:bottom-8 left-4 md:left-8 text-white">
+                <div className="text-primary font-bold uppercase tracking-widest text-[10px] md:text-xs mb-2">Live Demo</div>
+                <h3 className="text-lg md:text-2xl font-black uppercase">Growth Dashboard in Action</h3>
               </div>
             </div>
           </div>
         </section>
 
         {/* WORLD MAP */}
-        <section className="bg-white py-24 relative overflow-hidden border-b border-border/10">
+        <section className="bg-white py-16 md:py-24 relative overflow-hidden border-b border-border/10">
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <FadeIn>
-              <div className="text-center mb-20">
+              <div className="text-center mb-12 md:mb-20">
                 <div className="text-primary font-bold uppercase tracking-[4px] text-xs mb-4">Global Reach</div>
-                <h2 className="text-4xl md:text-5xl font-sora font-light text-secondary leading-tight">
+                <h2 className="text-3xl md:text-5xl font-sora font-light text-secondary leading-tight">
                   Empowering <span className="font-bold">150+ Brands</span> <span className="text-primary">Worldwide</span>
                 </h2>
               </div>
             </FadeIn>
-            <WorldMap 
-              lineColor="#f89b34"
-              dots={[
-                { start: { lat: 19.0760, lng: 72.8777, label: "Mumbai" }, end: { lat: 40.7128, lng: -74.0060, label: "New York" } },
-                { start: { lat: 17.3850, lng: 78.4867, label: "Hyderabad" }, end: { lat: 51.5074, lng: -0.1278, label: "London" } },
-                { start: { lat: 19.0760, lng: 72.8777, label: "Mumbai" }, end: { lat: 25.2048, lng: 55.2708, label: "Dubai" } },
-              ]}
-            />
+            <div className="max-w-5xl mx-auto">
+              <WorldMap 
+                lineColor="#f89b34"
+                dots={[
+                  { start: { lat: 19.0760, lng: 72.8777, label: "Mumbai" }, end: { lat: 40.7128, lng: -74.0060, label: "New York" } },
+                  { start: { lat: 17.3850, lng: 78.4867, label: "Hyderabad" }, end: { lat: 51.5074, lng: -0.1278, label: "London" } },
+                  { start: { lat: 19.0760, lng: 72.8777, label: "Mumbai" }, end: { lat: 25.2048, lng: 55.2708, label: "Dubai" } },
+                ]}
+              />
+            </div>
           </div>
         </section>
 
         {/* TESTIMONIALS */}
-        <section className="py-24 bg-[#FAFAF8] overflow-hidden border-b border-border/10">
+        <section className="py-16 md:py-24 bg-[#FAFAF8] overflow-hidden border-b border-border/10">
           <div className="max-w-7xl mx-auto px-6">
             <FadeIn>
-              <div className="text-center mb-16">
-                <h2 className="text-4xl font-sora font-light text-secondary">
+              <div className="text-center mb-12 md:mb-16">
+                <h2 className="text-3xl md:text-4xl font-sora font-light text-secondary">
                   Latest from <span className="text-primary font-bold italic">Our Partners</span>
                 </h2>
                 <p className="text-primary font-bold uppercase tracking-widest text-[10px] mt-2 italic">Growth Stories</p>
               </div>
             </FadeIn>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 h-[550px] items-start">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 h-auto lg:h-[550px] items-start">
               <TestimonialsColumn testimonials={testimonials.slice(0, 2)} duration={20} className="hidden lg:block" />
-              <TestimonialsColumn testimonials={testimonials.slice(2, 4)} duration={25} />
-              <TestimonialsColumn testimonials={testimonials.slice(0, 2)} duration={22} className="hidden md:block" />
+              <TestimonialsColumn testimonials={testimonials.slice(2, 4)} duration={25} className="flex flex-col items-center" />
+              <TestimonialsColumn testimonials={testimonials.slice(0, 2)} duration={22} className="hidden md:block lg:hidden" />
+              <TestimonialsColumn testimonials={testimonials.slice(0, 2)} duration={22} className="hidden lg:block" />
             </div>
           </div>
         </section>
 
         {/* CONTACT SECTION */}
-        <section className="py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="mb-16">
+            <div className="mb-12 md:mb-16">
               <FadeIn>
-                <h2 className="text-4xl md:text-5xl font-sora font-light text-secondary">
+                <h2 className="text-3xl md:text-5xl font-sora font-light text-secondary">
                   <span className="text-primary font-bold italic">Get in touch</span> with us
                 </h2>
-                <p className="text-2xl text-secondary font-light mt-2 italic font-sora">
+                <p className="text-xl md:text-2xl text-secondary font-light mt-2 italic font-sora">
                   Let's craft your digital legacy.
                 </p>
               </FadeIn>
             </div>
 
-            <div className="grid lg:grid-cols-[1fr_450px] gap-20 items-start">
-              <form className="space-y-10">
-                <div className="grid md:grid-cols-2 gap-10">
-                  <input className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal font-inter" placeholder="Full Name" />
-                  <input className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal font-inter" placeholder="Email Address" />
+            <div className="grid lg:grid-cols-[1fr_450px] gap-12 md:gap-20 items-start">
+              <form className="space-y-8 md:space-y-10">
+                <div className="grid md:grid-cols-2 gap-8 md:gap-10">
+                  <input className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal font-inter text-sm md:text-base" placeholder="Full Name" />
+                  <input className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal font-inter text-sm md:text-base" placeholder="Email Address" />
                 </div>
-                <textarea className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal resize-none font-inter" rows={4} placeholder="How can we help you dominate your industry?" />
-                <button className="bg-primary hover:bg-primary/90 text-secondary w-full py-6 rounded-full font-black uppercase tracking-[6px] text-sm transition-all shadow-xl shadow-primary/20">
+                <textarea className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal resize-none font-inter text-sm md:text-base" rows={4} placeholder="How can we help you dominate your industry?" />
+                <button className="bg-primary hover:bg-primary/90 text-secondary w-full py-5 md:py-6 rounded-full font-black uppercase tracking-[4px] md:tracking-[6px] text-xs md:text-sm transition-all shadow-xl shadow-primary/20">
                   INITIATE GROWTH
                 </button>
               </form>
 
-              <div className="bg-secondary p-16 rounded-[40px] text-white shadow-2xl">
-                <div className="space-y-12">
+              <div className="bg-secondary p-10 md:p-16 rounded-[30px] md:rounded-[40px] text-white shadow-2xl">
+                <div className="space-y-10 md:space-y-12">
                   <div>
-                    <div className="text-primary text-5xl font-sora font-black mb-3 italic">+91 9033131093</div>
+                    <div className="text-primary text-3xl md:text-5xl font-sora font-black mb-3 italic">+91 9033131093</div>
                     <p className="text-white/40 text-[10px] font-bold tracking-[4px] uppercase">Available 10:00 – 18:00 IST</p>
                   </div>
-                  <div className="space-y-8">
+                  <div className="space-y-6 md:space-y-8">
                     <div className="group">
                       <h4 className="text-primary font-black uppercase tracking-[4px] text-[10px] mb-3">HQ Locations</h4>
-                      <p className="text-xl font-sora font-bold">Ahmedabad • Surat • Mumbai</p>
+                      <p className="text-lg md:text-xl font-sora font-bold">Ahmedabad • Surat • Mumbai</p>
                     </div>
                   </div>
                 </div>
@@ -421,16 +447,16 @@ export default function HomePage() {
       </main>
       
       {/* FOOTER */}
-      <footer className="bg-secondary text-white pt-24 pb-12 text-center border-t border-white/5">
+      <footer className="bg-secondary text-white pt-16 md:pt-24 pb-12 text-center border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6">
-          <Link href="/" className="flex items-center justify-center gap-4 group mb-12">
-            <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center font-black text-2xl text-secondary transition-transform group-hover:rotate-12">S</div>
-            <span className="text-2xl font-sora font-black tracking-tight uppercase">Shyama Overseas</span>
+          <Link href="/" className="flex items-center justify-center gap-4 group mb-10 md:mb-12">
+            <div className="w-10 h-10 md:w-12 md:h-12 bg-primary rounded-xl flex items-center justify-center font-black text-xl md:text-2xl text-secondary transition-transform group-hover:rotate-12">S</div>
+            <span className="text-xl md:text-2xl font-sora font-black tracking-tight uppercase">Shyama Overseas</span>
           </Link>
-          <p className="text-white/40 text-sm italic mb-12 max-w-xl mx-auto">
+          <p className="text-white/40 text-sm italic mb-10 md:mb-12 max-w-xl mx-auto">
             Empowering brands to transcend borders through strategic digital excellence and performance marketing.
           </p>
-          <div className="pt-12 border-t border-white/5 text-white/20 text-xs font-bold uppercase tracking-widest">
+          <div className="pt-10 md:pt-12 border-t border-white/5 text-white/20 text-[10px] md:text-xs font-bold uppercase tracking-widest">
             © 2005–2025 Shyama Overseas | Digital Growth Agency
           </div>
         </div>
