@@ -46,13 +46,22 @@ function FrameComponent({
 }: FrameComponentProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
 
+  // Ensure video plays/pauses correctly based on hover
   useEffect(() => {
-    if (isHovered && videoRef.current) {
-      videoRef.current.play().catch(() => {})
-    } else if (videoRef.current) {
-      videoRef.current.pause()
+    if (!videoRef.current) return;
+    
+    if (isHovered) {
+      videoRef.current.play().catch(() => {});
+    } else {
+      // Small delay to prevent flickering
+      const timeout = setTimeout(() => {
+        if (videoRef.current && !isHovered) {
+          videoRef.current.pause();
+        }
+      }, 100);
+      return () => clearTimeout(timeout);
     }
-  }, [isHovered])
+  }, [isHovered]);
 
   return (
     <div
@@ -182,17 +191,17 @@ export function DynamicFrameLayout({
   const [hovered, setHovered] = useState<{ row: number; col: number } | null>(null)
 
   const getRowSizes = () => {
-    if (hovered === null) return "4fr 4fr 4fr"
+    if (hovered === null) return "1fr 1fr 1fr"
     const { row } = hovered
-    const nonHoveredSize = (12 - hoverSize) / 2
-    return [0, 1, 2].map((r) => (r === row ? `${hoverSize}fr` : `${nonHoveredSize}fr`)).join(" ")
+    const nonHoveredSize = (3 - (hoverSize / 4)) / 2
+    return [0, 1, 2].map((r) => (r === row ? `${hoverSize / 4}fr` : `${nonHoveredSize}fr`)).join(" ")
   }
 
   const getColSizes = () => {
-    if (hovered === null) return "4fr 4fr 4fr"
+    if (hovered === null) return "1fr 1fr 1fr"
     const { col } = hovered
-    const nonHoveredSize = (12 - hoverSize) / 2
-    return [0, 1, 2].map((c) => (c === col ? `${hoverSize}fr` : `${nonHoveredSize}fr`)).join(" ")
+    const nonHoveredSize = (3 - (hoverSize / 4)) / 2
+    return [0, 1, 2].map((c) => (c === col ? `${hoverSize / 4}fr` : `${nonHoveredSize}fr`)).join(" ")
   }
 
   const getTransformOrigin = (x: number, y: number) => {
@@ -218,7 +227,7 @@ export function DynamicFrameLayout({
         const transformOrigin = getTransformOrigin(frame.defaultPos.x, frame.defaultPos.y)
 
         return (
-          <motion.div
+          <div
             key={frame.id}
             className="relative h-full w-full"
             style={{
@@ -239,4 +248,11 @@ export function DynamicFrameLayout({
               borderThickness={frame.borderThickness}
               borderSize={frame.borderSize}
               showFrame={showFrames}
-              isHovered={hovered?.row === row && hovered?.
+              isHovered={hovered?.row === row && hovered?.col === col}
+            />
+          </div>
+        )
+      })}
+    </div>
+  )
+}
