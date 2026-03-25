@@ -70,9 +70,29 @@ const GALLERY_ITEMS: MediaItemType[] = [
 ];
 
 const OPERATIONS_VIDEOS = [
-  { id: 1, src: "/assets/videos/WhatsApp Video 2026-03-19 at 12.41.23 PM (2).mp4", title: "Growth Dashboard", subtitle: "Data-Led Strategy in Action" },
-  { id: 2, src: "/assets/videos/video1.mp4", title: "Performance Analysis", subtitle: "Real-time Metrics Tracking" },
-  { id: 3, src: "/assets/videos/video2.mp4", title: "Campaign Launch", subtitle: "Seamless Execution & Optimization" },
+  { id: 1, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.14%20PM.mp4", title: "Market Intelligence", subtitle: "Data-Driven Insights" },
+  { id: 2, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.18%20PM%20(1).mp4", title: "Growth Analytics", subtitle: "Performance Metrics" },
+  { id: 3, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.18%20PM.mp4", title: "Campaign Strategy", subtitle: "Strategic Execution" },
+  { id: 4, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM%20(1).mp4", title: "Brand Vision", subtitle: "Creative Excellence" },
+  { id: 5, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM%20(2).mp4", title: "Digital Dominance", subtitle: "Market Leadership" },
+  { id: 6, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM%20(3).mp4", title: "Performance Hub", subtitle: "ROI Focused Results" },
+  { id: 7, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM.mp4", title: "Growth Engine", subtitle: "Scalable Solutions" },
+  { id: 8, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(1).mp4", title: "Strategic Roadmap", subtitle: "Success Oriented" },
+  { id: 9, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(2).mp4", title: "Execution Excellence", subtitle: "Flawless Delivery" },
+  { id: 10, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(3).mp4", title: "Creative Studio", subtitle: "In-house Mastery" },
+  { id: 11, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(4).mp4", title: "Global Reach", subtitle: "Transcending Borders" },
+  { id: 12, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(5).mp4", title: "Impact Analysis", subtitle: "Measurable Growth" },
+  { id: 13, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM.mp4", title: "Visionary Growth", subtitle: "Future Ready" },
+  { id: 14, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(1).mp4", title: "Strategy Sync", subtitle: "Collaborative Success" },
+  { id: 15, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(2).mp4", title: "Performance Track", subtitle: "Real-time Optimization" },
+  { id: 16, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(3).mp4", title: "Market Mastery", subtitle: "Competitive Edge" },
+  { id: 17, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(4).mp4", title: "Digital Blueprint", subtitle: "Structured Growth" },
+  { id: 18, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(5).mp4", title: "Creative Pulse", subtitle: "Vibrant Campaigns" },
+  { id: 19, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(6).mp4", title: "Success Metrics", subtitle: "Growth Defined" },
+  { id: 20, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(7).mp4", title: "Client First", subtitle: "Relationship Driven" },
+  { id: 21, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(8).mp4", title: "Innovation Hub", subtitle: "Next-gen Marketing" },
+  { id: 22, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(9).mp4", title: "Agility Scale", subtitle: "Fast & Effective" },
+  { id: 23, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM.mp4", title: "Growth Legacy", subtitle: "Since 2005" },
 ];
 
 /* ── COMPONENTS ── */
