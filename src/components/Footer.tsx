@@ -3,40 +3,48 @@
 
 import Link from "next/link";
 
-const SECTORS = ["Agriculture", "Textiles", "Pharma", "Manufacturing", "Chemicals", "Food & Beverages", "Gems & Jewellery", "Engineering", "B2B", "FMCG", "Mobile Logistics"];
+const SERVICES = [
+  { label: "Performance Marketing", href: "/services/performance-marketing" },
+  { label: "Social Media", href: "/services/social-media-marketing" },
+  { label: "SEO Services", href: "/services/seo" },
+  { label: "App Growth", href: "/services/mobile-app-marketing" },
+  { label: "E-Commerce", href: "/services/ecommerce-marketing" },
+  { label: "Content Strategy", href: "/services/content-marketing" },
+  { label: "Conversion (CRO)", href: "/services/cro" }
+];
 
 export function Footer() {
   return (
-    <footer className="footer bg-[#1a1a1a]">
-      {/* Sector Links Bar */}
-      <div className="bg-[#0a0a0a] border-b border-white/5">
-        <div className="max-w-[1080px] mx-auto overflow-x-auto scrollbar-hide flex">
-          {SECTORS.map((s) => (
+    <footer className="footer bg-[#0a0a0a] border-t border-white/5">
+      {/* Services Links Bar */}
+      <div className="bg-primary/5 border-b border-white/5">
+        <div className="max-w-7xl mx-auto overflow-x-auto scrollbar-hide flex">
+          {SERVICES.map((s) => (
             <Link
-              key={s}
-              href="/sectors"
-              className="flex-shrink-0 px-5 py-4 border-r border-white/5 text-[11px] font-bold text-white/40 hover:text-primary transition-colors uppercase tracking-widest whitespace-nowrap"
+              key={s.label}
+              href={s.href}
+              className="flex-shrink-0 px-8 py-5 border-r border-white/5 text-[11px] font-bold text-white/40 hover:text-primary transition-colors uppercase tracking-[0.2em] whitespace-nowrap"
             >
-              {s}
+              {s.label}
             </Link>
           ))}
         </div>
       </div>
 
-      <div className="max-w-[1080px] mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-        <div className="flex flex-col gap-6">
+      <div className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+        <div className="flex flex-col gap-8">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-primary rounded flex items-center justify-center font-black text-xl text-[#0a0a0a]">
+            <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center font-black text-2xl text-secondary transition-transform group-hover:rotate-12">
               S
             </div>
-            <span className="text-[16px] font-black text-white leading-tight uppercase tracking-tight">Shyama Overseas</span>
+            <span className="text-xl font-black text-white leading-tight uppercase tracking-tight">Shyama Overseas</span>
           </Link>
-          <p className="text-[13px] text-white/40 leading-relaxed max-w-[260px]">
-            We are one of India's Leading International Trade & Logistics Agencies. Connecting India to the world since 2005.
+          <p className="text-[14px] text-white/40 leading-relaxed max-w-[300px] italic">
+            Engineering digital dominance for brands that refuse to settle. We turn data into growth and ideas into market-leading visions.
           </p>
-          <div className="flex gap-3">
-            {["🔗", "📘", "🐦", "📸", "▶️"].map((ic, i) => (
-              <button key={i} className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary/20 hover:border-primary/40 transition-all text-base">
+          <div className="flex gap-4">
+            {["🔗", "📘", "📸", "▶️"].map((ic, i) => (
+              <button key={i} className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary/20 hover:border-primary transition-all text-lg">
                 {ic}
               </button>
             ))}
@@ -44,12 +52,12 @@ export function Footer() {
         </div>
 
         <div>
-          <h6 className="text-[14px] font-bold text-white mb-8 uppercase tracking-widest text-primary/80">Important Links</h6>
-          <ul className="flex flex-col gap-4">
-            {[["Our Story", "/about"], ["Services", "/services"], ["Our Portfolio", "/portfolio"], ["Sectors", "/sectors"], ["Blog", "/blog"], ["Careers", "/careers"]].map(([l, p]) => (
+          <h6 className="text-[14px] font-black text-white mb-10 uppercase tracking-[0.3em] text-primary">Quick Navigation</h6>
+          <ul className="flex flex-col gap-5">
+            {[["About Us", "/about"], ["Our Services", "/services"], ["Client Success", "/portfolio"], ["Insights Blog", "/blog"], ["Join the Team", "/careers"]].map(([l, p]) => (
               <li key={l}>
-                <Link href={p} className="text-[13px] text-white/45 hover:text-primary transition-colors flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 bg-primary/20 rounded-full group-hover:bg-primary transition-colors" /> {l}
+                <Link href={p} className="text-[14px] text-white/45 hover:text-primary transition-colors flex items-center gap-3 group font-medium">
+                  <span className="w-1.5 h-1.5 bg-primary/20 rounded-full group-hover:bg-primary transition-all" /> {l}
                 </Link>
               </li>
             ))}
@@ -57,52 +65,53 @@ export function Footer() {
         </div>
 
         <div>
-          <h6 className="text-[14px] font-bold text-white mb-8 uppercase tracking-widest text-primary/80">Our Ventures</h6>
-          <ul className="flex flex-col gap-4">
-            <li><Link href="/blog" className="text-[13px] text-white/45 hover:text-primary transition-colors">Trade Desk Blog</Link></li>
+          <h6 className="text-[14px] font-black text-white mb-10 uppercase tracking-[0.3em] text-primary">Expertise</h6>
+          <ul className="flex flex-col gap-5">
+            {SERVICES.slice(0, 5).map((s) => (
+              <li key={s.label}>
+                <Link href={s.href} className="text-[14px] text-white/45 hover:text-primary transition-colors font-medium">{s.label}</Link>
+              </li>
+            ))}
           </ul>
-          <div className="mt-10 pt-10 border-t border-white/5">
-            <div className="text-[12px] font-bold text-white/60 mb-4 uppercase tracking-[0.2em]">Certifications</div>
-            <p className="text-[12px] text-white/30 leading-relaxed">
-              IEC Registered • ISO 9001:2015<br />FIEO Member • CHA Licensed
-            </p>
-            <div className="mt-6 w-16 h-16 bg-white/5 rounded-full border border-primary/20 flex flex-col items-center justify-center text-[10px] font-bold text-primary leading-none shadow-[0_0_15px_rgba(248,155,52,0.1)]">
-              ISO<br />9001<br />2015
+          <div className="mt-12 pt-10 border-t border-white/5">
+            <div className="text-[11px] font-black text-white/60 mb-6 uppercase tracking-[0.3em]">Accreditations</div>
+            <div className="flex gap-4">
+              <div className="w-14 h-14 bg-white/5 rounded-xl border border-primary/20 flex items-center justify-center text-[10px] font-black text-primary leading-none text-center shadow-[0_0_20px_rgba(248,155,52,0.1)]">
+                GOOGLE<br/>PARTNER
+              </div>
+              <div className="w-14 h-14 bg-white/5 rounded-xl border border-primary/20 flex items-center justify-center text-[10px] font-black text-primary leading-none text-center shadow-[0_0_20px_rgba(248,155,52,0.1)]">
+                META<br/>EXPERT
+              </div>
             </div>
           </div>
         </div>
 
         <div>
-          <h6 className="text-[14px] font-bold text-white mb-8 uppercase tracking-widest text-primary/80">Get In Touch</h6>
-          <ul className="flex flex-col gap-4 text-[13px] text-white/45">
-            <li className="flex items-start gap-2">
-              <span className="text-primary font-bold">📍</span>
-              <span>Mumbai • Delhi • Surat<br />Bangalore • Chennai</span>
+          <h6 className="text-[14px] font-black text-white mb-10 uppercase tracking-[0.3em] text-primary">Connect</h6>
+          <ul className="flex flex-col gap-6 text-[14px] text-white/45 font-medium">
+            <li className="flex items-start gap-4">
+              <span className="text-xl">📍</span>
+              <span>Ahmedabad • Surat • Mumbai<br />India's Digital Growth Hubs</span>
             </li>
-            <li className="pt-2">
-              <a href="tel:+919876543210" className="flex items-center gap-3 text-white hover:text-primary transition-colors">
-                <span className="w-8 h-8 bg-white/5 rounded flex items-center justify-center">📞</span> +91-98765 43210
-              </a>
-            </li>
-            <li>
-              <a href="tel:+918765432109" className="flex items-center gap-3 text-white hover:text-primary transition-colors">
-                <span className="w-8 h-8 bg-white/5 rounded flex items-center justify-center">📞</span> +91-87654 32109
+            <li className="pt-4">
+              <a href="tel:+919033131093" className="flex items-center gap-4 text-white hover:text-primary transition-all group">
+                <span className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-all">📞</span> +91 90331 31093
               </a>
             </li>
             <li className="pt-2">
-              <a href="mailto:info@shyamaoverseas.com" className="flex items-center gap-3 text-primary hover:underline">
-                <span className="w-8 h-8 bg-primary/10 rounded flex items-center justify-center text-primary">✉️</span> info@shyamaoverseas.com
+              <a href="mailto:growth@shyamaoverseas.com" className="flex items-center gap-4 text-primary hover:underline group">
+                <span className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary group-hover:bg-primary/20 transition-all">✉️</span> growth@shyamaoverseas.com
               </a>
             </li>
           </ul>
         </div>
       </div>
 
-      <div className="max-w-[1080px] mx-auto px-6 py-8 border-t border-white/5 text-[12px] text-white/30 flex flex-col md:row justify-between items-center gap-4 text-center md:text-left">
-        <p>© 2005–2025 | All Rights Reserved by <strong>Shyama Overseas | <Link href="/" className="text-primary hover:underline">India's Gateway to Global Trade</Link></strong></p>
-        <div className="flex gap-8">
+      <div className="max-w-7xl mx-auto px-6 py-10 border-t border-white/5 text-[12px] text-white/30 flex flex-col md:flex-row justify-between items-center gap-6 text-center">
+        <p>© 2005–2025 Shyama Overseas | <strong className="text-primary">Engineering Digital Dominance</strong></p>
+        <div className="flex gap-10 font-bold uppercase tracking-widest">
           <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-          <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+          <Link href="#" className="hover:text-white transition-colors">Terms of Growth</Link>
         </div>
       </div>
     </footer>

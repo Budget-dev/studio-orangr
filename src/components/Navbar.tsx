@@ -7,21 +7,36 @@ import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 
-const NAV = [
+interface NavChild {
+  label: string;
+  href: string;
+}
+
+interface NavItem {
+  label: string;
+  page: string;
+  children?: NavChild[];
+}
+
+const NAV: NavItem[] = [
   { label: "Home", page: "/" },
-  { label: "Our Story", page: "/about", children: ["Our Squad"] },
+  { label: "About", page: "/about" },
   {
-    label: "Services", page: "/services",
-    children: ["Freight Forwarding", "Sea Freight", "Warehousing", "Customs Clearance", "Supply Chain", "Export Consulting", "Packaging & Labeling"]
+    label: "Services", 
+    page: "/services",
+    children: [
+      { label: "Performance Marketing", href: "/services/performance-marketing" },
+      { label: "Mobile App Marketing", href: "/services/mobile-app-marketing" },
+      { label: "E-Commerce Marketing", href: "/services/ecommerce-marketing" },
+      { label: "Social Media Marketing", href: "/services/social-media-marketing" },
+      { label: "Content Marketing", href: "/services/content-marketing" },
+      { label: "SEO", href: "/services/seo" },
+      { label: "CRO", href: "/services/cro" },
+    ]
   },
-  { label: "Clients", page: "/portfolio" },
-  {
-    label: "Sectors", page: "/sectors",
-    children: ["Agriculture", "Textiles", "Pharma", "Manufacturing", "Chemicals", "Food & Beverages", "Gems & Jewellery", "Engineering"]
-  },
-  { label: "Blogs", page: "/blog" },
-  { label: "Careers", page: "/careers" },
-  { label: "Contact Us", page: "/contact" },
+  { label: "Success Stories", page: "/portfolio" },
+  { label: "Insights", page: "/blog" },
+  { label: "Contact", page: "/contact" },
 ];
 
 export function Navbar() {
@@ -49,7 +64,7 @@ export function Navbar() {
           </div>
           <div className="flex flex-col">
             <span className="text-[14px] font-extrabold text-white leading-tight uppercase tracking-tight">Shyama Overseas</span>
-            <span className="text-[9px] font-semibold text-primary uppercase tracking-[0.2em]">Global Trade Solutions</span>
+            <span className="text-[9px] font-semibold text-primary uppercase tracking-[0.2em]">Digital Growth Agency</span>
           </div>
         </Link>
 
@@ -68,14 +83,14 @@ export function Navbar() {
               </Link>
               {n.children && (
                 <div className="absolute top-full left-0 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
-                  <div className="bg-[#f2f2f2] min-width-[200px] shadow-2xl rounded-sm overflow-hidden py-1 border-t-2 border-primary">
+                  <div className="bg-white min-w-[240px] shadow-2xl rounded-md overflow-hidden py-2 border-t-4 border-primary">
                     {n.children.map((c) => (
                       <Link
-                        key={c}
-                        href={n.page}
-                        className="block px-5 py-2.5 text-[12.5px] font-medium text-[#5f5f5f] hover:bg-[#ebebeb] hover:text-[#2e2e2e] transition-colors border-b border-black/5 last:border-0"
+                        key={c.label}
+                        href={c.href}
+                        className="block px-6 py-3 text-[13px] font-semibold text-secondary hover:bg-primary/5 hover:text-primary transition-colors border-b border-black/5 last:border-0"
                       >
-                        {c}
+                        {c.label}
                       </Link>
                     ))}
                   </div>
@@ -87,9 +102,9 @@ export function Navbar() {
 
         <Link
           href="/contact"
-          className="hidden lg:block bg-transparent border-2 border-primary text-primary px-5 py-2 text-[13px] font-bold hover:bg-primary hover:text-[#0a0a0a] transition-all"
+          className="hidden lg:block bg-primary border-2 border-primary text-secondary px-6 py-2 rounded-full text-[13px] font-bold hover:bg-transparent hover:text-primary transition-all"
         >
-          Our Profile
+          Get Audit
         </Link>
 
         <button className="lg:hidden text-white p-2" onClick={() => setMob(!mob)}>
@@ -100,27 +115,45 @@ export function Navbar() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 top-[60px] bg-[#0a0a0a] z-[999] transition-transform duration-300 lg:hidden overflow-y-auto border-t border-white/5",
+          "fixed inset-0 top-0 bg-[#0a0a0a] z-[1001] transition-transform duration-300 lg:hidden overflow-y-auto",
           mob ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <div className="flex flex-col p-6 gap-1">
+        <div className="flex flex-col p-8 pt-24 gap-4">
+          <button className="absolute top-6 right-6 text-white" onClick={() => setMob(false)}>
+            <X className="w-8 h-8" />
+          </button>
           {NAV.map((n) => (
-            <Link
-              key={n.label}
-              href={n.page}
-              className="text-[14px] font-medium py-3.5 border-b border-white/5 text-white/80 hover:text-primary"
-              onClick={() => setMob(false)}
-            >
-              {n.label}
-            </Link>
+            <div key={n.label} className="flex flex-col gap-2">
+              <Link
+                href={n.page}
+                className="text-2xl font-bold text-white hover:text-primary"
+                onClick={() => !n.children && setMob(false)}
+              >
+                {n.label}
+              </Link>
+              {n.children && (
+                <div className="flex flex-col gap-2 pl-4 border-l border-white/10 mt-2 mb-4">
+                  {n.children.map(child => (
+                    <Link 
+                      key={child.label} 
+                      href={child.href} 
+                      className="text-white/60 hover:text-primary text-lg"
+                      onClick={() => setMob(false)}
+                    >
+                      {child.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
           <Link
             href="/contact"
-            className="mt-6 w-full text-center bg-primary text-[#0a0a0a] py-4 rounded-md font-bold"
+            className="mt-8 w-full text-center bg-primary text-[#0a0a0a] py-5 rounded-full font-black text-lg uppercase tracking-widest"
             onClick={() => setMob(false)}
           >
-            Our Profile
+            Get Free Audit
           </Link>
         </div>
       </div>
