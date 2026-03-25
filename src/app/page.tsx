@@ -21,47 +21,46 @@ const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Our Story", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Sectors", href: "/sectors" },
+  { label: "Case Studies", href: "/portfolio" },
+  { label: "Industries", href: "/sectors" },
   { label: "Insights", href: "/blog" },
-  { label: "Careers", href: "/careers" },
   { label: "Contact Us", href: "/contact" },
 ];
 
 const testimonials = [
   {
-    text: "Shyama Overseas transformed our global presence. Their attention to detail in digital trade logistics is truly unmatched. They helped us scale Idea to Vision.",
+    text: "Shyama Overseas transformed our digital presence. Their attention to detail in performance marketing is truly unmatched. They helped us scale Idea to Vision.",
     name: "Arjun Mehta",
     role: "CEO, Innovate India",
     image: "https://picsum.photos/seed/arjun/100/100"
   },
   {
-    text: "The digital trade solutions provided by conviction helped us reach 40+ countries. Their expertise in logistics and ad-tech is phenomenal for Indian brands.",
+    text: "The digital growth solutions provided by the team helped us reach 40+ global markets. Their expertise in customer acquisition and ad-tech is phenomenal.",
     name: "Priya Sharma",
     role: "Marketing Director, Ethos Retail",
     image: "https://picsum.photos/seed/priya/100/100"
   },
   {
-    text: "Reliable, creative, and fast. They are the perfect partner for scaling any export business. Their in-house studio handled everything perfectly.",
+    text: "Reliable, creative, and fast. They are the perfect partner for scaling any digital business. Their in-house studio handled everything perfectly.",
     name: "Vikram Goel",
-    role: "Founder, Goel Logistics",
+    role: "Founder, Goel D2C",
     image: "https://picsum.photos/seed/vikram/100/100"
   },
   {
-    text: "From branding to performance marketing, they handle it all with absolute professionalism and deep insight into the global export market.",
+    text: "From branding to performance marketing, they handle it all with absolute professionalism and deep insight into the digital landscape.",
     name: "Sanjay Gupta",
-    role: "Head of Digital, Bharat Tech",
+    role: "Head of Growth, Bharat Tech",
     image: "https://picsum.photos/seed/sanjay/100/100"
   }
 ];
 
 const GALLERY_ITEMS: MediaItemType[] = [
-  { id: 1, type: 'image', title: 'Global Logistics', desc: 'Indian Private Trade Logistics Operations', url: '/assets/images/_extra____Indian_private_202603201015.png', span: 'md:col-span-2 md:row-span-2' },
-  { id: 2, type: 'image', title: 'Trade Operations', desc: 'Upper Middle Trade Operations Excellence', url: '/assets/images/_extra____upper_middle_202603191201 - Copy.png', span: 'md:col-span-1 md:row-span-1' },
-  { id: 3, type: 'image', title: 'Digital Insights', desc: 'Subject A Trade Insights Analysis', url: '/assets/images/imagecolur.png', span: 'md:col-span-1 md:row-span-1' },
-  { id: 4, type: 'image', title: 'Export Hub', desc: 'Indian Trade Subject 1 - Primary Port', url: '/assets/images/imagesloyred.png', span: 'md:col-span-1 md:row-span-1' },
-  { id: 5, type: 'image', title: 'Logistics Network', desc: 'Indian Trade Subject 2 - Global Reach', url: '/assets/images/nyf.png', span: 'md:col-span-1 md:row-span-2' },
-  { id: 6, type: 'image', title: 'Trade Mastery', desc: 'Indian Trade Subject 3 - Strategic Growth', url: '/assets/images/niraj.png', span: 'md:col-span-2 md:row-span-1' },
+  { id: 1, type: 'image', title: 'Performance Marketing', desc: 'Full-Funnel Campaign Strategy & Execution', url: 'https://picsum.photos/seed/mkt1/800/800', span: 'md:col-span-2 md:row-span-2' },
+  { id: 2, type: 'image', title: 'Brand Identity', desc: 'Creative Branding for Global Tech Leaders', url: 'https://picsum.photos/seed/mkt2/600/400', span: 'md:col-span-1 md:row-span-1' },
+  { id: 3, type: 'image', title: 'Digital Strategy', desc: 'Data-Driven Insights for Market Entry', url: 'https://picsum.photos/seed/mkt3/600/400', span: 'md:col-span-1 md:row-span-1' },
+  { id: 4, type: 'image', title: 'E-Commerce Growth', desc: 'Scaling D2C Brands to 8-Figures', url: 'https://picsum.photos/seed/mkt4/600/400', span: 'md:col-span-1 md:row-span-1' },
+  { id: 5, type: 'image', title: 'Social Impact', desc: 'Viral Campaigns with Massive Reach', url: 'https://picsum.photos/seed/mkt5/400/600', span: 'md:col-span-1 md:row-span-2' },
+  { id: 6, type: 'image', title: 'Conversion (CRO)', desc: 'Optimizing the User Journey for ROI', url: 'https://picsum.photos/seed/mkt6/800/400', span: 'md:col-span-2 md:row-span-1' },
 ];
 
 const OPERATIONS_FRAMES: Frame[] = [
@@ -167,7 +166,7 @@ export default function HomePage() {
           </div>
           <div className="flex flex-col">
             <span className={cn("text-[14px] font-extrabold leading-tight uppercase tracking-tight", isScrolled ? "text-secondary" : "text-white")}>Shyama Overseas</span>
-            <span className="text-[9px] font-semibold text-primary uppercase tracking-[0.2em]">Global Trade Solutions</span>
+            <span className="text-[9px] font-semibold text-primary uppercase tracking-[0.2em]">Digital Growth Agency</span>
           </div>
         </Link>
 
@@ -191,7 +190,7 @@ export default function HomePage() {
           href="/contact"
           className="hidden lg:block bg-primary border-2 border-primary text-secondary px-5 py-2 rounded-full text-[13px] font-bold hover:bg-transparent hover:text-primary transition-all"
         >
-          Our Profile
+          Get Free Audit
         </Link>
 
         <button className={cn("lg:hidden p-2", isScrolled ? "text-secondary" : "text-white")} onClick={() => setIsMobMenuOpen(true)}>
@@ -236,8 +235,8 @@ export default function HomePage() {
         {/* HERO SECTION */}
         <section className="relative h-screen flex items-center overflow-hidden bg-secondary w-full">
           <Image 
-            src="/assets/images/_extra____Indian_private_202603201015.png" 
-            alt="Hero Background" 
+            src="https://img.freepik.com/premium-vector/digital-marketing-agency-corporate-social-media-banner_1109882-7771.jpg?w=1480" 
+            alt="Digital Growth Banner" 
             fill 
             className="object-cover object-center opacity-60 scale-105 animate-pulse-slow"
             priority
@@ -263,7 +262,7 @@ export default function HomePage() {
                   </h1>
 
                   <p className="text-xl md:text-2xl text-white/80 font-light leading-relaxed mb-12 max-w-2xl border-l-4 border-primary pl-8 italic">
-                    Scaling Indian brands to global landmarks with precision digital trade and creative ad-tech.
+                    Scaling ambitious brands to global landmarks with precision performance marketing and creative digital strategy.
                   </p>
 
                   <div className="flex flex-col sm:flex-row gap-6">
@@ -284,7 +283,7 @@ export default function HomePage() {
             <div className="flex gap-16 w-max animate-marquee-slow items-center">
               {[...Array(6)].map((_, i) => (
                 <span key={i} className="text-secondary font-black text-3xl uppercase tracking-[10px] whitespace-nowrap">
-                  GLOBAL TRADE SOLUTIONS • DIGITAL DOMINANCE • STRATEGIC EXCELLENCE • 
+                  PERFORMANCE MARKETING • DIGITAL DOMINANCE • CREATIVE EXCELLENCE • 
                 </span>
               ))}
             </div>
@@ -299,7 +298,7 @@ export default function HomePage() {
                 <h2 className="text-4xl font-sora font-light text-secondary">
                   Our <span className="text-primary font-bold italic">Strategic Network</span>
                 </h2>
-                <p className="text-primary font-bold uppercase tracking-widest text-[10px] mt-2 italic">Trusted by Global Leaders</p>
+                <p className="text-primary font-bold uppercase tracking-widest text-[10px] mt-2 italic">Brands We've Transformed</p>
               </div>
               <LogoCloud />
             </FadeIn>
@@ -311,7 +310,7 @@ export default function HomePage() {
           <InteractiveBentoGallery 
             mediaItems={GALLERY_ITEMS} 
             title="Our Creative Showcase" 
-            description="A Visual Journey Through Our Global Success"
+            description="A Visual Journey Through Our Digital Success"
           />
         </section>
 
@@ -325,7 +324,7 @@ export default function HomePage() {
                 <span className="text-primary font-bold italic">In-house Creative Studio</span>
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed italic max-w-3xl">
-                As a full-service digital house, we manage design, development, content production, and ad-tech implementation entirely in-house — giving you a single point of accountability.
+                As a full-service digital house, we manage strategy, creative, development, and ad-tech implementation entirely in-house — giving you a single point of accountability.
               </p>
             </FadeIn>
           </div>
@@ -348,7 +347,7 @@ export default function HomePage() {
               <div className="text-center mb-20">
                 <div className="text-primary font-bold uppercase tracking-[4px] text-xs mb-4">Global Reach</div>
                 <h2 className="text-4xl md:text-5xl font-sora font-light text-secondary leading-tight">
-                  Empowering <span className="font-bold">250+ Brands</span> <span className="text-primary">Worldwide</span>
+                  Empowering <span className="font-bold">150+ Brands</span> <span className="text-primary">Worldwide</span>
                 </h2>
               </div>
             </FadeIn>
@@ -371,7 +370,7 @@ export default function HomePage() {
                 <h2 className="text-4xl font-sora font-light text-secondary">
                   Latest from <span className="text-primary font-bold italic">Our Partners</span>
                 </h2>
-                <p className="text-primary font-bold uppercase tracking-widest text-[10px] mt-2 italic">Client Voices</p>
+                <p className="text-primary font-bold uppercase tracking-widest text-[10px] mt-2 italic">Growth Stories</p>
               </div>
             </FadeIn>
             
@@ -418,7 +417,7 @@ export default function HomePage() {
                   <div className="space-y-8">
                     <div className="group">
                       <h4 className="text-primary font-black uppercase tracking-[4px] text-[10px] mb-3">HQ Locations</h4>
-                      <p className="text-xl font-sora font-bold">Ahmedabad • Surat • Vadodara</p>
+                      <p className="text-xl font-sora font-bold">Ahmedabad • Surat • Mumbai</p>
                     </div>
                   </div>
                 </div>
@@ -436,10 +435,10 @@ export default function HomePage() {
             <span className="text-2xl font-sora font-black tracking-tight uppercase">Shyama Overseas</span>
           </Link>
           <p className="text-white/40 text-sm italic mb-12 max-w-xl mx-auto">
-            Empowering Indian brands to transcend borders through strategic digital excellence.
+            Empowering brands to transcend borders through strategic digital excellence and performance marketing.
           </p>
           <div className="pt-12 border-t border-white/5 text-white/20 text-xs font-bold uppercase tracking-widest">
-            © 2005–2025 Shyama Overseas | India's Gateway to Global Trade
+            © 2005–2025 Shyama Overseas | Digital Growth Agency
           </div>
         </div>
       </footer>

@@ -15,8 +15,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Shyam Overseas | Global Trade Maestros',
-  description: 'Expanding Horizons, Building Bridges. Leading Import-Export and Logistics Solutions.',
+  title: 'Shyama Overseas | Digital Growth Maestros',
+  description: 'Data-first. Creative-led. Results-obsessed. Leading Performance Marketing and Digital Strategy Solutions for Ambitious Brands.',
 };
 
 export default function RootLayout({

@@ -2,39 +2,39 @@
   "placeholderImages": [
     {
       "id": "gallery-1",
-      "description": "Indian Private Trade Logistics",
-      "imageUrl": "/assets/images/_extra____Indian_private_202603201015.png",
-      "imageHint": "global logistics"
+      "description": "Digital Growth Campaign Analysis",
+      "imageUrl": "https://picsum.photos/seed/mkt1/800/800",
+      "imageHint": "digital marketing"
     },
     {
       "id": "gallery-2",
-      "description": "Upper Middle Trade Operations",
-      "imageUrl": "/assets/images/_extra____upper_middle_202603191201 - Copy.png",
-      "imageHint": "trade operations"
+      "description": "Performance Strategy Session",
+      "imageUrl": "https://picsum.photos/seed/mkt2/600/400",
+      "imageHint": "marketing strategy"
     },
     {
       "id": "gallery-3",
-      "description": "Subject A Trade Insights",
-      "imageUrl": "/assets/images/imagecolur.png",
-      "imageHint": "trade insights"
+      "description": "Market Data Analysis",
+      "imageUrl": "https://picsum.photos/seed/mkt3/600/400",
+      "imageHint": "data analysis"
     },
     {
       "id": "gallery-4",
-      "description": "Indian Trade Subject 1",
-      "imageUrl": "/assets/images/imagesloyred.png",
-      "imageHint": "indian export"
+      "description": "E-Commerce Success Roadmap",
+      "imageUrl": "https://picsum.photos/seed/mkt4/600/400",
+      "imageHint": "ecommerce growth"
     },
     {
       "id": "gallery-5",
-      "description": "Indian Trade Subject 2",
-      "imageUrl": "/assets/images/nyf.png",
-      "imageHint": "export logistics"
+      "description": "Social Media Engagement Hub",
+      "imageUrl": "https://picsum.photos/seed/mkt5/400/600",
+      "imageHint": "social media"
     },
     {
       "id": "gallery-6",
-      "description": "Indian Trade Subject 3",
-      "imageUrl": "/assets/images/niraj.png",
-      "imageHint": "global trade"
+      "description": "Conversion Rate Success",
+      "imageUrl": "https://picsum.photos/seed/mkt6/800/400",
+      "imageHint": "business growth"
     }
   ]
 }

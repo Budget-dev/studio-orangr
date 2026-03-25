@@ -1,18 +1,17 @@
-
 "use client";
 
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
 const SECTORS = [
-  { icon: "🌾", name: "Agriculture", count: "40+ clients" },
-  { icon: "👗", name: "Textiles", count: "60+ clients" },
-  { icon: "💊", name: "Pharma", count: "35+ clients" },
-  { icon: "🏭", name: "Manufacturing", count: "50+ clients" },
-  { icon: "🛢️", name: "Chemicals", count: "28+ clients" },
-  { icon: "🍎", name: "Food & Beverages", count: "45+ clients" },
-  { icon: "💎", name: "Gems & Jewellery", count: "22+ clients" },
-  { icon: "⚙️", name: "Engineering", count: "38+ clients" },
+  { icon: "🛍️", name: "D2C & E-Commerce", count: "40+ brands" },
+  { icon: "💻", name: "SaaS & Tech", count: "60+ clients" },
+  { icon: "🏥", name: "Health & Wellness", count: "35+ clients" },
+  { icon: "🏠", name: "Real Estate", count: "50+ clients" },
+  { icon: "💄", name: "Beauty & Fashion", count: "28+ brands" },
+  { icon: "🍔", name: "Food & Beverage", count: "45+ clients" },
+  { icon: "💎", name: "Luxury Goods", count: "22+ brands" },
+  { icon: "💰", name: "FinTech", count: "38+ clients" },
 ];
 
 export default function SectorsPage() {
@@ -23,8 +22,8 @@ export default function SectorsPage() {
         <section className="bg-[#0a0a0a] py-24 relative overflow-hidden">
           <div className="absolute inset-0 opacity-[0.04] socialee-grid-texture" />
           <div className="relative z-10 max-w-[1080px] mx-auto px-6">
-            <div className="text-primary text-[11px] font-bold uppercase tracking-[3px] mb-4">Industries We Serve</div>
-            <h1 className="text-4xl md:text-6xl text-white font-black leading-tight mb-6">Export Expertise Across <span className="text-primary italic">Every Sector</span></h1>
+            <div className="text-primary text-[11px] font-bold uppercase tracking-[3px] mb-4">Industries We Transform</div>
+            <h1 className="text-4xl md:text-6xl text-white font-black leading-tight mb-6">Growth Strategy Across <span className="text-primary italic">Every Sector</span></h1>
           </div>
         </section>
 

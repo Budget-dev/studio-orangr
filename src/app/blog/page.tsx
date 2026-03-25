@@ -8,12 +8,12 @@ import { Clock } from "lucide-react";
 
 export default function BlogPage() {
   const BLOGS = [
-    { cat: "Export Tips", title: "How to Navigate New Customs Regulations in 2024", date: "Mar 12, 2024", emoji: "📋", bg: "#f5e6d3" },
-    { cat: "Logistics", title: "Sea vs Air Freight: Making the Right Choice for Your Cargo", date: "Feb 28, 2024", emoji: "🚢", bg: "#e6ecf5" },
-    { cat: "Industry News", title: "India's Export Opportunities: Sectors to Watch in 2024", date: "Feb 14, 2024", emoji: "🌍", bg: "#e6f5e6" },
-    { cat: "Supply Chain", title: "How Bonded Warehousing Can Transform Your Export Operations", date: "Jan 30, 2024", emoji: "🏭", bg: "#f5f0e6" },
-    { cat: "Compliance", title: "Understanding RCMC and Its Role in Export Benefits", date: "Jan 15, 2024", emoji: "📋", bg: "#fdf5e6" },
-    { cat: "Trade Finance", title: "Letter of Credit vs. Bank Guarantee: What Exporters Need to Know", date: "Dec 28, 2023", emoji: "💳", bg: "#e6f0f5" },
+    { cat: "SEO Strategy", title: "How to Master Search Intent in 2024", date: "Mar 12, 2024", emoji: "🔍", bg: "#f5e6d3" },
+    { cat: "Paid Media", title: "Google vs Meta: Where Should You Spend Your Ad Budget?", date: "Feb 28, 2024", emoji: "💰", bg: "#e6ecf5" },
+    { cat: "E-Commerce", title: "Scaling D2C: The Ultimate Guide to 8-Figure Revenue", date: "Feb 14, 2024", emoji: "🛍️", bg: "#e6f5e6" },
+    { cat: "Content", title: "Why Storytelling is Your Best Performance Marketing Asset", date: "Jan 30, 2024", emoji: "✍️", bg: "#f5f0e6" },
+    { cat: "Conversion", title: "10 Psychology Triggers That Skyrocket Landing Page Sales", date: "Jan 15, 2024", emoji: "📈", bg: "#fdf5e6" },
+    { cat: "Future Tech", title: "The Impact of AI on Digital Strategy and Creative Automation", date: "Dec 28, 2023", emoji: "🤖", bg: "#e6f0f5" },
   ];
 
   return (
@@ -22,12 +22,12 @@ export default function BlogPage() {
       <main className="animate-in fade-in duration-500">
         <section className="pt-[150px] pb-20 bg-social-gradient relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-            <div className="text-primary text-[11px] font-bold uppercase tracking-[0.3em] mb-4">Insights & News</div>
+            <div className="text-primary text-[11px] font-bold uppercase tracking-[0.3em] mb-4">Insights & Strategy</div>
             <h1 className="text-5xl lg:text-7xl font-black text-white leading-tight mb-6">
-              The <span className="text-primary italic not-italic">Trade Desk Blog</span>
+              The <span className="text-primary italic not-italic">Growth Desk Blog</span>
             </h1>
             <p className="text-white/60 text-lg max-w-xl leading-relaxed mb-8">
-              Expert insights on international trade, logistics trends, customs regulations, and export best practices from the Shyama team.
+              Expert insights on digital strategy, performance marketing, SEO, and conversion best practices from the Shyama team.
             </p>
             <div className="flex items-center gap-3 text-white/40 text-[13px]">
               <Link href="/" className="hover:text-primary transition-colors">Home</Link>
@@ -62,8 +62,8 @@ export default function BlogPage() {
         <section className="py-24 bg-[#0a0a0a] text-center">
           <div className="max-w-2xl mx-auto px-6">
             <div className="text-primary text-[11px] font-bold uppercase tracking-[0.3em] mb-4">Stay Informed</div>
-            <h2 className="text-4xl font-light text-white mb-6">Subscribe to <span className="font-bold text-primary italic not-italic">Trade Insights</span></h2>
-            <p className="text-white/60 mb-10 leading-relaxed">Monthly updates on customs changes, freight trends, and export opportunities — straight to your inbox.</p>
+            <h2 className="text-4xl font-light text-white mb-6">Subscribe to <span className="font-bold text-primary italic not-italic">Growth Insights</span></h2>
+            <p className="text-white/60 mb-10 leading-relaxed">Monthly updates on marketing trends, SEO changes, and scaling opportunities — straight to your inbox.</p>
             <div className="flex gap-4 max-w-md mx-auto">
               <input className="flex-1 bg-white/5 border border-white/20 rounded-xl px-6 py-4 text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Email Address" />
               <Button className="px-8 font-bold rounded-xl h-auto">Subscribe</Button>

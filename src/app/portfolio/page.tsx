@@ -7,12 +7,12 @@ import Link from "next/link";
 
 export default function PortfolioPage() {
   const PORTFOLIO = [
-    { name: "Rajhans Textiles", cat: "Textiles Export", emoji: "👗", bg: "#f5e6d3" },
-    { name: "AgroFresh Exports", cat: "Agriculture", emoji: "🌾", bg: "#e6f5e6" },
-    { name: "PharmaBridge", cat: "Pharmaceuticals", emoji: "💊", bg: "#e6ecf5" },
-    { name: "MetalCraft India", cat: "Engineering Goods", emoji: "⚙️", bg: "#f5f0e6" },
-    { name: "SpicePath Ltd", cat: "Food & Beverages", emoji: "🌶️", bg: "#f5ece6" },
-    { name: "GemRoute", cat: "Gems & Jewellery", emoji: "💎", bg: "#fdf5e6" },
+    { name: "Rajhans Lifestyle", cat: "Brand Strategy & PPC", emoji: "✨", bg: "#f5e6d3" },
+    { name: "AgroFresh D2C", cat: "E-Commerce Growth", emoji: "🥗", bg: "#e6f5e6" },
+    { name: "PharmaBridge Health", cat: "Performance Marketing", emoji: "🩺", bg: "#e6ecf5" },
+    { name: "MetalCraft Tech", cat: "B2B Lead Generation", emoji: "🏗️", bg: "#f5f0e6" },
+    { name: "SpicePath Gourmet", cat: "Content & Social", emoji: "🧂", bg: "#f5ece6" },
+    { name: "GemRoute Luxe", cat: "Conversion (CRO)", emoji: "💎", bg: "#fdf5e6" },
   ];
 
   return (
@@ -23,10 +23,10 @@ export default function PortfolioPage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
             <div className="text-primary text-[11px] font-bold uppercase tracking-[0.3em] mb-4">Our Work</div>
             <h1 className="text-5xl lg:text-7xl font-black text-white leading-tight mb-6">
-              Client <span className="text-primary italic not-italic">Success Stories</span>
+              Client <span className="text-primary italic not-italic">Growth Stories</span>
             </h1>
             <p className="text-white/60 text-lg max-w-xl leading-relaxed mb-8">
-              Real results from real businesses. See how we've helped companies across India expand their global footprint.
+              Real results for real brands. See how we've helped companies scale their digital footprint and drive revenue.
             </p>
             <div className="flex items-center gap-3 text-white/40 text-[13px]">
               <Link href="/" className="hover:text-primary transition-colors">Home</Link>
@@ -55,10 +55,10 @@ export default function PortfolioPage() {
 
         <section className="py-24 bg-[#0a0a0a]">
           <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4">
-            <StatsCounter target={250} suffix="+" label="Clients Served" />
-            <StatsCounter target={15000} suffix="+" label="Shipments" />
-            <StatsCounter target={98} suffix="%" label="On-Time Delivery" />
-            <StatsCounter target={40} suffix="+" label="Countries" />
+            <StatsCounter target={150} suffix="+" label="Brands Grown" />
+            <StatsCounter target={50} suffix="Cr+" label="Revenue Driven" />
+            <StatsCounter target={98} suffix="%" label="Client Retention" />
+            <StatsCounter target={40} suffix="+" label="Markets Reached" />
           </div>
         </section>
       </main>
