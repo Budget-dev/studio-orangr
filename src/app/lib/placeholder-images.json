@@ -2,39 +2,39 @@
   "placeholderImages": [
     {
       "id": "gallery-1",
-      "description": "Indian Private Trade Logistics",
+      "description": "Digital Growth Campaign Analysis",
       "imageUrl": "/assets/images/_extra____Indian_private_202603201015.png",
-      "imageHint": "global logistics"
+      "imageHint": "digital marketing"
     },
     {
       "id": "gallery-2",
-      "description": "Upper Middle Trade Operations",
+      "description": "Performance Strategy Session",
       "imageUrl": "/assets/images/_extra____upper_middle_202603191201 - Copy.png",
-      "imageHint": "trade operations"
+      "imageHint": "marketing strategy"
     },
     {
       "id": "gallery-3",
-      "description": "Subject A Trade Insights",
+      "description": "Market Data Analysis",
       "imageUrl": "/assets/images/imagecolur.png",
-      "imageHint": "trade insights"
+      "imageHint": "data analysis"
     },
     {
       "id": "gallery-4",
-      "description": "Indian Trade Subject 1",
+      "description": "E-Commerce Success Roadmap",
       "imageUrl": "/assets/images/imagesloyred.png",
-      "imageHint": "indian export"
+      "imageHint": "ecommerce growth"
     },
     {
       "id": "gallery-5",
-      "description": "Indian Trade Subject 2",
+      "description": "Social Media Engagement Hub",
       "imageUrl": "/assets/images/nyf.png",
-      "imageHint": "export logistics"
+      "imageHint": "social media"
     },
     {
       "id": "gallery-6",
-      "description": "Indian Trade Subject 3",
+      "description": "Conversion Rate Success",
       "imageUrl": "/assets/images/niraj.png",
-      "imageHint": "global trade"
+      "imageHint": "business growth"
     }
   ]
 }

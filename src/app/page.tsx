@@ -21,46 +21,46 @@ const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Our Story", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Case Studies", href: "/portfolio" },
-  { label: "Industries", href: "/sectors" },
+  { label: "Success Stories", href: "/portfolio" },
+  { label: "Sectors", href: "/sectors" },
   { label: "Insights", href: "/blog" },
   { label: "Contact Us", href: "/contact" },
 ];
 
 const testimonials = [
   {
-    text: "Shyama Overseas transformed our digital presence. Their attention to detail in performance marketing is truly unmatched. They helped us scale Idea to Vision.",
+    text: "Shyama Overseas transformed our digital presence. Their attention to detail in performance marketing is truly unmatched. They helped us scale from Idea to Vision.",
     name: "Arjun Mehta",
-    role: "CEO, Innovate India",
+    role: "Founder, Innovate Tech",
     image: "https://picsum.photos/seed/arjun/100/100"
   },
   {
     text: "The digital growth solutions provided by the team helped us reach 40+ global markets. Their expertise in customer acquisition and ad-tech is phenomenal.",
     name: "Priya Sharma",
-    role: "Marketing Director, Ethos Retail",
+    role: "Marketing Head, Ethos D2C",
     image: "https://picsum.photos/seed/priya/100/100"
   },
   {
     text: "Reliable, creative, and fast. They are the perfect partner for scaling any digital business. Their in-house studio handled everything perfectly.",
     name: "Vikram Goel",
-    role: "Founder, Goel D2C",
+    role: "CEO, Goel Enterprises",
     image: "https://picsum.photos/seed/vikram/100/100"
   },
   {
     text: "From branding to performance marketing, they handle it all with absolute professionalism and deep insight into the digital landscape.",
     name: "Sanjay Gupta",
-    role: "Head of Growth, Bharat Tech",
+    role: "Growth Director, Bharat Brand",
     image: "https://picsum.photos/seed/sanjay/100/100"
   }
 ];
 
 const GALLERY_ITEMS: MediaItemType[] = [
-  { id: 1, type: 'image', title: 'Performance Marketing', desc: 'Full-Funnel Campaign Strategy & Execution', url: 'https://picsum.photos/seed/mkt1/800/800', span: 'md:col-span-2 md:row-span-2' },
-  { id: 2, type: 'image', title: 'Brand Identity', desc: 'Creative Branding for Global Tech Leaders', url: 'https://picsum.photos/seed/mkt2/600/400', span: 'md:col-span-1 md:row-span-1' },
-  { id: 3, type: 'image', title: 'Digital Strategy', desc: 'Data-Driven Insights for Market Entry', url: 'https://picsum.photos/seed/mkt3/600/400', span: 'md:col-span-1 md:row-span-1' },
-  { id: 4, type: 'image', title: 'E-Commerce Growth', desc: 'Scaling D2C Brands to 8-Figures', url: 'https://picsum.photos/seed/mkt4/600/400', span: 'md:col-span-1 md:row-span-1' },
-  { id: 5, type: 'image', title: 'Social Impact', desc: 'Viral Campaigns with Massive Reach', url: 'https://picsum.photos/seed/mkt5/400/600', span: 'md:col-span-1 md:row-span-2' },
-  { id: 6, type: 'image', title: 'Conversion (CRO)', desc: 'Optimizing the User Journey for ROI', url: 'https://picsum.photos/seed/mkt6/800/400', span: 'md:col-span-2 md:row-span-1' },
+  { id: 1, type: 'image', title: 'Performance Marketing', desc: 'Full-Funnel Campaign Strategy & Execution', url: '/assets/images/_extra____Indian_private_202603201015.png', span: 'md:col-span-2 md:row-span-2' },
+  { id: 2, type: 'image', title: 'Brand Identity', desc: 'Creative Branding for Global Tech Leaders', url: '/assets/images/_extra____upper_middle_202603191201 - Copy.png', span: 'md:col-span-1 md:row-span-1' },
+  { id: 3, type: 'image', title: 'Digital Strategy', desc: 'Data-Driven Insights for Market Entry', url: '/assets/images/imagecolur.png', span: 'md:col-span-1 md:row-span-1' },
+  { id: 4, type: 'image', title: 'E-Commerce Growth', desc: 'Scaling D2C Brands to 8-Figures', url: '/assets/images/imagesloyred.png', span: 'md:col-span-1 md:row-span-1' },
+  { id: 5, type: 'image', title: 'Social Impact', desc: 'Viral Campaigns with Massive Reach', url: '/assets/images/nyf.png', span: 'md:col-span-1 md:row-span-2' },
+  { id: 6, type: 'image', title: 'Conversion (CRO)', desc: 'Optimizing the User Journey for ROI', url: '/assets/images/niraj.png', span: 'md:col-span-2 md:row-span-1' },
 ];
 
 const OPERATIONS_FRAMES: Frame[] = [
