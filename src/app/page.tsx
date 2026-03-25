@@ -70,29 +70,29 @@ const GALLERY_ITEMS: MediaItemType[] = [
 ];
 
 const OPERATIONS_VIDEOS = [
-  { id: 1, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.14%20PM.mp4", title: "Market Intelligence", subtitle: "Data-Driven Insights" },
-  { id: 2, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.18%20PM%20(1).mp4", title: "Growth Analytics", subtitle: "Performance Metrics" },
-  { id: 3, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.18%20PM.mp4", title: "Campaign Strategy", subtitle: "Strategic Execution" },
-  { id: 4, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM%20(1).mp4", title: "Brand Vision", subtitle: "Creative Excellence" },
-  { id: 5, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM%20(2).mp4", title: "Digital Dominance", subtitle: "Market Leadership" },
-  { id: 6, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM%20(3).mp4", title: "Performance Hub", subtitle: "ROI Focused Results" },
-  { id: 7, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM.mp4", title: "Growth Engine", subtitle: "Scalable Solutions" },
-  { id: 8, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(1).mp4", title: "Strategic Roadmap", subtitle: "Success Oriented" },
-  { id: 9, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(2).mp4", title: "Execution Excellence", subtitle: "Flawless Delivery" },
-  { id: 10, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(3).mp4", title: "Creative Studio", subtitle: "In-house Mastery" },
-  { id: 11, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(4).mp4", title: "Global Reach", subtitle: "Transcending Borders" },
-  { id: 12, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(5).mp4", title: "Impact Analysis", subtitle: "Measurable Growth" },
-  { id: 13, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM.mp4", title: "Visionary Growth", subtitle: "Future Ready" },
-  { id: 14, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(1).mp4", title: "Strategy Sync", subtitle: "Collaborative Success" },
-  { id: 15, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(2).mp4", title: "Performance Track", subtitle: "Real-time Optimization" },
-  { id: 16, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(3).mp4", title: "Market Mastery", subtitle: "Competitive Edge" },
-  { id: 17, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(4).mp4", title: "Digital Blueprint", subtitle: "Structured Growth" },
-  { id: 18, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(5).mp4", title: "Creative Pulse", subtitle: "Vibrant Campaigns" },
-  { id: 19, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(6).mp4", title: "Success Metrics", subtitle: "Growth Defined" },
-  { id: 20, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(7).mp4", title: "Client First", subtitle: "Relationship Driven" },
-  { id: 21, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(8).mp4", title: "Innovation Hub", subtitle: "Next-gen Marketing" },
-  { id: 22, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(9).mp4", title: "Agility Scale", subtitle: "Fast & Effective" },
-  { id: 23, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM.mp4", title: "Growth Legacy", subtitle: "Since 2005" },
+  { id: 1, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.14%20PM.mp4", title: "Market Intel", subtitle: "Data Insights" },
+  { id: 2, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.18%20PM%20(1).mp4", title: "Growth Lab", subtitle: "Metrics Hub" },
+  { id: 3, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.18%20PM.mp4", title: "Campaigns", subtitle: "Live Tracking" },
+  { id: 4, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM%20(1).mp4", title: "Brand Vision", subtitle: "Creative Studio" },
+  { id: 5, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM%20(2).mp4", title: "Operations", subtitle: "Global Scale" },
+  { id: 6, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM%20(3).mp4", title: "Performance", subtitle: "Ad-Tech Hub" },
+  { id: 7, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM.mp4", title: "Strategy", subtitle: "Planning Room" },
+  { id: 8, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(1).mp4", title: "Execution", subtitle: "Daily Sync" },
+  { id: 9, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(2).mp4", title: "Analytics", subtitle: "Real-time" },
+  { id: 10, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(3).mp4", title: "Optimization", subtitle: "A/B Testing" },
+  { id: 11, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(4).mp4", title: "Acquisition", subtitle: "Lead Gen" },
+  { id: 12, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(5).mp4", title: "Retention", subtitle: "CRM Flows" },
+  { id: 13, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM.mp4", title: "Creative", subtitle: "Production" },
+  { id: 14, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(1).mp4", title: "Reporting", subtitle: "Dashboards" },
+  { id: 15, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(2).mp4", title: "Innovation", subtitle: "AI Agents" },
+  { id: 16, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(3).mp4", title: "Market Entry", subtitle: "Global Setup" },
+  { id: 17, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(4).mp4", title: "Growth Engine", subtitle: "Scalable" },
+  { id: 18, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(5).mp4", title: "Tech Stack", subtitle: "Integrations" },
+  { id: 19, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(6).mp4", title: "Impact", subtitle: "Case Review" },
+  { id: 20, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(7).mp4", title: "Collaboration", subtitle: "Client Sync" },
+  { id: 21, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(8).mp4", title: "Scale", subtitle: "Automation" },
+  { id: 22, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(9).mp4", title: "Legacy", subtitle: "Since 2005" },
+  { id: 23, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM.mp4", title: "Final Vision", subtitle: "Future Ready" },
 ];
 
 /* ── COMPONENTS ── */
@@ -363,21 +363,26 @@ export default function HomePage() {
             <FadeIn>
               <div className="text-primary font-bold uppercase tracking-[4px] text-xs mb-6 font-sora">Operations</div>
               <h2 className="text-3xl md:text-5xl font-sora font-light text-secondary mb-8 leading-tight">
-                A company with an<br />
-                <span className="text-primary font-bold italic">In-house Creative Studio</span>
+                Growth <span className="text-primary font-bold italic">Dashboard</span> & Operations
               </h2>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed italic max-w-3xl">
-                As a full-service digital house, we manage strategy, creative, development, and ad-tech implementation entirely in-house — giving you a single point of accountability.
+                Real-time execution across strategy, creative, and ad-tech. We manage everything in-house for complete accountability and performance control.
               </p>
             </FadeIn>
           </div>
 
           <div className="max-w-7xl mx-auto px-6 relative group">
-            <Carousel className="w-full" opts={{ loop: true }}>
+            <Carousel 
+              className="w-full" 
+              opts={{ 
+                loop: true,
+                align: "start",
+              }}
+            >
               <CarouselContent>
                 {OPERATIONS_VIDEOS.map((video) => (
-                  <CarouselItem key={video.id}>
-                    <div className="relative aspect-video w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-black">
+                  <CarouselItem key={video.id} className="md:basis-1/2 lg:basis-1/3 pl-4">
+                    <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-xl border-2 border-white bg-black group/video">
                       <video 
                         src={video.src} 
                         className="w-full h-full object-cover"
@@ -387,19 +392,19 @@ export default function HomePage() {
                         playsInline 
                         preload="auto"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
-                      <div className="absolute bottom-4 md:bottom-8 left-4 md:left-8 text-white">
-                        <div className="text-primary font-bold uppercase tracking-widest text-[10px] md:text-xs mb-2">{video.title}</div>
-                        <h3 className="text-lg md:text-2xl font-black uppercase">{video.subtitle}</h3>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                      <div className="absolute bottom-4 left-4 text-white">
+                        <div className="text-primary font-bold uppercase tracking-widest text-[8px] mb-1">{video.title}</div>
+                        <h3 className="text-sm font-black uppercase tracking-tight">{video.subtitle}</h3>
                       </div>
                     </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <div className="absolute top-1/2 -left-4 md:-left-12 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute top-1/2 -left-4 md:-left-12 -translate-y-1/2">
                 <CarouselPrevious className="relative left-0 bg-white shadow-xl hover:bg-primary border-none text-secondary" />
               </div>
-              <div className="absolute top-1/2 -right-4 md:-right-12 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute top-1/2 -right-4 md:-right-12 -translate-y-1/2">
                 <CarouselNext className="relative right-0 bg-white shadow-xl hover:bg-primary border-none text-secondary" />
               </div>
             </Carousel>
