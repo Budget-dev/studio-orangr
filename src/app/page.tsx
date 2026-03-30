@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -15,6 +14,7 @@ import {
 import { cn } from "@/lib/utils";
 import { WorldMap } from "@/components/WorldMap";
 import { LogoCloud } from "@/components/LogoCloud";
+import { Footer } from "@/components/Footer";
 import InteractiveBentoGallery, { type MediaItemType } from "@/components/InteractiveBentoGallery";
 import {
   Carousel,
@@ -469,21 +469,8 @@ export default function HomePage() {
         </section>
       </main>
       
-      {/* FOOTER */}
-      <footer className="bg-secondary text-white pt-16 md:pt-24 pb-12 text-center border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <Link href="/" className="flex items-center justify-center gap-4 group mb-10 md:mb-12">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-primary rounded-xl flex items-center justify-center font-black text-xl md:text-2xl text-secondary transition-transform group-hover:rotate-12">S</div>
-            <span className="text-xl md:text-2xl font-sora font-black tracking-tight uppercase">Shyama Overseas</span>
-          </Link>
-          <p className="text-white/40 text-sm italic mb-10 md:mb-12 max-w-xl mx-auto">
-            Empowering brands to transcend borders through strategic digital excellence and performance marketing.
-          </p>
-          <div className="pt-10 md:pt-12 border-t border-white/5 text-white/20 text-[10px] md:text-xs font-bold uppercase tracking-widest">
-            © 2005–2025 Shyama Overseas | Digital Growth Agency
-          </div>
-        </div>
-      </footer>
+      {/* FOOTER COMPONENT */}
+      <Footer />
 
     </div>
   );
