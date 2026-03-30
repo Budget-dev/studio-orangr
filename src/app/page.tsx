@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -12,6 +13,7 @@ import {
   ArrowRight
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Navbar } from "@/components/Navbar";
 import { WorldMap } from "@/components/WorldMap";
 import { LogoCloud } from "@/components/LogoCloud";
 import { Footer } from "@/components/Footer";
@@ -25,13 +27,6 @@ import {
 } from "@/components/ui/carousel";
 
 /* ── DATA ── */
-const NAV_LINKS = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
-  { label: "About Us", href: "/about" },
-  { label: "Contact Us", href: "/contact" },
-];
-
 const testimonials = [
   {
     text: "Shyama Overseas transformed our digital presence. Their attention to detail in performance marketing is truly unmatched. They helped us scale from Idea to Vision.",
@@ -163,7 +158,6 @@ function FadeIn({ children, shadow = false, delay = 0 }: { children: React.React
 
 export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobMenuOpen, setIsMobMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -176,110 +170,14 @@ export default function HomePage() {
     <div className="min-h-screen bg-white overflow-x-hidden font-body">
       
       {/* NAVBAR */}
-      <nav className={cn(
-        "fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 px-6 lg:px-12 flex items-center justify-between",
-        isScrolled ? "h-16 bg-white/95 backdrop-blur-md shadow-sm border-b" : "h-[100px] bg-transparent"
-      )}>
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 bg-primary rounded-md flex items-center justify-center font-black text-lg text-[#0a0a0a] flex-shrink-0 transition-transform group-hover:scale-105">
-            S
-          </div>
-          <div className="flex flex-col">
-            <span className={cn("text-[14px] font-extrabold leading-tight uppercase tracking-tight", isScrolled ? "text-secondary" : "text-white")}>Shyama Overseas</span>
-            <span className="text-[9px] font-semibold text-primary uppercase tracking-[0.2em]">Digital Growth Agency</span>
-          </div>
-        </Link>
-
-        {/* Central Nav Pill */}
-        <ul className="hidden lg:flex items-center list-none h-auto bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-2 py-1.5 shadow-xl">
-          {NAV_LINKS.map((n) => (
-            <li key={n.label} className="relative group h-full flex items-center">
-              <Link
-                href={n.href}
-                className={cn(
-                  "px-5 py-2 text-[13px] font-bold transition-all rounded-full flex items-center gap-1",
-                  pathname === n.href ? "bg-white text-secondary" : "text-white hover:text-primary"
-                )}
-              >
-                {n.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        <div className="flex items-center gap-4">
-          <Link
-            href="/contact"
-            className="hidden sm:block bg-white text-secondary px-7 py-2.5 rounded-full text-[13px] font-black hover:bg-primary hover:text-white transition-all shadow-lg active:scale-95"
-          >
-            Get Audit
-          </Link>
-
-          <button className={cn("lg:hidden p-2", isScrolled ? "text-secondary" : "text-white")} onClick={() => setIsMobMenuOpen(true)}>
-            <Menu className="w-6 h-6" />
-          </button>
-        </div>
-      </nav>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobMenuOpen && (
-          <>
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsMobMenuOpen(false)}
-              className="fixed inset-0 bg-black/80 z-[1001] backdrop-blur-md"
-            />
-            <motion.div 
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 bottom-0 w-[85%] max-w-sm bg-secondary z-[1002] p-8 shadow-2xl flex flex-col"
-            >
-              <div className="flex items-center justify-between mb-12">
-                <div className="w-10 h-10 bg-primary rounded-md flex items-center justify-center font-black text-xl text-secondary">
-                  S
-                </div>
-                <button onClick={() => setIsMobMenuOpen(false)} className="text-white p-2 hover:bg-white/10 rounded-full transition-colors">
-                  <X className="w-8 h-8" />
-                </button>
-              </div>
-              <div className="flex flex-col gap-8">
-                {NAV_LINKS.map(link => (
-                  <Link 
-                    key={link.label} 
-                    href={link.href} 
-                    className="text-white text-3xl font-bold hover:text-primary transition-colors flex items-center justify-between group" 
-                    onClick={() => setIsMobMenuOpen(false)}
-                  >
-                    {link.label}
-                    <ArrowRight className="w-6 h-6 opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all" />
-                  </Link>
-                ))}
-              </div>
-              <div className="mt-auto">
-                <Link
-                  href="/contact"
-                  className="w-full bg-primary text-secondary py-5 rounded-2xl font-black text-center block uppercase tracking-widest text-sm shadow-xl shadow-primary/20"
-                  onClick={() => setIsMobMenuOpen(false)}
-                >
-                  Initiate Growth
-                </Link>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+      <Navbar />
 
       <main>
         
-        {/* HERO SECTION - Height set to 85vh consistently */}
-        <section className="relative h-[85vh] flex items-center overflow-hidden bg-secondary w-full">
+        {/* HERO SECTION - Height set to 80vh for minimized feel, mt-85px to avoid fixed Nav overlap */}
+        <section className="relative h-[80vh] mt-[85px] md:mt-[100px] flex items-center overflow-hidden bg-secondary w-full shadow-2xl">
           <Image 
-            src="https://1234567890.sirv.com/ChatGPT%20Image%20Mar%2030%2C%202026%2C%2003_05_25%20PM.png" 
+            src="https://1234567890.sirv.com/4Z_2101.w021.n001.350B.p15.350.jpg" 
             alt="Shyama Overseas Banner" 
             fill 
             className="object-cover object-center"
@@ -287,7 +185,7 @@ export default function HomePage() {
             unoptimized
           />
           
-          {/* TEXT OVERLAY REMOVED AS REQUESTED */}
+          {/* TEXT OVERLAYS REMOVED AS REQUESTED TO PREVENT OVERLAP */}
 
           {/* MOVING TEXT BAR */}
           <div className="absolute bottom-0 left-0 right-0 bg-primary py-4 md:py-5 overflow-hidden z-30 shadow-[0_-10px_30px_rgba(248,155,52,0.3)]">
