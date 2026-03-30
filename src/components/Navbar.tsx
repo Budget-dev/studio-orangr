@@ -62,7 +62,7 @@ export function Navbar() {
       <nav
         className={cn(
           "fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 px-6 lg:px-12 flex items-center justify-between",
-          scrolled || pathname !== "/" ? "h-16 bg-[#0a0a0a] shadow-2xl" : "h-[85px] bg-transparent"
+          scrolled || pathname !== "/" ? "h-16 bg-[#0a0a0a] shadow-2xl" : "h-[100px] bg-transparent"
         )}
       >
         <Link href="/" className="flex items-center gap-2.5 group">
@@ -75,42 +75,45 @@ export function Navbar() {
           </div>
         </Link>
 
-        <ul className="hidden lg:flex items-center list-none h-full">
-          {NAV.map((n) => (
-            <li key={n.label} className="relative group h-full flex items-center">
-              <Link
-                href={n.page}
-                className={cn(
-                  "px-5 text-[13.5px] font-semibold transition-colors flex items-center gap-1",
-                  pathname === n.page ? "text-primary" : "text-white/90 hover:text-primary"
-                )}
-              >
-                {n.label}
-                {n.children && <ChevronDown className="w-3 h-3 opacity-50" />}
-              </Link>
-              {n.children && (
-                <div className="absolute top-full left-0 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
-                  <div className="bg-white min-w-[240px] shadow-2xl rounded-md overflow-hidden py-2 border-t-4 border-primary">
-                    {n.children.map((c) => (
-                      <Link
-                        key={c.label}
-                        href={c.href}
-                        className="block px-6 py-3 text-[13px] font-semibold text-secondary hover:bg-primary/5 hover:text-primary transition-colors border-b border-black/5 last:border-0"
-                      >
-                        {c.label}
-                      </Link>
-                    ))}
+        {/* Central White Pill Menu */}
+        <div className="hidden lg:flex items-center justify-center flex-1">
+          <ul className="flex items-center list-none h-auto bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-2 py-1.5 shadow-xl">
+            {NAV.map((n) => (
+              <li key={n.label} className="relative group h-full flex items-center">
+                <Link
+                  href={n.page}
+                  className={cn(
+                    "px-5 py-2 text-[13px] font-bold transition-all rounded-full flex items-center gap-1",
+                    pathname === n.page ? "bg-white text-secondary shadow-sm" : "text-white hover:text-primary"
+                  )}
+                >
+                  {n.label}
+                  {n.children && <ChevronDown className="w-3 h-3 opacity-50" />}
+                </Link>
+                {n.children && (
+                  <div className="absolute top-full left-0 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
+                    <div className="bg-white min-w-[240px] shadow-2xl rounded-2xl overflow-hidden py-2 border-t-4 border-primary mt-2">
+                      {n.children.map((c) => (
+                        <Link
+                          key={c.label}
+                          href={c.href}
+                          className="block px-6 py-3 text-[13px] font-semibold text-secondary hover:bg-primary/5 hover:text-primary transition-colors border-b border-black/5 last:border-0"
+                        >
+                          {c.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 ml-auto">
           <Link
             href="/contact"
-            className="hidden sm:block bg-primary border-2 border-primary text-secondary px-6 py-2 rounded-full text-[13px] font-bold hover:bg-transparent hover:text-primary transition-all"
+            className="hidden sm:block bg-white text-secondary px-7 py-2.5 rounded-full text-[13px] font-black hover:bg-primary hover:text-white transition-all shadow-lg active:scale-95"
           >
             Get Audit
           </Link>

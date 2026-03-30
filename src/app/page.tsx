@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
+import { usePathname } from "next/navigation";
 import { 
   Menu, 
   X, 
@@ -163,6 +164,7 @@ function FadeIn({ children, shadow = false, delay = 0 }: { children: React.React
 export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobMenuOpen, setIsMobMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -176,7 +178,7 @@ export default function HomePage() {
       {/* NAVBAR */}
       <nav className={cn(
         "fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 px-6 lg:px-12 flex items-center justify-between",
-        isScrolled ? "h-16 bg-white/95 backdrop-blur-md shadow-sm border-b" : "h-[85px] bg-transparent"
+        isScrolled ? "h-16 bg-white/95 backdrop-blur-md shadow-sm border-b" : "h-[100px] bg-transparent"
       )}>
         <Link href="/" className="flex items-center gap-2.5 group">
           <div className="w-9 h-9 bg-primary rounded-md flex items-center justify-center font-black text-lg text-[#0a0a0a] flex-shrink-0 transition-transform group-hover:scale-105">
@@ -188,14 +190,15 @@ export default function HomePage() {
           </div>
         </Link>
 
-        <ul className="hidden lg:flex items-center list-none h-full">
+        {/* Central Nav Pill */}
+        <ul className="hidden lg:flex items-center list-none h-auto bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-2 py-1.5 shadow-xl">
           {NAV_LINKS.map((n) => (
             <li key={n.label} className="relative group h-full flex items-center">
               <Link
                 href={n.href}
                 className={cn(
-                  "px-5 text-[13.5px] font-semibold transition-colors flex items-center gap-1",
-                  isScrolled ? "text-secondary hover:text-primary" : "text-white/90 hover:text-primary"
+                  "px-5 py-2 text-[13px] font-bold transition-all rounded-full flex items-center gap-1",
+                  pathname === n.href ? "bg-white text-secondary" : "text-white hover:text-primary"
                 )}
               >
                 {n.label}
@@ -207,7 +210,7 @@ export default function HomePage() {
         <div className="flex items-center gap-4">
           <Link
             href="/contact"
-            className="hidden sm:block bg-primary border-2 border-primary text-secondary px-5 py-2 rounded-full text-[13px] font-bold hover:bg-transparent hover:text-primary transition-all"
+            className="hidden sm:block bg-white text-secondary px-7 py-2.5 rounded-full text-[13px] font-black hover:bg-primary hover:text-white transition-all shadow-lg active:scale-95"
           >
             Get Audit
           </Link>
@@ -273,8 +276,8 @@ export default function HomePage() {
 
       <main>
         
-        {/* HERO SECTION */}
-        <section className="relative min-h-screen h-[100svh] flex items-center overflow-hidden bg-secondary w-full">
+        {/* HERO SECTION - Height reduced to 85vh */}
+        <section className="relative h-[85vh] flex items-center overflow-hidden bg-secondary w-full">
           <Image 
             src="https://1234567890.sirv.com/ChatGPT%20Image%20Mar%2030%2C%202026%2C%2003_05_25%20PM.png" 
             alt="Shyama Overseas Banner" 
@@ -284,6 +287,31 @@ export default function HomePage() {
             unoptimized
           />
           
+          {/* TEXT OVERLAY RESTORED */}
+          <div className="relative z-20 max-w-7xl mx-auto px-6 w-full pt-20 pb-32">
+            <FadeIn>
+              <div className="mb-12">
+                <span className="text-secondary font-black text-xl md:text-2xl tracking-tight block mb-4">We are your</span>
+                <h1 className="text-6xl md:text-[100px] leading-[0.85] font-black uppercase tracking-tighter">
+                  <span className="text-white">DIGITAL MEDIA</span><br />
+                  <span className="text-secondary">MAESTRO</span>
+                </h1>
+              </div>
+              
+              <div className="max-w-2xl space-y-8">
+                <p className="text-xl md:text-2xl text-secondary font-bold leading-tight">
+                  Crafting powerful digital experiences that amplify your brand and accelerate growth.
+                </p>
+                
+                <div className="pl-6 border-l-4 border-secondary/20 flex flex-col gap-2">
+                  <p className="text-sm md:text-base text-secondary font-semibold leading-relaxed">
+                    From strategy to execution — we blend data, creativity, and performance marketing to devise real, measurable results.
+                  </p>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+
           {/* MOVING TEXT BAR */}
           <div className="absolute bottom-0 left-0 right-0 bg-primary py-4 md:py-5 overflow-hidden z-30 shadow-[0_-10px_30px_rgba(248,155,52,0.3)]">
             <div className="flex gap-16 w-max animate-marquee-slow items-center">
