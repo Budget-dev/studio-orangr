@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -19,7 +20,7 @@ export const FooterBackgroundGradient = () => {
       className="absolute inset-0 z-0 pointer-events-none"
       style={{
         background:
-          "radial-gradient(125% 125% at 50% 10%, #0a0a0a 50%, #f89b3411 100%)",
+          "radial-gradient(125% 125% at 50% 10%, #0F0F1166 50%, #3ca2fa33 100%)",
       }}
     />
   );

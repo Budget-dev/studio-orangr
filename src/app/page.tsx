@@ -174,10 +174,10 @@ export default function HomePage() {
 
       <main>
         
-        {/* HERO SECTION - Height set to 80vh for minimized feel, mt-85px to avoid fixed Nav overlap */}
+        {/* HERO SECTION - Updated Banner Image and height for mobile consistency */}
         <section className="relative h-[80vh] mt-[85px] md:mt-[100px] flex items-center overflow-hidden bg-secondary w-full shadow-2xl">
           <Image 
-            src="https://1234567890.sirv.com/4Z_2101.w021.n001.350B.p15.350.jpg" 
+            src="https://1234567890.sirv.com/ChatGPT%20Image%20Mar%2030%2C%202026%2C%2003_05_25%20PM.png" 
             alt="Shyama Overseas Banner" 
             fill 
             className="object-cover object-center"
@@ -185,7 +185,7 @@ export default function HomePage() {
             unoptimized
           />
           
-          {/* TEXT OVERLAYS REMOVED AS REQUESTED TO PREVENT OVERLAP */}
+          {/* TEXT OVERLAYS REMOVED AS REQUESTED */}
 
           {/* MOVING TEXT BAR */}
           <div className="absolute bottom-0 left-0 right-0 bg-primary py-4 md:py-5 overflow-hidden z-30 shadow-[0_-10px_30px_rgba(248,155,52,0.3)]">
