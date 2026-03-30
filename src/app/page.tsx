@@ -9,9 +9,7 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 import { 
   Menu, 
   X, 
-  ArrowRight,
-  ChevronLeft,
-  ChevronRight
+  ArrowRight
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { WorldMap } from "@/components/WorldMap";
@@ -70,29 +68,29 @@ const GALLERY_ITEMS: MediaItemType[] = [
 ];
 
 const OPERATIONS_VIDEOS = [
-  { id: 1, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.14%20PM.mp4", title: "Market Intel", subtitle: "Data Insights" },
-  { id: 2, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.18%20PM%20(1).mp4", title: "Growth Lab", subtitle: "Metrics Hub" },
-  { id: 3, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.18%20PM.mp4", title: "Campaigns", subtitle: "Live Tracking" },
-  { id: 4, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM%20(1).mp4", title: "Brand Vision", subtitle: "Creative Studio" },
-  { id: 5, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM%20(2).mp4", title: "Operations", subtitle: "Global Scale" },
-  { id: 6, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM%20(3).mp4", title: "Performance", subtitle: "Ad-Tech Hub" },
-  { id: 7, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM.mp4", title: "Strategy", subtitle: "Planning Room" },
-  { id: 8, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(1).mp4", title: "Execution", subtitle: "Daily Sync" },
-  { id: 9, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(2).mp4", title: "Analytics", subtitle: "Real-time" },
-  { id: 10, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(3).mp4", title: "Optimization", subtitle: "A/B Testing" },
-  { id: 11, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(4).mp4", title: "Acquisition", subtitle: "Lead Gen" },
-  { id: 12, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(5).mp4", title: "Retention", subtitle: "CRM Flows" },
-  { id: 13, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM.mp4", title: "Creative", subtitle: "Production" },
-  { id: 14, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(1).mp4", title: "Reporting", subtitle: "Dashboards" },
-  { id: 15, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(2).mp4", title: "Innovation", subtitle: "AI Agents" },
-  { id: 16, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(3).mp4", title: "Market Entry", subtitle: "Global Setup" },
-  { id: 17, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(4).mp4", title: "Growth Engine", subtitle: "Scalable" },
+  { id: 1, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.14%20PM.mp4", title: "Market Intelligence", subtitle: "Global Insights" },
+  { id: 2, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.18%20PM%20(1).mp4", title: "Campaign Hub", subtitle: "Live Metrics" },
+  { id: 3, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.18%20PM.mp4", title: "Growth Lab", subtitle: "Strategy Sync" },
+  { id: 4, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM%20(1).mp4", title: "Creative Studio", subtitle: "Visual Design" },
+  { id: 5, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM%20(2).mp4", title: "Operations", subtitle: "Scale Engine" },
+  { id: 6, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM%20(3).mp4", title: "Performance", subtitle: "Ad-Tech Ops" },
+  { id: 7, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM.mp4", title: "Data Center", subtitle: "Real-time Flow" },
+  { id: 8, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(1).mp4", title: "Execution", subtitle: "Precision Delivery" },
+  { id: 9, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(2).mp4", title: "Analytics", subtitle: "Core Reporting" },
+  { id: 10, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(3).mp4", title: "Optimization", subtitle: "Alpha Testing" },
+  { id: 11, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(4).mp4", title: "Acquisition", subtitle: "User Funnel" },
+  { id: 12, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(5).mp4", title: "Retention", subtitle: "Loyalty Suite" },
+  { id: 13, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM.mp4", title: "Digital Media", subtitle: "Network Reach" },
+  { id: 14, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(1).mp4", title: "Reporting", subtitle: "Client Portal" },
+  { id: 15, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(2).mp4", title: "Innovation", subtitle: "Future Tech" },
+  { id: 16, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(3).mp4", title: "Strategy Room", subtitle: "Daily Brief" },
+  { id: 17, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(4).mp4", title: "Market Entry", subtitle: "Global Launch" },
   { id: 18, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(5).mp4", title: "Tech Stack", subtitle: "Integrations" },
-  { id: 19, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(6).mp4", title: "Impact", subtitle: "Case Review" },
-  { id: 20, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(7).mp4", title: "Collaboration", subtitle: "Client Sync" },
-  { id: 21, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(8).mp4", title: "Scale", subtitle: "Automation" },
-  { id: 22, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(9).mp4", title: "Legacy", subtitle: "Since 2005" },
-  { id: 23, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM.mp4", title: "Final Vision", subtitle: "Future Ready" },
+  { id: 19, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(6).mp4", title: "Impact", subtitle: "Success Radar" },
+  { id: 20, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(7).mp4", title: "Scale Up", subtitle: "Automation Hub" },
+  { id: 21, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(8).mp4", title: "Ad Operations", subtitle: "Performance" },
+  { id: 22, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(9).mp4", title: "Growth Engine", subtitle: "Core Logic" },
+  { id: 23, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM.mp4", title: "Final Review", subtitle: "Quality QA" },
 ];
 
 /* ── COMPONENTS ── */
@@ -278,49 +276,14 @@ export default function HomePage() {
         {/* HERO SECTION */}
         <section className="relative min-h-screen h-[100svh] flex items-center overflow-hidden bg-secondary w-full">
           <Image 
-            src="https://img.freepik.com/premium-vector/digital-marketing-agency-corporate-social-media-banner_1109882-7771.jpg?w=1480" 
-            alt="Digital Growth Banner" 
+            src="https://1234567890.sirv.com/ChatGPT%20Image%20Mar%2030%2C%202026%2C%2003_05_25%20PM.png" 
+            alt="Shyama Overseas Banner" 
             fill 
-            className="object-cover object-center opacity-60"
+            className="object-cover object-center"
             priority
             unoptimized
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary/90 via-secondary/40 to-transparent z-10" />
           
-          <div className="relative z-20 w-full px-6 md:px-12 pb-[140px] md:pb-0">
-            <div className="max-w-7xl mx-auto">
-              <div className="max-w-4xl">
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                >
-                  <div className="text-primary font-black uppercase tracking-[4px] md:tracking-[8px] text-[10px] md:text-xs mb-6 flex items-center gap-4">
-                    <span className="w-8 md:w-12 h-[2px] bg-primary" />
-                    Digital Growth Agency
-                  </div>
-                  
-                  <h1 className="text-5xl md:text-[100px] font-black text-white leading-[0.9] uppercase font-sora mb-8 tracking-tighter">
-                    IDEA TO<br /><span className="text-primary italic">VISION</span>
-                  </h1>
-
-                  <p className="text-lg md:text-2xl text-white/80 font-light leading-relaxed mb-12 max-w-2xl border-l-4 border-primary pl-6 md:pl-8 italic">
-                    Scaling ambitious brands to global landmarks with precision performance marketing and creative digital strategy.
-                  </p>
-
-                  <div className="flex flex-col sm:flex-row gap-4 md:gap-6 mb-8 md:mb-0 relative z-30">
-                    <Link href="/services" className="bg-primary text-secondary px-8 md:px-12 py-4 md:py-5 rounded-full font-bold uppercase tracking-widest text-xs md:text-sm hover:scale-105 transition-transform text-center shadow-xl shadow-primary/20">
-                      Explore Services
-                    </Link>
-                    <Link href="/contact" className="bg-transparent border-2 border-white/50 text-white px-8 md:px-12 py-4 md:py-5 rounded-full font-bold uppercase tracking-widest text-xs md:text-sm hover:bg-white hover:text-secondary transition-all text-center">
-                      Initiate Growth
-                    </Link>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
-          </div>
-
           {/* MOVING TEXT BAR */}
           <div className="absolute bottom-0 left-0 right-0 bg-primary py-4 md:py-5 overflow-hidden z-30 shadow-[0_-10px_30px_rgba(248,155,52,0.3)]">
             <div className="flex gap-16 w-max animate-marquee-slow items-center">
