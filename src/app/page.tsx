@@ -276,7 +276,7 @@ export default function HomePage() {
 
       <main>
         
-        {/* HERO SECTION - Height reduced to 85vh */}
+        {/* HERO SECTION - Height set to 85vh consistently */}
         <section className="relative h-[85vh] flex items-center overflow-hidden bg-secondary w-full">
           <Image 
             src="https://1234567890.sirv.com/ChatGPT%20Image%20Mar%2030%2C%202026%2C%2003_05_25%20PM.png" 
@@ -287,30 +287,7 @@ export default function HomePage() {
             unoptimized
           />
           
-          {/* TEXT OVERLAY RESTORED */}
-          <div className="relative z-20 max-w-7xl mx-auto px-6 w-full pt-20 pb-32">
-            <FadeIn>
-              <div className="mb-12">
-                <span className="text-secondary font-black text-xl md:text-2xl tracking-tight block mb-4">We are your</span>
-                <h1 className="text-6xl md:text-[100px] leading-[0.85] font-black uppercase tracking-tighter">
-                  <span className="text-white">DIGITAL MEDIA</span><br />
-                  <span className="text-secondary">MAESTRO</span>
-                </h1>
-              </div>
-              
-              <div className="max-w-2xl space-y-8">
-                <p className="text-xl md:text-2xl text-secondary font-bold leading-tight">
-                  Crafting powerful digital experiences that amplify your brand and accelerate growth.
-                </p>
-                
-                <div className="pl-6 border-l-4 border-secondary/20 flex flex-col gap-2">
-                  <p className="text-sm md:text-base text-secondary font-semibold leading-relaxed">
-                    From strategy to execution — we blend data, creativity, and performance marketing to devise real, measurable results.
-                  </p>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
+          {/* TEXT OVERLAY REMOVED AS REQUESTED */}
 
           {/* MOVING TEXT BAR */}
           <div className="absolute bottom-0 left-0 right-0 bg-primary py-4 md:py-5 overflow-hidden z-30 shadow-[0_-10px_30px_rgba(248,155,52,0.3)]">
@@ -372,7 +349,7 @@ export default function HomePage() {
             >
               <CarouselContent>
                 {OPERATIONS_VIDEOS.map((video) => (
-                  <CarouselItem key={video.id} className="md:basis-1/2 lg:basis-1/3 pl-4">
+                  <CarouselItem key={video.id} className="basis-full md:basis-1/2 lg:basis-1/3 pl-4">
                     <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-xl border-2 border-white bg-black group/video">
                       <video 
                         src={video.src} 
