@@ -353,7 +353,7 @@ export default function HomePage() {
                         muted 
                         loop 
                         playsInline 
-                        preload="auto"
+                        preload="metadata"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
                       <div className="absolute bottom-4 left-4 text-white">
