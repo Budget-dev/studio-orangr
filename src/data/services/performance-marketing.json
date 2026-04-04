@@ -5,6 +5,7 @@
     "badge": "Performance Marketing",
     "headline": "Turn Every Rupee Into Measurable Revenue",
     "subheadline": "Data-led paid media campaigns that deliver trackable ROI across Google, Meta, and beyond.",
+    "image": "https://1234567890.sirv.com/ChatGPT%20Image%20Apr%204%2C%202026%2C%2009_32_28%20PM.png",
     "primaryCTA": { "label": "Get a Free Audit", "href": "/contact" },
     "secondaryCTA": { "label": "See Our Results", "href": "#results" }
   },
@@ -46,7 +47,7 @@
     ]
   },
   "caseStudies": [
-    { "prefix": "", "value": 4, "suffix": ".1x", "label": "ROAS", "context": "Achieved within 90 days for an e-commerce client" },
+    { "prefix": "", "value": 4.1, "suffix": "x", "label": "ROAS", "context": "Achieved within 90 days for an e-commerce client" },
     { "prefix": "", "value": 45, "suffix": "%", "label": "CPA drop", "context": "After funnel restructure for a SaaS lead gen campaign" },
     { "prefix": "", "value": 2.8, "suffix": "M+", "label": "Monthly Impressions", "context": "Average reach for active performance accounts" },
     { "prefix": "", "value": 62, "suffix": "%", "label": "CTR improvement", "context": "Post creative refresh across Meta campaigns" }

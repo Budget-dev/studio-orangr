@@ -1,10 +1,10 @@
-
 "use client";
 
 import { motion } from "framer-motion";
 import { slideInLeft, fadeInUp, Stagger, Reveal } from "./AnimationWrappers";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 interface HeroProps {
   badge: string;
@@ -12,9 +12,10 @@ interface HeroProps {
   subheadline: string;
   primaryCTA: { label: string; href: string };
   secondaryCTA?: { label: string; href: string };
+  image?: string;
 }
 
-export function HeroSplitLeft({ badge, headline, subheadline, primaryCTA, secondaryCTA }: HeroProps) {
+export function HeroSplitLeft({ badge, headline, subheadline, primaryCTA, secondaryCTA, image }: HeroProps) {
   const words = headline.split(' ');
   const firstHalf = words.slice(0, 5).join(' ');
   const secondHalf = words.slice(5).join(' ');
@@ -59,16 +60,29 @@ export function HeroSplitLeft({ badge, headline, subheadline, primaryCTA, second
             </Reveal>
           </Stagger>
 
-          <Reveal variants={fadeInUp} className="hidden lg:block">
-            <div className="aspect-square bg-primary/5 rounded-[40px] border border-primary/10 relative flex items-center justify-center overflow-hidden">
-               <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent" />
-               <motion.div 
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="text-[200px] opacity-20 grayscale select-none"
-               >
-                 🌀
-               </motion.div>
+          <Reveal variants={fadeInUp} className="hidden lg:block h-full">
+            <div className="aspect-square bg-primary/5 rounded-[40px] border border-primary/10 relative flex items-center justify-center overflow-hidden shadow-2xl">
+              {image ? (
+                <Image 
+                  src={image} 
+                  alt={headline} 
+                  fill 
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                  priority
+                  unoptimized
+                />
+              ) : (
+                <>
+                  <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent" />
+                  <motion.div 
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    className="text-[200px] opacity-20 grayscale select-none"
+                  >
+                    🌀
+                  </motion.div>
+                </>
+              )}
             </div>
           </Reveal>
         </div>

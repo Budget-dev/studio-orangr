@@ -14,13 +14,19 @@ import { ServiceCTABanner } from "@/components/services/ServiceCTABanner";
 import performanceMarketing from "@/data/services/performance-marketing.json";
 import seo from "@/data/services/seo.json";
 import cro from "@/data/services/cro.json";
-// (Repeat for other JSON files if you have them, or use a map)
+import ecommerceMarketing from "@/data/services/ecommerce-marketing.json";
+import mobileAppMarketing from "@/data/services/mobile-app-marketing.json";
+import contentMarketing from "@/data/services/content-marketing.json";
+import socialMediaMarketing from "@/data/services/social-media-marketing.json";
 
 const SERVICES_MAP: Record<string, any> = {
   "performance-marketing": performanceMarketing,
   "seo": seo,
   "cro": cro,
-  // Add placeholders for others if data exists
+  "ecommerce-marketing": ecommerceMarketing,
+  "mobile-app-marketing": mobileAppMarketing,
+  "content-marketing": contentMarketing,
+  "social-media-marketing": socialMediaMarketing,
 };
 
 type Props = {
@@ -57,6 +63,7 @@ export default async function ServicePage({ params }: Props) {
           subheadline={data.hero.subheadline}
           primaryCTA={data.hero.primaryCTA}
           secondaryCTA={data.hero.secondaryCTA}
+          image={data.hero.image}
         />
 
         <ServiceOverview 
@@ -88,7 +95,6 @@ export default async function ServicePage({ params }: Props) {
   );
 }
 
-// Optional: Static params for performance
 export async function generateStaticParams() {
   return Object.keys(SERVICES_MAP).map((slug) => ({
     slug,

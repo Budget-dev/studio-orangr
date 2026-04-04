@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -25,6 +24,7 @@ export function ServicePageTemplate({ data }: { data: any }) {
           subheadline={data.hero.subheadline}
           primaryCTA={data.hero.primaryCTA}
           secondaryCTA={data.hero.secondaryCTA}
+          image={data.hero.image}
         />
 
         <ServiceOverview 
