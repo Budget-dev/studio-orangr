@@ -35,7 +35,7 @@ export default function AboutPage() {
                 <img
                   src="https://1234567890.sirv.com/WhatsApp%20Image%202024-07-13%20at%2007.00.32_cb353d13.jpg%20(1).jpeg"
                   alt="Agency Director of Shyama Overseas"
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
+                  className="w-full h-full object-cover object-top transition-all duration-1000 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/20 to-transparent opacity-80" />
                 <div className="absolute bottom-10 left-10 right-10">
