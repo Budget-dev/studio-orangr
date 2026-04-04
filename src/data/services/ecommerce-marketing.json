@@ -5,6 +5,7 @@
     "badge": "E-Commerce Marketing",
     "headline": "Sell More. Spend Smarter. Scale Faster.",
     "subheadline": "End-to-end e-commerce growth — from traffic acquisition to cart abandonment recovery and post-purchase retention.",
+    "image": "https://1234567890.sirv.com/ChatGPT%20Image%20Apr%204%2C%202026%2C%2010_04_36%20PM.png",
     "primaryCTA": { "label": "Audit My Store", "href": "/contact" },
     "secondaryCTA": { "label": "See What We've Built", "href": "#results" }
   },
@@ -32,7 +33,7 @@
   "features": [
     { "icon": "ShoppingCart", "title": "Google Shopping Campaigns", "description": "Product listing ads and Performance Max campaigns structured for profit, not just revenue." },
     { "icon": "Image", "title": "Meta Dynamic Product Ads", "description": "Automated ads that show each user exactly the products they viewed or are most likely to buy." },
-    { "icon": "Mail", "title": "Email & SMS Lifecycle", "description": "Abandoned cart, welcome series, and repeat purchase flows built for e-commerce revenue." },
+    { "icon": "Mail", "title": "Email & SMS Lifecycle", "description": "Abandoned cart, welcome series, and post-purchase flows built for e-commerce revenue." },
     { "icon": "Package", "title": "Product Feed Management", "description": "Optimised feeds for Google Merchant Center, Meta Catalogue, and marketplace channels." },
     { "icon": "TrendingUp", "title": "Marketplace Ads", "description": "Sponsored product and brand campaigns on the marketplaces where your buyers are already shopping." },
     { "icon": "Percent", "title": "Offer & Promotion Strategy", "description": "Data-driven promotion planning that drives sales without training buyers to wait for discounts." }
