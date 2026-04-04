@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -63,12 +64,12 @@ export function Navbar() {
     <>
       <nav
         className={cn(
-          "fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 px-6 lg:px-12 flex items-center justify-between",
+          "fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 px-4 md:px-6 lg:px-12 flex items-center justify-between",
           scrolled || pathname !== "/" ? "h-16 bg-[#0a0a0a]/95 backdrop-blur-md shadow-2xl border-b border-white/5" : "h-[100px] bg-transparent"
         )}
       >
-        <Link href="/" className="flex items-center gap-3 group shrink-0 relative z-[1001]">
-          <div className="w-12 h-12 bg-white rounded-xl overflow-hidden flex items-center justify-center transition-transform group-hover:scale-110 shadow-lg shadow-primary/20 p-1">
+        <Link href="/" className="flex items-center gap-2 md:gap-3 group shrink-0 relative z-[1001]">
+          <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl overflow-hidden flex items-center justify-center transition-transform group-hover:scale-110 shadow-lg shadow-primary/20 p-1">
             <Image 
               src="https://1234567890.sirv.com/Screenshot%202026-04-04%20211938.png" 
               alt="Shyama Overseas Logo" 
@@ -79,12 +80,12 @@ export function Navbar() {
             />
           </div>
           <div className="flex flex-col">
-            <span className="text-[15px] font-black text-white leading-tight uppercase tracking-tight">Shyama Overseas</span>
-            <span className="text-[9px] font-bold text-primary uppercase tracking-[0.2em]">Digital Growth Agency</span>
+            <span className="text-[13px] md:text-[15px] font-black text-white leading-tight uppercase tracking-tight">Shyama Overseas</span>
+            <span className="text-[8px] md:text-[9px] font-bold text-primary uppercase tracking-[0.2em]">Digital Growth Agency</span>
           </div>
         </Link>
 
-        {/* Central White Pill Menu */}
+        {/* Central White Pill Menu - Hidden on Mobile */}
         <div className="hidden lg:flex items-center justify-center flex-1 mx-8">
           <ul className="flex items-center list-none h-auto bg-white/90 backdrop-blur-xl border border-black/5 rounded-full px-2 py-1.5 shadow-xl">
             {NAV.map((n) => (
@@ -124,21 +125,25 @@ export function Navbar() {
           </ul>
         </div>
 
-        <div className="flex items-center gap-6 shrink-0 relative z-[1001] ml-auto">
+        <div className="flex items-center gap-4 md:gap-6 shrink-0 relative z-[1001] ml-auto">
           <Link
             href="/contact"
             className="hidden sm:block bg-white text-secondary px-8 py-3 rounded-full text-[13px] font-black hover:bg-primary hover:text-white transition-all shadow-xl active:scale-95 uppercase tracking-widest border-2 border-transparent"
           >
-            Get Audit
+            Contact Us
           </Link>
 
-          <button className="lg:hidden text-white p-2 hover:bg-white/10 rounded-xl transition-colors border border-white/10" onClick={() => setMob(!mob)}>
-            {mob ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+          <button 
+            className="lg:hidden text-white p-2 hover:bg-white/10 rounded-xl transition-colors border border-white/10 flex items-center justify-center" 
+            onClick={() => setMob(!mob)}
+            aria-label="Toggle Menu"
+          >
+            {mob ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {mob && (
           <motion.div
@@ -149,17 +154,26 @@ export function Navbar() {
             className="fixed inset-0 bg-[#0a0a0a] z-[1002] lg:hidden overflow-y-auto flex flex-col"
           >
             <div className="p-8 pt-28 flex flex-col gap-10 h-full relative">
-              <button className="absolute top-8 right-8 text-white p-3 hover:bg-white/10 rounded-full transition-colors border border-white/10" onClick={() => setMob(false)}>
-                <X className="w-8 h-8" />
+              <button 
+                className="absolute top-8 right-6 text-white p-3 hover:bg-white/10 rounded-full transition-colors border border-white/10" 
+                onClick={() => setMob(false)}
+              >
+                <X className="w-7 h-7" />
               </button>
               
-              <div className="flex flex-col gap-8">
-                {NAV.map((n) => (
-                  <div key={n.label} className="flex flex-col gap-5">
+              <div className="flex flex-col gap-6">
+                {NAV.map((n, idx) => (
+                  <motion.div 
+                    key={n.label} 
+                    className="flex flex-col gap-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 * idx }}
+                  >
                     <Link
                       href={n.page}
                       className={cn(
-                        "text-5xl font-black uppercase tracking-tighter transition-colors",
+                        "text-4xl md:text-5xl font-black uppercase tracking-tighter transition-colors",
                         pathname === n.page ? "text-primary" : "text-white hover:text-primary"
                       )}
                       onClick={(e) => {
@@ -170,12 +184,12 @@ export function Navbar() {
                       {n.label}
                     </Link>
                     {n.children && (
-                      <div className="flex flex-col gap-5 pl-8 border-l-2 border-primary/30 mt-2 mb-6">
+                      <div className="flex flex-col gap-4 pl-6 border-l-2 border-primary/30 mt-1 mb-4">
                         {n.children.map(child => (
                           <Link 
                             key={child.label} 
                             href={child.href} 
-                            className="text-white/50 hover:text-primary text-2xl font-bold transition-colors"
+                            className="text-white/40 hover:text-primary text-xl font-bold transition-colors"
                             onClick={() => setMob(false)}
                           >
                             {child.label}
@@ -183,17 +197,17 @@ export function Navbar() {
                         ))}
                       </div>
                     )}
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 
-              <div className="mt-auto pb-12">
+              <div className="mt-auto pb-10">
                 <Link
                   href="/contact"
-                  className="w-full text-center bg-primary text-[#0a0a0a] py-6 rounded-2xl font-black text-xl uppercase tracking-[4px] shadow-2xl shadow-primary/20 block"
+                  className="w-full text-center bg-primary text-[#0a0a0a] py-5 rounded-2xl font-black text-lg uppercase tracking-[4px] shadow-2xl shadow-primary/20 block active:scale-[0.98] transition-transform"
                   onClick={() => setMob(false)}
                 >
-                  Get Free Audit
+                  Contact Us
                 </Link>
               </div>
             </div>
