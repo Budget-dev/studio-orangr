@@ -29,7 +29,7 @@ export function ServicePageTemplate({ data }: { data: ServiceData }) {
               transition={{ duration: 0.6 }}
             >
               <nav className="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest mb-6">
-                <Link href="/services" className="hover:underline">Services</Link>
+                <Link href="/services" className="hover:underline">All Services</Link>
                 <span>/</span>
                 <span className="text-white/60">{data.title}</span>
               </nav>
@@ -55,7 +55,12 @@ export function ServicePageTemplate({ data }: { data: ServiceData }) {
                 {data.overview}
               </p>
               <div className="bg-primary/5 border border-primary/10 p-8 rounded-2xl">
-                <h4 className="font-bold text-primary mb-4">Core Benefits</h4>
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="font-bold text-primary">Core Benefits</h4>
+                  <Link href="/services" className="text-[10px] font-black uppercase tracking-widest text-primary hover:underline flex items-center gap-1">
+                    View All Services <ArrowRight className="w-3 h-3" />
+                  </Link>
+                </div>
                 <ul className="space-y-3">
                   {data.benefits.map((benefit, i) => (
                     <li key={i} className="flex items-center gap-3 text-gray-700 font-medium">
@@ -122,12 +127,20 @@ export function ServicePageTemplate({ data }: { data: ServiceData }) {
           <div className="max-w-3xl mx-auto px-6">
             <h2 className="text-4xl md:text-5xl font-bold text-[#0a0a0a] mb-8">Ready to Scale Your Business?</h2>
             <p className="text-xl text-gray-600 mb-10">Get in touch with our experts today and let's build something extraordinary together.</p>
-            <Link 
-              href="/contact" 
-              className="inline-flex items-center gap-3 bg-[#0a0a0a] text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-primary transition-all group"
-            >
-              Start Your Project <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link 
+                href="/contact" 
+                className="inline-flex items-center gap-3 bg-[#0a0a0a] text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-primary transition-all group"
+              >
+                Start Your Project <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+              </Link>
+              <Link 
+                href="/services" 
+                className="inline-flex items-center gap-3 bg-white border-2 border-[#0a0a0a] text-[#0a0a0a] px-10 py-5 rounded-full font-bold text-lg hover:bg-[#0a0a0a] hover:text-white transition-all group"
+              >
+                All Services
+              </Link>
+            </div>
           </div>
         </section>
       </main>

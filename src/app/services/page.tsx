@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Navbar } from "@/components/Navbar";
@@ -28,11 +27,11 @@ export default function ServicesPage() {
           <div className="relative z-10 max-w-[1080px] mx-auto px-6">
             <Reveal variants={fadeInUp}>
               <div className="text-primary text-[11px] font-bold uppercase tracking-[4px] mb-6">Our Expertise</div>
-              <h1 className="text-4xl md:text-6xl text-white font-black leading-tight mb-8">Engineering <span className="text-primary italic font-light">Digital Dominance</span></h1>
+              <h1 className="text-4xl md:text-6xl text-white font-black leading-tight mb-8">Our <span className="text-primary italic font-light">All Services</span></h1>
               <div className="flex items-center gap-3 text-white/40 text-[12px] font-bold uppercase tracking-widest">
                 <Link href="/" className="hover:text-primary transition-colors">Home</Link>
                 <span>/</span>
-                <span className="text-primary">Services</span>
+                <span className="text-primary">All Services</span>
               </div>
             </Reveal>
           </div>

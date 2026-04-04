@@ -23,8 +23,9 @@ const NAV: NavItem[] = [
   { label: "Home", page: "/" },
   {
     label: "Services", 
-    page: "/services",
+    page: "#",
     children: [
+      { label: "All Services", href: "/services" },
       { label: "Performance Marketing", href: "/services/performance-marketing" },
       { label: "Mobile App Marketing", href: "/services/mobile-app-marketing" },
       { label: "E-Commerce Marketing", href: "/services/ecommerce-marketing" },
@@ -96,6 +97,9 @@ export function Navbar() {
                       ? "bg-[#0a0a0a] text-white shadow-xl scale-105" 
                       : "text-secondary hover:text-primary"
                   )}
+                  onClick={(e) => {
+                    if (n.page === "#") e.preventDefault();
+                  }}
                 >
                   {n.label}
                   {n.children && <ChevronDown className={cn("w-3.5 h-3.5 transition-transform group-hover:rotate-180", pathname === n.page ? "text-white" : "text-primary")} />}
@@ -158,7 +162,10 @@ export function Navbar() {
                         "text-5xl font-black uppercase tracking-tighter transition-colors",
                         pathname === n.page ? "text-primary" : "text-white hover:text-primary"
                       )}
-                      onClick={() => !n.children && setMob(false)}
+                      onClick={(e) => {
+                        if (n.page === "#") e.preventDefault();
+                        else if (!n.children) setMob(false);
+                      }}
                     >
                       {n.label}
                     </Link>
