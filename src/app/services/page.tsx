@@ -1,9 +1,11 @@
+
 "use client";
 
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ArrowRight, Target, Smartphone, ShoppingCart, Share2, FileText, Search, MousePointer } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { Stagger, Reveal, fadeInScale, fadeInUp } from "@/components/services/AnimationWrappers";
 
 const SERVICES = [
@@ -21,25 +23,29 @@ export default function ServicesPage() {
     <div className="min-h-screen bg-white font-body">
       <Navbar />
       <main className="animate-in fade-in duration-500 pt-[85px]">
-        {/* Hero */}
-        <section className="bg-secondary py-24 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.04] social-grid-texture" />
-          <div className="relative z-10 max-w-[1080px] mx-auto px-6">
-            <Reveal variants={fadeInUp}>
-              <div className="text-primary text-[11px] font-bold uppercase tracking-[4px] mb-6">Our Expertise</div>
-              <h1 className="text-4xl md:text-6xl text-white font-black leading-tight mb-8">Our <span className="text-primary italic font-light">All Services</span></h1>
-              <div className="flex items-center gap-3 text-white/40 text-[12px] font-bold uppercase tracking-widest">
-                <Link href="/" className="hover:text-primary transition-colors">Home</Link>
-                <span>/</span>
-                <span className="text-primary">All Services</span>
-              </div>
-            </Reveal>
-          </div>
+        {/* Hero Banner Image Only */}
+        <section className="relative h-[40vh] md:h-[50vh] flex items-center overflow-hidden bg-secondary w-full shadow-lg">
+          <Image 
+            src="https://1234567890.sirv.com/Screenshot%202026-04-04%20212644.png" 
+            alt="All Services Banner" 
+            fill 
+            className="object-cover object-center"
+            priority
+            unoptimized
+          />
         </section>
 
         {/* Services Grid */}
         <section className="py-24 bg-[#f5f5f5]">
           <div className="max-w-[1080px] mx-auto px-6">
+            <div className="mb-16">
+               <Reveal variants={fadeInUp}>
+                <div className="text-primary text-[11px] font-bold uppercase tracking-[4px] mb-4">Our Expertise</div>
+                <h2 className="text-3xl md:text-5xl font-sora font-light text-secondary">
+                  Complete <span className="text-primary font-bold italic">Growth Solutions</span>
+                </h2>
+              </Reveal>
+            </div>
             <Stagger className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {SERVICES.map((s, i) => (
                 <Reveal key={i} variants={fadeInScale}>
