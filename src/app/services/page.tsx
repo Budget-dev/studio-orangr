@@ -3,7 +3,7 @@
 
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { ArrowRight, Target, Smartphone, ShoppingCart, Share2, FileText, Search, MousePointer } from "lucide-react";
+import { ArrowRight, Target, Smartphone, ShoppingCart, Share2, FileText, Search, MousePointer, Sparkles } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Stagger, Reveal, fadeInScale, fadeInUp } from "@/components/services/AnimationWrappers";
@@ -16,6 +16,7 @@ const SERVICES = [
   { icon: FileText, title: "Content Marketing", desc: "Earn trust and drive revenue with strategic content that educate and converts.", href: "/services/content-marketing" },
   { icon: Search, title: "Social Media SEO", desc: "Optimize profiles and content for discovery across TikTok, Instagram, and LinkedIn.", href: "/services/seo" },
   { icon: MousePointer, title: "Conversion Rate Optimization", desc: "More revenue from the traffic you already have through data-driven CRO.", href: "/services/cro" },
+  { icon: Sparkles, title: "Creative AI Productions", desc: "Next-gen AI videography and photography for cinematic brand ads.", href: "/services/creative-ai-productions" },
 ];
 
 export default function ServicesPage() {
@@ -23,7 +24,7 @@ export default function ServicesPage() {
     <div className="min-h-screen bg-white font-body">
       <Navbar />
       <main className="animate-in fade-in duration-500 pt-[64px] md:pt-[100px]">
-        {/* Hero Banner - Updated height and object positioning for full visibility */}
+        {/* Hero Banner */}
         <section className="relative h-[45vh] sm:h-[55vh] md:h-[70vh] lg:h-[80vh] min-h-[350px] flex items-center overflow-hidden bg-secondary w-full shadow-lg">
           <Image 
             src="https://1234567890.sirv.com/ChatGPT%20Image%20Apr%204%2C%202026%2C%2010_31_56%20PM.png" 

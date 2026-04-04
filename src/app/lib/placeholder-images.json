@@ -1,3 +1,4 @@
+
 {
   "placeholderImages": [
     {
@@ -35,6 +36,12 @@
       "description": "Conversion Rate Success",
       "imageUrl": "/assets/images/niraj.png",
       "imageHint": "business growth"
+    },
+    {
+      "id": "ai-production",
+      "description": "Creative AI Videography and Photography",
+      "imageUrl": "https://picsum.photos/seed/aiprod/1200/800",
+      "imageHint": "ai cinematography"
     }
   ]
 }

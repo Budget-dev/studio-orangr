@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -33,6 +34,7 @@ const NAV: NavItem[] = [
       { label: "Content Marketing", href: "/services/content-marketing" },
       { label: "Social Media SEO", href: "/services/seo" },
       { label: "CRO", href: "/services/cro" },
+      { label: "Creative AI Productions", href: "/services/creative-ai-productions" },
     ]
   },
   { label: "About Us", page: "/about" },

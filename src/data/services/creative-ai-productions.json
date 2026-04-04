@@ -1,0 +1,62 @@
+
+{
+  "serviceName": "Creative AI Productions",
+  "slug": "creative-ai-productions",
+  "hero": {
+    "badge": "Creative AI Production",
+    "headline": "Next-Gen AI Videography & Photography",
+    "subheadline": "High-impact creative ads, stunning photography, and cinematic filmography powered by cutting-edge AI for modern brands.",
+    "image": "https://picsum.photos/seed/aiprod/1200/800",
+    "primaryCTA": { "label": "Start AI Production", "href": "/contact" },
+    "secondaryCTA": { "label": "Explore Our Work", "href": "#results" }
+  },
+  "overview": {
+    "pullQuote": "Future-proof your visuals.",
+    "body": [
+      "Traditional production is slow and expensive. Our Creative AI Production suite leverages the latest in generative AI to produce studio-quality videography and photography in a fraction of the time.",
+      "We create cinematic ads, virtual product photography, and high-fidelity filmography that would be physically impossible or prohibitively expensive to shoot traditionally.",
+      "From AI-enhanced motion graphics to hyper-realistic virtual sets, we help businesses dominate their industry with visuals that look like a multi-million dollar production."
+    ],
+    "inlineStats": [
+      { "value": "10x", "label": "Faster production turnaround", "icon": "Zap" },
+      { "value": "70%", "label": "Average cost reduction vs traditional", "icon": "DollarSign" },
+      { "value": "∞", "label": "Limitless creative possibilities", "icon": "Infinity" }
+    ]
+  },
+  "approach": [
+    { "number": 1, "title": "Creative Concept & Storyboard", "description": "We define the visual narrative and prompt architecture for your brand's unique AI production." },
+    { "number": 2, "title": "AI Generation & Rendering", "description": "Using high-end GPUs and proprietary models to generate base assets for video and photography." },
+    { "number": 3, "title": "Cinematic Refinement", "description": "Expert retouching, color grading, and AI-upscaling to ensure studio-grade resolution and realism." },
+    { "number": 4, "title": "Post-Production Sync", "description": "Integrating sound design, AI voiceovers, and motion graphics for a complete cinematic experience." },
+    { "number": 5, "title": "Multi-Platform Delivery", "description": "Optimizing assets for Reels, YouTube, Cinema, or high-end Print campaigns." }
+  ],
+  "features": [
+    { "icon": "Video", "title": "AI Ad Creatives", "description": "High-conversion video ads for social media generated with cutting-edge AI filmography." },
+    { "icon": "Camera", "title": "Virtual Product Photography", "description": "Hyper-realistic product shots in any environment without a physical photoshoot." },
+    { "icon": "Film", "title": "Cinematic AI Filmography", "description": "Full-scale film production using AI-generated environments, lighting, and movement." },
+    { "icon": "Mic", "title": "AI Voice & Sound Sync", "description": "Professional-grade audio and lip-syncing for global ad campaigns in any language." },
+    { "icon": "Layers", "title": "VFX & Motion Graphics", "description": "Advanced visual effects that blend AI generation with traditional animation techniques." },
+    { "icon": "Monitor", "title": "High-Res Upscaling", "description": "Enhancing existing footage or AI assets to 4K and 8K cinematic standards." }
+  ],
+  "benefits": {
+    "hero": { "title": "Limitless Visual Authority", "description": "Show up with visuals that command attention and position your brand at the forefront of the AI revolution.", "metric": "Future-Ready" },
+    "list": [
+      { "icon": "Clock", "title": "Rapid deployment", "description": "Go from concept to final render in days, not months." },
+      { "icon": "Globe", "title": "Global scalability", "description": "Localized content for any market with zero travel or logistics costs." },
+      { "icon": "Zap", "title": "High-impact conversion", "description": "Unique, AI-native visuals are proven to stop the scroll and drive engagement." },
+      { "icon": "ShieldCheck", "title": "Consistent brand quality", "description": "Train models on your brand's specific visual DNA for 100% consistency." }
+    ]
+  },
+  "caseStudies": [
+    { "prefix": "", "value": 10, "suffix": "x", "label": "Production Speed", "context": "vs traditional film production" },
+    { "prefix": "", "value": 70, "suffix": "%", "label": "Budget Saved", "context": "Average reduction in production overhead" },
+    { "prefix": "", "value": 300, "suffix": "%", "label": "CTR Lift", "context": "On AI-generated social media ad creatives" },
+    { "prefix": "", "value": 24, "suffix": "h", "label": "Draft Turnaround", "context": "For initial AI storyboards and assets" }
+  ],
+  "cta": {
+    "headline": "Step Into the Future of Content Production",
+    "supporting": "We'll build your first AI creative ad concept — for free.",
+    "primaryCTA": { "label": "Start AI Production", "href": "/contact" },
+    "secondaryCTA": { "label": "Talk to an AI Producer →", "href": "/contact" }
+  }
+}

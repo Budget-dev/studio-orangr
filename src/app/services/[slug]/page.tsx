@@ -1,3 +1,4 @@
+
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Navbar } from "@/components/Navbar";
@@ -18,6 +19,7 @@ import ecommerceMarketing from "@/data/services/ecommerce-marketing.json";
 import mobileAppMarketing from "@/data/services/mobile-app-marketing.json";
 import contentMarketing from "@/data/services/content-marketing.json";
 import socialMediaMarketing from "@/data/services/social-media-marketing.json";
+import creativeAIProductions from "@/data/services/creative-ai-productions.json";
 
 const SERVICES_MAP: Record<string, any> = {
   "performance-marketing": performanceMarketing,
@@ -27,6 +29,7 @@ const SERVICES_MAP: Record<string, any> = {
   "mobile-app-marketing": mobileAppMarketing,
   "content-marketing": contentMarketing,
   "social-media-marketing": socialMediaMarketing,
+  "creative-ai-productions": creativeAIProductions,
 };
 
 type Props = {
