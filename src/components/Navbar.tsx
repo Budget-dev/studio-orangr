@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -7,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 interface NavChild {
   label: string;
@@ -67,8 +67,14 @@ export function Navbar() {
         )}
       >
         <Link href="/" className="flex items-center gap-3 group shrink-0 relative z-[1001]">
-          <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center font-black text-xl text-[#0a0a0a] transition-transform group-hover:scale-110 shadow-lg shadow-primary/20">
-            S
+          <div className="w-10 h-10 bg-white rounded-xl overflow-hidden flex items-center justify-center transition-transform group-hover:scale-110 shadow-lg shadow-primary/20">
+            <Image 
+              src="/assets/images/nyf.png" 
+              alt="Logo" 
+              width={40} 
+              height={40} 
+              className="object-cover"
+            />
           </div>
           <div className="flex flex-col">
             <span className="text-[15px] font-black text-white leading-tight uppercase tracking-tight">Shyama Overseas</span>
