@@ -67,13 +67,14 @@ export function Navbar() {
         )}
       >
         <Link href="/" className="flex items-center gap-3 group shrink-0 relative z-[1001]">
-          <div className="w-10 h-10 bg-white rounded-xl overflow-hidden flex items-center justify-center transition-transform group-hover:scale-110 shadow-lg shadow-primary/20">
+          <div className="w-12 h-12 bg-white rounded-xl overflow-hidden flex items-center justify-center transition-transform group-hover:scale-110 shadow-lg shadow-primary/20 p-1">
             <Image 
-              src="/assets/images/nyf.png" 
-              alt="Logo" 
-              width={40} 
-              height={40} 
-              className="object-cover"
+              src="https://1234567890.sirv.com/Screenshot%202026-04-04%20211938.png" 
+              alt="Shyama Overseas Logo" 
+              width={48} 
+              height={48} 
+              className="object-contain"
+              unoptimized
             />
           </div>
           <div className="flex flex-col">
