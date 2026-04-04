@@ -22,14 +22,14 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-white font-body">
       <Navbar />
-      <main className="animate-in fade-in duration-500 pt-[85px]">
-        {/* Hero Banner Image Only */}
-        <section className="relative h-[40vh] md:h-[50vh] flex items-center overflow-hidden bg-secondary w-full shadow-lg">
+      <main className="animate-in fade-in duration-500 pt-[64px] md:pt-[100px]">
+        {/* Hero Banner - Updated height and object positioning for full visibility */}
+        <section className="relative h-[45vh] sm:h-[55vh] md:h-[70vh] lg:h-[80vh] min-h-[350px] flex items-center overflow-hidden bg-secondary w-full shadow-lg">
           <Image 
             src="https://1234567890.sirv.com/ChatGPT%20Image%20Apr%204%2C%202026%2C%2010_31_56%20PM.png" 
             alt="All Services Banner" 
             fill 
-            className="object-cover object-center"
+            className="object-cover object-[center_25%] md:object-center"
             priority
             unoptimized
           />
