@@ -1,61 +1,62 @@
 {
-  "serviceName": "Search Engine Optimisation",
+  "serviceName": "Social Media SEO",
   "slug": "seo",
   "hero": {
-    "badge": "Search Engine Optimisation",
-    "headline": "Rank Higher. Be Found First. Win Organically.",
-    "subheadline": "Technical, on-page, and off-page SEO that builds lasting search visibility — not just short-term ranking spikes.",
-    "primaryCTA": { "label": "Get a Free SEO Audit", "href": "/contact" },
-    "secondaryCTA": { "label": "See Our Rankings", "href": "#results" }
+    "badge": "Social Media SEO",
+    "headline": "Rank Higher on Social. Be Found Everywhere.",
+    "subheadline": "Optimizing your social profiles and content for platform-specific search algorithms and Google discoverability.",
+    "image": "https://1234567890.sirv.com/ChatGPT%20Image%20Apr%204%2C%202026%2C%2010_15_54%20PM.png",
+    "primaryCTA": { "label": "Audit My Social SEO", "href": "/contact" },
+    "secondaryCTA": { "label": "See Our Strategy", "href": "#approach" }
   },
   "overview": {
-    "pullQuote": "Sustainable traffic. Zero rent.",
+    "pullQuote": "Search is social now.",
     "body": [
-      "Paid ads stop the moment you stop paying. SEO builds an asset — a search presence that earns traffic, leads, and revenue on autopilot.",
-      "Our SEO programmes cover every dimension: technical site health, content depth, on-page optimisation, link acquisition, and local SEO — executed in a structured, measurable roadmap.",
-      "We work with your development, content, and PR teams. SEO at Shyama Overseas is a company-wide growth system."
+      "Younger audiences no longer start their search on Google. They start on TikTok, Instagram, and YouTube. If your content isn't optimized for social search, you're invisible to the next generation of buyers.",
+      "Social Media SEO isn't just about hashtags; it's about keyword-rich captions, alt text, profile optimization, and metadata that tells both social algorithms and Google exactly what your content is about.",
+      "We bridge the gap between social engagement and search intent, ensuring your brand dominates the results wherever your customers are looking."
     ],
     "inlineStats": [
-      { "value": "312%", "label": "Average organic traffic growth (12 months)", "icon": "TrendingUp" },
-      { "value": "68%", "label": "Clients in Top 3 for primary keywords", "icon": "Award" },
-      { "value": "5,000+", "label": "Keywords ranked across client portfolio", "icon": "Search" }
+      { "value": "4.2x", "label": "Average increase in profile discoverability", "icon": "Search" },
+      { "value": "75%", "label": "Users start product search on social", "icon": "Users" },
+      { "value": "150%", "label": "Lift in organic social reach via SEO", "icon": "TrendingUp" }
     ]
   },
   "approach": [
-    { "number": 1, "title": "Technical SEO Audit", "description": "Crawl your site for indexation errors, Core Web Vitals failures, redirect chains, duplicate content, and structured data gaps." },
-    { "number": 2, "title": "Keyword Strategy", "description": "Build a full keyword universe segmented by intent and prioritised by opportunity score." },
-    { "number": 3, "title": "On-Page Optimisation", "description": "Rewrite meta titles, descriptions, heading hierarchies, and internal linking on high-potential pages." },
-    { "number": 4, "title": "Content Gap Programme", "description": "Identify topics competitors rank for that you don't — and build content assets to close those gaps." },
-    { "number": 5, "title": "Link Acquisition", "description": "Outreach-based link building using digital PR, resource pages, and partnership programmes — all white-hat." },
-    { "number": 6, "title": "Monitor, Report, Iterate", "description": "Monthly ranking reports, organic traffic attribution, and algorithm-update response protocols." }
+    { "number": 1, "title": "Profile & Bio Optimization", "description": "Injecting high-volume keywords into bios, handles, and profile metadata for maximum visibility." },
+    { "number": 2, "title": "Social Keyword Research", "description": "Identifying what your audience is actually typing into the TikTok and Instagram search bars." },
+    { "number": 3, "title": "Content Metadata & Alt-Text", "description": "Applying SEO best practices to captions, on-screen text, and hidden metadata for accessibility and ranking." },
+    { "number": 4, "title": "Hashtag & Tagging Strategy", "description": "Moving beyond generic tags to intent-based categories that help platforms categorize your content." },
+    { "number": 5, "title": "Cross-Platform Sync", "description": "Ensuring social content is indexable by Google for 'Social Search' results and Featured Snippets." },
+    { "number": 6, "title": "Performance Tracking", "description": "Monitoring search-originated views, profile visits, and ranking positions across platforms." }
   ],
   "features": [
-    { "icon": "Settings", "title": "Technical SEO", "description": "Site architecture, crawlability, Core Web Vitals, schema markup, and mobile-first indexing." },
-    { "icon": "Type", "title": "On-Page SEO", "description": "Title tags, meta descriptions, heading structures, and content depth optimised for humans and search engines." },
-    { "icon": "Link", "title": "Link Building", "description": "White-hat outreach and digital PR to earn high-authority backlinks that move rankings." },
-    { "icon": "MapPin", "title": "Local SEO", "description": "Google Business Profile optimisation, local citations, and geo-targeted content." },
-    { "icon": "Globe", "title": "International SEO", "description": "Hreflang implementation, geo-targeting, and international content for global reach." },
-    { "icon": "BarChart", "title": "SEO Reporting & Analytics", "description": "Rank tracking, organic traffic attribution, and conversion reporting in one dashboard." }
+    { "icon": "Smartphone", "title": "TikTok & IG Search Optimization", "description": "Ranking your videos for high-intent social queries and trending search terms." },
+    { "icon": "Youtube", "title": "YouTube SEO", "description": "Optimizing titles, descriptions, and tags to dominate the world's second-largest search engine." },
+    { "icon": "Linkedin", "title": "LinkedIn Search Authority", "description": "Positioning executive profiles and company pages at the top of professional search results." },
+    { "icon": "Search", "title": "Social-to-Google Indexing", "description": "Techniques to ensure your high-performing social posts appear in Google search results." },
+    { "icon": "BarChart", "title": "Intent-Based Captioning", "description": "Writing captions that satisfy both the user's curiosity and the algorithm's need for context." },
+    { "icon": "Target", "title": "Competitor SEO Analysis", "description": "Identifying the search terms your competitors are winning on social and outranking them." }
   ],
   "benefits": {
-    "hero": { "title": "Traffic that compounds", "description": "Once you earn organic rankings, they deliver traffic, leads, and revenue month after month with no additional spend.", "metric": "Always-on ROI" },
+    "hero": { "title": "Dominate the Discovery Era", "description": "Be the first brand users see when they search for solutions on their favorite platforms.", "metric": "Omnichannel Search" },
     "list": [
-      { "icon": "TrendingUp", "title": "Long-term competitive moat", "description": "A strong organic position takes years for competitors to displace." },
-      { "icon": "DollarSign", "title": "Lowest cost-per-lead at scale", "description": "As rankings grow, CPL from organic outperforms every paid channel." },
-      { "icon": "ShieldCheck", "title": "Algorithm-resilient strategy", "description": "Our approach follows search quality guidelines — not shortcuts that risk penalties." },
-      { "icon": "Eye", "title": "Topical authority building", "description": "We build depth across your whole topic cluster, not just isolated rankings." }
+      { "icon": "TrendingUp", "title": "Exponential organic reach", "description": "Content that satisfies search intent stays relevant much longer than 'viral' spikes." },
+      { "icon": "Users", "title": "Capture Gen Z & Alpha", "description": "Show up where the newest generation of consumers is actually searching." },
+      { "icon": "ShieldCheck", "title": "Algorithm independence", "description": "Search-driven traffic is more stable than relying purely on feed-based distribution." },
+      { "icon": "Link", "title": "Drives high-intent traffic", "description": "Users who search have higher intent than those who simply scroll, leading to better conversions." }
     ]
   },
   "caseStudies": [
-    { "prefix": "", "value": 312, "suffix": "%", "label": "Traffic Growth", "context": "Average across 12-month engagements" },
-    { "prefix": "", "value": 68, "suffix": "%", "label": "Top 3 Ranking", "context": "For primary commercial keywords" },
-    { "prefix": "", "value": 5000, "suffix": "+", "label": "Keywords Ranked", "context": "Across active client portfolio" },
-    { "prefix": "", "value": 4.2, "suffix": "x", "label": "Leads Increase", "context": "Year-over-year average" }
+    { "prefix": "", "value": 4.2, "suffix": "x", "label": "Profile Discoverability", "context": "Increase in search appearances over 6 months" },
+    { "prefix": "", "value": 150, "suffix": "%", "label": "Reach Growth", "context": "Organic reach lift via search-optimized captions" },
+    { "prefix": "", "value": 75, "suffix": "%", "label": "Search Intent Match", "context": "Accuracy in matching content to user queries" },
+    { "prefix": "", "value": 3.8, "suffix": "x", "label": "Lead Gen Lift", "context": "From social-search originated traffic" }
   ],
   "cta": {
-    "headline": "Your Competitors Are Ranking. You Should Be Too.",
-    "supporting": "A free SEO audit reveals exactly what's holding your site back — and how to fix it.",
-    "primaryCTA": { "label": "Get My Free SEO Audit", "href": "/contact" },
-    "secondaryCTA": { "label": "Talk to an SEO Specialist →", "href": "/contact" }
+    "headline": "Is Your Brand Searchable on Social?",
+    "supporting": "We'll audit your social profiles for search readiness — for free.",
+    "primaryCTA": { "label": "Get My Social SEO Audit", "href": "/contact" },
+    "secondaryCTA": { "label": "Talk to an Expert →", "href": "/contact" }
   }
 }

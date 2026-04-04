@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -32,7 +31,7 @@ const NAV: NavItem[] = [
       { label: "E-Commerce Marketing", href: "/services/ecommerce-marketing" },
       { label: "Social Media Marketing", href: "/services/social-media-marketing" },
       { label: "Content Marketing", href: "/services/content-marketing" },
-      { label: "SEO", href: "/services/seo" },
+      { label: "Social Media SEO", href: "/services/seo" },
       { label: "CRO", href: "/services/cro" },
     ]
   },
@@ -51,7 +50,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent scroll when mobile menu is open
   useEffect(() => {
     if (mob) {
       document.body.style.overflow = "hidden";
@@ -85,7 +83,6 @@ export function Navbar() {
           </div>
         </Link>
 
-        {/* Central White Pill Menu - Hidden on Mobile */}
         <div className="hidden lg:flex items-center justify-center flex-1 mx-8">
           <ul className="flex items-center list-none h-auto bg-white/90 backdrop-blur-xl border border-black/5 rounded-full px-2 py-1.5 shadow-xl">
             {NAV.map((n) => (
@@ -143,7 +140,6 @@ export function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {mob && (
           <motion.div
