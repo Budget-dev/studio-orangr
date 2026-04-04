@@ -14,7 +14,7 @@ const SERVICES = [
   { icon: ShoppingCart, title: "E-Commerce Marketing", desc: "Sell more, spend smarter, and scale your online store to new heights.", href: "/services/ecommerce-marketing" },
   { icon: Share2, title: "Social Media Marketing", desc: "Build a brand people actually follow with platform-native content.", href: "/services/social-media-marketing" },
   { icon: FileText, title: "Content Marketing", desc: "Earn trust and drive revenue with strategic content that educate and converts.", href: "/services/content-marketing" },
-  { icon: Search, title: "Search Engine Optimization", desc: "Rank higher and win organically with technical and on-page excellence.", href: "/services/seo" },
+  { icon: Search, title: "Social Media SEO", desc: "Optimize profiles and content for discovery across TikTok, Instagram, and LinkedIn.", href: "/services/seo" },
   { icon: MousePointer, title: "Conversion Rate Optimization", desc: "More revenue from the traffic you already have through data-driven CRO.", href: "/services/cro" },
 ];
 
@@ -26,7 +26,7 @@ export default function ServicesPage() {
         {/* Hero Banner Image Only */}
         <section className="relative h-[40vh] md:h-[50vh] flex items-center overflow-hidden bg-secondary w-full shadow-lg">
           <Image 
-            src="https://1234567890.sirv.com/Screenshot%202026-04-04%20212644.png" 
+            src="https://1234567890.sirv.com/ChatGPT%20Image%20Apr%204%2C%202026%2C%2010_31_56%20PM.png" 
             alt="All Services Banner" 
             fill 
             className="object-cover object-center"
