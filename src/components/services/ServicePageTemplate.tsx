@@ -11,7 +11,12 @@ import { ServiceCTABanner } from "./ServiceCTABanner";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
-export function ServicePageTemplate({ data }: { data: any }) {
+interface ServicePageTemplateProps {
+  data: any;
+  children?: React.ReactNode;
+}
+
+export function ServicePageTemplate({ data, children }: ServicePageTemplateProps) {
   if (!data) return null;
 
   return (
@@ -36,6 +41,8 @@ export function ServicePageTemplate({ data }: { data: any }) {
         <ApproachTimeline steps={data.approach} />
 
         <FeatureGrid features={data.features} />
+
+        {children}
 
         <BenefitsBentoGrid 
           heroBenefit={data.benefits.hero}
