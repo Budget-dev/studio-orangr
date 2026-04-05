@@ -32,6 +32,9 @@ export function ServicePageTemplate({ data, children }: ServicePageTemplateProps
           image={data.hero.image}
         />
 
+        {/* Custom content (like the AI Gallery) now appears here as the second section */}
+        {children}
+
         <ServiceOverview 
           pullQuote={data.overview.pullQuote}
           body={data.overview.body}
@@ -41,8 +44,6 @@ export function ServicePageTemplate({ data, children }: ServicePageTemplateProps
         <ApproachTimeline steps={data.approach} />
 
         <FeatureGrid features={data.features} />
-
-        {children}
 
         <BenefitsBentoGrid 
           heroBenefit={data.benefits.hero}
