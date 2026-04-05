@@ -60,10 +60,10 @@ const AICreativeGallery = ({
     },
     {
       id: "item-5",
-      title: "Architectural AI Visuals",
-      summary: "Bringing future properties and spaces to life with hyper-realistic AI architectural renders.",
+      title: "Galaxy Ice Cream Evolution",
+      summary: "Surreal AI-generated animation of gourmet ice cream evolving amidst a cosmic galaxy of stars on a clean studio background.",
       url: "/contact",
-      image: "https://picsum.photos/seed/aivideo3/1200/800",
+      image: "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(4).mp4",
     },
     {
       id: "item-6",
