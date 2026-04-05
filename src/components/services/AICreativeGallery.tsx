@@ -39,10 +39,10 @@ const AICreativeGallery = ({
     },
     {
       id: "item-2",
-      title: "Virtual Fashion Shoots",
-      summary: "Global fashion campaigns executed without a physical set or international travel logistics.",
+      title: "Supply Chain & Analytics Visualization",
+      summary: "From complex logistics to successful global partnerships, we visualize the entire business ecosystem with cinematic AI.",
       url: "/contact",
-      image: "https://picsum.photos/seed/aivideo2/1200/800",
+      image: "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(7).mp4",
     },
     {
       id: "item-3",
@@ -146,7 +146,7 @@ const AICreativeGallery = ({
         >
           <CarouselContent className="ml-4 md:ml-20">
             {items.map((item) => {
-              const isVideo = item.image.endsWith('.mp4');
+              const isVideo = item.image.includes('.mp4');
               return (
                 <CarouselItem key={item.id} className="pl-4 basis-full md:basis-[452px]">
                   <div className="group flex flex-col justify-between h-full bg-[#FAFAF8] rounded-3xl overflow-hidden border border-border/50 shadow-sm hover:shadow-xl transition-all p-6">
