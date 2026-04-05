@@ -67,10 +67,10 @@ const AICreativeGallery = ({
     },
     {
       id: "item-6",
-      title: "Digital Avatar Storytelling",
-      summary: "Compelling brand storytelling through photorealistic AI-driven characters and digital twins.",
+      title: "Cyberpunk Footwear Cinematics",
+      summary: "High-impact product showcase for luxury footwear, featuring dynamic blue lighting and hyper-realistic textures.",
       url: "/contact",
-      image: "https://picsum.photos/seed/aivideo4/1200/800",
+      image: "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(3).mp4",
     },
   ],
 }: AICreativeGalleryProps) => {
