@@ -53,13 +53,20 @@ const AICreativeGallery = ({
     },
     {
       id: "item-4",
+      title: "Luxury Chocolate Simulation",
+      summary: "Silky chocolate textures and fluid dynamics for high-end confectionery and premium brand experiences.",
+      url: "/contact",
+      image: "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(6).mp4",
+    },
+    {
+      id: "item-5",
       title: "Architectural AI Visuals",
       summary: "Bringing future properties and spaces to life with hyper-realistic AI architectural renders.",
       url: "/contact",
       image: "https://picsum.photos/seed/aivideo3/1200/800",
     },
     {
-      id: "item-5",
+      id: "item-6",
       title: "Digital Avatar Storytelling",
       summary: "Compelling brand storytelling through photorealistic AI-driven characters and digital twins.",
       url: "/contact",
