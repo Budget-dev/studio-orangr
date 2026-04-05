@@ -46,24 +46,24 @@ const AICreativeGallery = ({
     },
     {
       id: "item-3",
+      title: "Gourmet Burger Experience",
+      summary: "High-impact restaurant advertisement showcasing photorealistic food textures and cinematic ingredient motion.",
+      url: "/contact",
+      image: "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(5).mp4",
+    },
+    {
+      id: "item-4",
       title: "Architectural AI Visuals",
       summary: "Bringing future properties and spaces to life with hyper-realistic AI architectural renders.",
       url: "/contact",
       image: "https://picsum.photos/seed/aivideo3/1200/800",
     },
     {
-      id: "item-4",
+      id: "item-5",
       title: "Digital Avatar Storytelling",
       summary: "Compelling brand storytelling through photorealistic AI-driven characters and digital twins.",
       url: "/contact",
       image: "https://picsum.photos/seed/aivideo4/1200/800",
-    },
-    {
-      id: "item-5",
-      title: "Future-Tech Visuals",
-      summary: "Abstract and complex technical concepts simplified through cinematic AI-generated metaphors.",
-      url: "/contact",
-      image: "https://picsum.photos/seed/aivideo5/1200/800",
     },
   ],
 }: AICreativeGalleryProps) => {
