@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -19,6 +20,8 @@ export function HeroSplitLeft({ badge, headline, subheadline, primaryCTA, second
   const words = headline.split(' ');
   const firstHalf = words.slice(0, 5).join(' ');
   const secondHalf = words.slice(5).join(' ');
+
+  const whatsappUrl = "https://wa.me/918918348537?text=Hi, I'm interested in " + badge;
 
   return (
     <section className="relative pt-32 pb-20 overflow-hidden bg-background">
@@ -49,7 +52,7 @@ export function HeroSplitLeft({ badge, headline, subheadline, primaryCTA, second
             <Reveal variants={fadeInUp}>
               <div className="flex flex-col sm:flex-row gap-6">
                 <Button asChild size="lg" className="h-14 px-10 rounded-full font-bold uppercase tracking-widest text-sm shadow-xl shadow-primary/20 hover:scale-[1.02] transition-transform">
-                  <Link href={primaryCTA.href}>{primaryCTA.label}</Link>
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">{primaryCTA.label}</a>
                 </Button>
                 {secondaryCTA && (
                   <Button asChild variant="outline" size="lg" className="h-14 px-10 rounded-full font-bold uppercase tracking-widest text-sm border-secondary/20 hover:bg-secondary hover:text-white transition-all">

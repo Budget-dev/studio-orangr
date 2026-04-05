@@ -1,7 +1,8 @@
+
 "use client";
 
 import React from 'react';
-import { Instagram, Linkedin, Twitter, Youtube, Rocket } from 'lucide-react';
+import { Instagram, Linkedin, Twitter, Youtube, Rocket, Facebook } from 'lucide-react';
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 
 const footerColumns = [
@@ -9,7 +10,7 @@ const footerColumns = [
     title: 'Expertise',
     links: [
       { label: 'Performance Marketing', href: '/services/performance-marketing' },
-      { label: 'SEO Strategy', href: '/services/seo' },
+      { label: 'Social Media SEO', href: '/services/seo' },
       { label: 'Conversion (CRO)', href: '/services/cro' },
       { label: 'E-Commerce Growth', href: '/services/ecommerce-marketing' },
       { label: 'App Marketing', href: '/services/mobile-app-marketing' },
@@ -45,10 +46,10 @@ const legalLinks = [
 ];
 
 const socialIcons = [
-  { icon: <Instagram className="h-5 w-5" />, href: '#' },
+  { icon: <Instagram className="h-5 w-5" />, href: 'https://www.instagram.com/shyamaoverseas/' },
+  { icon: <Facebook className="h-5 w-5" />, href: 'https://www.facebook.com/shyamaoverseas' },
   { icon: <Twitter className="h-5 w-5" />, href: '#' },
   { icon: <Linkedin className="h-5 w-5" />, href: '#' },
-  { icon: <Youtube className="h-5 w-5" />, href: '#' },
 ];
 
 export function Footer() {
@@ -120,6 +121,8 @@ export function Footer() {
                 <a
                   key={i}
                   href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-12 h-12 rounded-full border border-secondary/10 flex items-center justify-center hover:bg-primary hover:border-primary hover:text-white transition-all"
                 >
                   {item.icon}

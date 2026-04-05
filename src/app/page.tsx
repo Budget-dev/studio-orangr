@@ -5,13 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
-import { usePathname } from "next/navigation";
-import { 
-  Menu, 
-  X, 
-  ArrowRight
-} from "lucide-react";
+import { motion, useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/Navbar";
 import { WorldMap } from "@/components/WorldMap";
@@ -74,19 +68,6 @@ const OPERATIONS_VIDEOS = [
   { id: 8, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(1).mp4", title: "Execution", subtitle: "Precision Delivery" },
   { id: 9, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(2).mp4", title: "Analytics", subtitle: "Core Reporting" },
   { id: 10, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(3).mp4", title: "Optimization", subtitle: "Alpha Testing" },
-  { id: 11, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(4).mp4", title: "Acquisition", subtitle: "User Funnel" },
-  { id: 12, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(5).mp4", title: "Retention", subtitle: "Loyalty Suite" },
-  { id: 13, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM.mp4", title: "Digital Media", subtitle: "Network Reach" },
-  { id: 14, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(1).mp4", title: "Reporting", subtitle: "Client Portal" },
-  { id: 15, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(2).mp4", title: "Innovation", subtitle: "Future Tech" },
-  { id: 16, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(3).mp4", title: "Strategy Room", subtitle: "Daily Brief" },
-  { id: 17, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(4).mp4", title: "Market Entry", subtitle: "Global Launch" },
-  { id: 18, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(5).mp4", title: "Tech Stack", subtitle: "Integrations" },
-  { id: 19, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(6).mp4", title: "Impact", subtitle: "Success Radar" },
-  { id: 20, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(7).mp4", title: "Scale Up", subtitle: "Automation Hub" },
-  { id: 21, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(8).mp4", title: "Ad Operations", subtitle: "Performance" },
-  { id: 22, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM%20(9).mp4", title: "Growth Engine", subtitle: "Core Logic" },
-  { id: 23, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.25%20PM.mp4", title: "Final Review", subtitle: "Quality QA" },
 ];
 
 /* ── COMPONENTS ── */
@@ -157,24 +138,14 @@ function FadeIn({ children, shadow = false, delay = 0 }: { children: React.React
 }
 
 export default function HomePage() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const pathname = usePathname();
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <div className="min-h-screen bg-white overflow-x-hidden font-body">
       
-      {/* NAVBAR */}
       <Navbar />
 
       <main>
         
-        {/* HERO SECTION - Updated Banner Image and height for mobile consistency */}
+        {/* HERO SECTION */}
         <section className="relative h-[80vh] mt-[85px] md:mt-[100px] flex items-center overflow-hidden bg-secondary w-full shadow-2xl">
           <Image 
             src="https://1234567890.sirv.com/ChatGPT%20Image%20Mar%2030%2C%202026%2C%2003_05_25%20PM.png" 
@@ -185,9 +156,6 @@ export default function HomePage() {
             unoptimized
           />
           
-          {/* TEXT OVERLAYS REMOVED AS REQUESTED */}
-
-          {/* MOVING TEXT BAR */}
           <div className="absolute bottom-0 left-0 right-0 bg-primary py-4 md:py-5 overflow-hidden z-30 shadow-[0_-10px_30px_rgba(248,155,52,0.3)]">
             <div className="flex gap-16 w-max animate-marquee-slow items-center">
               {[...Array(6)].map((_, i) => (
@@ -316,7 +284,6 @@ export default function HomePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 h-auto lg:h-[550px] items-start">
               <TestimonialsColumn testimonials={testimonials.slice(0, 2)} duration={20} className="hidden lg:block" />
               <TestimonialsColumn testimonials={testimonials.slice(2, 4)} duration={25} className="flex flex-col items-center" />
-              <TestimonialsColumn testimonials={testimonials.slice(0, 2)} duration={22} className="hidden md:block lg:hidden" />
               <TestimonialsColumn testimonials={testimonials.slice(0, 2)} duration={22} className="hidden lg:block" />
             </div>
           </div>
@@ -337,21 +304,25 @@ export default function HomePage() {
             </div>
 
             <div className="grid lg:grid-cols-[1fr_450px] gap-12 md:gap-20 items-start">
-              <form className="space-y-8 md:space-y-10">
+              <div className="space-y-8 md:space-y-10">
                 <div className="grid md:grid-cols-2 gap-8 md:gap-10">
                   <input className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal font-inter text-sm md:text-base" placeholder="Full Name" />
                   <input className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal font-inter text-sm md:text-base" placeholder="Email Address" />
                 </div>
                 <textarea className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal resize-none font-inter text-sm md:text-base" rows={4} placeholder="How can we help you dominate your industry?" />
-                <button className="bg-primary hover:bg-primary/90 text-secondary w-full py-5 md:py-6 rounded-full font-black uppercase tracking-[4px] md:tracking-[6px] text-xs md:text-sm transition-all shadow-xl shadow-primary/20">
+                <a 
+                  href="https://wa.me/918918348537?text=Hi, I want to initiate growth for my business." 
+                  target="_blank"
+                  className="bg-primary hover:bg-primary/90 text-secondary w-full py-5 md:py-6 rounded-full font-black uppercase tracking-[4px] md:tracking-[6px] text-xs md:text-sm transition-all shadow-xl shadow-primary/20 flex items-center justify-center"
+                >
                   INITIATE GROWTH
-                </button>
-              </form>
+                </a>
+              </div>
 
               <div className="bg-secondary p-10 md:p-16 rounded-[30px] md:rounded-[40px] text-white shadow-2xl">
                 <div className="space-y-10 md:space-y-12">
                   <div>
-                    <div className="text-primary text-3xl md:text-5xl font-sora font-black mb-3 italic">+91 9033131093</div>
+                    <div className="text-primary text-3xl md:text-5xl font-sora font-black mb-3 italic">+91 89183 48537</div>
                     <p className="text-white/40 text-[10px] font-bold tracking-[4px] uppercase">Available 10:00 – 18:00 IST</p>
                   </div>
                   <div className="space-y-6 md:space-y-8">
@@ -367,7 +338,6 @@ export default function HomePage() {
         </section>
       </main>
       
-      {/* FOOTER COMPONENT */}
       <Footer />
 
     </div>
