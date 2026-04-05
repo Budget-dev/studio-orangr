@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { WhatsAppButton } from "./WhatsAppButton";
 
 interface NavChild {
   label: string;
@@ -125,12 +126,9 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-4 md:gap-6 shrink-0 relative z-[1001] ml-auto">
-          <Link
-            href="/contact"
-            className="hidden sm:block bg-white text-secondary px-8 py-3 rounded-full text-[13px] font-black hover:bg-primary hover:text-white transition-all shadow-xl active:scale-95 uppercase tracking-widest border-2 border-transparent"
-          >
-            Contact Us
-          </Link>
+          <div className="hidden sm:block">
+            <WhatsAppButton />
+          </div>
 
           <button 
             className="lg:hidden text-white p-2 hover:bg-white/10 rounded-xl transition-colors border border-white/10 flex items-center justify-center" 
@@ -199,14 +197,8 @@ export function Navbar() {
                 ))}
               </div>
 
-              <div className="mt-auto pb-10">
-                <Link
-                  href="/contact"
-                  className="w-full text-center bg-primary text-[#0a0a0a] py-5 rounded-2xl font-black text-lg uppercase tracking-[4px] shadow-2xl shadow-primary/20 block active:scale-[0.98] transition-transform"
-                  onClick={() => setMob(false)}
-                >
-                  Contact Us
-                </Link>
+              <div className="mt-auto pb-10 flex justify-center">
+                <WhatsAppButton className="w-[80%] h-16 hover:w-[85%]" />
               </div>
             </div>
           </motion.div>

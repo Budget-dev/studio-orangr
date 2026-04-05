@@ -12,6 +12,7 @@ import { WorldMap } from "@/components/WorldMap";
 import { LogoCloud } from "@/components/LogoCloud";
 import { Footer } from "@/components/Footer";
 import InteractiveBentoGallery, { type MediaItemType } from "@/components/InteractiveBentoGallery";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import {
   Carousel,
   CarouselContent,
@@ -310,13 +311,9 @@ export default function HomePage() {
                   <input className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal font-inter text-sm md:text-base" placeholder="Email Address" />
                 </div>
                 <textarea className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal resize-none font-inter text-sm md:text-base" rows={4} placeholder="How can we help you dominate your industry?" />
-                <a 
-                  href="https://wa.me/918918348537?text=Hi, I want to initiate growth for my business." 
-                  target="_blank"
-                  className="bg-primary hover:bg-primary/90 text-secondary w-full py-5 md:py-6 rounded-full font-black uppercase tracking-[4px] md:tracking-[6px] text-xs md:text-sm transition-all shadow-xl shadow-primary/20 flex items-center justify-center"
-                >
-                  INITIATE GROWTH
-                </a>
+                <div className="flex justify-center md:justify-start">
+                  <WhatsAppButton className="w-full h-16 hover:w-[220px]" />
+                </div>
               </div>
 
               <div className="bg-secondary p-10 md:p-16 rounded-[30px] md:rounded-[40px] text-white shadow-2xl">
