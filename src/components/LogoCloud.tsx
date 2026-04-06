@@ -1,55 +1,60 @@
 
 "use client";
 
-import { Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const BRANDS = [
-  "Nexus Retail Hub",
-  "UrbanCart",
-  "BlueWave Technologies",
-  "PrimeSquare Developments",
-  "Zenith Lifestyle",
-  "Elevate Dining",
-  "NovaEdge Solutions",
-  "Apex Mart",
+const logos = [
+  {
+    src: "https://svgl.app/library/nvidia-wordmark-light.svg",
+    alt: "Nvidia Logo",
+  },
+  {
+    src: "https://svgl.app/library/supabase_wordmark_light.svg",
+    alt: "Supabase Logo",
+  },
+  {
+    src: "https://svgl.app/library/openai_wordmark_light.svg",
+    alt: "OpenAI Logo",
+  },
+  {
+    src: "https://svgl.app/library/turso-wordmark-light.svg",
+    alt: "Turso Logo",
+  },
+  {
+    src: "https://svgl.app/library/vercel_wordmark.svg",
+    alt: "Vercel Logo",
+  },
+  {
+    src: "https://svgl.app/library/github_wordmark_light.svg",
+    alt: "GitHub Logo",
+  },
+  {
+    src: "https://svgl.app/library/claude-ai-wordmark-icon_light.svg",
+    alt: "Claude AI Logo",
+  },
+  {
+    src: "https://svgl.app/library/clerk-wordmark-light.svg",
+    alt: "Clerk Logo",
+  },
 ];
 
 export function LogoCloud({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       className={cn(
-        "relative grid grid-cols-2 border-x border-border/40 md:grid-cols-4 overflow-hidden",
+        "flex flex-wrap items-center justify-center gap-x-12 gap-y-8 px-4",
         className
       )}
       {...props}
     >
-      {/* Top Grid Line */}
-      <div className="-translate-x-1/2 -top-px pointer-events-none absolute left-1/2 w-screen border-t border-border/40" />
-
-      {BRANDS.map((brand, i) => (
-        <div
-          key={brand}
-          className={cn(
-            "flex items-center justify-center bg-background px-6 py-14 md:p-16 transition-all hover:bg-muted/30 border-r border-b border-border/40 relative group cursor-default"
-          )}
-        >
-          <span className="text-[10px] md:text-[12px] font-black text-secondary/60 uppercase tracking-[0.2em] text-center group-hover:text-primary group-hover:scale-105 transition-all duration-300">
-            {brand}
-          </span>
-          
-          {/* Intersectional Plus Icons for the 'Network' aesthetic */}
-          {(i === 0 || i === 2 || i === 5) && (
-            <Plus
-              className="-right-[12px] -bottom-[12px] absolute z-10 size-6 text-primary pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity"
-              strokeWidth={1.5}
-            />
-          )}
-        </div>
+      {logos.map((logo, i) => (
+        <img
+          key={i}
+          src={logo.src}
+          alt={logo.alt}
+          className="h-7 w-auto opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+        />
       ))}
-
-      {/* Bottom Grid Line */}
-      <div className="-translate-x-1/2 -bottom-px pointer-events-none absolute left-1/2 w-screen border-b border-border/40" />
     </div>
   );
 }

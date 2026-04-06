@@ -8,7 +8,6 @@ import React from "react";
 import { motion, useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/Navbar";
-import { WorldMap } from "@/components/WorldMap";
 import { LogoCloud } from "@/components/LogoCloud";
 import { Footer } from "@/components/Footer";
 import InteractiveBentoGallery, { type MediaItemType } from "@/components/InteractiveBentoGallery";
@@ -168,17 +167,30 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* LOGO CLOUD */}
-        <section className="py-16 md:py-24 bg-white border-b border-border/10">
-          <div className="max-w-7xl mx-auto px-6 text-center">
+        {/* LOGO CLOUD - STRATEGIC NETWORK */}
+        <section className="py-24 bg-white border-b border-border/10 relative overflow-hidden">
+          <div
+            aria-hidden="true"
+            className={cn(
+              "-z-10 -top-1/2 -translate-x-1/2 pointer-events-none absolute left-1/2 h-[120vmin] w-[120vmin] rounded-b-full",
+              "bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.04),transparent_50%)]",
+              "blur-[30px]"
+            )}
+          />
+
+          <div className="relative mx-auto max-w-3xl px-6">
             <FadeIn>
-              <div className="mb-12 md:mb-16">
-                <h2 className="text-3xl md:text-4xl font-sora font-light text-secondary">
-                  Our <span className="text-primary font-bold italic">Strategic Network</span>
-                </h2>
-                <p className="text-primary font-bold uppercase tracking-widest text-[10px] mt-2 italic">Brands We've Transformed</p>
-              </div>
+              <h2 className="mb-5 text-center font-medium text-secondary text-xl tracking-tight md:text-3xl">
+                <span className="text-muted-foreground">Trusted by experts.</span>
+                <br />
+                <span className="font-semibold text-secondary">Used by the leaders.</span>
+              </h2>
+              <div className="mx-auto my-5 h-px max-w-sm bg-border [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
+
               <LogoCloud />
+
+              <div className="mt-5 h-px bg-border [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
+              <p className="text-center text-primary font-bold uppercase tracking-widest text-[10px] mt-8 italic">Our Strategic Network</p>
             </FadeIn>
           </div>
         </section>
@@ -246,27 +258,24 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* WORLD MAP */}
+        {/* GLOBAL REACH SECTION */}
         <section className="bg-white py-16 md:py-24 relative overflow-hidden border-b border-border/10">
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <FadeIn>
               <div className="text-center mb-12 md:mb-20">
                 <div className="text-primary font-bold uppercase tracking-[4px] text-xs mb-4">Global Reach</div>
-                <h2 className="text-3xl md:text-5xl font-sora font-light text-secondary leading-tight">
+                <h2 className="text-3xl md:text-5xl font-sora font-light text-secondary leading-tight mb-12">
                   Empowering <span className="font-bold">150+ Brands</span> <span className="text-primary">Worldwide</span>
                 </h2>
+                <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-border/50">
+                  <img 
+                    src="https://1234567890.sirv.com/ChatGPT%20Image%20Apr%205%2C%202026%2C%2001_42_40%20PM.png"
+                    alt="Shyama Overseas Global Network"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
               </div>
             </FadeIn>
-            <div className="max-w-5xl mx-auto">
-              <WorldMap 
-                lineColor="#f89b34"
-                dots={[
-                  { start: { lat: 19.0760, lng: 72.8777, label: "Mumbai" }, end: { lat: 40.7128, lng: -74.0060, label: "New York" } },
-                  { start: { lat: 17.3850, lng: 78.4867, label: "Hyderabad" }, end: { lat: 51.5074, lng: -0.1278, label: "London" } },
-                  { start: { lat: 19.0760, lng: 72.8777, label: "Mumbai" }, end: { lat: 25.2048, lng: 55.2708, label: "Dubai" } },
-                ]}
-              />
-            </div>
           </div>
         </section>
 
