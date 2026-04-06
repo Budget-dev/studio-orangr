@@ -58,7 +58,7 @@ export function LogoCloud({ className, logos, ...props }: LogoCloudProps) {
           key={i}
           src={logo.src}
           alt={logo.alt}
-          className="h-7 w-auto transition-all duration-300 hover:scale-110 drop-shadow-sm"
+          className="h-7 w-auto transition-all duration-300 hover:scale-110 drop-shadow-sm grayscale-0 opacity-100"
         />
       ))}
     </div>

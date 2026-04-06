@@ -179,7 +179,7 @@ export default function HomePage() {
           />
 
           <div className="relative mx-auto max-w-3xl px-6">
-            <FadeIn>
+            <FadeIn shadow>
               <h2 className="mb-5 text-center font-medium text-secondary text-xl tracking-tight md:text-3xl">
                 <span className="text-muted-foreground">Trusted by experts.</span>
                 <br />
