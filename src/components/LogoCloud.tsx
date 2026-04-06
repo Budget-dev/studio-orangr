@@ -3,42 +3,48 @@
 
 import { cn } from "@/lib/utils";
 
-const logos = [
+const DEFAULT_LOGOS = [
   {
-    src: "https://svgl.app/library/nvidia-wordmark-light.svg",
+    src: "https://svgl.app/library/nvidia.svg",
     alt: "Nvidia Logo",
   },
   {
-    src: "https://svgl.app/library/supabase_wordmark_light.svg",
+    src: "https://svgl.app/library/supabase.svg",
     alt: "Supabase Logo",
   },
   {
-    src: "https://svgl.app/library/openai_wordmark_light.svg",
+    src: "https://svgl.app/library/openai.svg",
     alt: "OpenAI Logo",
   },
   {
-    src: "https://svgl.app/library/turso-wordmark-light.svg",
+    src: "https://svgl.app/library/turso.svg",
     alt: "Turso Logo",
   },
   {
-    src: "https://svgl.app/library/vercel_wordmark.svg",
+    src: "https://svgl.app/library/vercel.svg",
     alt: "Vercel Logo",
   },
   {
-    src: "https://svgl.app/library/github_wordmark_light.svg",
+    src: "https://svgl.app/library/github.svg",
     alt: "GitHub Logo",
   },
   {
-    src: "https://svgl.app/library/claude-ai-wordmark-icon_light.svg",
+    src: "https://svgl.app/library/claude.svg",
     alt: "Claude AI Logo",
   },
   {
-    src: "https://svgl.app/library/clerk-wordmark-light.svg",
+    src: "https://svgl.app/library/clerk.svg",
     alt: "Clerk Logo",
   },
 ];
 
-export function LogoCloud({ className, ...props }: React.ComponentProps<"div">) {
+interface LogoCloudProps extends React.ComponentProps<"div"> {
+  logos?: { src: string; alt: string }[];
+}
+
+export function LogoCloud({ className, logos, ...props }: LogoCloudProps) {
+  const displayLogos = logos || DEFAULT_LOGOS;
+
   return (
     <div
       className={cn(
@@ -47,12 +53,12 @@ export function LogoCloud({ className, ...props }: React.ComponentProps<"div">) 
       )}
       {...props}
     >
-      {logos.map((logo, i) => (
+      {displayLogos.map((logo, i) => (
         <img
           key={i}
           src={logo.src}
           alt={logo.alt}
-          className="h-7 w-auto opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+          className="h-7 w-auto transition-all duration-300 hover:scale-110 drop-shadow-sm"
         />
       ))}
     </div>
