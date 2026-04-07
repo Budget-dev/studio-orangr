@@ -49,10 +49,10 @@ const testimonials = [
 ];
 
 const GALLERY_ITEMS: MediaItemType[] = [
-  { id: 1, type: 'image', title: 'Performance Marketing', desc: 'Full-Funnel Campaign Strategy & Execution', url: '/assets/images/_extra____Indian_private_202603201015.png', span: 'md:col-span-2 md:row-span-2' },
-  { id: 2, type: 'image', title: 'Brand Identity', desc: 'Creative Branding for Global Tech Leaders', url: '/assets/images/_extra____upper_middle_202603191201 - Copy.png', span: 'md:col-span-1 md:row-span-1' },
+  { id: 1, type: 'image', title: 'Healthcare Marketing', desc: 'Patient Acquisition & Clinic Growth Strategy', url: '/assets/images/_extra____Indian_private_202603201015.png', span: 'md:col-span-2 md:row-span-2' },
+  { id: 2, type: 'image', title: 'Hospitality Marketing', desc: 'Luxury Resort Branding & Guest Experience Campaigns', url: '/assets/images/_extra____upper_middle_202603191201 - Copy.png', span: 'md:col-span-1 md:row-span-1' },
   { id: 3, type: 'image', title: 'Digital Strategy', desc: 'Data-Driven Insights for Market Entry', url: '/assets/images/imagecolur.png', span: 'md:col-span-1 md:row-span-1' },
-  { id: 4, type: 'image', title: 'E-Commerce Growth', desc: 'Scaling D2C Brands to 8-Figures', url: '/assets/images/imagesloyred.png', span: 'md:col-span-1 md:row-span-1' },
+  { id: 4, type: 'image', title: 'Content Production', desc: 'High-Impact Visual Content for Campaigns', url: '/assets/images/imagesloyred.png', span: 'md:col-span-1 md:row-span-1' },
   { id: 5, type: 'image', title: 'Social Impact', desc: 'Viral Campaigns with Massive Reach', url: '/assets/images/nyf.png', span: 'md:col-span-1 md:row-span-2' },
   { id: 6, type: 'image', title: 'Conversion (CRO)', desc: 'Optimizing the User Journey for ROI', url: '/assets/images/niraj.png', span: 'md:col-span-2 md:row-span-1' },
 ];
