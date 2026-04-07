@@ -19,25 +19,29 @@ const testimonials = [
     text: "Shyama Overseas transformed our digital presence. Their attention to detail in performance marketing is truly unmatched. They helped us scale from Idea to Vision.",
     name: "Arjun Mehta",
     role: "Founder, Innovate Tech",
-    image: "https://picsum.photos/seed/arjun/100/100"
+    image: "https://picsum.photos/seed/arjun/100/100",
+    date: "2 days ago"
   },
   {
     text: "The digital growth solutions provided by the team helped us reach 40+ global markets. Their expertise in customer acquisition and ad-tech is phenomenal.",
     name: "Priya Sharma",
     role: "Marketing Head, Ethos D2C",
-    image: "https://picsum.photos/seed/priya/100/100"
+    image: "https://picsum.photos/seed/priya/100/100",
+    date: "1 week ago"
   },
   {
     text: "Reliable, creative, and fast. They are the perfect partner for scaling any digital business. Their in-house studio handled everything perfectly.",
     name: "Vikram Goel",
     role: "CEO, Goel Enterprises",
-    image: "https://picsum.photos/seed/vikram/100/100"
+    image: "https://picsum.photos/seed/vikram/100/100",
+    date: "3 days ago"
   },
   {
     text: "From branding to performance marketing, they handle it all with absolute professionalism and deep insight into the digital landscape.",
     name: "Sanjay Gupta",
     role: "Growth Director, Bharat Brand",
-    image: "https://picsum.photos/seed/sanjay/100/100"
+    image: "https://picsum.photos/seed/sanjay/100/100",
+    date: "5 days ago"
   }
 ];
 
@@ -52,50 +56,34 @@ const GALLERY_ITEMS: MediaItemType[] = [
 
 /* ── COMPONENTS ── */
 
-export const TestimonialsColumn = (props: {
-  className?: string;
-  testimonials: typeof testimonials;
-  duration?: number;
-}) => {
+const TestimonialCard = ({ text, name, role, date }: { text: string; name: string; role: string; date: string }) => {
   return (
-    <div className={props.className}>
-      <motion.div
-        animate={{
-          translateY: "-50%",
-        }}
-        transition={{
-          duration: props.duration || 10,
-          repeat: Infinity,
-          ease: "linear",
-          repeatType: "loop",
-        }}
-        className="flex flex-col gap-6 pb-6 bg-transparent"
-      >
-        {[
-          ...new Array(2).fill(0).map((_, index) => (
-            <React.Fragment key={index}>
-              {props.testimonials.map(({ text, image, name, role }, i) => (
-                <div className="p-8 md:p-10 rounded-3xl border border-border/50 shadow-lg shadow-primary/10 max-w-xs w-full bg-white" key={i}>
-                  <div className="text-secondary font-medium italic text-sm">"{text}"</div>
-                  <div className="flex items-center gap-2 mt-5">
-                    <img
-                      width={40}
-                      height={40}
-                      src={image}
-                      alt={name}
-                      className="h-10 w-10 rounded-full"
-                    />
-                    <div className="flex flex-col">
-                      <div className="font-bold text-secondary text-sm tracking-tight leading-5">{name}</div>
-                      <div className="leading-5 text-primary font-bold text-[10px] uppercase tracking-wider">{role}</div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </React.Fragment>
-          )),
-        ]}
-      </motion.div>
+    <div className="flex flex-col justify-between bg-white p-8 min-w-[300px] md:min-w-[350px] rounded-3xl border border-border/50 shadow-sm hover:shadow-md transition-all">
+      <div>
+        <div className="flex gap-0.5 text-[#eecb08] mb-6">
+          {[...Array(5)].map((_, i) => (
+            <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+          ))}
+        </div>
+        <div className="infos">
+          <p className="text-primary text-xs font-bold uppercase tracking-widest mb-2">
+            {date}
+          </p>
+          <p className="text-secondary/70 text-sm leading-relaxed italic">
+            "{text}"
+          </p>
+        </div>
+      </div>
+      <div className="mt-8 pt-6 border-t border-border/10">
+        <div className="text-secondary font-bold text-sm">
+          — {name}
+        </div>
+        <div className="text-primary font-bold text-[10px] uppercase tracking-widest mt-1">
+          {role}
+        </div>
+      </div>
     </div>
   );
 };
@@ -206,10 +194,10 @@ export default function HomePage() {
         </section>
 
         {/* TESTIMONIALS */}
-        <section className="py-16 md:py-24 bg-[#FAFAF8] overflow-hidden border-b border-border/10">
+        <section className="py-24 bg-[#FAFAF8] overflow-hidden border-b border-border/10">
           <div className="max-w-7xl mx-auto px-6">
             <FadeIn>
-              <div className="text-center mb-12 md:mb-16">
+              <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-sora font-light text-secondary">
                   Latest from <span className="text-primary font-bold italic">Our Partners</span>
                 </h2>
@@ -217,10 +205,16 @@ export default function HomePage() {
               </div>
             </FadeIn>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 h-auto lg:h-[550px] items-start">
-              <TestimonialsColumn testimonials={testimonials.slice(0, 2)} duration={20} className="hidden lg:block" />
-              <TestimonialsColumn testimonials={testimonials.slice(2, 4)} duration={25} className="flex flex-col items-center" />
-              <TestimonialsColumn testimonials={testimonials.slice(0, 2)} duration={22} className="hidden lg:block" />
+            <div className="flex gap-6 overflow-x-auto pb-12 scrollbar-hide px-4 -mx-4">
+              {testimonials.map((t, i) => (
+                <TestimonialCard 
+                  key={i}
+                  text={t.text}
+                  name={t.name}
+                  role={t.role}
+                  date={t.date}
+                />
+              ))}
             </div>
           </div>
         </section>
