@@ -54,7 +54,7 @@ const GALLERY_ITEMS: MediaItemType[] = [
   { id: 3, type: 'image', title: 'Digital Strategy', desc: 'Data-Driven Insights for Market Entry', url: '/assets/images/imagecolur.png', span: 'md:col-span-1 md:row-span-1' },
   { id: 4, type: 'image', title: 'Content Production', desc: 'High-Impact Visual Content for Campaigns', url: '/assets/images/imagesloyred.png', span: 'md:col-span-1 md:row-span-1' },
   { id: 5, type: 'image', title: 'Social Impact', desc: 'Viral Campaigns with Massive Reach', url: '/assets/images/nyf.png', span: 'md:col-span-1 md:row-span-2' },
-  { id: 6, type: 'image', title: 'Conversion (CRO)', desc: 'Optimizing the User Journey for ROI', url: '/assets/images/niraj.png', span: 'md:col-span-2 md:row-span-1' },
+  { id: 6, type: 'image', title: 'Jewelry Product Marketing', desc: 'Professional Product Shoot for High-End Branding', url: '/assets/images/niraj.png', span: 'md:col-span-2 md:row-span-1' },
 ];
 
 const OPERATIONS_VIDEOS = [
