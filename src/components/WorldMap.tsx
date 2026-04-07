@@ -46,12 +46,17 @@ export function WorldMap({
     return `M ${start.x} ${start.y} Q ${midX} ${midY} ${end.x} ${end.y}`;
   };
 
-  // Improved offsets for legibility
+  // Improved offsets for legibility of diverse labels
   const getLabelOffset = (label: string) => {
     switch (label) {
       case "Mumbai": return { dx: -15, dy: 20 };
+      case "Ahmedabad": return { dx: -15, dy: -10 };
+      case "USA": return { dx: -25, dy: 15 };
+      case "Australia": return { dx: 15, dy: 10 };
+      case "Japan": return { dx: 15, dy: -5 };
+      case "Germany": return { dx: -20, dy: -10 };
+      case "Bangalore": return { dx: 10, dy: 15 };
       case "Hyderabad": return { dx: 20, dy: 10 };
-      case "Visakhapatnam": return { dx: 15, dy: -15 };
       default: return { dx: 10, dy: 5 };
     }
   };
@@ -157,22 +162,24 @@ export function WorldMap({
         ))}
 
         {/* Highly Visible Bold Labels */}
-        {Array.from(new Set(dots.map(d => d.start.label))).map((label, idx) => {
-          const dot = dots.find(d => d.start.label === label);
-          if (!dot || !label) return null;
-          const point = projectPoint(dot.start.lat, dot.start.lng);
-          const offset = getLabelOffset(label);
+        {/* We combine both start and end labels for full visibility */}
+        {dots.flatMap(d => [
+          { label: d.start.label, lat: d.start.lat, lng: d.start.lng },
+          { label: d.end.label, lat: d.end.lat, lng: d.end.lng }
+        ]).filter((v, i, a) => v.label && a.findIndex(t => t.label === v.label) === i).map((item, idx) => {
+          const point = projectPoint(item.lat, item.lng);
+          const offset = getLabelOffset(item.label!);
           return (
             <text
               key={`city-label-${idx}`}
               x={point.x + offset.dx}
               y={point.y + offset.dy}
-              fill={lineColor}
-              fontSize="12"
+              fill={item.label === "Ahmedabad" || item.label === "Mumbai" || item.label === "Surat" ? "#0a2540" : lineColor}
+              fontSize="10"
               fontWeight="1000"
               className="uppercase select-none pointer-events-none"
               style={{ 
-                filter: "drop-shadow(0 1px 3px rgba(255,255,255,1))",
+                filter: "drop-shadow(0 1px 2px rgba(255,255,255,1))",
                 paintOrder: "stroke",
                 stroke: "white",
                 strokeWidth: "2px",
@@ -180,7 +187,7 @@ export function WorldMap({
                 strokeLinejoin: "round"
               }}
             >
-              {label}
+              {item.label}
             </text>
           );
         })}
