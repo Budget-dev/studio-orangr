@@ -60,12 +60,14 @@ export function Navbar() {
     }
   }, [mob]);
 
+  const isDarkNav = scrolled || pathname !== "/";
+
   return (
     <>
       <nav
         className={cn(
           "fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 px-4 md:px-6 lg:px-12 flex items-center justify-between",
-          scrolled || pathname !== "/" ? "h-16 bg-[#0a0a0a]/95 backdrop-blur-md shadow-2xl border-b border-white/5" : "h-[100px] bg-transparent"
+          isDarkNav ? "h-16 bg-[#0a0a0a]/95 backdrop-blur-md shadow-2xl border-b border-white/5" : "h-[100px] bg-transparent"
         )}
       >
         <Link href="/" className="flex items-center gap-2 md:gap-3 group shrink-0 relative z-[1001]">
@@ -80,7 +82,12 @@ export function Navbar() {
             />
           </div>
           <div className="flex flex-col">
-            <span className="text-[13px] md:text-[15px] font-black text-white leading-tight uppercase tracking-tight">Shyama Overseas</span>
+            <span className={cn(
+              "text-[13px] md:text-[15px] font-black leading-tight uppercase tracking-tight transition-colors duration-300",
+              isDarkNav ? "text-white" : "text-secondary"
+            )}>
+              Shyama Overseas
+            </span>
             <span className="text-[8px] md:text-[9px] font-bold text-primary uppercase tracking-[0.2em]">Digital Growth Agency</span>
           </div>
         </Link>
@@ -126,7 +133,10 @@ export function Navbar() {
 
         <div className="flex items-center gap-4 md:gap-6 shrink-0 relative z-[1001] ml-auto">
           <button 
-            className="lg:hidden text-white p-2 hover:bg-white/10 rounded-xl transition-colors border border-white/10 flex items-center justify-center" 
+            className={cn(
+              "lg:hidden p-2 rounded-xl transition-colors border flex items-center justify-center",
+              isDarkNav ? "text-white hover:bg-white/10 border-white/10" : "text-secondary hover:bg-secondary/5 border-secondary/10"
+            )}
             onClick={() => setMob(!mob)}
             aria-label="Toggle Menu"
           >
