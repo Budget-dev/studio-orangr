@@ -1,4 +1,3 @@
-
 {
   "serviceName": "Creative AI Productions",
   "slug": "creative-ai-productions",
@@ -6,7 +5,7 @@
     "badge": "Creative AI Production",
     "headline": "Next-Gen AI Videography & Photography",
     "subheadline": "High-impact creative ads, stunning photography, and cinematic filmography powered by cutting-edge AI for modern brands.",
-    "image": "https://picsum.photos/seed/aiprod/1200/800",
+    "image": "https://vennky.sirv.com/ChatGPT%20Image%20Apr%207%2C%202026%2C%2004_47_12%20PM.png",
     "primaryCTA": { "label": "Start AI Production", "href": "/contact" },
     "secondaryCTA": { "label": "Explore Our Work", "href": "#results" }
   },
