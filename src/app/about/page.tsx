@@ -34,16 +34,16 @@ export default function AboutPage() {
               <div className="relative aspect-[4/5] rounded-[32px] overflow-hidden border-2 border-primary/20 shadow-2xl bg-secondary">
                 <img
                   src="https://1234567890.sirv.com/WhatsApp%20Image%202024-07-13%20at%2007.00.32_cb353d13.jpg%20(1).jpeg"
-                  alt="Agency Director of Shyama Overseas"
+                  alt="Chairman of Shyama Overseas"
                   className="w-full h-full object-cover object-top transition-all duration-1000 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/20 to-transparent opacity-80" />
                 <div className="absolute bottom-10 left-10 right-10">
                   <div className="flex items-center gap-3 text-primary mb-3">
                     <Award className="w-6 h-6" />
-                    <span className="font-black text-[11px] uppercase tracking-[4px]">Agency Director</span>
+                    <span className="font-black text-[11px] uppercase tracking-[4px]">Chairman</span>
                   </div>
-                  <h3 className="text-white text-3xl font-black uppercase tracking-tighter">The Visionary Maestro</h3>
+                  <h3 className="text-white text-3xl font-black uppercase tracking-tighter">Adarsha Banerjee</h3>
                 </div>
               </div>
             </div>
@@ -60,17 +60,17 @@ export default function AboutPage() {
                   "Digital marketing isn't just about clicks; it's about building trust at scale. We bridge the gap between human desire and brand solutions through data-led storytelling."
                 </p>
                 <p className="text-secondary/60">
-                  Under the strategic leadership of our director, Shyama Overseas has evolved from a local consultancy into a global growth engine. With nearly two decades of mastery in performance marketing, he has steered the agency to manage over ₹50Cr+ in revenue for clients worldwide.
+                  Under the strategic leadership of our chairman, Shyama Overseas has evolved from a local consultancy into a global growth engine. With mastery in performance marketing, he has steered the agency to manage significant revenue growth for clients worldwide.
                 </p>
               </div>
               
               <div className="grid grid-cols-2 gap-8 mt-12 pt-12 border-t border-secondary/10">
                 <div>
-                  <div className="text-primary font-black text-4xl mb-1 tracking-tighter">19+</div>
+                  <div className="text-primary font-black text-4xl mb-1 tracking-tighter">5+</div>
                   <div className="text-[10px] text-secondary/40 font-bold uppercase tracking-[2px]">Years Experience</div>
                 </div>
                 <div>
-                  <div className="text-primary font-black text-4xl mb-1 tracking-tighter">150+</div>
+                  <div className="text-primary font-black text-4xl mb-1 tracking-tighter">80+</div>
                   <div className="text-[10px] text-secondary/40 font-bold uppercase tracking-[2px]">Brands Scaled</div>
                 </div>
               </div>
@@ -86,7 +86,7 @@ export default function AboutPage() {
                 <div className="text-xs font-black text-primary mb-4 uppercase tracking-[0.2em]">_ OUR LEGACY</div>
                 <h2 className="text-3xl font-bold text-black mb-8 leading-tight">Rooted in Strategy, <br /><span className="text-primary italic">Reaching the World</span></h2>
                 <div className="space-y-6 text-secondary/60 leading-relaxed">
-                  <p>Founded in 2005, Shyama Overseas started with a vision to revolutionize the way brands connect with global audiences. From our beginnings in India, we've grown into a powerhouse of digital strategy and creative technology.</p>
+                  <p>Founded with a vision to revolutionize the way brands connect with global audiences. From our beginnings in India, we've grown into a powerhouse of digital strategy and creative technology.</p>
                   <p>Today, we handle a massive portfolio of campaigns across E-Commerce, Tech, and Lifestyle sectors, supported by our in-house network of creative experts and data analysts.</p>
                 </div>
               </div>
