@@ -58,7 +58,7 @@ const GALLERY_ITEMS: MediaItemType[] = [
 
 const TestimonialCard = ({ text, name, role, date }: { text: string; name: string; role: string; date: string }) => {
   return (
-    <div className="flex flex-col justify-between bg-white p-8 min-w-[300px] md:min-w-[350px] rounded-3xl border border-border/50 shadow-sm hover:shadow-md transition-all">
+    <div className="flex flex-col justify-between bg-white p-8 w-[300px] md:w-[400px] rounded-3xl border border-border/50 shadow-sm hover:shadow-md transition-all flex-shrink-0">
       <div>
         <div className="flex gap-0.5 text-[#eecb08] mb-6">
           {[...Array(5)].map((_, i) => (
@@ -204,9 +204,11 @@ export default function HomePage() {
                 <p className="text-primary font-bold uppercase tracking-widest text-[10px] mt-2 italic">Growth Stories</p>
               </div>
             </FadeIn>
-            
-            <div className="flex gap-6 overflow-x-auto pb-12 scrollbar-hide px-4 -mx-4">
-              {testimonials.map((t, i) => (
+          </div>
+
+          <div className="flex w-full overflow-hidden group py-10">
+            <div className="flex gap-6 animate-marquee-slow hover:[animation-play-state:paused] whitespace-nowrap">
+              {[...testimonials, ...testimonials].map((t, i) => (
                 <TestimonialCard 
                   key={i}
                   text={t.text}
