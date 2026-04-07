@@ -54,7 +54,7 @@ export function WorldMap({
       case "Surat": return { dx: 15, dy: 10 };
       case "West Bengal": return { dx: 15, dy: -10 };
       case "New York City (NYC)": return { dx: -35, dy: -10 };
-      case "Australia": return { dx: 15, dy: 15 };
+      case "Australia": return { dx: -80, dy: 15 }; // Moved left to avoid cutoff at the right edge
       case "Japan": return { dx: 15, dy: -10 };
       case "Germany": return { dx: -20, dy: -15 };
       case "Vietnam": return { dx: 15, dy: 15 };
