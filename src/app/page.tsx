@@ -12,13 +12,6 @@ import { LogoCloud } from "@/components/LogoCloud";
 import { Footer } from "@/components/Footer";
 import InteractiveBentoGallery, { type MediaItemType } from "@/components/InteractiveBentoGallery";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 
 /* ── DATA ── */
 const testimonials = [
@@ -55,19 +48,6 @@ const GALLERY_ITEMS: MediaItemType[] = [
   { id: 4, type: 'image', title: 'Commercial Content Production', desc: 'Professional Shoots for Brand Promotion & Marketing Campaigns', url: '/assets/images/imagesloyred.png', span: 'md:col-span-1 md:row-span-1' },
   { id: 5, type: 'image', title: 'Social Impact', desc: 'Viral Campaigns with Massive Reach', url: '/assets/images/nyf.png', span: 'md:col-span-1 md:row-span-2' },
   { id: 6, type: 'image', title: 'Jewelry Product Marketing', desc: 'Professional Product Shoot for High-End Branding', url: '/assets/images/niraj.png', span: 'md:col-span-2 md:row-span-1' },
-];
-
-const OPERATIONS_VIDEOS = [
-  { id: 1, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.14%20PM.mp4", title: "Market Intelligence", subtitle: "Global Insights" },
-  { id: 2, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.18%20PM%20(1).mp4", title: "Campaign Hub", subtitle: "Live Metrics" },
-  { id: 3, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.18%20PM.mp4", title: "Growth Lab", subtitle: "Strategy Sync" },
-  { id: 4, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM%20(1).mp4", title: "Creative Studio", subtitle: "Visual Design" },
-  { id: 5, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM%20(2).mp4", title: "Operations", subtitle: "Scale Engine" },
-  { id: 6, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM%20(3).mp4", title: "Performance", subtitle: "Ad-Tech Ops" },
-  { id: 7, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.23%20PM.mp4", title: "Data Center", subtitle: "Real-time Flow" },
-  { id: 8, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(1).mp4", title: "Execution", subtitle: "Precision Delivery" },
-  { id: 9, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(2).mp4", title: "Analytics", subtitle: "Core Reporting" },
-  { id: 10, src: "/assets/videos/WhatsApp%20Video%202026-03-19%20at%2012.41.24%20PM%20(3).mp4", title: "Optimization", subtitle: "Alpha Testing" },
 ];
 
 /* ── COMPONENTS ── */
@@ -202,60 +182,6 @@ export default function HomePage() {
             title="Our Creative Showcase" 
             description="A Visual Journey Through Our Digital Success"
           />
-        </section>
-
-        {/* OPERATIONS SECTION */}
-        <section className="py-16 md:py-24 bg-[#FAFAF8] overflow-hidden border-b border-border/10">
-          <div className="max-w-7xl mx-auto px-6 mb-12 md:mb-16">
-            <FadeIn>
-              <div className="text-primary font-bold uppercase tracking-[4px] text-xs mb-6 font-sora">Operations</div>
-              <h2 className="text-3xl md:text-5xl font-sora font-light text-secondary mb-8 leading-tight">
-                Growth <span className="text-primary font-bold italic">Dashboard</span> & Operations
-              </h2>
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed italic max-w-3xl">
-                Real-time execution across strategy, creative, and ad-tech. We manage everything in-house for complete accountability and performance control.
-              </p>
-            </FadeIn>
-          </div>
-
-          <div className="max-w-7xl mx-auto px-6 relative group">
-            <Carousel 
-              className="w-full" 
-              opts={{ 
-                loop: true,
-                align: "start",
-              }}
-            >
-              <CarouselContent>
-                {OPERATIONS_VIDEOS.map((video) => (
-                  <CarouselItem key={video.id} className="basis-full md:basis-1/2 lg:basis-1/3 pl-4">
-                    <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-xl border-2 border-white bg-black group/video">
-                      <video 
-                        src={video.src} 
-                        className="w-full h-full object-cover"
-                        autoPlay 
-                        muted 
-                        loop 
-                        playsInline 
-                        preload="metadata"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-                      <div className="absolute bottom-4 left-4 text-white">
-                        <div className="text-primary font-bold uppercase tracking-widest text-[8px] mb-1">{video.title}</div>
-                        <h3 className="text-sm font-black uppercase tracking-tight">{video.subtitle}</h3>
-                      </div>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <div className="absolute top-1/2 -left-4 md:-left-12 -translate-y-1/2">
-                <CarouselPrevious className="relative left-0 bg-white shadow-xl hover:bg-primary border-none text-secondary" />
-              </div>
-              <div className="absolute top-1/2 -right-4 md:-right-12 -translate-y-1/2">
-                <CarouselNext className="relative right-0 bg-white shadow-xl hover:bg-primary border-none text-secondary" />
-              </div>
-            </Carousel>
-          </div>
         </section>
 
         {/* GLOBAL REACH SECTION */}
