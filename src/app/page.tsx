@@ -58,7 +58,7 @@ const GALLERY_ITEMS: MediaItemType[] = [
 
 const TestimonialCard = ({ text, name, role, date }: { text: string; name: string; role: string; date: string }) => {
   return (
-    <div className="flex flex-col justify-between bg-white p-8 w-[300px] md:w-[400px] rounded-3xl border border-border/50 shadow-sm hover:shadow-md transition-all flex-shrink-0">
+    <div className="flex flex-col justify-between bg-white p-8 w-[300px] md:w-[400px] rounded-3xl border border-border/50 shadow-sm hover:shadow-md transition-all flex-shrink-0 whitespace-normal">
       <div>
         <div className="flex gap-0.5 text-[#eecb08] mb-6">
           {[...Array(5)].map((_, i) => (
