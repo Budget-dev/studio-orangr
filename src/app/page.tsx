@@ -13,6 +13,8 @@ import { Footer } from "@/components/Footer";
 import InteractiveBentoGallery, { type MediaItemType } from "@/components/InteractiveBentoGallery";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { WorldMap } from "@/components/WorldMap";
+import { Button } from "@/components/ui/button";
+import { MessageCircle, Send, Phone, MapPin } from "lucide-react";
 
 /* ── DATA ── */
 const testimonials = [
@@ -77,16 +79,16 @@ const mapDots = [
     end: { lat: 10.8231, lng: 106.6297, label: "Vietnam" },
   },
   {
-    start: { lat: 23.0225, lng: 72.5714, label: "Ahmedabad" },
-    end: { lat: 19.0760, lng: 72.8777, label: "Mumbai" },
+    start: { lat: 19.0760, lng: 72.8777, label: "Mumbai" },
+    end: { lat: 23.0225, lng: 72.5714 },
   },
   {
-    start: { lat: 23.0225, lng: 72.5714, label: "Ahmedabad" },
-    end: { lat: 21.1702, lng: 72.8311, label: "Surat" },
+    start: { lat: 21.1702, lng: 72.8311, label: "Surat" },
+    end: { lat: 23.0225, lng: 72.5714 },
   },
   {
-    start: { lat: 23.0225, lng: 72.5714, label: "Ahmedabad" },
-    end: { lat: 22.5726, lng: 88.3639, label: "West Bengal" },
+    start: { lat: 22.5726, lng: 88.3639, label: "West Bengal" },
+    end: { lat: 23.0225, lng: 72.5714 },
   },
 ];
 
@@ -142,6 +144,17 @@ function FadeIn({ children, shadow = false, delay = 0 }: { children: React.React
 }
 
 export default function HomePage() {
+  const [formState, setFormState] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+
+  const handleWhatsAppChat = () => {
+    const text = `Hi, I'm ${formState.name}. I'm interested in digital growth. My email is ${formState.email}. Message: ${formState.message}`;
+    window.open(`https://wa.me/918918348537?text=${encodeURIComponent(text)}`, "_blank");
+  };
+
   return (
     <div className="min-h-screen bg-white overflow-x-hidden font-body">
       
@@ -254,44 +267,133 @@ export default function HomePage() {
         </section>
 
         {/* CONTACT SECTION */}
-        <section className="py-16 md:py-24 bg-white">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="mb-12 md:mb-16">
+        <section className="py-24 bg-white relative overflow-hidden">
+          <div className="container mx-auto px-6 max-w-7xl">
+            <div className="mb-16">
               <FadeIn>
-                <h2 className="text-3xl md:text-5xl font-sora font-light text-secondary">
-                  <span className="text-primary font-bold italic">Get in touch</span> with us
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="h-1 w-12 bg-primary rounded-full" />
+                  <span className="text-primary font-bold uppercase tracking-[0.3em] text-[11px]">Contact Us</span>
+                </div>
+                <h2 className="text-4xl md:text-6xl font-sora font-black text-secondary leading-tight tracking-tighter uppercase mb-2">
+                  Get in touch <span className="text-primary italic font-light">with us</span>
                 </h2>
-                <p className="text-xl md:text-2xl text-secondary font-light mt-2 italic font-sora">
-                  Let's craft your digital legacy.
+                <p className="text-lg md:text-xl text-muted-foreground font-light max-w-2xl">
+                  Let's craft your digital legacy. Our strategists are ready to scale your brand globally.
                 </p>
               </FadeIn>
             </div>
 
-            <div className="grid lg:grid-cols-[1fr_450px] gap-12 md:gap-20 items-start">
-              <div className="space-y-8 md:space-y-10">
-                <div className="grid md:grid-cols-2 gap-8 md:gap-10">
-                  <input className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal font-inter text-sm md:text-base" placeholder="Full Name" />
-                  <input className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal font-inter text-sm md:text-base" placeholder="Email Address" />
-                </div>
-                <textarea className="w-full bg-transparent border-b-2 border-secondary/20 py-4 focus:outline-none focus:border-primary transition-colors text-secondary font-bold placeholder:font-normal resize-none font-inter text-sm md:text-base" rows={4} placeholder="How can we help you dominate your industry?" />
-                <div className="flex justify-center md:justify-start">
-                  <WhatsAppButton className="w-full h-16 hover:w-[220px]" />
-                </div>
-              </div>
-
-              <div className="bg-secondary p-10 md:p-16 rounded-[30px] md:rounded-[40px] text-white shadow-2xl">
-                <div className="space-y-10 md:space-y-12">
-                  <div>
-                    <div className="text-primary text-3xl md:text-5xl font-sora font-black mb-3 italic">+91 89183 48537</div>
-                    <p className="text-white/40 text-[10px] font-bold tracking-[4px] uppercase">Available 10:00 – 18:00 IST</p>
-                  </div>
-                  <div className="space-y-6 md:space-y-8">
-                    <div className="group">
-                      <h4 className="text-primary font-black uppercase tracking-[4px] text-[10px] mb-3">HQ Locations</h4>
-                      <p className="text-lg md:text-xl font-sora font-bold">Ahmedabad • Surat • Mumbai</p>
+            <div className="grid lg:grid-cols-12 gap-12 items-start">
+              {/* Form Side */}
+              <div className="lg:col-span-7 space-y-10">
+                <FadeIn delay={0.1}>
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-black uppercase tracking-widest text-secondary/40 ml-1">Full Name</label>
+                      <input 
+                        className="w-full bg-[#FAFAF8] border border-border/50 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-secondary font-bold placeholder:font-normal text-sm" 
+                        placeholder="John Doe" 
+                        value={formState.name}
+                        onChange={(e) => setFormState({...formState, name: e.target.value})}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-black uppercase tracking-widest text-secondary/40 ml-1">Email Address</label>
+                      <input 
+                        className="w-full bg-[#FAFAF8] border border-border/50 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-secondary font-bold placeholder:font-normal text-sm" 
+                        placeholder="john@example.com" 
+                        value={formState.email}
+                        onChange={(e) => setFormState({...formState, email: e.target.value})}
+                      />
                     </div>
                   </div>
-                </div>
+                  <div className="space-y-2 mt-8">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-secondary/40 ml-1">Project Details</label>
+                    <textarea 
+                      className="w-full bg-[#FAFAF8] border border-border/50 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-secondary font-bold placeholder:font-normal resize-none text-sm" 
+                      rows={5} 
+                      placeholder="Tell us about your digital goals and how we can help you dominate your industry..."
+                      value={formState.message}
+                      onChange={(e) => setFormState({...formState, message: e.target.value})}
+                    />
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-4 mt-10">
+                    <Button 
+                      className="h-16 px-10 rounded-2xl font-black uppercase tracking-[0.2em] text-xs shadow-xl shadow-primary/20 transition-all active:scale-[0.98] group flex-1 sm:flex-none"
+                      onClick={handleWhatsAppChat}
+                    >
+                      Send via WhatsApp
+                      <MessageCircle className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform" />
+                    </Button>
+                    <Button 
+                      variant="outline"
+                      className="h-16 px-10 rounded-2xl font-black uppercase tracking-[0.2em] text-xs border-secondary/20 hover:bg-secondary hover:text-white transition-all flex-1 sm:flex-none"
+                    >
+                      Traditional Email
+                      <Send className="w-4 h-4 ml-2" />
+                    </Button>
+                  </div>
+                </FadeIn>
+              </div>
+
+              {/* Info Side */}
+              <div className="lg:col-span-5">
+                <FadeIn delay={0.2}>
+                  <div className="bg-secondary rounded-[40px] p-10 md:p-12 text-white shadow-2xl relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full -mr-32 -mt-32 blur-3xl" />
+                    
+                    <div className="relative z-10 space-y-12">
+                      <div>
+                        <span className="text-primary font-black uppercase tracking-widest text-[10px] block mb-4">Direct Access</span>
+                        <a href="tel:+918918348537" className="text-3xl md:text-4xl font-sora font-black hover:text-primary transition-colors block leading-tight tracking-tighter italic">
+                          +91 89183 48537
+                        </a>
+                        <p className="text-white/40 text-[9px] font-bold tracking-[0.3em] uppercase mt-2">Available 10:00 – 18:00 IST</p>
+                      </div>
+
+                      <div className="space-y-8">
+                        <div className="flex gap-5 group">
+                          <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                            <MapPin className="w-6 h-6 text-primary" />
+                          </div>
+                          <div>
+                            <h4 className="text-primary font-black uppercase tracking-widest text-[10px] mb-2">Strategy Hubs</h4>
+                            <p className="text-lg font-sora font-bold leading-tight">Ahmedabad • Surat • Mumbai</p>
+                            <p className="text-white/40 text-[11px] mt-1 italic">India Headquarters</p>
+                          </div>
+                        </div>
+
+                        <div className="flex gap-5 group">
+                          <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                            <Phone className="w-6 h-6 text-primary" />
+                          </div>
+                          <div>
+                            <h4 className="text-primary font-black uppercase tracking-widest text-[10px] mb-2">Regional Offices</h4>
+                            <p className="text-lg font-sora font-bold leading-tight">Bangalore • Pune • Delhi</p>
+                            <p className="text-white/40 text-[11px] mt-1 italic">Growth Network</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="pt-8 border-t border-white/10">
+                        <div className="flex items-center gap-4">
+                          <div className="flex -space-x-3">
+                            {[1, 2, 3].map(i => (
+                              <div key={i} className="w-10 h-10 rounded-full border-2 border-secondary overflow-hidden bg-white/10">
+                                <img src={`https://picsum.photos/seed/${i + 10}/100/100`} alt="Agent" className="w-full h-full object-cover" />
+                              </div>
+                            ))}
+                          </div>
+                          <p className="text-xs text-white/60 font-medium">
+                            Strategists online now
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </FadeIn>
               </div>
             </div>
           </div>
