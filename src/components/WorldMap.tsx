@@ -46,17 +46,18 @@ export function WorldMap({
     return `M ${start.x} ${start.y} Q ${midX} ${midY} ${end.x} ${end.y}`;
   };
 
-  // Improved offsets for legibility of diverse labels
+  // Improved offsets for legibility of diverse labels to avoid overlap
   const getLabelOffset = (label: string) => {
     switch (label) {
-      case "Mumbai": return { dx: -15, dy: 20 };
-      case "Ahmedabad": return { dx: -15, dy: -10 };
-      case "USA": return { dx: -25, dy: 15 };
-      case "Australia": return { dx: 15, dy: 10 };
-      case "Japan": return { dx: 15, dy: -5 };
-      case "Germany": return { dx: -20, dy: -10 };
-      case "Bangalore": return { dx: 10, dy: 15 };
-      case "Hyderabad": return { dx: 20, dy: 10 };
+      case "Mumbai": return { dx: -20, dy: 25 };
+      case "Ahmedabad": return { dx: -20, dy: -15 };
+      case "Surat": return { dx: 15, dy: 10 };
+      case "West Bengal": return { dx: 15, dy: -10 };
+      case "New York City (NYC)": return { dx: -35, dy: -10 };
+      case "Australia": return { dx: 15, dy: 15 };
+      case "Japan": return { dx: 15, dy: -10 };
+      case "Germany": return { dx: -20, dy: -15 };
+      case "Vietnam": return { dx: 15, dy: 15 };
       default: return { dx: 10, dy: 5 };
     }
   };
@@ -174,7 +175,7 @@ export function WorldMap({
               key={`city-label-${idx}`}
               x={point.x + offset.dx}
               y={point.y + offset.dy}
-              fill={item.label === "Ahmedabad" || item.label === "Mumbai" || item.label === "Surat" ? "#0a2540" : lineColor}
+              fill={item.label === "Ahmedabad" || item.label === "Mumbai" || item.label === "Surat" || item.label === "West Bengal" ? "#0a2540" : lineColor}
               fontSize="10"
               fontWeight="1000"
               className="uppercase select-none pointer-events-none"
