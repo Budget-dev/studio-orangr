@@ -12,6 +12,7 @@ import { LogoCloud } from "@/components/LogoCloud";
 import { Footer } from "@/components/Footer";
 import InteractiveBentoGallery, { type MediaItemType } from "@/components/InteractiveBentoGallery";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { WorldMap } from "@/components/WorldMap";
 
 /* ── DATA ── */
 const testimonials = [
@@ -52,6 +53,29 @@ const GALLERY_ITEMS: MediaItemType[] = [
   { id: 4, type: 'image', title: 'Commercial Content Production', desc: 'Professional Shoots for Brand Promotion & Marketing Campaigns', url: '/assets/images/imagesloyred.png', span: 'md:col-span-1 md:row-span-1' },
   { id: 5, type: 'image', title: 'Social Impact', desc: 'Viral Campaigns with Massive Reach', url: '/assets/images/nyf.png', span: 'md:col-span-1 md:row-span-2' },
   { id: 6, type: 'image', title: 'Jewelry Product Marketing', desc: 'Professional Product Shoot for High-End Branding', url: '/assets/images/niraj.png', span: 'md:col-span-2 md:row-span-1' },
+];
+
+const mapDots = [
+  {
+    start: { lat: 23.0225, lng: 72.5714, label: "Ahmedabad" },
+    end: { lat: 40.7128, lng: -74.0060, label: "New York" },
+  },
+  {
+    start: { lat: 19.0760, lng: 72.8777, label: "Mumbai" },
+    end: { lat: 51.5074, lng: -0.1278, label: "London" },
+  },
+  {
+    start: { lat: 21.1702, lng: 72.8311, label: "Surat" },
+    end: { lat: 25.2048, lng: 55.2708, label: "Dubai" },
+  },
+  {
+    start: { lat: 23.0225, lng: 72.5714, label: "Ahmedabad" },
+    end: { lat: -33.8688, lng: 151.2093, label: "Sydney" },
+  },
+  {
+    start: { lat: 19.0760, lng: 72.8777, label: "Mumbai" },
+    end: { lat: 1.3521, lng: 103.8198, label: "Singapore" },
+  },
 ];
 
 /* ── COMPONENTS ── */
@@ -181,12 +205,8 @@ export default function HomePage() {
                 <h2 className="text-3xl md:text-5xl font-sora font-light text-secondary leading-tight mb-12">
                   Empowering <span className="font-bold">150+ Brands</span> <span className="text-primary">Worldwide</span>
                 </h2>
-                <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-border/50">
-                  <img 
-                    src="https://1234567890.sirv.com/ChatGPT%20Image%20Apr%205%2C%202026%2C%2001_42_40%20PM.png"
-                    alt="Shyama Overseas Global Network"
-                    className="w-full h-auto object-cover"
-                  />
+                <div className="max-w-5xl mx-auto">
+                  <WorldMap dots={mapDots} />
                 </div>
               </div>
             </FadeIn>
