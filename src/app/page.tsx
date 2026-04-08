@@ -49,12 +49,12 @@ const testimonials = [
 ];
 
 const GALLERY_ITEMS: MediaItemType[] = [
-  { id: 1, type: 'image', title: 'Healthcare Marketing', desc: 'Patient Acquisition & Clinic Growth Strategy', url: '/assets/images/_extra____Indian_private_202603201015.png', span: 'md:col-span-2 md:row-span-2' },
-  { id: 2, type: 'image', title: 'Brand Experience Marketing', desc: 'Creating Engaging Customer Experiences That Drive Loyalty', url: '/assets/images/_extra____upper_middle_202603191201 - Copy.png', span: 'md:col-span-1 md:row-span-1' },
-  { id: 3, type: 'image', title: 'Food & Restaurant Marketing', desc: 'Professional Food Photography for Brand Promotion', url: '/assets/images/imagecolur.png', span: 'md:col-span-1 md:row-span-1' },
-  { id: 4, type: 'image', title: 'Commercial Content Production', desc: 'Professional Shoots for Brand Promotion & Marketing Campaigns', url: '/assets/images/imagesloyred.png', span: 'md:col-span-1 md:row-span-1' },
-  { id: 5, type: 'image', title: 'Social Impact', desc: 'Viral Campaigns with Massive Reach', url: '/assets/images/nyf.png', span: 'md:col-span-1 md:row-span-2' },
-  { id: 6, type: 'image', title: 'Jewelry Product Marketing', desc: 'Professional Product Shoot for High-End Branding', url: '/assets/images/niraj.png', span: 'md:col-span-2 md:row-span-1' },
+  { id: 1, type: 'image', title: 'Healthcare Marketing', desc: 'Patient Acquisition & Clinic Growth Strategy', url: '/assets/images/_extra____Indian_private_202603201015.png', span: 'col-span-2 md:col-span-2 md:row-span-2' },
+  { id: 2, type: 'image', title: 'Brand Experience Marketing', desc: 'Creating Engaging Customer Experiences That Drive Loyalty', url: '/assets/images/_extra____upper_middle_202603191201 - Copy.png', span: 'col-span-1 md:col-span-1 md:row-span-1' },
+  { id: 3, type: 'image', title: 'Food & Restaurant Marketing', desc: 'Professional Food Photography for Brand Promotion', url: '/assets/images/imagecolur.png', span: 'col-span-1 md:col-span-1 md:row-span-1' },
+  { id: 4, type: 'image', title: 'Commercial Content Production', desc: 'Professional Shoots for Brand Promotion & Marketing Campaigns', url: '/assets/images/imagesloyred.png', span: 'col-span-1 md:col-span-1 md:row-span-1' },
+  { id: 5, type: 'image', title: 'Social Impact', desc: 'Viral Campaigns with Massive Reach', url: '/assets/images/nyf.png', span: 'col-span-1 md:col-span-1 md:row-span-2' },
+  { id: 6, type: 'image', title: 'Jewelry Product Marketing', desc: 'Professional Product Shoot for High-End Branding', url: '/assets/images/niraj.png', span: 'col-span-2 md:col-span-2 md:row-span-1' },
 ];
 
 const mapDots = [
@@ -96,17 +96,17 @@ const mapDots = [
 
 const TestimonialCard = ({ text, name, role, date }: { text: string; name: string; role: string; date: string }) => {
   return (
-    <div className="flex flex-col justify-between bg-white p-8 w-[300px] md:w-[400px] rounded-3xl border border-border/50 shadow-sm hover:shadow-md transition-all flex-shrink-0 whitespace-normal">
+    <div className="flex flex-col justify-between bg-white p-6 md:p-8 w-[280px] md:w-[400px] rounded-3xl border border-border/50 shadow-sm hover:shadow-md transition-all flex-shrink-0 whitespace-normal">
       <div>
-        <div className="flex gap-0.5 text-[#eecb08] mb-6">
+        <div className="flex gap-0.5 text-[#eecb08] mb-4 md:mb-6">
           {[...Array(5)].map((_, i) => (
-            <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
+            <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 md:w-5 h-5">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
           ))}
         </div>
         <div className="infos">
-          <p className="text-primary text-xs font-bold uppercase tracking-widest mb-2">
+          <p className="text-primary text-[10px] font-bold uppercase tracking-widest mb-2">
             {date}
           </p>
           <p className="text-secondary/70 text-sm leading-relaxed italic">
@@ -114,7 +114,7 @@ const TestimonialCard = ({ text, name, role, date }: { text: string; name: strin
           </p>
         </div>
       </div>
-      <div className="mt-8 pt-6 border-t border-border/10">
+      <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-border/10">
         <div className="text-secondary font-bold text-sm">
           — {name}
         </div>
@@ -126,7 +126,7 @@ const TestimonialCard = ({ text, name, role, date }: { text: string; name: strin
   );
 };
 
-function FadeIn({ children, shadow = false, delay = 0 }: { children: React.ReactNode; shadow?: boolean; delay?: number }) {
+function FadeIn({ children, shadow = false, delay = 0, className = "" }: { children: React.ReactNode; shadow?: boolean; delay?: number; className?: string }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
 
@@ -136,7 +136,7 @@ function FadeIn({ children, shadow = false, delay = 0 }: { children: React.React
       initial={{ opacity: 0, y: 15 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
       transition={{ duration: 0.4, delay, ease: "easeOut" }}
-      className={cn(shadow && "relative z-10")}
+      className={cn(shadow && "relative z-10", className)}
     >
       {children}
     </motion.div>
@@ -163,7 +163,7 @@ export default function HomePage() {
       <main>
         
         {/* HERO SECTION */}
-        <section className="relative h-[80vh] mt-[85px] md:mt-[100px] flex items-center overflow-hidden bg-secondary w-full shadow-2xl">
+        <section className="relative h-[60vh] md:h-[80vh] mt-[64px] md:mt-[100px] flex items-center overflow-hidden bg-secondary w-full shadow-2xl">
           <Image 
             src="https://1234567890.sirv.com/ChatGPT%20Image%20Mar%2030%2C%202026%2C%2003_05_25%20PM.png" 
             alt="Shyama Overseas Banner" 
@@ -173,10 +173,10 @@ export default function HomePage() {
             unoptimized
           />
           
-          <div className="absolute bottom-0 left-0 right-0 bg-primary py-4 md:py-5 overflow-hidden z-30 shadow-[0_-10px_30px_rgba(248,155,52,0.3)]">
-            <div className="flex gap-16 w-max animate-marquee-slow items-center">
+          <div className="absolute bottom-0 left-0 right-0 bg-primary py-3 md:py-5 overflow-hidden z-30 shadow-[0_-10px_30px_rgba(248,155,52,0.3)]">
+            <div className="flex gap-10 md:gap-16 w-max animate-marquee-slow items-center">
               {[...Array(6)].map((_, i) => (
-                <span key={i} className="text-secondary font-black text-xl md:text-3xl uppercase tracking-[10px] whitespace-nowrap">
+                <span key={i} className="text-secondary font-black text-sm md:text-3xl uppercase tracking-[4px] md:tracking-[10px] whitespace-nowrap">
                   PERFORMANCE MARKETING • DIGITAL DOMINANCE • CREATIVE EXCELLENCE • 
                 </span>
               ))}
@@ -185,7 +185,7 @@ export default function HomePage() {
         </section>
 
         {/* LOGO CLOUD - STRATEGIC NETWORK */}
-        <section className="py-24 bg-white border-b border-border/10 relative overflow-hidden">
+        <section className="py-16 md:py-24 bg-white border-b border-border/10 relative overflow-hidden">
           <div
             aria-hidden="true"
             className={cn(
@@ -197,7 +197,7 @@ export default function HomePage() {
 
           <div className="relative mx-auto max-w-3xl px-6">
             <FadeIn shadow>
-              <h2 className="mb-5 text-center font-medium text-secondary text-xl tracking-tight md:text-3xl">
+              <h2 className="mb-5 text-center font-medium text-secondary text-lg tracking-tight md:text-3xl">
                 <span className="text-muted-foreground">Trusted by experts.</span>
                 <br />
                 <span className="font-semibold text-secondary">Used by the leaders.</span>
@@ -207,13 +207,13 @@ export default function HomePage() {
               <LogoCloud />
 
               <div className="mt-5 h-px bg-border [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
-              <p className="text-center text-primary font-bold uppercase tracking-widest text-[10px] mt-8 italic">Our Strategic Network</p>
+              <p className="text-center text-primary font-bold uppercase tracking-widest text-[8px] md:text-[10px] mt-8 italic">Our Strategic Network</p>
             </FadeIn>
           </div>
         </section>
 
         {/* BENTO GALLERY */}
-        <section className="py-16 md:py-24 bg-white border-b border-border/10">
+        <section className="py-16 md:py-24 bg-white border-b border-border/10 overflow-hidden">
           <InteractiveBentoGallery 
             mediaItems={GALLERY_ITEMS} 
             title="Our Creative Showcase" 
@@ -226,11 +226,11 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <FadeIn>
               <div className="text-center mb-12 md:mb-20">
-                <div className="text-primary font-bold uppercase tracking-[4px] text-xs mb-4">Global Reach</div>
-                <h2 className="text-3xl md:text-5xl font-sora font-light text-secondary leading-tight mb-12">
+                <div className="text-primary font-bold uppercase tracking-[4px] text-[10px] md:text-xs mb-4">Global Reach</div>
+                <h2 className="text-2xl md:text-5xl font-sora font-light text-secondary leading-tight mb-8 md:mb-12">
                   Empowering <span className="font-bold">150+ Brands</span> <span className="text-primary">Worldwide</span>
                 </h2>
-                <div className="max-w-5xl mx-auto">
+                <div className="max-w-5xl mx-auto overflow-hidden rounded-2xl">
                   <WorldMap dots={mapDots} />
                 </div>
               </div>
@@ -239,20 +239,20 @@ export default function HomePage() {
         </section>
 
         {/* TESTIMONIALS */}
-        <section className="py-24 bg-[#FAFAF8] overflow-hidden border-b border-border/10">
+        <section className="py-16 md:py-24 bg-[#FAFAF8] overflow-hidden border-b border-border/10">
           <div className="max-w-7xl mx-auto px-6">
             <FadeIn>
-              <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-sora font-light text-secondary">
+              <div className="text-center mb-10 md:mb-16">
+                <h2 className="text-2xl md:text-4xl font-sora font-light text-secondary">
                   Latest from <span className="text-primary font-bold italic">Our Partners</span>
                 </h2>
-                <p className="text-primary font-bold uppercase tracking-widest text-[10px] mt-2 italic">Growth Stories</p>
+                <p className="text-primary font-bold uppercase tracking-widest text-[8px] md:text-[10px] mt-2 italic">Growth Stories</p>
               </div>
             </FadeIn>
           </div>
 
-          <div className="flex w-full overflow-hidden group py-10">
-            <div className="flex gap-6 animate-marquee-slow hover:[animation-play-state:paused] whitespace-nowrap">
+          <div className="flex w-full overflow-hidden group py-6 md:py-10">
+            <div className="flex gap-4 md:gap-6 animate-marquee-slow hover:[animation-play-state:paused] whitespace-nowrap">
               {[...testimonials, ...testimonials].map((t, i) => (
                 <TestimonialCard 
                   key={i}
@@ -267,28 +267,28 @@ export default function HomePage() {
         </section>
 
         {/* CONTACT SECTION */}
-        <section className="py-24 bg-white relative overflow-hidden">
+        <section className="py-16 md:py-24 bg-white relative overflow-hidden">
           <div className="container mx-auto px-6 max-w-7xl">
-            <div className="mb-16">
+            <div className="mb-12 md:mb-16">
               <FadeIn>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="h-1 w-12 bg-primary rounded-full" />
-                  <span className="text-primary font-bold uppercase tracking-[0.3em] text-[11px]">Contact Us</span>
+                  <div className="h-1 w-8 md:w-12 bg-primary rounded-full" />
+                  <span className="text-primary font-bold uppercase tracking-[0.3em] text-[10px] md:text-[11px]">Contact Us</span>
                 </div>
-                <h2 className="text-4xl md:text-6xl font-sora font-black text-secondary leading-tight tracking-tighter uppercase mb-2">
+                <h2 className="text-3xl md:text-6xl font-sora font-black text-secondary leading-tight tracking-tighter uppercase mb-2">
                   Get in touch <span className="text-primary italic font-light">with us</span>
                 </h2>
-                <p className="text-lg md:text-xl text-muted-foreground font-light max-w-2xl">
+                <p className="text-base md:text-xl text-muted-foreground font-light max-w-2xl">
                   Let's craft your digital legacy. Our strategists are ready to scale your brand globally.
                 </p>
               </FadeIn>
             </div>
 
-            <div className="grid lg:grid-cols-12 gap-12 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
               {/* Form Side */}
-              <div className="lg:col-span-7 space-y-10">
+              <div className="lg:col-span-7 space-y-6 md:space-y-10">
                 <FadeIn delay={0.1}>
-                  <div className="grid md:grid-cols-2 gap-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
                     <div className="space-y-2">
                       <label className="text-[10px] font-black uppercase tracking-widest text-secondary/40 ml-1">Full Name</label>
                       <input 
@@ -308,7 +308,7 @@ export default function HomePage() {
                       />
                     </div>
                   </div>
-                  <div className="space-y-2 mt-8">
+                  <div className="space-y-2 mt-6 md:mt-8">
                     <label className="text-[10px] font-black uppercase tracking-widest text-secondary/40 ml-1">Project Details</label>
                     <textarea 
                       className="w-full bg-[#FAFAF8] border border-border/50 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-secondary font-bold placeholder:font-normal resize-none text-sm" 
@@ -319,9 +319,9 @@ export default function HomePage() {
                     />
                   </div>
 
-                  <div className="flex flex-col sm:flex-row gap-4 mt-10">
+                  <div className="flex flex-col sm:flex-row gap-4 mt-8 md:mt-10">
                     <Button 
-                      className="h-16 px-10 rounded-2xl font-black uppercase tracking-[0.2em] text-xs shadow-xl shadow-primary/20 transition-all active:scale-[0.98] group flex-1 sm:flex-none"
+                      className="h-14 md:h-16 px-8 md:px-10 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] md:text-xs shadow-xl shadow-primary/20 transition-all active:scale-[0.98] group flex-1 sm:flex-none"
                       onClick={handleWhatsAppChat}
                     >
                       Send via WhatsApp
@@ -329,7 +329,7 @@ export default function HomePage() {
                     </Button>
                     <Button 
                       variant="outline"
-                      className="h-16 px-10 rounded-2xl font-black uppercase tracking-[0.2em] text-xs border-secondary/20 hover:bg-secondary hover:text-white transition-all flex-1 sm:flex-none"
+                      className="h-14 md:h-16 px-8 md:px-10 rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] md:text-xs border-secondary/20 hover:bg-secondary hover:text-white transition-all flex-1 sm:flex-none"
                     >
                       Traditional Email
                       <Send className="w-4 h-4 ml-2" />
@@ -341,52 +341,52 @@ export default function HomePage() {
               {/* Info Side */}
               <div className="lg:col-span-5">
                 <FadeIn delay={0.2}>
-                  <div className="bg-secondary rounded-[40px] p-10 md:p-12 text-white shadow-2xl relative overflow-hidden">
+                  <div className="bg-secondary rounded-[32px] md:rounded-[40px] p-8 md:p-12 text-white shadow-2xl relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full -mr-32 -mt-32 blur-3xl" />
                     
-                    <div className="relative z-10 space-y-12">
+                    <div className="relative z-10 space-y-8 md:space-y-12">
                       <div>
-                        <span className="text-primary font-black uppercase tracking-widest text-[10px] block mb-4">Direct Access</span>
-                        <a href="tel:+918918348537" className="text-3xl md:text-4xl font-sora font-black hover:text-primary transition-colors block leading-tight tracking-tighter italic">
+                        <span className="text-primary font-black uppercase tracking-widest text-[9px] md:text-[10px] block mb-4">Direct Access</span>
+                        <a href="tel:+918918348537" className="text-2xl md:text-4xl font-sora font-black hover:text-primary transition-colors block leading-tight tracking-tighter italic">
                           +91 89183 48537
                         </a>
-                        <p className="text-white/40 text-[9px] font-bold tracking-[0.3em] uppercase mt-2">Available 10:00 – 18:00 IST</p>
+                        <p className="text-white/40 text-[8px] md:text-[9px] font-bold tracking-[0.3em] uppercase mt-2">Available 10:00 – 18:00 IST</p>
                       </div>
 
-                      <div className="space-y-8">
-                        <div className="flex gap-5 group">
-                          <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                            <MapPin className="w-6 h-6 text-primary" />
+                      <div className="space-y-6 md:space-y-8">
+                        <div className="flex gap-4 md:gap-5 group">
+                          <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                            <MapPin className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                           </div>
                           <div>
-                            <h4 className="text-primary font-black uppercase tracking-widest text-[10px] mb-2">Strategy Hubs</h4>
-                            <p className="text-lg font-sora font-bold leading-tight">Ahmedabad • Surat • Mumbai</p>
-                            <p className="text-white/40 text-[11px] mt-1 italic">India Headquarters</p>
+                            <h4 className="text-primary font-black uppercase tracking-widest text-[9px] md:text-[10px] mb-2">Strategy Hubs</h4>
+                            <p className="text-base md:text-lg font-sora font-bold leading-tight">Ahmedabad • Surat • Mumbai</p>
+                            <p className="text-white/40 text-[10px] md:text-[11px] mt-1 italic">India Headquarters</p>
                           </div>
                         </div>
 
-                        <div className="flex gap-5 group">
-                          <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                            <Phone className="w-6 h-6 text-primary" />
+                        <div className="flex gap-4 md:gap-5 group">
+                          <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                            <Phone className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                           </div>
                           <div>
-                            <h4 className="text-primary font-black uppercase tracking-widest text-[10px] mb-2">Regional Offices</h4>
-                            <p className="text-lg font-sora font-bold leading-tight">Bangalore • Pune • Delhi</p>
-                            <p className="text-white/40 text-[11px] mt-1 italic">Growth Network</p>
+                            <h4 className="text-primary font-black uppercase tracking-widest text-[9px] md:text-[10px] mb-2">Regional Offices</h4>
+                            <p className="text-base md:text-lg font-sora font-bold leading-tight">Bangalore • Pune • Delhi</p>
+                            <p className="text-white/40 text-[10px] md:text-[11px] mt-1 italic">Growth Network</p>
                           </div>
                         </div>
                       </div>
 
-                      <div className="pt-8 border-t border-white/10">
+                      <div className="pt-6 md:pt-8 border-t border-white/10">
                         <div className="flex items-center gap-4">
                           <div className="flex -space-x-3">
                             {[1, 2, 3].map(i => (
-                              <div key={i} className="w-10 h-10 rounded-full border-2 border-secondary overflow-hidden bg-white/10">
+                              <div key={i} className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-secondary overflow-hidden bg-white/10">
                                 <img src={`https://picsum.photos/seed/${i + 10}/100/100`} alt="Agent" className="w-full h-full object-cover" />
                               </div>
                             ))}
                           </div>
-                          <p className="text-xs text-white/60 font-medium">
+                          <p className="text-[10px] md:text-xs text-white/60 font-medium">
                             Strategists online now
                           </p>
                         </div>
