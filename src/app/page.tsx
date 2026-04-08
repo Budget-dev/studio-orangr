@@ -163,12 +163,12 @@ export default function HomePage() {
       <main>
         
         {/* HERO SECTION */}
-        <section className="relative h-[60vh] md:h-[80vh] mt-[64px] md:mt-[100px] flex items-center overflow-hidden bg-secondary w-full shadow-2xl">
+        <section className="relative h-[250px] sm:h-[450px] md:h-[80vh] mt-[64px] md:mt-[100px] flex items-center overflow-hidden bg-secondary w-full shadow-2xl">
           <Image 
             src="https://1234567890.sirv.com/ChatGPT%20Image%20Mar%2030%2C%202026%2C%2003_05_25%20PM.png" 
             alt="Shyama Overseas Banner" 
             fill 
-            className="object-cover object-center"
+            className="object-contain md:object-cover object-center"
             priority
             unoptimized
           />
@@ -176,7 +176,7 @@ export default function HomePage() {
           <div className="absolute bottom-0 left-0 right-0 bg-primary py-3 md:py-5 overflow-hidden z-30 shadow-[0_-10px_30px_rgba(248,155,52,0.3)]">
             <div className="flex gap-10 md:gap-16 w-max animate-marquee-slow items-center">
               {[...Array(6)].map((_, i) => (
-                <span key={i} className="text-secondary font-black text-sm md:text-3xl uppercase tracking-[4px] md:tracking-[10px] whitespace-nowrap">
+                <span key={i} className="text-secondary font-black text-xs md:text-3xl uppercase tracking-[4px] md:tracking-[10px] whitespace-nowrap">
                   PERFORMANCE MARKETING • DIGITAL DOMINANCE • CREATIVE EXCELLENCE • 
                 </span>
               ))}
