@@ -14,16 +14,40 @@ import InteractiveBentoGallery, { type MediaItemType } from "@/components/Intera
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { WorldMap } from "@/components/WorldMap";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Send, Phone, MapPin } from "lucide-react";
+import { MessageCircle, Send, Phone, MapPin, ArrowRight } from "lucide-react";
 
 /* ── DATA ── */
-const heroVideos = [
-  "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(8).mp4",
-  "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(7).mp4",
-  "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(5).mp4",
-  "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(6).mp4",
-  "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(4).mp4",
-  "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(3).mp4"
+const heroContent = [
+  {
+    video: "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(8).mp4",
+    title: "Cinematic Milk Splash Commercial",
+    desc: "High-speed fluid simulation and photorealistic lighting for premium dairy brand storytelling."
+  },
+  {
+    video: "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(7).mp4",
+    title: "Analytics Visualization",
+    desc: "From complex logistics to successful global partnerships, we visualize the entire business ecosystem."
+  },
+  {
+    video: "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(5).mp4",
+    title: "Gourmet Burger Experience",
+    desc: "High-impact restaurant advertisement showcasing photorealistic food textures and cinematic motion."
+  },
+  {
+    video: "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(6).mp4",
+    title: "Luxury Chocolate Simulation",
+    desc: "Silky chocolate textures and fluid dynamics for high-end confectionery and premium brand experiences."
+  },
+  {
+    video: "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(4).mp4",
+    title: "Galaxy Ice Cream Evolution",
+    desc: "Surreal AI-generated animation of gourmet ice cream evolving amidst a cosmic galaxy of stars."
+  },
+  {
+    video: "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(3).mp4",
+    title: "Cyberpunk Footwear Cinematics",
+    desc: "High-impact product showcase for luxury footwear, featuring dynamic lighting and hyper-realistic textures."
+  }
 ];
 
 const testimonials = [
@@ -162,7 +186,7 @@ export default function HomePage() {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentVideo((prev) => (prev + 1) % heroVideos.length);
+      setCurrentVideo((prev) => (prev + 1) % heroContent.length);
     }, 5000);
     return () => clearInterval(timer);
   }, []);
@@ -180,22 +204,60 @@ export default function HomePage() {
       <main>
         
         {/* HERO SECTION - VIDEO CAROUSEL */}
-        <section className="relative aspect-[2/1] md:h-[80vh] mt-16 md:mt-20 flex items-center overflow-hidden bg-white w-full">
+        <section className="relative aspect-[2/1] md:h-[85vh] mt-16 md:mt-20 flex items-center overflow-hidden bg-[#0a0a0a] w-full">
+          {/* Subtle Overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent z-10" />
+          
           <div className="relative w-full h-full">
             <AnimatePresence mode="wait">
               <motion.video
-                key={heroVideos[currentVideo]}
+                key={heroContent[currentVideo].video}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.8 }}
-                src={heroVideos[currentVideo]}
+                src={heroContent[currentVideo].video}
                 autoPlay
                 muted
                 loop
                 playsInline
                 className="w-full h-full object-contain md:object-cover object-center"
               />
+            </AnimatePresence>
+          </div>
+
+          {/* Text Overlays */}
+          <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-12 lg:px-24 z-20 pointer-events-none">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentVideo}
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 30 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="max-w-4xl"
+              >
+                <div className="mb-4">
+                  <span className="inline-block px-4 py-1 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-primary text-[10px] md:text-xs font-black uppercase tracking-[0.3em] shadow-lg">
+                    Creative AI Production
+                  </span>
+                </div>
+                <h1 className="text-3xl md:text-6xl lg:text-8xl font-sora font-black text-white leading-[1.1] uppercase tracking-tighter mb-6 drop-shadow-2xl">
+                  {heroContent[currentVideo].title.split(' ').map((word, i) => (
+                    <span key={i} className={i === 0 ? "text-primary italic" : ""}>{word} </span>
+                  ))}
+                </h1>
+                <p className="text-base md:text-xl lg:text-2xl text-white/90 font-light leading-relaxed max-w-2xl border-l-4 border-primary pl-6 italic drop-shadow-lg">
+                  {heroContent[currentVideo].desc}
+                </p>
+                <div className="mt-10 flex gap-4 pointer-events-auto">
+                  <Button asChild className="h-14 px-8 rounded-full bg-primary text-secondary font-black uppercase tracking-widest text-[11px] shadow-xl shadow-primary/20 group">
+                    <Link href="/contact" className="flex items-center gap-2">
+                      Start Production <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </Button>
+                </div>
+              </motion.div>
             </AnimatePresence>
           </div>
           
@@ -431,3 +493,4 @@ export default function HomePage() {
     </div>
   );
 }
+
