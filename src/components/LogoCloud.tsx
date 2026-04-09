@@ -5,16 +5,6 @@ import { cn } from "@/lib/utils";
 
 const DEFAULT_LOGOS = [
   { 
-    src: "https://vennky.sirv.com/reliance-industries-logo-1.png", 
-    alt: "Reliance Logo",
-    label: "Reliance"
-  },
-  { 
-    src: "https://vennky.sirv.com/tata-group-logo.png", 
-    alt: "TATA Logo",
-    label: "TATA"
-  },
-  { 
     src: "https://svgl.app/library/airbnb.svg", 
     alt: "Airbnb Logo",
     label: "Airbnb"
