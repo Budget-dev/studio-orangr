@@ -4,7 +4,7 @@
 import { Reveal, fadeInUp } from "./AnimationWrappers";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { WhatsAppButton } from "../WhatsAppButton";
+import { MessageCircle } from "lucide-react";
 
 interface CTABannerProps {
   headline: string;
@@ -14,6 +14,8 @@ interface CTABannerProps {
 }
 
 export function ServiceCTABanner({ headline, supporting, primaryCTA, secondaryCTA }: CTABannerProps) {
+  const whatsappUrl = `https://wa.me/918918348537?text=${encodeURIComponent(`Hi, I'm interested in starting a project with Shyama Overseas.`)}`;
+
   return (
     <section className="py-24 bg-primary overflow-hidden relative">
        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, black 1px, transparent 0)', backgroundSize: '30px 30px' }} />
@@ -27,9 +29,18 @@ export function ServiceCTABanner({ headline, supporting, primaryCTA, secondaryCT
             {supporting}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <WhatsAppButton className="h-16 hover:w-[220px] bg-secondary" />
+            <Button 
+              asChild
+              size="lg" 
+              className="h-16 px-12 rounded-full bg-secondary text-white hover:bg-secondary/90 font-black uppercase tracking-widest text-sm shadow-2xl transition-all active:scale-[0.98] group border-none"
+            >
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
+                Chat on WhatsApp
+                <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              </a>
+            </Button>
             {secondaryCTA && (
-              <Button asChild variant="outline" size="lg" className="h-16 px-12 rounded-full border-secondary/20 text-secondary font-bold uppercase tracking-widest text-sm hover:bg-secondary hover:text-white transition-all">
+              <Button asChild variant="outline" size="lg" className="h-16 px-12 rounded-full border-secondary/20 text-secondary font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-secondary transition-all">
                 <Link href={secondaryCTA.href}>{secondaryCTA.label}</Link>
               </Button>
             )}
