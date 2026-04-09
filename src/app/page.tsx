@@ -204,9 +204,9 @@ export default function HomePage() {
       <main>
         
         {/* HERO SECTION - VIDEO CAROUSEL */}
-        <section className="relative aspect-[2/1] md:h-[85vh] mt-16 md:mt-20 flex items-center overflow-hidden bg-[#0a0a0a] w-full">
+        <section className="relative aspect-video md:h-[85vh] mt-16 md:mt-20 flex items-center overflow-hidden bg-white w-full">
           {/* Subtle Overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/10 to-transparent z-10" />
           
           <div className="relative w-full h-full">
             <AnimatePresence mode="wait">
@@ -221,7 +221,7 @@ export default function HomePage() {
                 muted
                 loop
                 playsInline
-                className="w-full h-full object-contain md:object-cover object-center"
+                className="w-full h-full object-cover object-center"
               />
             </AnimatePresence>
           </div>
@@ -231,33 +231,33 @@ export default function HomePage() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentVideo}
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 30 }}
+                exit={{ opacity: 0, x: 20 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="max-w-4xl"
               >
-                <div className="mb-4">
-                  <span className="inline-block px-3 py-1 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-primary text-[9px] md:text-xs font-black uppercase tracking-[0.2em] shadow-lg">
+                <div className="mb-2 md:mb-4">
+                  <span className="inline-block px-2 py-0.5 md:px-3 md:py-1 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-primary text-[8px] md:text-xs font-black uppercase tracking-[0.2em] shadow-lg">
                     Creative AI Production
                   </span>
                 </div>
-                <h1 className="text-2xl md:text-5xl lg:text-6xl font-sora font-black text-white leading-[1.1] uppercase tracking-tighter mb-4 drop-shadow-2xl">
+                <h1 className="text-xl md:text-5xl lg:text-6xl font-sora font-black text-white leading-tight uppercase tracking-tighter mb-2 md:mb-4 drop-shadow-2xl">
                   {heroContent[currentVideo].title.split(' ').map((word, i) => (
                     <span key={i} className={i === 0 ? "text-primary italic" : ""}>{word} </span>
                   ))}
                 </h1>
-                <p className="text-sm md:text-lg lg:text-xl text-white/90 font-light leading-relaxed max-w-2xl border-l-4 border-primary pl-6 italic drop-shadow-lg">
+                <p className="text-[10px] md:text-lg lg:text-xl text-white/90 font-light leading-relaxed max-w-2xl border-l-2 md:border-l-4 border-primary pl-4 md:pl-8 italic drop-shadow-lg line-clamp-2 md:line-clamp-none">
                   {heroContent[currentVideo].desc}
                 </p>
               </motion.div>
             </AnimatePresence>
           </div>
           
-          <div className="absolute bottom-0 left-0 right-0 bg-primary py-3 md:py-5 overflow-hidden z-30 shadow-[0_-10px_30px_rgba(248,155,52,0.3)]">
-            <div className="flex gap-10 md:gap-16 w-max animate-marquee-slow items-center">
+          <div className="absolute bottom-0 left-0 right-0 bg-primary py-2 md:py-5 overflow-hidden z-30 shadow-[0_-5px_20px_rgba(248,155,52,0.3)]">
+            <div className="flex gap-8 md:gap-16 w-max animate-marquee-slow items-center">
               {[...Array(6)].map((_, i) => (
-                <span key={i} className="text-secondary font-black text-xs md:text-3xl uppercase tracking-[4px] md:tracking-[10px] whitespace-nowrap">
+                <span key={i} className="text-secondary font-black text-[10px] md:text-3xl uppercase tracking-[2px] md:tracking-[10px] whitespace-nowrap">
                   PERFORMANCE MARKETING • DIGITAL DOMINANCE • CREATIVE EXCELLENCE • 
                 </span>
               ))}

@@ -5,14 +5,14 @@ import { cn } from "@/lib/utils";
 
 const DEFAULT_LOGOS = [
   { 
-    src: "https://www.vectorlogo.zone/logos/klm/klm-ar21.svg", 
-    alt: "KLM Logo",
-    label: "KLM"
+    src: "https://vennky.sirv.com/reliance-industries-logo-1.png", 
+    alt: "Reliance Logo",
+    label: "Reliance"
   },
   { 
-    src: "https://svgl.app/library/stripe.svg", 
-    alt: "Stripe Logo",
-    label: "Stripe"
+    src: "https://vennky.sirv.com/tata-group-logo.png", 
+    alt: "TATA Logo",
+    label: "TATA"
   },
   { 
     src: "https://svgl.app/library/airbnb.svg", 
@@ -66,7 +66,7 @@ export function LogoCloud({ className, logos, ...props }: LogoCloudProps) {
           <img
             src={logo.src}
             alt={logo.alt}
-            className="h-7 md:h-9 w-auto transition-all duration-300 drop-shadow-sm opacity-90 group-hover:opacity-100"
+            className="h-7 md:h-9 w-auto transition-all duration-300 drop-shadow-sm opacity-100"
             onError={(e) => {
               // Fallback for broken SVGs - use a clean, brand-colored placeholder
               (e.target as HTMLImageElement).src = `https://placehold.co/200x80/f89b34/white?text=${logo.label || 'Logo'}`;
