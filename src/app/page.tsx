@@ -96,29 +96,29 @@ const mapDots = [
 
 const TestimonialCard = ({ text, name, role, date }: { text: string; name: string; role: string; date: string }) => {
   return (
-    <div className="flex flex-col justify-between bg-white p-6 md:p-8 w-[280px] md:w-[400px] rounded-3xl border border-border/50 shadow-sm hover:shadow-md transition-all flex-shrink-0 whitespace-normal">
+    <div className="flex flex-col justify-between bg-white p-5 md:p-6 w-[240px] md:w-[300px] rounded-2xl border border-border/50 shadow-sm hover:shadow-md transition-all flex-shrink-0 whitespace-normal">
       <div>
-        <div className="flex gap-0.5 text-[#eecb08] mb-4 md:mb-6">
+        <div className="flex gap-0.5 text-[#eecb08] mb-3 md:mb-4">
           {[...Array(5)].map((_, i) => (
-            <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 md:w-5 h-5">
+            <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5 md:w-4 h-4">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
           ))}
         </div>
         <div className="infos">
-          <p className="text-primary text-[10px] font-bold uppercase tracking-widest mb-2">
+          <p className="text-primary text-[9px] font-bold uppercase tracking-widest mb-1.5">
             {date}
           </p>
-          <p className="text-secondary/70 text-sm leading-relaxed italic">
+          <p className="text-secondary/70 text-[13px] leading-relaxed italic">
             "{text}"
           </p>
         </div>
       </div>
-      <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-border/10">
-        <div className="text-secondary font-bold text-sm">
+      <div className="mt-5 md:mt-6 pt-3 md:pt-4 border-t border-border/10">
+        <div className="text-secondary font-bold text-[13px]">
           — {name}
         </div>
-        <div className="text-primary font-bold text-[10px] uppercase tracking-widest mt-1">
+        <div className="text-primary font-bold text-[9px] uppercase tracking-widest mt-0.5">
           {role}
         </div>
       </div>
@@ -241,20 +241,20 @@ export default function HomePage() {
         </section>
 
         {/* TESTIMONIALS */}
-        <section className="py-16 md:py-24 bg-[#FAFAF8] overflow-hidden border-b border-border/10">
+        <section className="py-12 md:py-16 bg-[#FAFAF8] overflow-hidden border-b border-border/10">
           <div className="max-w-7xl mx-auto px-6">
             <FadeIn>
-              <div className="text-center mb-10 md:mb-16">
-                <h2 className="text-2xl md:text-4xl font-sora font-light text-secondary">
+              <div className="text-center mb-8 md:mb-12">
+                <h2 className="text-2xl md:text-3xl font-sora font-light text-secondary">
                   Latest from <span className="text-primary font-bold italic">Our Partners</span>
                 </h2>
-                <p className="text-primary font-bold uppercase tracking-widest text-[8px] md:text-[10px] mt-2 italic">Growth Stories</p>
+                <p className="text-primary font-bold uppercase tracking-widest text-[8px] md:text-[9px] mt-2 italic">Growth Stories</p>
               </div>
             </FadeIn>
           </div>
 
-          <div className="flex w-full overflow-hidden group py-6 md:py-10">
-            <div className="flex gap-4 md:gap-6 animate-marquee-slow hover:[animation-play-state:paused] whitespace-nowrap">
+          <div className="flex w-full overflow-hidden group py-4 md:py-6">
+            <div className="flex gap-4 md:gap-5 animate-marquee-slow hover:[animation-play-state:paused] whitespace-nowrap">
               {[...testimonials, ...testimonials].map((t, i) => (
                 <TestimonialCard 
                   key={i}
