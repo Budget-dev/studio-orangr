@@ -163,7 +163,7 @@ export default function HomePage() {
       <main>
         
         {/* HERO SECTION */}
-        <section className="relative h-[250px] sm:h-[450px] md:h-[80vh] mt-[64px] md:mt-[100px] flex items-center overflow-hidden bg-secondary w-full shadow-2xl">
+        <section className="relative aspect-[3/1] md:h-[80vh] mt-[64px] md:mt-[100px] flex items-center overflow-hidden bg-white w-full">
           <Image 
             src="https://1234567890.sirv.com/ChatGPT%20Image%20Mar%2030%2C%202026%2C%2003_05_25%20PM.png" 
             alt="Shyama Overseas Banner" 

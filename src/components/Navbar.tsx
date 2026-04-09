@@ -60,12 +60,16 @@ export function Navbar() {
     }
   }, [mob]);
 
+  const isTransparent = !scrolled && pathname === "/";
+
   return (
     <>
       <nav
         className={cn(
           "fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 px-4 md:px-6 lg:px-12 flex items-center justify-between",
-          scrolled || pathname !== "/" ? "h-16 bg-[#0a0a0a]/95 backdrop-blur-md shadow-2xl border-b border-white/5" : "h-[100px] bg-transparent"
+          !isTransparent 
+            ? "h-16 bg-secondary/95 backdrop-blur-md shadow-2xl border-b border-white/5" 
+            : "h-[100px] bg-transparent"
         )}
       >
         <Link href="/" className="flex items-center gap-2 md:gap-3 group shrink-0 relative z-[1001]">
@@ -80,7 +84,12 @@ export function Navbar() {
             />
           </div>
           <div className="flex flex-col">
-            <span className="text-[13px] md:text-[15px] font-black text-white leading-tight uppercase tracking-tight">Shyama Overseas</span>
+            <span className={cn(
+              "text-[13px] md:text-[15px] font-black leading-tight uppercase tracking-tight transition-colors duration-300",
+              isTransparent ? "text-secondary" : "text-white"
+            )}>
+              Shyama Overseas
+            </span>
             <span className="text-[8px] md:text-[9px] font-bold text-primary uppercase tracking-[0.2em]">Digital Growth Agency</span>
           </div>
         </Link>
@@ -94,7 +103,7 @@ export function Navbar() {
                   className={cn(
                     "px-6 py-2.5 text-[13px] font-black transition-all rounded-full flex items-center gap-1.5",
                     pathname === n.page 
-                      ? "bg-[#0a0a0a] text-white shadow-xl scale-105" 
+                      ? "bg-secondary text-white shadow-xl scale-105" 
                       : "text-secondary hover:text-primary"
                   )}
                   onClick={(e) => {
@@ -126,7 +135,12 @@ export function Navbar() {
 
         <div className="flex items-center gap-4 md:gap-6 shrink-0 relative z-[1001] ml-auto">
           <button 
-            className="lg:hidden text-white p-2 hover:bg-white/10 rounded-xl transition-colors border border-white/10 flex items-center justify-center" 
+            className={cn(
+              "lg:hidden p-2 rounded-xl transition-colors border flex items-center justify-center",
+              isTransparent 
+                ? "text-secondary border-secondary/20 hover:bg-secondary/5" 
+                : "text-white border-white/10 hover:bg-white/10"
+            )} 
             onClick={() => setMob(!mob)}
             aria-label="Toggle Menu"
           >
@@ -142,7 +156,7 @@ export function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="fixed inset-0 bg-[#0a0a0a] z-[1002] lg:hidden overflow-y-auto flex flex-col"
+            className="fixed inset-0 bg-secondary z-[1002] lg:hidden overflow-y-auto flex flex-col"
           >
             <div className="p-8 pt-28 flex flex-col gap-10 h-full relative">
               <button 
@@ -198,3 +212,4 @@ export function Navbar() {
     </>
   );
 }
+
