@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 const DEFAULT_LOGOS = [
   { 
-    src: "https://svgl.app/library/klm.svg", 
+    src: "https://www.vectorlogo.zone/logos/klm/klm-ar21.svg", 
     alt: "KLM Logo",
     label: "KLM"
   },
@@ -68,8 +68,8 @@ export function LogoCloud({ className, logos, ...props }: LogoCloudProps) {
             alt={logo.alt}
             className="h-7 md:h-9 w-auto transition-all duration-300 drop-shadow-sm opacity-90 group-hover:opacity-100"
             onError={(e) => {
-              // Fallback for broken SVGs
-              (e.target as HTMLImageElement).src = `https://placehold.co/100x40?text=${logo.label || 'Logo'}`;
+              // Fallback for broken SVGs - use a clean, brand-colored placeholder
+              (e.target as HTMLImageElement).src = `https://placehold.co/200x80/f89b34/white?text=${logo.label || 'Logo'}`;
             }}
           />
           {logo.label && (
