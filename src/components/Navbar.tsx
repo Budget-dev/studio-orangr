@@ -26,6 +26,7 @@ const NAV: NavItem[] = [
     label: "Services", 
     page: "#",
     children: [
+      { label: "Creative AI Productions", href: "/services/creative-ai-productions" },
       { label: "All Services", href: "/services" },
       { label: "Performance Marketing", href: "/services/performance-marketing" },
       { label: "Mobile App Marketing", href: "/services/mobile-app-marketing" },
@@ -34,7 +35,6 @@ const NAV: NavItem[] = [
       { label: "Content Marketing", href: "/services/content-marketing" },
       { label: "Social Media SEO", href: "/services/seo" },
       { label: "CRO", href: "/services/cro" },
-      { label: "Creative AI Productions", href: "/services/creative-ai-productions" },
     ]
   },
   { label: "About Us", page: "/about" },

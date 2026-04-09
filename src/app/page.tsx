@@ -92,36 +92,32 @@ const GALLERY_ITEMS: MediaItemType[] = [
 
 const mapDots = [
   {
-    start: { lat: 23.0225, lng: 72.5714, label: "Ahmedabad" },
+    start: { lat: 19.0760, lng: 72.8777, label: "Mumbai" },
     end: { lat: 40.7128, lng: -74.0060, label: "New York City (NYC)" },
   },
   {
-    start: { lat: 23.0225, lng: 72.5714, label: "Ahmedabad" },
+    start: { lat: 17.3850, lng: 78.4867, label: "Hyderabad" },
     end: { lat: -33.8688, lng: 151.2093, label: "Australia" },
   },
   {
-    start: { lat: 23.0225, lng: 72.5714, label: "Ahmedabad" },
+    start: { lat: 22.5726, lng: 88.3639, label: "Kolkata" },
     end: { lat: 52.5200, lng: 13.4050, label: "Germany" },
   },
   {
-    start: { lat: 23.0225, lng: 72.5714, label: "Ahmedabad" },
+    start: { lat: 19.0760, lng: 72.8777, label: "Mumbai" },
     end: { lat: 35.6762, lng: 139.6503, label: "Japan" },
   },
   {
-    start: { lat: 23.0225, lng: 72.5714, label: "Ahmedabad" },
+    start: { lat: 17.3850, lng: 78.4867, label: "Hyderabad" },
     end: { lat: 10.8231, lng: 106.6297, label: "Vietnam" },
   },
   {
-    start: { lat: 19.0760, lng: 72.8777, label: "Mumbai" },
-    end: { lat: 23.0225, lng: 72.5714 },
+    start: { lat: 23.6739, lng: 86.9524, label: "Asansol" },
+    end: { lat: 19.0760, lng: 72.8777 },
   },
   {
-    start: { lat: 21.1702, lng: 72.8311, label: "Surat" },
-    end: { lat: 23.0225, lng: 72.5714 },
-  },
-  {
-    start: { lat: 22.5726, lng: 88.3639, label: "West Bengal" },
-    end: { lat: 23.0225, lng: 72.5714 },
+    start: { lat: 12.9716, lng: 77.5946, label: "Bangalore" },
+    end: { lat: 19.0760, lng: 72.8777 },
   },
 ];
 
@@ -309,7 +305,7 @@ export default function HomePage() {
               <div className="text-center mb-12 md:mb-20">
                 <div className="text-primary font-bold uppercase tracking-[4px] text-[10px] md:text-xs mb-4">Global Reach</div>
                 <h2 className="text-2xl md:text-5xl font-sora font-light text-secondary leading-tight mb-8 md:mb-12">
-                  Empowering <span className="font-bold">150+ Brands</span> <span className="text-primary">Worldwide</span>
+                  Empowering <span className="font-bold">80+ Brands</span> <span className="text-primary">Worldwide</span>
                 </h2>
                 <div className="max-w-5xl mx-auto overflow-hidden rounded-2xl">
                   <WorldMap dots={mapDots} />
@@ -441,7 +437,7 @@ export default function HomePage() {
                           </div>
                           <div>
                             <h4 className="text-primary font-black uppercase tracking-widest text-[9px] md:text-[10px] mb-2">Strategy Hubs</h4>
-                            <p className="text-base md:text-lg font-sora font-bold leading-tight">Ahmedabad • Surat • Mumbai</p>
+                            <p className="text-base md:text-lg font-sora font-bold leading-tight">Mumbai • Hyderabad • Kolkata</p>
                             <p className="text-white/40 text-[10px] md:text-[11px] mt-1 italic">India Headquarters</p>
                           </div>
                         </div>
@@ -452,7 +448,7 @@ export default function HomePage() {
                           </div>
                           <div>
                             <h4 className="text-primary font-black uppercase tracking-widest text-[9px] md:text-[10px] mb-2">Regional Offices</h4>
-                            <p className="text-base md:text-lg font-sora font-bold leading-tight">Bangalore • Pune • Delhi</p>
+                            <p className="text-base md:text-lg font-sora font-bold leading-tight">Asansol • Mumbai • Bangalore</p>
                             <p className="text-white/40 text-[10px] md:text-[11px] mt-1 italic">Growth Network</p>
                           </div>
                         </div>

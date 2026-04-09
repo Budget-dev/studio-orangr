@@ -87,8 +87,8 @@ export default function ContactPage() {
                       <Globe className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <div className="text-[11px] font-bold text-primary uppercase tracking-[0.2em] mb-2">Head Office</div>
-                      <div className="text-[14.5px] text-white/80 leading-relaxed">Digital Growth Hub, Ahmedabad, Gujarat, India</div>
+                      <div className="text-[11px] font-bold text-primary uppercase tracking-[0.2em] mb-2">Strategy Hub</div>
+                      <div className="text-[14.5px] text-white/80 leading-relaxed">Mumbai • Hyderabad • Kolkata</div>
                     </div>
                   </div>
                   <div className="flex gap-5 group">
@@ -105,8 +105,8 @@ export default function ContactPage() {
                       <Building className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <div className="text-[11px] font-bold text-primary uppercase tracking-[0.2em] mb-2">Regional Presence</div>
-                      <div className="text-[14.5px] text-white/80">Mumbai • Surat • Vadodara</div>
+                      <div className="text-[11px] font-bold text-primary uppercase tracking-[0.2em] mb-2">Regional Offices</div>
+                      <div className="text-[14.5px] text-white/80">Asansol • Mumbai • Bangalore</div>
                     </div>
                   </div>
                 </div>
@@ -126,7 +126,7 @@ export default function ContactPage() {
               <div className="bg-primary/10 border border-primary/20 p-8 rounded-2xl">
                 <div className="text-[11px] font-bold text-primary uppercase tracking-widest mb-4">Core Network</div>
                 <div className="flex flex-wrap gap-2">
-                  {["Ahmedabad", "Mumbai", "Surat", "Bangalore", "Chennai", "Delhi", "Pune"].map(city => (
+                  {["Mumbai", "Hyderabad", "Kolkata", "Asansol", "Bangalore", "Delhi", "Pune"].map(city => (
                     <span key={city} className="px-4 py-2 bg-white rounded-full text-[11px] font-bold text-muted-foreground border border-border/50">
                       {city}
                     </span>
