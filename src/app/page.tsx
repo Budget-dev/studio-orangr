@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/Navbar";
 import { LogoCloud } from "@/components/LogoCloud";
@@ -17,6 +17,15 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, Send, Phone, MapPin } from "lucide-react";
 
 /* ── DATA ── */
+const heroVideos = [
+  "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(8).mp4",
+  "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(7).mp4",
+  "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(5).mp4",
+  "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(6).mp4",
+  "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(4).mp4",
+  "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(3).mp4"
+];
+
 const testimonials = [
   {
     text: "Shyama Overseas transformed our digital presence. Their attention to detail in performance marketing is truly unmatched. They helped us scale from Idea to Vision.",
@@ -144,11 +153,19 @@ function FadeIn({ children, shadow = false, delay = 0, className = "" }: { child
 }
 
 export default function HomePage() {
+  const [currentVideo, setCurrentVideo] = useState(0);
   const [formState, setFormState] = useState({
     name: "",
     email: "",
     message: ""
   });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentVideo((prev) => (prev + 1) % heroVideos.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   const handleWhatsAppChat = () => {
     const text = `Hi, I'm ${formState.name}. I'm interested in digital growth. My email is ${formState.email}. Message: ${formState.message}`;
@@ -162,17 +179,24 @@ export default function HomePage() {
 
       <main>
         
-        {/* HERO SECTION */}
+        {/* HERO SECTION - VIDEO CAROUSEL */}
         <section className="relative aspect-[2/1] md:h-[80vh] mt-16 md:mt-20 flex items-center overflow-hidden bg-white w-full">
           <div className="relative w-full h-full">
-            <Image 
-              src="https://1234567890.sirv.com/ChatGPT%20Image%20Mar%2030%2C%202026%2C%2003_05_25%20PM.png" 
-              alt="Shyama Overseas Banner" 
-              fill 
-              className="object-contain md:object-cover object-center"
-              priority
-              unoptimized
-            />
+            <AnimatePresence mode="wait">
+              <motion.video
+                key={heroVideos[currentVideo]}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.8 }}
+                src={heroVideos[currentVideo]}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-contain md:object-cover object-center"
+              />
+            </AnimatePresence>
           </div>
           
           <div className="absolute bottom-0 left-0 right-0 bg-primary py-3 md:py-5 overflow-hidden z-30 shadow-[0_-10px_30px_rgba(248,155,52,0.3)]">
