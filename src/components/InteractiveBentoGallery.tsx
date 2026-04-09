@@ -257,8 +257,6 @@ interface InteractiveBentoGalleryProps {
 
 const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ mediaItems, title, description }) => {
     const [selectedItem, setSelectedItem] = useState<MediaItemType | null>(null);
-    const [items, setItems] = useState(mediaItems);
-    const [isDragging, setIsDragging] = useState(false);
 
     return (
         <div className="container mx-auto px-6 py-12 max-w-7xl">
@@ -293,7 +291,7 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
                           isOpen={true}
                           onClose={() => setSelectedItem(null)}
                           setSelectedItem={setSelectedItem}
-                          mediaItems={items}
+                          mediaItems={mediaItems}
                       />
                   ) : (
                       <motion.div
@@ -309,12 +307,12 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
                               }
                           }}
                       >
-                          {items.map((item, index) => (
+                          {mediaItems.map((item) => (
                               <motion.div
                                   key={item.id}
                                   layoutId={`media-${item.id}`}
-                                  className={`relative overflow-hidden rounded-2xl group cursor-grab active:cursor-grabbing border border-border/10 shadow-sm ${item.span}`}
-                                  onClick={() => !isDragging && setSelectedItem(item)}
+                                  className={`relative overflow-hidden rounded-2xl group cursor-pointer border border-border/10 shadow-sm ${item.span}`}
+                                  onClick={() => setSelectedItem(item)}
                                   variants={{
                                       hidden: { opacity: 0, scale: 0.98 },
                                       visible: {
@@ -324,28 +322,11 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
                                       }
                                   }}
                                   whileHover={{ y: -5 }}
-                                  drag
-                                  dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                                  onDragStart={() => setIsDragging(true)}
-                                  onDragEnd={(e, info) => {
-                                      setIsDragging(false);
-                                      const moveDistance = info.offset.x + info.offset.y;
-                                      if (Math.abs(moveDistance) > 100) {
-                                          const newItems = [...items];
-                                          const draggedItem = newItems[index];
-                                          const targetIndex = moveDistance > 0 ?
-                                              Math.min(index + 1, items.length - 1) :
-                                              Math.max(index - 1, 0);
-                                          newItems.splice(index, 1);
-                                          newItems.splice(targetIndex, 0, draggedItem);
-                                          setItems(newItems);
-                                      }
-                                  }}
                               >
                                   <MediaItem
                                       item={item}
                                       className="absolute inset-0 w-full h-full"
-                                      onClick={() => !isDragging && setSelectedItem(item)}
+                                      onClick={() => setSelectedItem(item)}
                                   />
                                   <div className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
                                       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
