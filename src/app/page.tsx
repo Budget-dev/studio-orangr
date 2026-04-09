@@ -238,25 +238,18 @@ export default function HomePage() {
                 className="max-w-4xl"
               >
                 <div className="mb-4">
-                  <span className="inline-block px-4 py-1 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-primary text-[10px] md:text-xs font-black uppercase tracking-[0.3em] shadow-lg">
+                  <span className="inline-block px-3 py-1 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-primary text-[9px] md:text-xs font-black uppercase tracking-[0.2em] shadow-lg">
                     Creative AI Production
                   </span>
                 </div>
-                <h1 className="text-3xl md:text-6xl lg:text-8xl font-sora font-black text-white leading-[1.1] uppercase tracking-tighter mb-6 drop-shadow-2xl">
+                <h1 className="text-2xl md:text-5xl lg:text-6xl font-sora font-black text-white leading-[1.1] uppercase tracking-tighter mb-4 drop-shadow-2xl">
                   {heroContent[currentVideo].title.split(' ').map((word, i) => (
                     <span key={i} className={i === 0 ? "text-primary italic" : ""}>{word} </span>
                   ))}
                 </h1>
-                <p className="text-base md:text-xl lg:text-2xl text-white/90 font-light leading-relaxed max-w-2xl border-l-4 border-primary pl-6 italic drop-shadow-lg">
+                <p className="text-sm md:text-lg lg:text-xl text-white/90 font-light leading-relaxed max-w-2xl border-l-4 border-primary pl-6 italic drop-shadow-lg">
                   {heroContent[currentVideo].desc}
                 </p>
-                <div className="mt-10 flex gap-4 pointer-events-auto">
-                  <Button asChild className="h-14 px-8 rounded-full bg-primary text-secondary font-black uppercase tracking-widest text-[11px] shadow-xl shadow-primary/20 group">
-                    <Link href="/contact" className="flex items-center gap-2">
-                      Start Production <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
-                </div>
               </motion.div>
             </AnimatePresence>
           </div>
@@ -493,4 +486,3 @@ export default function HomePage() {
     </div>
   );
 }
-
