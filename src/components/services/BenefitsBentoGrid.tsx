@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Reveal, fadeInUp, Stagger } from "./AnimationWrappers";
@@ -24,14 +25,21 @@ export function BenefitsBentoGrid({ heroBenefit, benefits }: BentoGridProps) {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[240px]">
           {/* Hero Cell */}
           <Reveal variants={fadeInUp} className="md:col-span-8 md:row-span-2">
-            <div className="h-full bg-secondary p-12 rounded-[40px] text-white flex flex-col justify-end relative overflow-hidden group">
-              <div className="absolute top-12 right-12 text-primary font-black text-6xl italic opacity-20 group-hover:opacity-100 transition-opacity">
+            <div className="h-full bg-secondary p-10 md:p-12 rounded-[40px] text-white flex flex-col justify-start relative overflow-hidden group">
+              <div className="relative z-10">
+                <h3 className="text-3xl md:text-4xl font-black text-primary mb-6 uppercase leading-tight max-w-lg">
+                  {heroBenefit.title}
+                </h3>
+                <p className="text-lg md:text-xl text-white/70 font-light italic max-w-xl">
+                  {heroBenefit.description}
+                </p>
+              </div>
+
+              {/* Background Metric Text - Positioned at the bottom to avoid overlapping with the title at the top */}
+              <div className="absolute -bottom-6 -right-6 text-primary font-black text-6xl md:text-8xl lg:text-9xl italic opacity-10 group-hover:opacity-20 transition-all duration-500 pointer-events-none select-none">
                 {heroBenefit.metric}
               </div>
-              <div className="relative z-10">
-                <h3 className="text-4xl font-black text-primary mb-6 uppercase leading-tight">{heroBenefit.title}</h3>
-                <p className="text-xl text-white/70 font-light italic max-w-xl">{heroBenefit.description}</p>
-              </div>
+
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
             </div>
           </Reveal>
