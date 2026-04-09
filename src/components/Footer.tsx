@@ -4,6 +4,7 @@
 import React from 'react';
 import { Instagram, Linkedin, Twitter, Youtube, Rocket, Facebook } from 'lucide-react';
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
+import Link from 'next/link';
 
 const footerColumns = [
   {
@@ -22,7 +23,7 @@ const footerColumns = [
       { label: 'Case Studies', href: '/portfolio' },
       { label: 'Growth Blog', href: '/blog' },
       { label: 'Strategy Audit', href: '/contact' },
-      { label: 'Client Portal', href: '#' },
+      { label: 'Client Portal', href: '/client-portal' },
       { label: 'Agency Network', href: '/sectors' },
     ],
   },
@@ -30,19 +31,19 @@ const footerColumns = [
     title: 'Company',
     links: [
       { label: 'Our Story', href: '/about' },
-      { label: 'Careers', href: '#' },
+      { label: 'Careers', href: '/careers' },
       { label: 'Contact Us', href: '/contact' },
-      { label: 'Partnerships', href: '#' },
-      { label: 'Privacy', href: '#' },
+      { label: 'Partnerships', href: '/partnerships' },
+      { label: 'Disclaimer', href: '/disclaimer' },
     ],
   },
 ];
 
 const legalLinks = [
-  'Terms of Service',
-  'Privacy Policy',
-  'Cookie Settings',
-  'Accessibility',
+  { label: 'Terms of Service', href: '/terms' },
+  { label: 'Privacy Policy', href: '/privacy' },
+  { label: 'Cookie Settings', href: '/cookies' },
+  { label: 'Accessibility', href: '/accessibility' },
 ];
 
 const socialIcons = [
@@ -136,12 +137,12 @@ export function Footer() {
               <ul className="space-y-4">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    <a
+                    <Link
                       href={link.href}
                       className="text-secondary/60 hover:text-primary transition-colors font-medium text-sm"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -160,14 +161,14 @@ export function Footer() {
             © {new Date().getFullYear()} Shyama Overseas. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center gap-8">
-            {legalLinks.map((text) => (
-              <a
-                key={text}
-                href="#"
+            {legalLinks.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
                 className="text-secondary/40 hover:text-primary text-[10px] font-bold uppercase tracking-widest transition-colors"
               >
-                {text}
-              </a>
+                {item.label}
+              </Link>
             ))}
           </div>
         </div>
