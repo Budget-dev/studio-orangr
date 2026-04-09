@@ -67,6 +67,10 @@ export function LogoCloud({ className, logos, ...props }: LogoCloudProps) {
             src={logo.src}
             alt={logo.alt}
             className="h-7 md:h-9 w-auto transition-all duration-300 drop-shadow-sm opacity-90 group-hover:opacity-100"
+            onError={(e) => {
+              // Fallback for broken SVGs
+              (e.target as HTMLImageElement).src = `https://placehold.co/100x40?text=${logo.label || 'Logo'}`;
+            }}
           />
           {logo.label && (
             <span className="text-[9px] font-black text-secondary/40 uppercase tracking-[0.25em] group-hover:text-primary transition-colors text-center">

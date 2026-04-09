@@ -163,15 +163,17 @@ export default function HomePage() {
       <main>
         
         {/* HERO SECTION */}
-        <section className="relative aspect-[3/1] md:h-[80vh] mt-[64px] md:mt-[100px] flex items-center overflow-hidden bg-white w-full">
-          <Image 
-            src="https://1234567890.sirv.com/ChatGPT%20Image%20Mar%2030%2C%202026%2C%2003_05_25%20PM.png" 
-            alt="Shyama Overseas Banner" 
-            fill 
-            className="object-contain md:object-cover object-center"
-            priority
-            unoptimized
-          />
+        <section className="relative aspect-[2/1] md:h-[80vh] mt-16 md:mt-20 flex items-center overflow-hidden bg-white w-full">
+          <div className="relative w-full h-full">
+            <Image 
+              src="https://1234567890.sirv.com/ChatGPT%20Image%20Mar%2030%2C%202026%2C%2003_05_25%20PM.png" 
+              alt="Shyama Overseas Banner" 
+              fill 
+              className="object-contain md:object-cover object-center"
+              priority
+              unoptimized
+            />
+          </div>
           
           <div className="absolute bottom-0 left-0 right-0 bg-primary py-3 md:py-5 overflow-hidden z-30 shadow-[0_-10px_30px_rgba(248,155,52,0.3)]">
             <div className="flex gap-10 md:gap-16 w-max animate-marquee-slow items-center">

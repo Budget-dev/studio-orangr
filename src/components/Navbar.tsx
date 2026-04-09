@@ -68,8 +68,8 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 px-4 md:px-6 lg:px-12 flex items-center justify-between",
           !isTransparent 
-            ? "h-16 bg-secondary/95 backdrop-blur-md shadow-2xl border-b border-white/5" 
-            : "h-[100px] bg-transparent"
+            ? "h-16 md:h-20 bg-secondary/95 backdrop-blur-md shadow-2xl border-b border-white/5" 
+            : "h-16 md:h-20 bg-transparent"
         )}
       >
         <Link href="/" className="flex items-center gap-2 md:gap-3 group shrink-0 relative z-[1001]">
@@ -212,4 +212,3 @@ export function Navbar() {
     </>
   );
 }
-
