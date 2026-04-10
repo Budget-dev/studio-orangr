@@ -20,12 +20,6 @@ interface GalleryItem {
   image: string;
 }
 
-interface AICreativeGalleryProps {
-  heading?: string;
-  demoUrl?: string;
-  items?: GalleryItem[];
-}
-
 const DEFAULT_ITEMS: GalleryItem[] = [
   {
     id: "item-1",
@@ -102,7 +96,7 @@ const AICreativeGallery = ({
   if (!isMounted) return null;
 
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="py-12 md:py-20 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-8 flex flex-col justify-between md:mb-14 md:flex-row md:items-end lg:mb-16">
           <div className="max-w-2xl">
@@ -175,23 +169,26 @@ const AICreativeGallery = ({
 };
 
 function GalleryCard({ item }: { item: GalleryItem }) {
-  const isVideo = item.image.toLowerCase().endsWith('.mp4') || item.image.includes('video');
+  const isVideo = item.image.toLowerCase().endsWith('.mp4') || item.image.includes('video') || item.image.includes('.mov');
   
   return (
-    <div className="group flex flex-col justify-between h-full bg-[#FAFAF8] rounded-3xl overflow-hidden border border-border/50 shadow-sm hover:shadow-xl transition-all p-6">
+    <div className="group flex flex-col justify-between h-full min-h-[450px] bg-[#FAFAF8] rounded-3xl overflow-hidden border border-border/50 shadow-sm hover:shadow-xl transition-all p-6">
       <div>
-        <div className="flex aspect-[3/2] overflow-hidden rounded-2xl bg-black relative">
+        <div className="flex aspect-[3/2] overflow-hidden rounded-2xl bg-black relative shadow-inner">
           <div className="absolute inset-0 h-full w-full origin-bottom transition duration-500 group-hover:scale-110">
             {isVideo ? (
               <video
-                src={item.image}
                 className="h-full w-full object-cover object-center"
                 autoPlay
                 muted
                 loop
                 playsInline
                 preload="auto"
-              />
+                key={item.image}
+              >
+                <source src={item.image} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             ) : (
               <img
                 src={item.image}
@@ -204,16 +201,18 @@ function GalleryCard({ item }: { item: GalleryItem }) {
           </div>
         </div>
       </div>
-      <div className="mt-8">
+      <div className="mt-8 flex flex-col flex-1">
         <div className="mb-2 line-clamp-2 text-xl font-black text-secondary uppercase tracking-tight group-hover:text-primary transition-colors">
           {item.title}
         </div>
-        <div className="mb-8 line-clamp-2 text-sm text-muted-foreground italic leading-relaxed">
+        <div className="mb-6 line-clamp-2 text-sm text-muted-foreground italic leading-relaxed">
           {item.summary}
         </div>
-        <Link href={item.url} className="flex items-center text-xs font-black uppercase tracking-widest text-primary group-hover:gap-4 transition-all">
-          Project Details <ArrowRight className="ml-2 size-4" />
-        </Link>
+        <div className="mt-auto">
+          <Link href={item.url} className="flex items-center text-xs font-black uppercase tracking-widest text-primary group-hover:gap-4 transition-all">
+            Project Details <ArrowRight className="ml-2 size-4" />
+          </Link>
+        </div>
       </div>
     </div>
   );
