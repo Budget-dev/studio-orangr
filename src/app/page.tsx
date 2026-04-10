@@ -261,7 +261,7 @@ export default function HomePage() {
         </section>
 
         {/* LOGO CLOUD - STRATEGIC NETWORK */}
-        <section className="pt-12 pb-6 md:pt-20 md:pb-10 bg-white border-b border-border/10 relative overflow-hidden">
+        <section className="pt-8 pb-4 md:pt-12 md:pb-6 bg-white border-b border-border/10 relative overflow-hidden">
           <div
             aria-hidden="true"
             className={cn(
@@ -273,23 +273,23 @@ export default function HomePage() {
 
           <div className="relative mx-auto max-w-3xl px-6">
             <FadeIn shadow>
-              <h2 className="mb-5 text-center font-medium text-secondary text-lg tracking-tight md:text-3xl">
+              <h2 className="mb-4 text-center font-medium text-secondary text-lg tracking-tight md:text-2xl">
                 <span className="text-muted-foreground">Trusted by experts.</span>
                 <br />
                 <span className="font-semibold text-secondary">Used by the leaders.</span>
               </h2>
-              <div className="mx-auto my-5 h-px max-w-sm bg-border [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
+              <div className="mx-auto my-4 h-px max-w-sm bg-border [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
 
               <LogoCloud />
 
-              <div className="mt-5 h-px bg-border [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
-              <p className="text-center text-primary font-bold uppercase tracking-widest text-[8px] md:text-[10px] mt-8 italic">Our Strategic Network</p>
+              <div className="mt-4 h-px bg-border [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
+              <p className="text-center text-primary font-bold uppercase tracking-widest text-[8px] md:text-[9px] mt-6 italic">Our Strategic Network</p>
             </FadeIn>
           </div>
         </section>
 
         {/* BENTO GALLERY */}
-        <section className="pt-6 pb-12 md:pt-10 md:pb-20 bg-white border-b border-border/10 overflow-hidden">
+        <section className="pt-4 pb-8 md:pt-6 md:pb-12 bg-white border-b border-border/10 overflow-hidden">
           <InteractiveBentoGallery 
             mediaItems={GALLERY_ITEMS} 
             title="Our Creative Showcase" 
@@ -298,12 +298,12 @@ export default function HomePage() {
         </section>
 
         {/* GLOBAL REACH SECTION */}
-        <section className="bg-white py-12 md:py-20 relative overflow-hidden border-b border-border/10">
+        <section className="bg-white py-8 md:py-12 relative overflow-hidden border-b border-border/10">
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <FadeIn>
-              <div className="text-center mb-8 md:mb-16">
-                <div className="text-primary font-bold uppercase tracking-[4px] text-[10px] md:text-xs mb-4">Global Reach</div>
-                <h2 className="text-2xl md:text-5xl font-sora font-light text-secondary leading-tight mb-6 md:mb-10">
+              <div className="text-center mb-6 md:mb-10">
+                <div className="text-primary font-bold uppercase tracking-[4px] text-[10px] md:text-xs mb-3">Global Reach</div>
+                <h2 className="text-2xl md:text-4xl font-sora font-light text-secondary leading-tight mb-4 md:mb-6">
                   Empowering <span className="font-bold">80+ Brands</span> <span className="text-primary">Worldwide</span>
                 </h2>
                 <div className="max-w-5xl mx-auto overflow-hidden rounded-2xl">
@@ -315,19 +315,19 @@ export default function HomePage() {
         </section>
 
         {/* TESTIMONIALS */}
-        <section className="py-10 md:py-16 bg-[#FAFAF8] overflow-hidden border-b border-border/10">
+        <section className="py-8 md:py-12 bg-[#FAFAF8] overflow-hidden border-b border-border/10">
           <div className="max-w-7xl mx-auto px-6">
             <FadeIn>
-              <div className="text-center mb-6 md:mb-10">
+              <div className="text-center mb-4 md:mb-8">
                 <h2 className="text-2xl md:text-3xl font-sora font-light text-secondary">
                   Latest from <span className="text-primary font-bold italic">Our Partners</span>
                 </h2>
-                <p className="text-primary font-bold uppercase tracking-widest text-[8px] md:text-[9px] mt-2 italic">Growth Stories</p>
+                <p className="text-primary font-bold uppercase tracking-widest text-[8px] md:text-[9px] mt-1 italic">Growth Stories</p>
               </div>
             </FadeIn>
           </div>
 
-          <div className="flex w-full overflow-hidden group py-2 md:py-4">
+          <div className="flex w-full overflow-hidden group py-1 md:py-2">
             <div className="flex gap-4 md:gap-5 animate-marquee-slow hover:[animation-play-state:paused] whitespace-nowrap">
               {[...testimonials, ...testimonials].map((t, i) => (
                 <TestimonialCard 
@@ -345,7 +345,7 @@ export default function HomePage() {
         {/* CONTACT SECTION */}
         <section className="py-12 md:py-20 bg-white relative overflow-hidden">
           <div className="container mx-auto px-6 max-w-7xl">
-            <div className="mb-10 md:mb-14">
+            <div className="mb-8 md:mb-12">
               <FadeIn>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-1 w-8 md:w-12 bg-primary rounded-full" />
