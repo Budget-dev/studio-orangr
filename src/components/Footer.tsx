@@ -2,7 +2,7 @@
 "use client";
 
 import React from 'react';
-import { Instagram, Linkedin, Twitter, Youtube, Rocket, Facebook } from 'lucide-react';
+import { Instagram, Linkedin, Youtube, Rocket, Facebook } from 'lucide-react';
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import Link from 'next/link';
 
@@ -49,8 +49,7 @@ const legalLinks = [
 const socialIcons = [
   { icon: <Instagram className="h-5 w-5" />, href: 'https://www.instagram.com/shyamaoverseas/' },
   { icon: <Facebook className="h-5 w-5" />, href: 'https://www.facebook.com/shyamaoverseas' },
-  { icon: <Twitter className="h-5 w-5" />, href: '#' },
-  { icon: <Linkedin className="h-5 w-5" />, href: '#' },
+  { icon: <Linkedin className="h-5 w-5" />, href: 'https://www.linkedin.com/in/adarshabanerjee/?skipRedirect=true' },
 ];
 
 export function Footer() {

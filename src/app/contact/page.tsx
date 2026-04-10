@@ -1,10 +1,11 @@
+
 "use client";
 
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Globe, Phone, Mail, Building, Instagram, Facebook, Twitter, Youtube, Send, MessageCircle } from "lucide-react";
+import { Globe, Phone, Mail, Building, Instagram, Facebook, Linkedin, Youtube, Send, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
@@ -163,7 +164,7 @@ export default function ContactPage() {
                         {[
                           { icon: Instagram, href: "https://instagram.com/shyamaoverseas" },
                           { icon: Facebook, href: "https://facebook.com/shyamaoverseas" },
-                          { icon: Twitter, href: "#" },
+                          { icon: Linkedin, href: "https://www.linkedin.com/in/adarshabanerjee/?skipRedirect=true" },
                           { icon: Youtube, href: "#" }
                         ].map((social, i) => (
                           <Link 
