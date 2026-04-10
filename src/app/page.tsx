@@ -261,7 +261,7 @@ export default function HomePage() {
         </section>
 
         {/* LOGO CLOUD - STRATEGIC NETWORK */}
-        <section className="py-16 md:py-24 bg-white border-b border-border/10 relative overflow-hidden">
+        <section className="pt-12 pb-6 md:pt-20 md:pb-10 bg-white border-b border-border/10 relative overflow-hidden">
           <div
             aria-hidden="true"
             className={cn(
@@ -289,7 +289,7 @@ export default function HomePage() {
         </section>
 
         {/* BENTO GALLERY */}
-        <section className="py-16 md:py-24 bg-white border-b border-border/10 overflow-hidden">
+        <section className="pt-6 pb-12 md:pt-10 md:pb-20 bg-white border-b border-border/10 overflow-hidden">
           <InteractiveBentoGallery 
             mediaItems={GALLERY_ITEMS} 
             title="Our Creative Showcase" 
@@ -298,12 +298,12 @@ export default function HomePage() {
         </section>
 
         {/* GLOBAL REACH SECTION */}
-        <section className="bg-white py-16 md:py-24 relative overflow-hidden border-b border-border/10">
+        <section className="bg-white py-12 md:py-20 relative overflow-hidden border-b border-border/10">
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <FadeIn>
-              <div className="text-center mb-12 md:mb-20">
+              <div className="text-center mb-8 md:mb-16">
                 <div className="text-primary font-bold uppercase tracking-[4px] text-[10px] md:text-xs mb-4">Global Reach</div>
-                <h2 className="text-2xl md:text-5xl font-sora font-light text-secondary leading-tight mb-8 md:mb-12">
+                <h2 className="text-2xl md:text-5xl font-sora font-light text-secondary leading-tight mb-6 md:mb-10">
                   Empowering <span className="font-bold">80+ Brands</span> <span className="text-primary">Worldwide</span>
                 </h2>
                 <div className="max-w-5xl mx-auto overflow-hidden rounded-2xl">
@@ -315,10 +315,10 @@ export default function HomePage() {
         </section>
 
         {/* TESTIMONIALS */}
-        <section className="py-12 md:py-16 bg-[#FAFAF8] overflow-hidden border-b border-border/10">
+        <section className="py-10 md:py-16 bg-[#FAFAF8] overflow-hidden border-b border-border/10">
           <div className="max-w-7xl mx-auto px-6">
             <FadeIn>
-              <div className="text-center mb-8 md:mb-12">
+              <div className="text-center mb-6 md:mb-10">
                 <h2 className="text-2xl md:text-3xl font-sora font-light text-secondary">
                   Latest from <span className="text-primary font-bold italic">Our Partners</span>
                 </h2>
@@ -327,7 +327,7 @@ export default function HomePage() {
             </FadeIn>
           </div>
 
-          <div className="flex w-full overflow-hidden group py-4 md:py-6">
+          <div className="flex w-full overflow-hidden group py-2 md:py-4">
             <div className="flex gap-4 md:gap-5 animate-marquee-slow hover:[animation-play-state:paused] whitespace-nowrap">
               {[...testimonials, ...testimonials].map((t, i) => (
                 <TestimonialCard 
@@ -343,9 +343,9 @@ export default function HomePage() {
         </section>
 
         {/* CONTACT SECTION */}
-        <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+        <section className="py-12 md:py-20 bg-white relative overflow-hidden">
           <div className="container mx-auto px-6 max-w-7xl">
-            <div className="mb-12 md:mb-16">
+            <div className="mb-10 md:mb-14">
               <FadeIn>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="h-1 w-8 md:w-12 bg-primary rounded-full" />
@@ -362,9 +362,9 @@ export default function HomePage() {
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
               {/* Form Side */}
-              <div className="lg:col-span-7 space-y-6 md:space-y-10">
+              <div className="lg:col-span-7 space-y-6 md:space-y-8">
                 <FadeIn delay={0.1}>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div className="space-y-2">
                       <label className="text-[10px] font-black uppercase tracking-widest text-secondary/40 ml-1">Full Name</label>
                       <input 
@@ -420,7 +420,7 @@ export default function HomePage() {
                   <div className="bg-secondary rounded-[32px] md:rounded-[40px] p-8 md:p-12 text-white shadow-2xl relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full -mr-32 -mt-32 blur-3xl" />
                     
-                    <div className="relative z-10 space-y-8 md:space-y-12">
+                    <div className="relative z-10 space-y-8 md:space-y-10">
                       <div>
                         <span className="text-primary font-black uppercase tracking-widest text-[9px] md:text-[10px] block mb-4">Direct Access</span>
                         <a href="tel:+918918348537" className="text-2xl md:text-4xl font-sora font-black hover:text-primary transition-colors block leading-tight tracking-tighter italic">

@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef, useState } from 'react'
@@ -259,8 +258,8 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
     const [selectedItem, setSelectedItem] = useState<MediaItemType | null>(null);
 
     return (
-        <div className="container mx-auto px-6 py-12 max-w-7xl">
-            <div className="mb-16 text-center">
+        <div className="container mx-auto px-6 max-w-7xl">
+            <div className="mb-10 text-center">
                 <motion.h2
                     className="text-4xl md:text-5xl font-sora font-light text-[#0a0a0a]"
                     initial={{ opacity: 0, y: 10 }}
@@ -283,7 +282,7 @@ const InteractiveBentoGallery: React.FC<InteractiveBentoGalleryProps> = ({ media
                 </motion.p>
             </div>
             
-            <div className="relative min-h-[400px]">
+            <div className="relative">
               <AnimatePresence mode="wait">
                   {selectedItem ? (
                       <GalleryModal
