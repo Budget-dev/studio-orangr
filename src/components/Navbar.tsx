@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -86,7 +85,7 @@ export function Navbar() {
           <div className="flex flex-col">
             <span className={cn(
               "text-[13px] md:text-[15px] font-black leading-tight uppercase tracking-tight transition-colors duration-300",
-              isTransparent ? "text-secondary" : "text-white"
+              isTransparent && !scrolled ? "text-secondary" : "text-white"
             )}>
               Shyama Overseas
             </span>
@@ -137,7 +136,7 @@ export function Navbar() {
           <button 
             className={cn(
               "lg:hidden p-2 rounded-xl transition-colors border flex items-center justify-center",
-              isTransparent 
+              isTransparent && !scrolled 
                 ? "text-secondary border-secondary/20 hover:bg-secondary/5" 
                 : "text-white border-white/10 hover:bg-white/10"
             )} 
