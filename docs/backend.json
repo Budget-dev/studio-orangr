@@ -1,0 +1,79 @@
+
+{
+  "entities": {
+    "Banner": {
+      "title": "Banner",
+      "description": "Hero banner video and content managed via the admin panel.",
+      "type": "object",
+      "properties": {
+        "videoUrl": {
+          "type": "string",
+          "description": "The URL of the video to display in the banner."
+        },
+        "title": {
+          "type": "string",
+          "description": "The headline title for the banner."
+        },
+        "description": {
+          "type": "string",
+          "description": "The subheadline/description text."
+        },
+        "ctaText": {
+          "type": "string",
+          "description": "Text for the call to action button."
+        },
+        "order": {
+          "type": "integer",
+          "description": "The sequence order for display."
+        },
+        "isEnabled": {
+          "type": "boolean",
+          "description": "Whether this banner is active on the frontend."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["videoUrl", "title", "order"]
+    },
+    "ActivityLog": {
+      "title": "Activity Log",
+      "description": "Audit trail for admin actions.",
+      "type": "object",
+      "properties": {
+        "adminEmail": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string"
+        },
+        "details": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["adminEmail", "action", "timestamp"]
+    }
+  },
+  "auth": {
+    "providers": ["emailPassword"]
+  },
+  "firestore": {
+    "/banners/{bannerId}": {
+      "schema": "#/backend/entities/Banner",
+      "description": "Collection of hero banners managed by admins."
+    },
+    "/activityLogs/{logId}": {
+      "schema": "#/backend/entities/ActivityLog",
+      "description": "History of changes made in the admin panel."
+    }
+  }
+}
