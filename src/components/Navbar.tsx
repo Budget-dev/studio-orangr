@@ -36,6 +36,7 @@ const NAV: NavItem[] = [
       { label: "CRO", href: "/services/cro" },
     ]
   },
+  { label: "AI Course", page: "/ai-course" },
   { label: "About Us", page: "/about" },
   { label: "Contact Us", page: "/contact" },
 ];
