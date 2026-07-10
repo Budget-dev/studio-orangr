@@ -92,6 +92,7 @@ export default function HomePage() {
   const [banners, setBanners] = useState<any[]>(DEFAULT_HERO_CONTENT);
   const [currentVideo, setCurrentVideo] = useState(0);
   const [formState, setFormState] = useState({ name: "", email: "", message: "" });
+  const touchStartX = useRef(0);
   const firestore = useFirestore();
 
   useEffect(() => {
@@ -110,9 +111,28 @@ export default function HomePage() {
     if (banners.length <= 1) return;
     const timer = setInterval(() => {
       setCurrentVideo((prev) => (prev + 1) % banners.length);
-    }, 6000);
+    }, 15000); // Updated to 15 seconds
     return () => clearInterval(timer);
   }, [banners]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX.current - touchEndX;
+
+    if (Math.abs(diff) > 50) { // Swipe threshold
+      if (diff > 0) {
+        // Swipe left -> Next
+        setCurrentVideo((prev) => (prev + 1) % banners.length);
+      } else {
+        // Swipe right -> Previous
+        setCurrentVideo((prev) => (prev === 0 ? banners.length - 1 : prev - 1));
+      }
+    }
+  };
 
   const handleWhatsAppChat = () => {
     const text = `Hi, I'm ${formState.name}. I'm interested in digital growth. Message: ${formState.message}`;
@@ -125,7 +145,11 @@ export default function HomePage() {
 
       <main>
         {/* HERO SECTION - VIDEO ONLY (TEXT REMOVED) */}
-        <section className="relative aspect-video md:h-[90vh] mt-16 md:mt-20 flex items-center overflow-hidden bg-black w-full">
+        <section 
+          className="relative aspect-video md:h-[90vh] mt-16 md:mt-20 flex items-center overflow-hidden bg-black w-full"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent z-10" />
           
           <div className="relative w-full h-full">
@@ -155,6 +179,19 @@ export default function HomePage() {
                 </span>
               ))}
             </div>
+          </div>
+
+          {/* Video Indicators */}
+          <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-40 flex gap-2">
+            {banners.map((_, i) => (
+              <div 
+                key={i} 
+                className={cn(
+                  "h-1.5 rounded-full transition-all duration-500",
+                  currentVideo === i ? "w-8 bg-primary" : "w-2 bg-white/30"
+                )}
+              />
+            ))}
           </div>
         </section>
 
