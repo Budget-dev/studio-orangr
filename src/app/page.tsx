@@ -25,23 +25,39 @@ const WorldMap = dynamic(() => import("@/components/WorldMap").then(mod => mod.W
 });
 const Footer = dynamic(() => import("@/components/Footer").then(mod => mod.Footer), { ssr: true });
 
-/* ── FALLBACK/SEED DATA ── */
+/* ── UPDATED HERO CONTENT ── */
 const DEFAULT_HERO_CONTENT = [
   {
-    videoUrl: "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(8).mp4",
-    title: "Cinematic Milk Splash Commercial",
-    description: "High-speed fluid simulation and photorealistic lighting for premium dairy brand storytelling.",
-    ctaText: "Start Growth Chat",
+    videoUrl: "https://shyama.sirv.com/AI%20videos%20of%20shyama/Dos%20Equis.mkv",
+    title: "",
+    description: "",
+    ctaText: "",
     isEnabled: true,
     order: 0
   },
   {
-    videoUrl: "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(7).mp4",
-    title: "Analytics Visualization",
-    description: "From complex logistics to successful global partnerships, we visualize the entire business ecosystem.",
-    ctaText: "Explore Results",
+    videoUrl: "https://shyama.sirv.com/AI%20videos%20of%20shyama/Jio%20Finance.mp4",
+    title: "",
+    description: "",
+    ctaText: "",
     isEnabled: true,
     order: 1
+  },
+  {
+    videoUrl: "https://shyama.sirv.com/AI%20videos%20of%20shyama/JK%20Tyres.mp4",
+    title: "",
+    description: "",
+    ctaText: "",
+    isEnabled: true,
+    order: 2
+  },
+  {
+    videoUrl: "https://shyama.sirv.com/AI%20videos%20of%20shyama/USPA.mp4",
+    title: "",
+    description: "",
+    ctaText: "",
+    isEnabled: true,
+    order: 3
   }
 ];
 
@@ -108,9 +124,9 @@ export default function HomePage() {
       <Navbar />
 
       <main>
-        {/* HERO SECTION - DYNAMIC DATA FROM FIRESTORE */}
+        {/* HERO SECTION - VIDEO ONLY (TEXT REMOVED) */}
         <section className="relative aspect-video md:h-[90vh] mt-16 md:mt-20 flex items-center overflow-hidden bg-black w-full">
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/20 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent z-10" />
           
           <div className="relative w-full h-full">
             <AnimatePresence mode="wait">
@@ -128,36 +144,6 @@ export default function HomePage() {
                 preload="metadata"
                 className="w-full h-full object-cover"
               />
-            </AnimatePresence>
-          </div>
-
-          <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-24 z-20 pointer-events-none">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentVideo}
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 30 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="max-w-4xl"
-              >
-                <div className="mb-4">
-                  <span className="inline-block px-4 py-1 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-primary text-[10px] font-black uppercase tracking-[0.3em]">
-                    Live Strategic Production
-                  </span>
-                </div>
-                <h1 className="text-3xl md:text-7xl font-sora font-black text-white leading-tight uppercase tracking-tighter mb-4 drop-shadow-2xl">
-                  {banners[currentVideo]?.title}
-                </h1>
-                <p className="text-sm md:text-2xl text-white/90 font-light leading-relaxed max-w-2xl border-l-4 border-primary pl-8 italic drop-shadow-lg">
-                  {banners[currentVideo]?.description}
-                </p>
-                <div className="mt-10 flex gap-4 pointer-events-auto">
-                   <Button onClick={handleWhatsAppChat} size="lg" className="rounded-full h-14 px-10 font-black uppercase tracking-widest text-xs shadow-xl shadow-primary/30">
-                     {banners[currentVideo]?.ctaText || 'Start Growth Chat'}
-                   </Button>
-                </div>
-              </motion.div>
             </AnimatePresence>
           </div>
           

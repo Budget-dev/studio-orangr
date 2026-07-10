@@ -52,28 +52,36 @@ export default function AdminDashboard() {
     try {
       const initialData = [
         {
-          videoUrl: "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(8).mp4",
-          title: "Cinematic Milk Splash",
-          description: "High-speed fluid simulation and photorealistic lighting.",
-          ctaText: "Start Strategy Chat",
+          videoUrl: "https://shyama.sirv.com/AI%20videos%20of%20shyama/Dos%20Equis.mkv",
+          title: "",
+          description: "",
+          ctaText: "",
           isEnabled: true,
           order: 0
         },
         {
-          videoUrl: "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(7).mp4",
-          title: "Analytics Visualization",
-          description: "Visualizing the entire business ecosystem.",
-          ctaText: "View Case Studies",
+          videoUrl: "https://shyama.sirv.com/AI%20videos%20of%20shyama/Jio%20Finance.mp4",
+          title: "",
+          description: "",
+          ctaText: "",
           isEnabled: true,
           order: 1
         },
         {
-          videoUrl: "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(5).mp4",
-          title: "Gourmet Experience",
-          description: "Photorealistic textures and cinematic food motion.",
-          ctaText: "See Our Work",
+          videoUrl: "https://shyama.sirv.com/AI%20videos%20of%20shyama/JK%20Tyres.mp4",
+          title: "",
+          description: "",
+          ctaText: "",
           isEnabled: true,
           order: 2
+        },
+        {
+          videoUrl: "https://shyama.sirv.com/AI%20videos%20of%20shyama/USPA.mp4",
+          title: "",
+          description: "",
+          ctaText: "",
+          isEnabled: true,
+          order: 3
         }
       ];
 
@@ -91,11 +99,11 @@ export default function AdminDashboard() {
       await addDoc(collection(firestore, "activityLogs"), {
         adminEmail: user.email,
         action: "Seed Data",
-        details: "System initialized with default cinematic content",
+        details: "System initialized with new cinematic videos",
         timestamp: serverTimestamp()
       });
 
-      toast({ title: "System Seeded", description: "Original banners migrated to database successfully." });
+      toast({ title: "System Seeded", description: "Banners migrated to database successfully." });
       fetchStats();
     } catch (error: any) {
       toast({ variant: "destructive", title: "Seeding failed", description: error.message });
@@ -120,7 +128,7 @@ export default function AdminDashboard() {
         </div>
         {stats.totalBanners === 0 && (
           <Button onClick={handleSeedData} disabled={isSeeding} className="rounded-xl h-12 px-6 font-black uppercase tracking-widest text-[10px]">
-            <Sparkles className="w-4 h-4 mr-2" /> Seed Original Data
+            <Sparkles className="w-4 h-4 mr-2" /> Seed Banners
           </Button>
         )}
       </div>
