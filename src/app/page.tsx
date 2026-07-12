@@ -25,10 +25,10 @@ const WorldMap = dynamic(() => import("@/components/WorldMap").then(mod => mod.W
 });
 const Footer = dynamic(() => import("@/components/Footer").then(mod => mod.Footer), { ssr: true });
 
-/* ── UPDATED HERO CONTENT ── */
+/* ── UPDATED HERO CONTENT (YOUTUBE) ── */
 const DEFAULT_HERO_CONTENT = [
   {
-    videoUrl: "https://shyama.sirv.com/AI%20videos%20of%20shyama/Dos%20Equis.mkv",
+    videoUrl: "https://www.youtube.com/watch?v=l8nC8GtoFgs",
     title: "",
     description: "",
     ctaText: "",
@@ -36,7 +36,7 @@ const DEFAULT_HERO_CONTENT = [
     order: 0
   },
   {
-    videoUrl: "https://shyama.sirv.com/AI%20videos%20of%20shyama/Jio%20Finance.mp4",
+    videoUrl: "https://www.youtube.com/watch?v=Ozw7v1V4WHA",
     title: "",
     description: "",
     ctaText: "",
@@ -44,20 +44,12 @@ const DEFAULT_HERO_CONTENT = [
     order: 1
   },
   {
-    videoUrl: "https://shyama.sirv.com/AI%20videos%20of%20shyama/JK%20Tyres.mp4",
+    videoUrl: "https://www.youtube.com/watch?v=N0XlkDUfwng",
     title: "",
     description: "",
     ctaText: "",
     isEnabled: true,
     order: 2
-  },
-  {
-    videoUrl: "https://shyama.sirv.com/AI%20videos%20of%20shyama/USPA.mp4",
-    title: "",
-    description: "",
-    ctaText: "",
-    isEnabled: true,
-    order: 3
   }
 ];
 
@@ -111,7 +103,7 @@ export default function HomePage() {
     if (banners.length <= 1) return;
     const timer = setInterval(() => {
       setCurrentVideo((prev) => (prev + 1) % banners.length);
-    }, 15000); // Updated to 15 seconds
+    }, 15000); 
     return () => clearInterval(timer);
   }, [banners]);
 
@@ -123,12 +115,10 @@ export default function HomePage() {
     const touchEndX = e.changedTouches[0].clientX;
     const diff = touchStartX.current - touchEndX;
 
-    if (Math.abs(diff) > 50) { // Swipe threshold
+    if (Math.abs(diff) > 50) { 
       if (diff > 0) {
-        // Swipe left -> Next
         setCurrentVideo((prev) => (prev + 1) % banners.length);
       } else {
-        // Swipe right -> Previous
         setCurrentVideo((prev) => (prev === 0 ? banners.length - 1 : prev - 1));
       }
     }
@@ -139,35 +129,62 @@ export default function HomePage() {
     window.open(`https://wa.me/918918348537?text=${encodeURIComponent(text)}`, "_blank");
   };
 
+  const isYouTube = (url: string) => url.includes('youtube.com') || url.includes('youtu.be');
+
+  const getYouTubeId = (url: string) => {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+  };
+
   return (
     <div className="min-h-screen bg-white overflow-x-hidden font-body">
       <Navbar />
 
       <main>
-        {/* HERO SECTION - VIDEO ONLY (TEXT REMOVED) */}
+        {/* HERO SECTION - YOUTUBE BACKGROUND SUPPORT */}
         <section 
-          className="relative aspect-video md:h-[90vh] mt-16 md:mt-20 flex items-center overflow-hidden bg-black w-full"
+          className="relative h-[80vh] md:h-[90vh] mt-16 md:mt-20 flex items-center overflow-hidden bg-black w-full"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent z-10 pointer-events-none" />
           
           <div className="relative w-full h-full">
             <AnimatePresence mode="wait">
-              <motion.video
-                key={banners[currentVideo]?.videoUrl}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1 }}
-                src={banners[currentVideo]?.videoUrl}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                className="w-full h-full object-cover"
-              />
+              {isYouTube(banners[currentVideo]?.videoUrl) ? (
+                <motion.div
+                  key={banners[currentVideo]?.videoUrl}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1 }}
+                  className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none"
+                >
+                  <iframe
+                    src={`https://www.youtube.com/embed/${getYouTubeId(banners[currentVideo]?.videoUrl)}?autoplay=1&mute=1&controls=0&loop=1&playlist=${getYouTubeId(banners[currentVideo]?.videoUrl)}&modestbranding=1&rel=0&iv_load_policy=3&enablejsapi=1&disablekb=1&fs=0`}
+                    className="absolute top-1/2 left-1/2 w-[115vw] h-[115vh] md:w-[150vw] md:h-[150vh] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                    style={{ border: 'none', objectFit: 'cover' }}
+                    allow="autoplay; encrypted-media"
+                  />
+                  <div className="absolute inset-0 bg-transparent z-10" />
+                </motion.div>
+              ) : (
+                <motion.video
+                  key={banners[currentVideo]?.videoUrl}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1 }}
+                  src={banners[currentVideo]?.videoUrl}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-cover"
+                />
+              )}
             </AnimatePresence>
           </div>
           

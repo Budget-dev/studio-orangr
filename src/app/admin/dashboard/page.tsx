@@ -52,7 +52,7 @@ export default function AdminDashboard() {
     try {
       const initialData = [
         {
-          videoUrl: "https://shyama.sirv.com/AI%20videos%20of%20shyama/Dos%20Equis.mkv",
+          videoUrl: "https://www.youtube.com/watch?v=l8nC8GtoFgs",
           title: "",
           description: "",
           ctaText: "",
@@ -60,7 +60,7 @@ export default function AdminDashboard() {
           order: 0
         },
         {
-          videoUrl: "https://shyama.sirv.com/AI%20videos%20of%20shyama/Jio%20Finance.mp4",
+          videoUrl: "https://www.youtube.com/watch?v=Ozw7v1V4WHA",
           title: "",
           description: "",
           ctaText: "",
@@ -68,20 +68,12 @@ export default function AdminDashboard() {
           order: 1
         },
         {
-          videoUrl: "https://shyama.sirv.com/AI%20videos%20of%20shyama/JK%20Tyres.mp4",
+          videoUrl: "https://www.youtube.com/watch?v=N0XlkDUfwng",
           title: "",
           description: "",
           ctaText: "",
           isEnabled: true,
           order: 2
-        },
-        {
-          videoUrl: "https://shyama.sirv.com/AI%20videos%20of%20shyama/USPA.mp4",
-          title: "",
-          description: "",
-          ctaText: "",
-          isEnabled: true,
-          order: 3
         }
       ];
 
@@ -99,7 +91,7 @@ export default function AdminDashboard() {
       await addDoc(collection(firestore, "activityLogs"), {
         adminEmail: user.email,
         action: "Seed Data",
-        details: "System initialized with new cinematic videos",
+        details: "System initialized with new YouTube cinematic banners",
         timestamp: serverTimestamp()
       });
 
