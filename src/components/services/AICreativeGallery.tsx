@@ -207,56 +207,41 @@ function GalleryCard({ item }: { item: GalleryItem }) {
   const youtubeId = isYouTube ? getYouTubeId(item.image) : null;
 
   return (
-    <div className="group flex flex-col justify-between h-full min-h-[450px] bg-[#FAFAF8] rounded-3xl overflow-hidden border border-border/50 shadow-sm hover:shadow-xl transition-all p-6">
-      <div>
-        <div className="flex aspect-[3/2] overflow-hidden rounded-2xl bg-black relative shadow-inner">
-          <div className="absolute inset-0 h-full w-full origin-bottom transition duration-500 group-hover:scale-110">
-            {isYouTube && youtubeId ? (
-              <div className="relative w-full h-full">
-                <iframe
-                  src={`https://www.youtube.com/embed/${youtubeId}?autoplay=0&mute=1&controls=0&loop=1&playlist=${youtubeId}&modestbranding=1&rel=0&iv_load_policy=3`}
-                  className="absolute inset-0 w-full h-full pointer-events-none"
-                  allow="autoplay; encrypted-media"
-                  style={{ border: 'none' }}
-                />
-                <div className="absolute inset-0 bg-transparent z-10" />
-              </div>
-            ) : isVideo ? (
-              <video
-                className="h-full w-full object-cover object-center"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-                key={item.image}
-              >
-                <source src={item.image} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            ) : (
-              <img
-                src={item.image}
-                alt={item.title}
-                className="h-full w-full object-cover object-center"
-                data-ai-hint="ai production"
+    <div className="group h-full bg-[#FAFAF8] rounded-[32px] overflow-hidden border border-border/50 shadow-sm hover:shadow-2xl transition-all">
+      <div className="relative aspect-[9/16] md:aspect-[3/4] overflow-hidden bg-black shadow-inner">
+        <div className="absolute inset-0 h-full w-full origin-bottom transition duration-500 group-hover:scale-105">
+          {isYouTube && youtubeId ? (
+            <div className="relative w-full h-full">
+              <iframe
+                src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${youtubeId}&modestbranding=1&rel=0&iv_load_policy=3&enablejsapi=1`}
+                className="absolute inset-0 w-full h-full pointer-events-none scale-[1.01]"
+                allow="autoplay; encrypted-media"
+                style={{ border: 'none', objectFit: 'cover' }}
               />
-            )}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-          </div>
-        </div>
-      </div>
-      <div className="mt-8 flex flex-col flex-1">
-        <div className="mb-2 line-clamp-2 text-xl font-black text-secondary uppercase tracking-tight group-hover:text-primary transition-colors">
-          {item.title}
-        </div>
-        <div className="mb-6 line-clamp-2 text-sm text-muted-foreground italic leading-relaxed">
-          {item.summary}
-        </div>
-        <div className="mt-auto">
-          <Link href={item.url} className="flex items-center text-xs font-black uppercase tracking-widest text-primary group-hover:gap-4 transition-all">
-            Project Details <ArrowRight className="ml-2 size-4" />
-          </Link>
+              <div className="absolute inset-0 bg-transparent z-10" />
+            </div>
+          ) : isVideo ? (
+            <video
+              className="h-full w-full object-cover object-center"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              key={item.image}
+            >
+              <source src={item.image} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          ) : (
+            <img
+              src={item.image}
+              alt={item.title}
+              className="h-full w-full object-cover object-center"
+              data-ai-hint="ai production"
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
         </div>
       </div>
     </div>
