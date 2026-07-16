@@ -1,3 +1,4 @@
+
 "use client";
 
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
@@ -183,7 +184,7 @@ const AICreativeGallery = ({
           >
             <CarouselContent className="ml-4 md:ml-20">
               {items.map((item) => (
-                <CarouselItem key={item.id} className="pl-4 basis-full md:basis-[452px]">
+                <CarouselItem key={item.id} className="pl-4 basis-full md:basis-[600px]">
                   <GalleryCard item={item} />
                 </CarouselItem>
               ))}
@@ -208,7 +209,7 @@ function GalleryCard({ item }: { item: GalleryItem }) {
 
   return (
     <div className="group h-full bg-[#FAFAF8] rounded-[32px] overflow-hidden border border-border/50 shadow-sm hover:shadow-2xl transition-all">
-      <div className="relative aspect-[9/16] md:aspect-[3/4] overflow-hidden bg-black shadow-inner">
+      <div className="relative aspect-video overflow-hidden bg-black shadow-inner">
         <div className="absolute inset-0 h-full w-full origin-bottom transition duration-500 group-hover:scale-105">
           {isYouTube && youtubeId ? (
             <div className="relative w-full h-full">
@@ -216,7 +217,7 @@ function GalleryCard({ item }: { item: GalleryItem }) {
                 src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${youtubeId}&modestbranding=1&rel=0&iv_load_policy=3&enablejsapi=1`}
                 className="absolute inset-0 w-full h-full pointer-events-none scale-[1.01]"
                 allow="autoplay; encrypted-media"
-                style={{ border: 'none', objectFit: 'cover' }}
+                style={{ border: 'none' }}
               />
               <div className="absolute inset-0 bg-transparent z-10" />
             </div>
@@ -241,7 +242,7 @@ function GalleryCard({ item }: { item: GalleryItem }) {
               data-ai-hint="ai production"
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
         </div>
       </div>
     </div>
