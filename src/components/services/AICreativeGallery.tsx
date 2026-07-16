@@ -22,48 +22,75 @@ interface GalleryItem {
 
 const DEFAULT_ITEMS: GalleryItem[] = [
   {
-    id: "item-1",
-    title: "Cinematic Milk Splash Commercial",
-    summary: "High-speed fluid simulation and photorealistic lighting for premium dairy brand storytelling.",
+    id: "yt-1",
+    title: "Cinematic Brand Narrative",
+    summary: "Professional AI-driven brand storytelling with high-fidelity visual composition.",
     url: "/contact",
-    image: "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(8).mp4",
+    image: "https://www.youtube.com/watch?v=MdO8OfPhXn0",
   },
   {
-    id: "item-2",
-    title: "Supply Chain & Analytics Visualization",
-    summary: "From complex logistics to successful global partnerships, we visualize the entire business ecosystem with cinematic AI.",
+    id: "yt-2",
+    title: "Dynamic Product Showcase",
+    summary: "Hyper-realistic product rendering and cinematic motion for luxury markets.",
     url: "/contact",
-    image: "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(7).mp4",
+    image: "https://www.youtube.com/watch?v=slkVfPFy2qc",
   },
   {
-    id: "item-3",
-    title: "Gourmet Burger Experience",
-    summary: "High-impact restaurant advertisement showcasing photorealistic food textures and cinematic ingredient motion.",
+    id: "yt-3",
+    title: "AI Visual Innovation",
+    summary: "Exploring the boundaries of generative videography for modern digital platforms.",
     url: "/contact",
-    image: "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(5).mp4",
+    image: "https://www.youtube.com/watch?v=XjSoPFkvS-0",
   },
   {
-    id: "item-4",
-    title: "Luxury Chocolate Simulation",
-    summary: "Silky chocolate textures and fluid dynamics for high-end confectionery and premium brand experiences.",
+    id: "yt-4",
+    title: "Atmospheric Cinematography",
+    summary: "Deep atmospheric lighting and complex environment generation powered by AI.",
     url: "/contact",
-    image: "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(6).mp4",
+    image: "https://www.youtube.com/watch?v=iklgAqUod8c",
   },
   {
-    id: "item-5",
-    title: "Galaxy Ice Cream Evolution",
-    summary: "Surreal AI-generated animation of gourmet ice cream evolving amidst a cosmic galaxy of stars on a clean studio background.",
+    id: "yt-5",
+    title: "Global Supply Chain Vision",
+    summary: "Visualizing global logistics and successful partnerships through a cinematic lens.",
     url: "/contact",
-    image: "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(4).mp4",
+    image: "https://www.youtube.com/watch?v=l8nC8GtoFgs",
   },
   {
-    id: "item-6",
-    title: "Cyberpunk Footwear Cinematics",
-    summary: "High-impact product showcase for luxury footwear, featuring dynamic blue lighting and hyper-realistic textures.",
+    id: "yt-6",
+    title: "Next-Gen Social Shorts",
+    summary: "High-impact short-form content designed for maximum engagement on Reels and TikTok.",
     url: "/contact",
-    image: "https://1234567890.sirv.com/WhatsApp%20Video%202026-04-01%20at%2012.26.30%20PM%20(3).mp4",
+    image: "https://www.youtube.com/shorts/bBu5SjsMbHY",
+  },
+  {
+    id: "yt-7",
+    title: "Creative AI Motion",
+    summary: "Fluid simulations and dynamic motion graphics optimized for mobile viewing.",
+    url: "/contact",
+    image: "https://www.youtube.com/shorts/LWkr8HuKvxU",
+  },
+  {
+    id: "yt-8",
+    title: "High-Speed Cinematics",
+    summary: "Rapid-fire visual storytelling with hyper-realistic textures and lighting.",
+    url: "/contact",
+    image: "https://www.youtube.com/shorts/AizTkzhBekU",
+  },
+  {
+    id: "yt-9",
+    title: "Future of Digital Media",
+    summary: "Immersive AI productions that redefine brand presence in the digital era.",
+    url: "/contact",
+    image: "https://www.youtube.com/shorts/etffHurdDsc",
   },
 ];
+
+interface AICreativeGalleryProps {
+  heading?: string;
+  demoUrl?: string;
+  items?: GalleryItem[];
+}
 
 const AICreativeGallery = ({
   heading = "AI Production Showcase",
@@ -169,14 +196,32 @@ const AICreativeGallery = ({
 };
 
 function GalleryCard({ item }: { item: GalleryItem }) {
-  const isVideo = item.image.toLowerCase().endsWith('.mp4') || item.image.includes('video') || item.image.includes('.mov');
+  const isYouTube = item.image.includes('youtube.com') || item.image.includes('youtu.be');
+  const getYouTubeId = (url: string) => {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\/shorts\/)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+  };
   
+  const isVideo = item.image.toLowerCase().endsWith('.mp4') || item.image.includes('video') || item.image.includes('.mov') || isYouTube;
+  const youtubeId = isYouTube ? getYouTubeId(item.image) : null;
+
   return (
     <div className="group flex flex-col justify-between h-full min-h-[450px] bg-[#FAFAF8] rounded-3xl overflow-hidden border border-border/50 shadow-sm hover:shadow-xl transition-all p-6">
       <div>
         <div className="flex aspect-[3/2] overflow-hidden rounded-2xl bg-black relative shadow-inner">
           <div className="absolute inset-0 h-full w-full origin-bottom transition duration-500 group-hover:scale-110">
-            {isVideo ? (
+            {isYouTube && youtubeId ? (
+              <div className="relative w-full h-full">
+                <iframe
+                  src={`https://www.youtube.com/embed/${youtubeId}?autoplay=0&mute=1&controls=0&loop=1&playlist=${youtubeId}&modestbranding=1&rel=0&iv_load_policy=3`}
+                  className="absolute inset-0 w-full h-full pointer-events-none"
+                  allow="autoplay; encrypted-media"
+                  style={{ border: 'none' }}
+                />
+                <div className="absolute inset-0 bg-transparent z-10" />
+              </div>
+            ) : isVideo ? (
               <video
                 className="h-full w-full object-cover object-center"
                 autoPlay
